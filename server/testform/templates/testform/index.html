@@ -1,0 +1,39 @@
+{% extends "testform/base.html" %}
+
+{% block content %}
+    <div>
+        <form action="{% url 'mentor_form' %}" method="POST">
+            {% csrf_token %}
+            {{ mentor_form }}
+            <input style="width: 29%;margin-top: 1em;" type="submit" value="Send" class="btn btn-primary">
+        </form>
+        <br>
+        <form action="{% url 'resident_form' %}" method="POST">
+            {% csrf_token %}
+            {{ resident_form }}
+            <input style="width: 29%;margin-top: 1em;" type="submit" value="Send" class="btn btn-primary" >
+        </form>
+        <div class="list-mentors">
+            <h3 class="list-text">Request on Mentors</h3>
+            <div class="userlist-block">
+                <ul class="list-group list-join">
+                    {% for item in mentor_list %}
+                        <li class="list-group-item">{{ item.name }} {{ item.number }} {{ item.email }} {{ item.information }}</li>
+                        <!-- <li class="list-group-item"> {{ item.number }} </li> -->
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="list-mentors">
+            <h3 class="list-text">Request on Residents</h3>
+            <div class="userlist-block">
+                <ul class="list-group list-join">
+                    {% for item in resident_list %}
+                        <li class="list-group-item">{{ item.name }} {{ item.email }} {{ item.number }} {{ item.date }}</li>
+                        <!-- <li class="list-group-item"> {{ item.number }} </li> -->
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

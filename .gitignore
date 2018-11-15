@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+#python
+/**/__pycache__
+
 # production
 /build
 
