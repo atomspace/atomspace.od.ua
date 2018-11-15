@@ -1,0 +1,33 @@
+@import "./normalize/normalize.scss";
+
+@import "fonts.scss";
+
+@import "main.scss";
+@import "sidebar.scss";
+@import "pages/_main.scss";
+
+a {
+  font-size: 16px;
+  font-family: Lato-Regular, sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-acen {
+  align-content: center;
+}
+.flex-jcen {
+  justify-content: center;
+}
+.flex-cen {
+  align-items: center;
+  justify-content: center;
+}
