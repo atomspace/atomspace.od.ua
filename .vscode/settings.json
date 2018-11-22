@@ -1,0 +1,5 @@
+{
+    "cSpell.language": "en,en-US,en-GB",
+    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "/usr/bin/python3"
+}
