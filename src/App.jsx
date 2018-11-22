@@ -5,21 +5,30 @@ import { Main, About, Contacts, Edu, Family, Blog, Store } from "./components";
 import { Mentor, Resident } from "./components/Forms";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Sidebar from "./routes/Sidebar/";
+import Sidebar from "./routes/Sidebar/Sidebar.jsx";
 
 class App extends Component {
   constructor() {
     super();
   }
   createMentor() {
-    fetch("http://127.0.0.1:8000/mentor_form")
+    let headers = new Headers({
+      'Access-Control-Allow-Origin':'*',
+      'Content-Type': 'multipart/form-data'
+    });
+    fetch("http://127.0.0.1:8000/mentor_form",{
+      method: 'GET',
+      headers,
+      mode: 'cors',
+      cache: 'default'
+    })
       .then(res => {
         console.log(res.headers.get("Content-Type"));
         console.log(res.status);
         return res.json();
       })
-      .then(function(user) {
-        alert(user.name); // iliakan
+      .then((user) => {
+        console.log(user); // iliakan
       })
       .catch(err => {
         console.err(err);
@@ -29,7 +38,7 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          {/* <Sidebar /> */}
+          <Sidebar />
           <div className="components">
             <Route path="/" exact component={Main} />
             <Route path="/about/" component={About} />

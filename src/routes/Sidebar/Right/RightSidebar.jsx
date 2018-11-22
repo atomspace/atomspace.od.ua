@@ -7,7 +7,6 @@ class RightSidebar extends Component {
     return (
       <nav className="sidebar__right">
         <div className="atom-logo"></div>
-
         <div className="flex flex-col flex-acen">
           <Link className="list-item" to="/">{`ГЛАВНАЯ`}</Link>
           <Link className="list-item" to="/about/">{`О ПРОЕКТЕ`}</Link>

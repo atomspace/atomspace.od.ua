@@ -8,8 +8,7 @@ class Sidebar extends Component {
     this.state = {};
   }
   render() {
-    return;
-    <div className="navigation">
+    return <div className="navigation">
       <div className="vertical-line left" />    
       <LeftSidebar />
       <RightSidebar />
