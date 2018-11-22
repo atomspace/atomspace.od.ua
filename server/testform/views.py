@@ -1,11 +1,19 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.http import JsonResponse
+from django.core import serializers
 from django.core.mail import send_mail
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import Mentor, Resident
 from .forms import MentorForm, ResidentForm
+
+@csrf_exempt
+def mentor_list(request):
+	# return JsonResponse({'mentors': Mentor.objects.all()})
+	mentors = Mentor.objects.all()
+	mentors_serialized = serializers.serialize('json', mentors)
+	return JsonResponse(mentors_serialized, safe=False)
 
 @csrf_exempt
 def index(request):

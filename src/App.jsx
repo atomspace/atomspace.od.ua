@@ -12,6 +12,24 @@ class App extends Component {
   constructor() {
     super();
   }
+  
+  showList() {
+    var myHeaders = new Headers();
+
+    var myInit = { method: 'GET',
+                  headers: myHeaders,
+                  mode: 'cors',
+                  cache: 'default' };
+    fetch('http://localhost:8000/mentor_list', myInit)
+    .then((res) => {
+      return res.json()
+    })
+    .then((mentors) => {
+      console.log(mentors)
+    })
+    .catch(alert)
+  }
+  
   render() {
     return (
       <Router>
@@ -29,6 +47,7 @@ class App extends Component {
             <Route path="/family/" component={Family} />
             <Route path="/mentor/form/" component={Mentor} />
             <Route path="/resident/form/" component={Resident} />
+            <button onClick={this.showList()}>List</button>
           </div>
         </div>
       </Router>
