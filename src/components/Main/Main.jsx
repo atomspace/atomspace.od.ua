@@ -1,9 +1,13 @@
 import React from "react";
+import AnimatePlanet from "./AnimatePlanet";
 
 class Main extends React.Component {
   render() {
-    return <div className="main-contanier">
-    </div>
+    return (
+      <div className="main-container">
+        <AnimatePlanet/>
+      </div>
+    );
   }
 }
 

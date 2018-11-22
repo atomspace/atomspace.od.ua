@@ -6,32 +6,21 @@ class RightSidebar extends Component {
   render() {
     return (
       <nav className="sidebar__right">
+        <div className="atom-logo"></div>
+
         <div className="flex flex-col flex-acen">
-          <div className="list-item">
-            <Link to="/">{`ГЛАВНАЯ`}</Link>
-          </div>
-          <div className="list-item">
-            <Link to="/users/">{`О ПРОЕКТЕ`}</Link>
-          </div>
-          <div className="list-item">
-            <Link to="/space/">{`ПРОСТРАНСТВО`}</Link>
-          </div>
-          <div className="list-item">
-            <Link to="/edu/">{`ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ`}</Link>
-          </div>
-          <div className="list-item">
-            <Link to="/blog/">{`БЛОГ`}</Link>
-          </div>
-          <div className="list-item">
-            <Link to="/family/">{`ATOM FAMILY`}</Link>
-          </div>
-          <div className="list-item">
-            <Link to="/store/">{`ATOM STORE`}</Link>
-          </div>
-          <div className="list-item">
-            <Link to="/contacts/">{`КОНТАКТЫ`}</Link>
-          </div>
+          <Link className="list-item" to="/">{`ГЛАВНАЯ`}</Link>
+          <Link className="list-item" to="/about/">{`О ПРОЕКТЕ`}</Link>
+          <Link className="list-item" to="/space/">{`ПРОСТРАНСТВО`}</Link>
+          <Link to="/edu/" className="list-item">
+            {`ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ`}
+          </Link>
+          <Link className="list-item" to="/blog/">{`БЛОГ`}</Link>
+          <Link className="list-item" to="/family/">{`ATOM FAMILY`}</Link>
+          <Link className="list-item" to="/store/">{`ATOM STORE`}</Link>
+          <Link className="list-item" to="/contacts/">{`КОНТАКТЫ`}</Link>
         </div>
+        
       </nav>
     );
   }

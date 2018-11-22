@@ -3,7 +3,9 @@ import React, { Component } from 'react'
 class Store extends Component {
     state = {  }
     render() { 
-        return ( "StoreComponent" );
+        return <div className="store-container">
+            {`StoreComponent`}
+        </div>;
     }
 }
  

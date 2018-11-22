@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class Family extends Component {
-    state = {  }
-    render() { 
-        return ( "FamilyComponent" );
-    }
+  state = {};
+  render() {
+    return <div className="family-container">{`FamilyComponent`}</div>;
+  }
 }
- 
+
 export default Family;

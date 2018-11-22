@@ -7,7 +7,7 @@
 
   &__right {
     position: absolute;
-    top: 50%;
+    top: 20%;
     right: 5%;
   }
 }
@@ -34,7 +34,7 @@ $list-item-atom-space-color-right-o: rgba(135, 50, 184, 0.16);
   border-radius: 3em;
   text-align: center;
   margin: 15px 0;
-  color: black;
+  color: white !important;
   background: linear-gradient(
     0.4turn,
     $list-item-atom-space-color-left-o,
@@ -42,7 +42,7 @@ $list-item-atom-space-color-right-o: rgba(135, 50, 184, 0.16);
   );
 
   a {
-    font-family: Lato-Thin;
+    font-family: Lato-HairlineItalic, sans-serif;
     font-size: 13.11pt;
     color: $white-color;
   }

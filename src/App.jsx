@@ -1,25 +1,35 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./assets/styles/_index.scss";
-import { Main, About, Contacts, Edu, Family, Blog } from "./components";
+import { Main, About, Contacts, Edu, Family, Blog, Store } from "./components";
 import { Mentor, Resident } from "./components/Forms";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import LeftSidebar from "./routes/Sidebar/Left";
-import RightSidebar from "./routes/Sidebar/Right";
+import Sidebar from "./routes/Sidebar/";
 
 class App extends Component {
   constructor() {
     super();
   }
+  createMentor() {
+    fetch("http://127.0.0.1:8000/mentor_form")
+      .then(res => {
+        console.log(res.headers.get("Content-Type"));
+        console.log(res.status);
+        return res.json();
+      })
+      .then(function(user) {
+        alert(user.name); // iliakan
+      })
+      .catch(err => {
+        console.err(err);
+      });
+  }
   render() {
     return (
       <Router>
         <div className="container">
-          <div className="navigation">
-            <LeftSidebar />
-            <RightSidebar />
-          </div>
+          {/* <Sidebar /> */}
           <div className="components">
             <Route path="/" exact component={Main} />
             <Route path="/about/" component={About} />
@@ -28,8 +38,10 @@ class App extends Component {
             <Route path="/edu/" component={Edu} />
             <Route path="/family/" component={Family} />
             <Route path="/mentor/form/" component={Mentor} />
+            <Route path="/store/" component={Store} />
             <Route path="/resident/form/" component={Resident} />
           </div>
+          <button onClick={this.createMentor.bind(this)} />
         </div>
       </Router>
     );

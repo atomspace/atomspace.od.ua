@@ -7,11 +7,13 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Mentor, Resident
 from .forms import MentorForm, ResidentForm
 
+
 @csrf_exempt
 def index(request):
 	mentor_list = Mentor.objects.all()
 	resident_list = Resident.objects.all()
 	return render(request, 'testform/index.html', {'mentor_form': MentorForm(), 'mentor_list': mentor_list, 'resident_form': ResidentForm(), 'resident_list': resident_list})
+
 
 @csrf_exempt
 def mentor_form(request):
@@ -24,13 +26,20 @@ def mentor_form(request):
             post.email = request.POST['email']
             post.information = request.POST['information']
             post.save()
-			
+
             subject = 'Request to mentor'
             from_email = settings.EMAIL_HOST_USER
             to_email = [from_email]
-            contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}\n'.format(post.name, post.number, post.email, post.information)
-            send_mail(subject, contact_message, from_email, to_email, fail_silently=False)
-            return HttpResponseRedirect('/')
+            contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}\n'.format(
+                post.name, post.number, post.email, post.information)
+            send_mail(subject, contact_message, from_email,
+                      to_email, fail_silently=False)
+			response = JsonResponse({})
+			response["Access-Control-Allow-Origin"] = "*"
+    		response["Access-Control-Allow-Methods"] = "GET, OPTIONS"
+    		response["Access-Control-Max-Age"] = "1000"
+    		response["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
+    		return response
 
 @csrf_exempt
 def resident_form(request):

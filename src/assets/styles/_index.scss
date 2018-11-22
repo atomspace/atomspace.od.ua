@@ -2,32 +2,24 @@
 
 @import "fonts.scss";
 
+@import "variables.scss";
+
 @import "main.scss";
 @import "sidebar.scss";
-@import "pages/_main.scss";
+
+@import "pages/containers.scss";
+@import "pages/main.scss";
+@import "pages/about.scss";
+@import "pages/edu.scss";
+@import "pages/blog.scss";
+@import "pages/family.scss";
+@import "pages/store.scss";
+@import "animations.scss";
+
+
+@import "flex.scss";
 
 a {
-  font-size: 16px;
+  font-size: $link-font-size;
   font-family: Lato-Regular, sans-serif;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-.flex-row {
-  flex-direction: row;
-}
-.flex-acen {
-  align-content: center;
-}
-.flex-jcen {
-  justify-content: center;
-}
-.flex-cen {
-  align-items: center;
-  justify-content: center;
 }
