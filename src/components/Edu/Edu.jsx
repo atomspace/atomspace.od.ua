@@ -1,10 +1,3 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Edu extends Component {
-  state = {};
-  render() {
-    return <div className="edu-container">{`EduComponent`}</div>;
-  }
-}
-
-export default Edu;
+export default ()=> <div className="edu-container">{`EduComponent`}</div>

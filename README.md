@@ -8,6 +8,11 @@
 ## Prod
 
 ### Server
+## Requirenments
+install 
+```Django```
+```django-rest-framework```
+```django-cors-headers```
 ## Start server
 
 ```cd ./server```
