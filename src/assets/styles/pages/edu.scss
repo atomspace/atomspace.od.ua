@@ -1,0 +1,61 @@
+$right-gradient-color: rgb(139, 59, 194);
+$left-gradient-color: rgb(212, 163, 74);
+
+.edu-container {
+  display: flex;
+  align-items: center;
+  padding-right:$f400 + $f110;
+  padding-left: $f233;
+  .edu-items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .edu-item {
+      width: $f233;
+      height: $f233;
+      background: black;
+      border-radius: 50%;
+      margin: $f21;
+      background: linear-gradient(
+        45deg,
+        $left-gradient-color,
+        $right-gradient-color
+      );
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      @each $logo in rocket, css-html, tasks, rocket-from-monitor, js, abc,
+        python, wordpress
+      {
+        &__#{$logo}-logo {
+          background: url(../images/icons/#{$logo}-edu.svg) no-repeat center/contain;
+          height: $f110;
+          width: $f110;
+          margin-bottom: $f8;
+          position: relative;
+        }
+      }
+      &__text {
+        text-align: center;
+        font-size: $f16;
+        color: $black-color;
+        position: relative;
+      }
+      &__layout {
+        margin-bottom: $f5;
+        width: $f144;
+      }
+      &::before {
+        content: " ";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+      }
+    }
+  }
+}

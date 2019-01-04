@@ -1,0 +1,20 @@
+.about-container {
+  .about-blocks{
+    height: 100%;
+    .about-maintext-block {
+      position: relative;
+      width: 460px;
+      line-height: 30px;
+      &__atomspace{
+        background: url(../images/icons/about_atom-space.svg) no-repeat;
+        height: 35px;
+        width: 60%;
+        position: absolute;
+        left: -55px;
+        top: -8px;
+      }
+      &__text {
+      }
+    }
+  }
+}

@@ -1,1 +1,47 @@
+$white-color: #ffffff;
+$black-color: #000000;
+
+$vertical-line-color: rgba(77, 73, 108, 0.6);
+
+$list-item-atom-space-color-left: rgba(220, 173, 58, 1);
+$list-item-atom-space-color-right: rgba(135, 50, 184, 1);
+$list-item-atom-space-color-left-o: rgba(220, 173, 58, 0.16);
+$list-item-atom-space-color-right-o: rgba(135, 50, 184, 0.16);
+
+@mixin linear-gradient-bubble {
+  background: linear-gradient(
+    45deg,
+    $left-gradient-color,
+    $right-gradient-color
+  );
+}
+
 $link-font-size: 12px;
+
+$border-color: rgba(77, 73, 108, 0.6);
+
+$text-opacity: 0.8;
+
+$f3: 0.14625vw;
+$f5: 0.26vw;
+$f8: 0.416vw;
+$f10: 0.52vw;
+$f13: 0.677vw;
+$f16: 0.833vw;
+$f18: 0.933vw;
+$f21: 1.083vw;
+$f26: 1.354vw;
+$f34: 1.77vw;
+$f42: 2.187vw;
+$f55: 2.864vw;
+$f68: 3.541vw;
+$f89: 4.635;
+$f110: 5.528vw;
+$f144: 7.5vw;
+$f178: 9.27vw;
+$f233: 12.135vw;
+$f288: 15vw;
+
+$f377: 19.635vw;
+$f400: 20.833vw;
+$f610: 31.777vw;

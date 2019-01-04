@@ -10,7 +10,6 @@ class RightSidebar extends Component {
         <div className="flex flex-col flex-acen">
           <Link className="list-item" to="/">{`ГЛАВНАЯ`}</Link>
           <Link className="list-item" to="/about/">{`О ПРОЕКТЕ`}</Link>
-          <Link className="list-item" to="/space/">{`ПРОСТРАНСТВО`}</Link>
           <Link to="/edu/" className="list-item">
             {`ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ`}
           </Link>

@@ -7,13 +7,28 @@ class Sidebar extends Component {
     super(props);
     this.state = {};
   }
+  
+  
   render() {
-    return <div className="navigation">
-      <div className="vertical-line left" />    
-      <LeftSidebar />
-      <RightSidebar />
-      <div className="vertical-line right" />
-    </div>;
+    const {pageName,sidebarRows} = this.props;
+    console.log(sidebarRows);
+    const sidebarClasses = ["vertical-line left"];
+
+    if(!sidebarRows.length){
+      sidebarClasses.push("border-none");
+    }
+    
+    
+    return (
+      <div className={"navigation " + pageName()}>
+        <div className={sidebarClasses.join(" ")}>
+          <LeftSidebar {...this.props}/>
+        </div>
+        <div className="vertical-line right">
+          <RightSidebar />
+        </div>
+      </div>
+    );
   }
 }
 

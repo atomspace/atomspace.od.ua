@@ -1,11 +1,16 @@
 import React from "react";
 import AnimatePlanet from "./AnimatePlanet";
-
 class Main extends React.Component {
+  componentDidMount(){
+    
+  }
   render() {
+    
+    console.log(this.props);
     return (
       <div className="main-container">
-        <AnimatePlanet/>
+        
+        <AnimatePlanet />
       </div>
     );
   }

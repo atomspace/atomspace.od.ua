@@ -1,0 +1,47 @@
+.family-container{
+    .family-wrapper{
+        .carousel-container{
+            .slick-slider{
+                .slick-list{
+                    .slick-track{
+                        display: flex;
+                        align-items: center
+                    }
+                }
+            }
+            .carousel-block{
+                .carousel-info{
+                    &__photo{
+                        .photo-logo{
+                            width: $f377; 
+                        }
+                    }
+                    &__header{
+
+                    }
+                    &__desc{
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.arrow{
+    background: url(../images/icons/arrow.png) no-repeat center/contain;
+    height: $f110;
+    width: $f110;
+    margin-bottom: $f8;
+    position: relative;
+    &.left{
+        // background: url(../images/icons/arrow.png) no-repeat center/contain;
+        // height: $f110;
+        // width: $f110;
+        // margin-bottom: $f8;
+        // position: relative;
+    }
+    &.right{
+
+    }
+}

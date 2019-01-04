@@ -1,21 +1,28 @@
 .flex {
-    display: flex;
-  }
-  
-  .flex-col {
-    flex-direction: column;
-  }
-  .flex-row {
-    flex-direction: row;
-  }
-  .flex-acen {
-    align-content: center;
-  }
-  .flex-jcen {
-    justify-content: center;
-  }
-  .flex-cen {
-    align-items: center;
-    justify-content: center;
-  }
-  
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-acen {
+  align-items: center;
+}
+.flex-jcen {
+  justify-content: center;
+}
+.flex-cen {
+  align-items: center;
+  justify-content: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}

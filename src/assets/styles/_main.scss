@@ -12,24 +12,7 @@ a{
         color: initial;
     }
 }
-.atom-logo{
-    background-image: url(../images/icons/atomspace.png);
-    height: 100px;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
-.vertical-line{
-    position: absolute;
-    height: 600px;
-    border: 1px solid rgb(77,73,108);
-    &.left{
-        left: 600px;
-    }
-    &.right{
-        right: 600px;
-    }
-}
 
 
 

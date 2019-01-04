@@ -1,49 +1,151 @@
+@mixin darkStyle {
+}
+
+@mixin lightStyle {
+}
+
+.atom-logo {
+  position: relative;
+  background-image: url(../images/icons/AtomSpace-logo.svg);
+  left: 30px;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.soc-icons {
+  position: absolute;
+  left: 36px;
+  height: 35px;
+  bottom: 60px;
+  width: 90px;
+  > div:not(:last-child) {
+    margin-right: 16px;
+  }
+  > div {
+    position: relative;
+    height: 33px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 33px;
+  }
+  .facebook-icon {
+    background: url(../images/icons/facebook.svg) no-repeat center/contain;
+    opacity: 0.8;
+    display: block;
+    width: 100%;
+    &:hover{
+      opacity: 1;
+    }
+  }
+  .instagram-icon {
+    background: url(../images/icons/instagram.png) no-repeat center/contain;
+    display: block;
+    opacity: 0.8;
+    width: 100%;    
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
 .sidebar {
   &__left {
-    position: absolute;
-    top: 50%;
-    left: 5%;
+    .list-item {
+      left: -17px;
+      opacity: $text-opacity;
+      text-align: left;
+    }
   }
 
   &__right {
-    position: absolute;
-    top: 20%;
-    right: 5%;
+    .list-item {
+      right: -17px;
+      opacity: $text-opacity;
+      text-align: right;
+    }
   }
+  
 }
 
 li {
   display: inline-block;
   list-style: none;
-  border: 1px solid black;
+  border: 1px solid $black-color;
   padding: 12px;
   border-radius: 50px;
 }
 
-$white-color: #ffffff;
-
-$list-item-atom-space-color-left: rgba(220, 173, 58, 1);
-$list-item-atom-space-color-right: rgba(135, 50, 184, 1);
-$list-item-atom-space-color-left-o: rgba(220, 173, 58, 0.16);
-$list-item-atom-space-color-right-o: rgba(135, 50, 184, 0.16);
-
 .list-item {
   padding: 15px;
+  position: relative;
   border: transparent;
-  background: green;
+  background: transparent;
   border-radius: 3em;
   text-align: center;
-  margin: 15px 0;
-  color: white !important;
-  background: linear-gradient(
-    0.4turn,
-    $list-item-atom-space-color-left-o,
-    $list-item-atom-space-color-right-o
-  );
+  line-height: 17px;
+  padding: 2px 44px;
+  width: 200px;
+  margin: 8px 0;
+  color: $white-color !important;
+  font-family: Lato-Regular, sans-serif;
+  font-size: 12px;
+  &:hover {
+    opacity: 1;
+  }
+}
 
-  a {
-    font-family: Lato-HairlineItalic, sans-serif;
-    font-size: 13.11pt;
-    color: $white-color;
+// .list-item {
+//   padding: 15px;
+//   border: transparent;
+//   background: green;
+//   border-radius: 3em;
+//   text-align: center;
+//   margin: 15px 0;
+//   color: white !important;
+//   background: linear-gradient(
+//     0.4turn,
+//     $list-item-atom-space-color-left-o,
+//     $list-item-atom-space-color-right-o
+//   );
+
+//   a {
+//     font-family: Lato-HairlineItalic, sans-serif;
+//     font-size: 12pt;
+//     color: $white-color;
+//   }
+// }
+
+.vertical-line {
+  position: fixed;
+  height: 640px;
+  display: flex;
+  align-items: center;
+  border: 0;
+  &.left {
+    left: 130px;
+    border-left: 1px solid $vertical-line-color;
+    bottom: 0;
+    text-align: left;
+  }
+  &.right {
+    right: 130px;
+    border-right: 1px solid $vertical-line-color;
+  }
+  &.border-none {
+    border: 0;
+  }
+}
+
+/** FOR DARK SIDEBAR*/
+
+.about,
+.edu,
+.blog,
+.store,
+.contacts {
+  .list-item {
+    color: black !important;
+  }
+  .atom-logo {
+    background-image: url(../images/icons/atomspace-dark.png);
   }
 }

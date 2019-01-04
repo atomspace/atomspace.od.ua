@@ -1,0 +1,14 @@
+.bubble {
+  // @include linear-gradient-bubble;
+  background: linear-gradient(
+    45deg,
+    $left-gradient-color,
+    $right-gradient-color
+  );
+  margin-left: 50px;
+  border-radius: 50%;
+  &-image {
+    content: " ";
+    position: relative;
+  }
+}

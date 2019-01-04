@@ -1,5 +1,9 @@
 @import "./normalize/normalize.scss";
 
+//Slick carousel
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 @import "fonts.scss";
 
 @import "variables.scss";
@@ -16,6 +20,7 @@
 @import "pages/store.scss";
 @import "animations.scss";
 
+@import "bubble.scss";
 
 @import "flex.scss";
 
