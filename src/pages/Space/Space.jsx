@@ -1,10 +1,14 @@
-import { Component } from 'react'
+import * as React from "react";
 
-class Space extends Component {
-    state = {  }
-    render() { 
-        return ( "SpaceComponent" );
-    }
+class Space extends React.Component {
+  state = {};
+  render() {
+    return (
+      <div id="about" className="space-container">
+        {`SpaceComponent`}
+      </div>
+    );
+  }
 }
- 
-export default Space;  
+
+export default Space;

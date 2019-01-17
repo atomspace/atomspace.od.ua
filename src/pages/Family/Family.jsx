@@ -53,7 +53,7 @@ export default class Family extends React.Component {
       // centerMode: true,
     };
     return (
-      <div className="family-container">
+      <div id="family" className="family-container">
         <div className="family-wrapper">
           <div className="carousel-container">
             <Slider {...settings}>

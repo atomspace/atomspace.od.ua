@@ -3,17 +3,19 @@
     height: 100%;
     .about-maintext-block {
       position: relative;
-      width: 460px;
-      line-height: 30px;
+      width: $f400 + $f68;
+      line-height: $f34;
       &__atomspace{
         background: url(../images/icons/about_atom-space.svg) no-repeat;
-        height: 35px;
+        background-position: center;
+        background-size: contain;
+        height: $f34;
         width: 60%;
         position: absolute;
-        left: -55px;
-        top: -8px;
+        left: -$f110;
       }
       &__text {
+        font-size: $f18;
       }
     }
   }

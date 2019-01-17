@@ -7,26 +7,26 @@
 .atom-logo {
   position: relative;
   background-image: url(../images/icons/AtomSpace-logo.svg);
-  left: 30px;
-  height: 100px;
+  left: -$f5;
+  height: 110px;
   background-position: center center;
   background-repeat: no-repeat;
 }
 .soc-icons {
   position: absolute;
-  left: 36px;
-  height: 35px;
-  bottom: 60px;
-  width: 90px;
+  left: $f34;
+  height: 34px;
+  bottom: $f55;
+  width: $f89;
   > div:not(:last-child) {
-    margin-right: 16px;
+    margin-right: $f16;
   }
   > div {
     position: relative;
-    height: 33px;
+    height: 34px;
     background-position: center center;
     background-repeat: no-repeat;
-    width: 33px;
+    width: $f34;
   }
   .facebook-icon {
     background: url(../images/icons/facebook.svg) no-repeat center/contain;
@@ -50,7 +50,7 @@
 .sidebar {
   &__left {
     .list-item {
-      left: -17px;
+      left: -$f16;
       opacity: $text-opacity;
       text-align: left;
     }
@@ -58,7 +58,7 @@
 
   &__right {
     .list-item {
-      right: -17px;
+      right: -$f16;
       opacity: $text-opacity;
       text-align: right;
     }
@@ -70,24 +70,24 @@ li {
   display: inline-block;
   list-style: none;
   border: 1px solid $black-color;
-  padding: 12px;
-  border-radius: 50px;
+  padding: $f13;
+  border-radius: $f55;
 }
 
 .list-item {
-  padding: 15px;
+  padding: $f16;
   position: relative;
   border: transparent;
   background: transparent;
   border-radius: 3em;
   text-align: center;
-  line-height: 17px;
-  padding: 2px 44px;
-  width: 200px;
-  margin: 8px 0;
+  line-height: $f16;
+  padding: $f3 $f42;
+  width: $f178 + $f21;
+  margin: $f8 0;
   color: $white-color !important;
   font-family: Lato-Regular, sans-serif;
-  font-size: 12px;
+  font-size: $f13;
   &:hover {
     opacity: 1;
   }
@@ -121,13 +121,13 @@ li {
   align-items: center;
   border: 0;
   &.left {
-    left: 130px;
+    left: $f110 + $f21;
     border-left: 1px solid $vertical-line-color;
     bottom: 0;
     text-align: left;
   }
   &.right {
-    right: 130px;
+    right: $f110 + $f21;
     border-right: 1px solid $vertical-line-color;
   }
   &.border-none {

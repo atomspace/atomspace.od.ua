@@ -27,7 +27,7 @@ class Blog extends Component {
       }
     ];
     return (
-      <div className="blog-container">
+      <div id="blog" className="blog-container">
         <div className="blog-wrapper flex flex-acent flex-jcent">
           <div className="blog-main-text">{mainText}</div>
           <div className="blog-skill-blocks">

@@ -31,16 +31,61 @@ class App extends Component {
     //   console.log(this.getSidebarData());
     //   this.setState({ sidebarRows: this.getSidebarData() });
     // }
+    let height = window.clientHeight;
     let location = loc.replace(/\//g, "");
-    
+
     this.setState({ sidebarRows: this.getSidebarData(loc) });
     if (loc === "/") {
       location = "/";
-      return "main"
+      return "main";
     }
     return location;
   };
+  handleScroll = () => {
 
+    function preventDefault(e) {
+      e = e || window.event;
+      if (e.preventDefault)
+          e.preventDefault();
+      e.returnValue = false;  
+    }
+
+    let lastScrollY = window.scrollY;
+    let clientHeight = document.body.clientHeight;
+
+    
+    console.dir(clientHeight);  
+    console.dir(lastScrollY);  
+    // window.location.href = "#about";
+    let currentScroll = 0;
+
+    if(currentScroll < lastScrollY){
+      currentScroll = 940;
+      window.scroll(0, 940);
+    }
+    if(currentScroll )
+
+    // window.scroll(0, 0);
+    // if
+    // window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    
+
+    // if(clientHeight / 7 <= lastScrollY&& lastScrollY <= clientHeight / 7 * 2){
+    //   console.log("About page");
+    // }
+    // console.log(lastScrollY);
+    // if(lastScrollY <= 1080){
+    //   this.setState({page: "nextPage"});
+    // }
+  }
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
   shouldComponentUpdate(prevProps, prevState) {
     if (
       JSON.stringify(prevState.sidebarRows) !==
@@ -99,15 +144,15 @@ class App extends Component {
             pageName={this.getCurrentPageName.bind(this)}
           />
           <div className="components">
-            <Route path="/" exact component={() => <Main />} />
-            <Route path="/about/" component={About} />
-            <Route path="/blog/" component={Blog} />
-            <Route path="/contacts/" component={Contacts} />
-            <Route path="/edu/" component={Edu} />
-            <Route path="/family/" component={Family} />
-            <Route path="/mentor/form/" component={Mentor} />
-            <Route path="/store/" component={Store} />
-            <Route path="/resident/form/" component={Resident} />
+            <Main />
+            <About />
+            <Edu />
+            <Blog />
+            <Family />
+            {/* <Mentor/> */}
+            {/* <Resident/> */}
+            <Store />
+            <Contacts />
           </div>
         </div>
       </Router>

@@ -8,8 +8,7 @@ class Main extends React.Component {
     
     console.log(this.props);
     return (
-      <div className="main-container">
-        
+      <div id="main" className="main-container">
         <AnimatePlanet />
       </div>
     );

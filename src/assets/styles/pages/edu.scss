@@ -27,6 +27,10 @@ $left-gradient-color: rgb(212, 163, 74);
       align-items: center;
       justify-content: center;
       position: relative;
+      &:hover{
+        opacity: 0.8;
+        transition: opacity 0.1s linear;
+      }
       @each $logo in rocket, css-html, tasks, rocket-from-monitor, js, abc,
         python, wordpress
       {

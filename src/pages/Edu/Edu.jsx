@@ -36,7 +36,7 @@ export default () => {
     }
   ];
   return (
-    <div className="edu-container">
+    <div id="edu" className="edu-container">
       <div className="edu-items">
         {eduItems.map(item => (
           <div className="edu-item">
