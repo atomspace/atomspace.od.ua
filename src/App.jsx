@@ -50,20 +50,20 @@ class App extends Component {
       e.returnValue = false;  
     }
 
-    let lastScrollY = window.scrollY;
-    let clientHeight = document.body.clientHeight;
+    // let lastScrollY = window.scrollY;
+    // let clientHeight = document.body.clientHeight;
 
     
-    console.dir(clientHeight);  
-    console.dir(lastScrollY);  
+    // console.dir(clientHeight);  
+    // console.dir(lastScrollY);  
     // window.location.href = "#about";
-    let currentScroll = 0;
+    // let currentScroll = 0;
 
-    if(currentScroll < lastScrollY){
-      currentScroll = 940;
-      window.scroll(0, 940);
-    }
-    if(currentScroll )
+    // if(currentScroll < lastScrollY){
+    //   currentScroll = 940;
+    //   window.scroll(0, 940);
+    // }
+    // if(currentScroll )
 
     // window.scroll(0, 0);
     // if
