@@ -11,21 +11,20 @@ class Sidebar extends Component {
   
   render() {
     const {pageName,sidebarRows} = this.props;
-    console.log(sidebarRows);
     const sidebarClasses = ["vertical-line left"];
 
     if(!sidebarRows.length){
       sidebarClasses.push("border-none");
     }
-    
+    console.log(pageName);
     
     return (
-      <div className={"navigation " + pageName()}>
+      <div className={"navigation " + pageName}>
         <div className={sidebarClasses.join(" ")}>
           <LeftSidebar {...this.props}/>
         </div>
         <div className="vertical-line right">
-          <RightSidebar />
+          <RightSidebar  {...this.props}/>
         </div>
       </div>
     );

@@ -1,0 +1,43 @@
+.btn {
+  // .list-item {
+  cursor: pointer;
+  padding: 0 17px;
+  border: transparent;
+  background: green;
+  border-radius: 3em;
+  text-align: center;
+  margin: 15px 0;
+  color: white !important;
+  background: linear-gradient(
+    0.4turn,
+    $list-item-atom-space-color-left-o,
+    $list-item-atom-space-color-right-o
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24.19px;
+  text-transform: uppercase;
+  &:hover {
+    background: linear-gradient(
+      0.4turn,
+      $list-item-atom-space-color-left,
+      $list-item-atom-space-color-right
+    );
+  }
+  a {
+    font-family: Lato-HairlineItalic, sans-serif;
+    font-size: 12pt;
+    color: $white-color;
+  }
+  // }
+}
+
+// background: linear-gradient(
+//     45deg,
+//     $left-gradient-color,
+//     $right-gradient-color
+//   );

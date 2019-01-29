@@ -1,52 +1,53 @@
-@mixin darkStyle {
-}
+@mixin darkStyle {}
 
-@mixin lightStyle {
-}
+@mixin lightStyle {}
 
 .atom-logo {
   position: relative;
-  background-image: url(../images/icons/AtomSpace-logo.svg);
+  background-image: url(../images/icons/AtomSpace-logo.png);
   left: -$f5;
   height: 110px;
+  background-size: $f233;
   background-position: center center;
   background-repeat: no-repeat;
 }
+
 .soc-icons {
   position: absolute;
   left: $f34;
-  height: 34px;
+  height: 26px;
   bottom: $f55;
-  width: $f89;
-  > div:not(:last-child) {
+  width: $f110;
+  >div:not(:last-child) {
     margin-right: $f16;
   }
-  > div {
+  >div {
     position: relative;
-    height: 34px;
+    height: 26px;
     background-position: center center;
     background-repeat: no-repeat;
     width: $f34;
   }
   .facebook-icon {
-    background: url(../images/icons/facebook.svg) no-repeat center/contain;
+    background: url(../images/icons/facebook-light.svg) no-repeat center/contain;
     opacity: 0.8;
     display: block;
     width: 100%;
-    &:hover{
+    &:hover {
       opacity: 1;
     }
   }
   .instagram-icon {
-    background: url(../images/icons/instagram.png) no-repeat center/contain;
+    background: url(../images/icons/instagram-light.svg) no-repeat center/contain;
     display: block;
     opacity: 0.8;
-    width: 100%;    
-    &:hover{
+    width: 100%;
+    &:hover {
       opacity: 1;
     }
   }
 }
+
 .sidebar {
   &__left {
     .list-item {
@@ -55,15 +56,24 @@
       text-align: left;
     }
   }
-
   &__right {
     .list-item {
       right: -$f16;
       opacity: $text-opacity;
       text-align: right;
     }
+    &.light_theme {
+      .list-item {
+        color: $black-color;
+        &:hover {
+          color: $black-color-opacity;
+        }
+      }
+      .atom-logo {
+        background-image: url(../images/icons/AtomSpace-logo-dark.png);
+      }
+    }
   }
-  
 }
 
 li {
@@ -85,11 +95,13 @@ li {
   padding: $f3 $f42;
   width: $f178 + $f21;
   margin: $f8 0;
-  color: $white-color !important;
+  color: $white-color;
   font-family: Lato-Regular, sans-serif;
   font-size: $f13;
+  transition: all 1s;
   &:hover {
     opacity: 1;
+    color: $white-color-opacity;
   }
 }
 
@@ -106,14 +118,12 @@ li {
 //     $list-item-atom-space-color-left-o,
 //     $list-item-atom-space-color-right-o
 //   );
-
 //   a {
 //     font-family: Lato-HairlineItalic, sans-serif;
 //     font-size: 12pt;
 //     color: $white-color;
 //   }
 // }
-
 .vertical-line {
   position: fixed;
   height: 640px;
@@ -132,20 +142,5 @@ li {
   }
   &.border-none {
     border: 0;
-  }
-}
-
-/** FOR DARK SIDEBAR*/
-
-.about,
-.edu,
-.blog,
-.store,
-.contacts {
-  .list-item {
-    color: black !important;
-  }
-  .atom-logo {
-    background-image: url(../images/icons/atomspace-dark.png);
   }
 }

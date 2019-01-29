@@ -26,12 +26,9 @@ a {
   &:hover {
     color: initial;
   }
-  &:-webkit-any-link {
-    color: initial;
-  }
 }
 .container {
-  background: url("../images/backgrounds/Template1.png") no-repeat;
+  background: url("../images/backgrounds/Template.png") no-repeat;
   height: calc(100vh * 7);
   background-size: 100vw calc(100vh * 7);
   .components {

@@ -8,20 +8,21 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Sidebar from "./routes/Sidebar/Sidebar.jsx";
 
 const urls = {
-  main: "/",
-  about: "/about/",
-  blog: "/blog/",
-  edu: "/edu/",
-  family: "/family/",
-  store: "/store/",
-  contacts: "/contacts/"
+  main: "main",
+  about: "about",
+  blog: "blog",
+  edu: "edu",
+  family: "family",
+  store: "store",
+  contacts: "contacts"
 };
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      sidebarRows: []
+      sidebarRows: [],
+      currentPage: "main"
     };
   }
   getCurrentPageName = () => {
@@ -41,23 +42,30 @@ class App extends Component {
     }
     return location;
   };
+  setCurrentPage(page) {
+    if (this.state.currentPage !== page) {
+      console.log(page);
+      this.setState(state => ({
+        ...state,
+        currentPage: page,
+        sidebarRows: this.getSidebarData(page)
+      }));
+    }
+  }
   handleScroll = () => {
-
     function preventDefault(e) {
       e = e || window.event;
-      if (e.preventDefault)
-          e.preventDefault();
-      e.returnValue = false;  
+      if (e.preventDefault) e.preventDefault();
+      e.returnValue = false;
     }
 
-    // let lastScrollY = window.scrollY;
-    // let clientHeight = document.body.clientHeight;
+    let lastScrollY = window.scrollY;
+    let clientHeight = document.body.clientHeight;
 
-    
-    // console.dir(clientHeight);  
-    // console.dir(lastScrollY);  
+    // console.dir(clientHeight);
+    // console.dir(lastScrollY);
     // window.location.href = "#about";
-    // let currentScroll = 0;
+    let currentScroll = 0;
 
     // if(currentScroll < lastScrollY){
     //   currentScroll = 940;
@@ -68,17 +76,37 @@ class App extends Component {
     // window.scroll(0, 0);
     // if
     // window.removeEventListener("scroll", this.handleScroll);
-    window.removeEventListener('DOMMouseScroll', preventDefault, false);
-    
+    // window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    let onePage = clientHeight / 7;
+    const startMainPage = 0;
+    const startAboutPage = onePage;
+    const startEduPage = onePage * 2;
+    const startBlog = onePage * 3;
+    const startFamily = onePage * 4;
+    const startStore = onePage * 5;
+    const startContacts = onePage * 6;
 
-    // if(clientHeight / 7 <= lastScrollY&& lastScrollY <= clientHeight / 7 * 2){
-    //   console.log("About page");
-    // }
-    // console.log(lastScrollY);
+    if (startMainPage <= lastScrollY && lastScrollY <= startAboutPage) {
+      this.setCurrentPage("main");
+    } else if (startAboutPage <= lastScrollY && lastScrollY <= startEduPage) {
+      this.setCurrentPage("about");
+    } else if (startEduPage <= lastScrollY && lastScrollY <= startBlog) {
+      this.setCurrentPage("edu");
+    } else if (startBlog <= lastScrollY && lastScrollY <= startFamily) {
+      this.setCurrentPage("blog");
+    } else if (startFamily <= lastScrollY && lastScrollY <= startStore) {
+      this.setCurrentPage("family");
+    } else if (startStore <= lastScrollY && lastScrollY <= startContacts) {
+      this.setCurrentPage("store");
+    } else if (startContacts === lastScrollY) {
+      this.setCurrentPage("contacts");
+    } else {
+      console.log(lastScrollY);
+    }
     // if(lastScrollY <= 1080){
     //   this.setState({page: "nextPage"});
     // }
-  }
+  };
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
   }
@@ -86,15 +114,15 @@ class App extends Component {
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
   }
-  shouldComponentUpdate(prevProps, prevState) {
-    if (
-      JSON.stringify(prevState.sidebarRows) !==
-      JSON.stringify(this.state.sidebarRows)
-    ) {
-      return true;
-    }
-    return false;
-  }
+  // shouldComponentUpdate(prevProps, prevState) {
+  //   if (
+  //     JSON.stringify(prevState.sidebarRows) !==
+  //     JSON.stringify(this.state.sidebarRows)
+  //   ) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   getSidebarData = type => {
     switch (type) {
@@ -141,7 +169,7 @@ class App extends Component {
         <div className="container">
           <Sidebar
             sidebarRows={this.state.sidebarRows}
-            pageName={this.getCurrentPageName.bind(this)}
+            pageName={this.state.currentPage}
           />
           <div className="components">
             <Main />
