@@ -28,15 +28,16 @@ a {
   }
 }
 .container {
-  background: url("../images/backgrounds/Template.png") no-repeat;
-  height: calc(100vh * 7);
-  background-size: 100vw calc(100vh * 7);
-  .components {
-    > div {
-      height: 100vh;
-    }
+  // background: url("../images/backgrounds/Template.png") no-repeat;
+  // height: calc(100vh * 7);
+  // background-size: 100vw calc(100vh * 7);
+  // .components {
+    // // > div {
+    //   height: 100vh;
+    // }
     .main-container {
-      height: 100vh;
+      // height: 100vh;
+      // background: url("../images/backgrounds/1.png") no-repeat;
     }
-  }
+  // }
 }

@@ -1,6 +1,8 @@
 .blog-container {
   display: flex;
   justify-content: center;
+  // height: 100vh;
+  // background: url("../images/backgrounds/4.png") no-repeat;
   .blog-wrapper {
     width: $f610 + $f178 + $f34;
     display: flex;
