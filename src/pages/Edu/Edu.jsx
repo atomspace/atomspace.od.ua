@@ -36,10 +36,10 @@ export default () => {
     }
   ];
   return (
-    <div id="edu" className="edu-container">
+    <div className="edu-container">
       <div className="edu-items">
-        {eduItems.map(item => (
-          <div className="edu-item">
+        {eduItems.map((item, index) => (
+          <div key={index} className="edu-item">
             <div className="edu-item__layout flex flex-col flex-acen flex-jcen">
               <div className={`edu-item__${item.logo}`}/>
               <div className="edu-item__text">{item.text}</div>

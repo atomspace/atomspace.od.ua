@@ -1,17 +1,30 @@
-.main-container{
-    .logo-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        flex-direction: column;
-        .main-logo {
-            background-image: url(/static/media/AtomSpace-logo-vertical.e1afebe6.png);
-            background-repeat: no-repeat;            
-            background-position: center;
-            width: 500px;
-            height: 100px;
-            background-size: 500px 100px;
-        }
+.main-container {
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    .center-wrapper {
+      position: relative;
+      top: -10px;
+      text-align: center;
+    
+      .scale {
+        transform: scale(0.7);
+        width: 100%;
+        height: 300px;
+        position: relative;
+        left: -50px;
+      }
+      .main-logo {
+        background-image: url(/static/media/AtomSpace-logo-vertical.e1afebe6.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 500px;
+        height: 100px;
+        background-size: 500px 100px;
+      }
     }
+  }
 }

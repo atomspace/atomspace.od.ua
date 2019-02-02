@@ -14,14 +14,13 @@ class LeftSidebar extends React.Component {
       case "edu":
       case "blog":
       case "store":
-      case "contacts":
         sidebarClasses.push("light_theme");
         break;
       default:
         break;
     }
     return (
-      <nav className={sidebarClasses.join('')}>
+      <nav className={sidebarClasses.join(' ')}>
         <div className="flex flex-col flex-acen">
           {sidebarRows.map((row, index) => {
             let rowElement = (
@@ -30,10 +29,11 @@ class LeftSidebar extends React.Component {
               </span>
             );
             if (row.link) {
+              
               rowElement = (
-                <Link key={index} className="list-item" to={row.link}>
+                <a key={index} className="list-item" href={row.link}>
                   {row.title.toUpperCase()}
-                </Link>
+                </a>
               );
             }
             return rowElement;

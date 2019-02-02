@@ -27,12 +27,12 @@ class Blog extends Component {
       }
     ];
     return (
-      <div id="blog" className="blog-container">
+      <div className="blog-container">
         <div className="blog-wrapper flex flex-acent flex-jcent">
           <div className="blog-main-text">{mainText}</div>
           <div className="blog-skill-blocks">
-            {skillsData.map(skill => (
-              <div className="blog-skill-item">
+            {skillsData.map((skill, index) => (
+              <div key={index} className="blog-skill-item">
                 <div className={`blog-skill-item__${skill.logo}-logo`} />
                 <div className="blog-skill-item__header">{skill.header}</div>
                 <div className="blog-skill-item__description">

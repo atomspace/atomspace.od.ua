@@ -9,7 +9,7 @@ const headerText = `-  социальный образовательный`;
 const mainText = ` проект, основанный Provectus и IT2School с целью создать возможность для талантливых подростков расти и развиваться в сфере IT. Это креативное пространство, в котором подростки под руководством практикующих cпециалистов бесплатно обучаются IT, получают навыки командной работы и реализовывают собственные идеи. Глобальная миссия Atom Space - изменить формат и подход к IT-образованию`;
 
 export default () => (
-  <div id="about" className="about-container">
+  <div className="about-container">
     <div className="about-blocks flex flex-cen">
       <div className="about-maintext-block">
         <div className={"about-maintext-block__atomspace"} />

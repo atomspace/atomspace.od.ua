@@ -15,9 +15,6 @@ export default class Bubble extends React.Component {
     };
   }
   changePicture = () => {
-    console.log(this.state.currentPicture);
-    console.log(this.state.indexPicture);
-    console.log(this.state.pictures.length);
     if (this.state.indexPicture !== this.state.pictures.length) {
       const plusIndex = this.state.indexPicture++;
       this.setState(state => {
@@ -37,7 +34,6 @@ export default class Bubble extends React.Component {
       height: this.props.height
     };
     const { image } = this.props.image;
-    console.log(Array.isArray(image));
     return (
       <div className="bubble" style={style} onClick={this.changePicture}>
         <img

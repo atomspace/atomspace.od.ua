@@ -13,7 +13,6 @@ class Mentor extends Component {
   createMentor = async () => {
     let user = this.state.user;
     let response = await createMentor(user);
-    console.log(response);
   };
 
   onChangeUser = event => {

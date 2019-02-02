@@ -1,6 +1,13 @@
-@mixin darkStyle {}
+@mixin darkStyle {
+}
 
-@mixin lightStyle {}
+@mixin lightStyle {
+}
+
+.navigation {
+  position: absolute;
+  z-index: 1000;
+}
 
 .atom-logo {
   position: relative;
@@ -18,10 +25,10 @@
   height: 26px;
   bottom: $f55;
   width: $f110;
-  >div:not(:last-child) {
+  > div:not(:last-child) {
     margin-right: $f16;
   }
-  >div {
+  > div {
     position: relative;
     height: 26px;
     background-position: center center;
@@ -38,40 +45,13 @@
     }
   }
   .instagram-icon {
-    background: url(../images/icons/instagram-light.svg) no-repeat center/contain;
+    background: url(../images/icons/instagram-light.svg) no-repeat
+      center/contain;
     display: block;
     opacity: 0.8;
     width: 100%;
     &:hover {
       opacity: 1;
-    }
-  }
-}
-
-.sidebar {
-  &__left {
-    .list-item {
-      left: -$f16;
-      opacity: $text-opacity;
-      text-align: left;
-    }
-  }
-  &__right {
-    .list-item {
-      right: -$f16;
-      opacity: $text-opacity;
-      text-align: right;
-    }
-    &.light_theme {
-      .list-item {
-        color: $black-color;
-        &:hover {
-          color: $black-color-opacity;
-        }
-      }
-      .atom-logo {
-        background-image: url(../images/icons/AtomSpace-logo-dark.png);
-      }
     }
   }
 }
@@ -142,5 +122,36 @@ li {
   }
   &.border-none {
     border: 0;
+  }
+
+  .sidebar {
+    &__left {
+      .list-item {
+        left: -$f16;
+        opacity: $text-opacity;
+        text-align: left;
+      }
+    }
+    &__right {
+      .list-item {
+        right: -$f16;
+        opacity: $text-opacity;
+        text-align: right;
+      }
+      &.light_theme {
+        .atom-logo {
+          background-image: url(../images/icons/AtomSpace-logo-dark.png);
+        }
+      }
+    }
+    
+  }
+  .light_theme {
+    .list-item {
+      color: $black-color;
+      &:hover {
+        color: $black-color-opacity;
+      }
+    }
   }
 }
