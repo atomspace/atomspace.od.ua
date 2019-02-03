@@ -16,7 +16,6 @@ class Mentor extends Component {
   };
 
   onChangeUser = event => {
-    console.dir(event.target.id);
     this.setState({
       user: {
         [event.target.id]: event.target.value
@@ -28,7 +27,7 @@ class Mentor extends Component {
       <div>
         <br />
         <label htmlFor="name" style={{ color: "white" }}>
-          Name:
+          {`Name:`}
         </label>
         <br />
         <input
@@ -39,7 +38,7 @@ class Mentor extends Component {
         />
         <br />
         <label htmlFor="number" style={{ color: "white" }}>
-          Number:
+          {`Number:`}
         </label>
         <br />
         <input
@@ -50,7 +49,7 @@ class Mentor extends Component {
         />
         <br />
         <label htmlFor="email" style={{ color: "white" }}>
-          Email:
+          {`Email:`}
         </label>
         <br />
         <input
@@ -61,7 +60,7 @@ class Mentor extends Component {
         />
         <br />
         <label htmlFor="text" style={{ color: "white" }}>
-          Information:
+          {`Information:`}
         </label>
         <br />
         <input

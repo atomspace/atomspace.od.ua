@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./assets/styles/_index.scss";
 import { Main, About, Contacts, Edu, Family, Blog, Store } from "./pages";
 import { Mentor, Resident } from "./components/Forms";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import Sidebar from "./routes/Sidebar/Sidebar.jsx";
-import ReactPageScroller from "react-page-scroller";
-import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
 import ReactFullpage from "@fullpage/react-fullpage";
 
 const urls = ["main", "about", "edu", "blog", "family", "store", "contacts"];
@@ -29,45 +25,24 @@ class App extends Component {
     setTimeout(() => {
       this.goToInitialPage();
     }, 1000);
-  };
+  }
 
   changePage = e => {
     e.preventDefault();
-
     window.location.href = e.target.href;
     let hash = window.location.hash.replace("#", "");
-    console.log(hash);
     this.goToPage(urls.findIndex(url => url === hash));
     // this.setState(state => ({ ...state, currentPage: hash }));
   };
 
   goToPage = pageNumber => {
-    console.log(pageNumber);
     this.refFullPage.fullpageApi.moveTo(pageNumber, 0);
   };
 
   pageOnChange = (origin, destination, target) => {
     let sidebarRows = [];
-    // console.log(urls[number - 1]);
-    // console.log(urls[0]);
-    // if(urls[number - 1] === 'main'){
-    //   sidebarRows = [
-    //     {
-    //       title: "Стать ментором",
-    //       link: "#mentorForm",
-    //     },
-    //     {
-    //       title: "Стать резидентом",
-    //       link: "#residentForm",
-    //     }
-    //   ];
-    // }
-    console.log(sidebarRows);
-
     switch (destination.anchor) {
       case urls[0]:
-        console.log(urls[0]);
-        console.log(destination.anchor);
         sidebarRows = [
           {
             title: "Стать ментором",
@@ -88,7 +63,7 @@ class App extends Component {
             title: "BUY: 600UAH"
           }
         ];
-        break;        
+        break;
       case urls[6]:
         sidebarRows = [
           {
@@ -101,9 +76,8 @@ class App extends Component {
             title: "г. Одесса, Обсерваторный переулок, 2/6"
           }
         ];
-        break;        
+        break;
       default:
-        console.log("default");
         sidebarRows = [];
     }
     this.setState(state => ({
@@ -111,7 +85,6 @@ class App extends Component {
       currentPage: destination.anchor,
       sidebarRows
     }));
-    console.log(this.state);
   };
 
   render() {
@@ -129,27 +102,13 @@ class App extends Component {
           render={({ state, fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
-                <div className="section">
-                  <Main />
-                </div>
-                <div className="section">
-                  <About />
-                </div>
-                <div className="section">
-                  <Edu />
-                </div>
-                <div className="section">
-                  <Blog />
-                </div>
-                <div className="section">
-                  <Family />
-                </div>
-                <div className="section">
-                  <Store />
-                </div>
-                <div className="section">
-                  <Contacts />
-                </div>
+                <Main />
+                <About />
+                <Edu />
+                <Blog />
+                <Family />
+                <Store />
+                <Contacts />
               </ReactFullpage.Wrapper>
             );
           }}

@@ -10,4 +10,56 @@
     content: " ";
     position: relative;
   }
+  &.animate {
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+  }
+  &.big {
+  }
+  &.small {
+    width: $f55;
+    height: $f55;
+    opacity: random($limit: 7) / 10;
+    &.animate {
+      animation-name: bubble-small;
+      animation-delay: random($limit: 5) + s;
+    }
+    @keyframes bubble-small {
+      0% {
+        right: 110px;
+        bottom: 70px;
+      }
+      50% {
+        right: 130px;
+        bottom: 60px;
+      }
+      100% {
+        right: 110px;
+        bottom: 70px;
+      }
+    }
+  }
+  &.middle {
+    width: $f233;
+    height: $f233;
+    opacity: random($limit: 7) / 10;
+    &.animate {
+      animation-name: bubble-middle;
+      animation-delay: random($limit: 5) + s;
+    }
+    @keyframes bubble-middle {
+      0% {
+        right: 230px;
+        bottom: 150px;
+      }
+      50% {
+        right: 270px;
+        bottom: 130px;
+      }
+      100% {
+        right: 230px;
+        bottom: 150px;
+      }
+    }
+  }
 }

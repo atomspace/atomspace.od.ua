@@ -41,19 +41,20 @@ export default class Family extends React.Component {
       }
     ];
     var settings = {
-      dots: true,
+      // dots: true,
       infinite: true,
       speed: 500,
-      arrows:false,
-      prevArrow: `${<a class="arrow left"/>}`,
-      nextArrow: `${<a class="arrow right"/>}`,
+      arrows: true,
+      prevArrow: <a class="arrow left" />,
+      nextArrow: <a class="arrow right" />,
+      centerPadding: '0px',
       // slidesToShow: 1,
       // slidesToScroll: 1,
       // adaptiveHeight: true,
-      // centerMode: true,
+      centerMode: true
     };
     return (
-      <div className="family-container">
+      <div className="section family-container">
         <div className="family-wrapper">
           <div className="carousel-container">
             <Slider {...settings}>
@@ -61,26 +62,27 @@ export default class Family extends React.Component {
                 <div key={index} className="carousel-block">
                   <div className="carousel-info">
                     <div className="carousel-info__photo">
-                      <img
-                        className="photo-logo"
-                        src={emp.avatar}
-                        alt=""
-                      />
-                    </div>
-                    <div className="carousel-info__header">
-                      <span className="info-header-name">{`КОМАНДА`}</span>
-                    </div>
-                    <div className="carousel-info__desc">
-                      <span className="info-name">{emp.name}</span>
-                      <span className="info-position">{emp.position}</span>
-                    </div>
-                    <div className="carousel-info__soc">
-                    <Soc src={{facebook: "https://www.facebook.com/atomspace.od.ua/", instagram: "https://www.instagram.com/atomspace.od/" }}/>
+                      <img className="photo-logo" src={emp.avatar} alt="" />
                     </div>
                   </div>
                 </div>
               ))}
             </Slider>
+            <div className="carousel-info__header">
+              <span className="info-header-name">{`КОМАНДА`}</span>
+            </div>
+            <div className="carousel-info__desc">
+              <span className="info-name">name</span>
+              <span className="info-position">position</span>
+            </div>
+            <div className="carousel-info__soc">
+              <Soc
+                src={{
+                  facebook: "https://www.facebook.com/atomspace.od.ua/",
+                  instagram: "https://www.instagram.com/atomspace.od/"
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

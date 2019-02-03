@@ -16,7 +16,6 @@ class Sidebar extends Component {
     if(!sidebarRows.length){
       sidebarClasses.push("border-none");
     }
-    console.log(pageName);
     
     return (
       <div className={"navigation " + pageName}>

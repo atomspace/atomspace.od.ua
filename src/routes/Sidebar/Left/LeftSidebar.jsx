@@ -1,10 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Soc from "../../../components/Soc";
 class LeftSidebar extends React.Component {
   render() {
     const { sidebarRows, pageName } = this.props;
-    console.log(sidebarRows);
     const sidebarClasses = ["sidebar__left"];
     if (!sidebarRows.length) {
       sidebarClasses.push("border-none");

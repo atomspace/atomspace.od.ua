@@ -8,9 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-right:$f400 + $f110;
-    padding-left: $f233;
-    padding-top: $f288;
+    margin-left: $f110 + $f400;
     .blog-main-text {
       margin-bottom: 80px;
       text-align: center;

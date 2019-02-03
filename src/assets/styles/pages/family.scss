@@ -3,7 +3,10 @@
     // background: url("../images/backgrounds/5.png") no-repeat;
     .family-wrapper{
         .carousel-container{
+            // display: flex;
             .slick-slider{
+                margin: 0 50px;
+                width: $f610 + $f110;
                 .slick-list{
                     .slick-track{
                         display: flex;
@@ -15,6 +18,7 @@
                 .carousel-info{
                     &__photo{
                         .photo-logo{
+                            margin: 0 auto;
                             width: $f377; 
                         }
                     }
