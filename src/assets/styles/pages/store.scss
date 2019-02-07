@@ -1,6 +1,47 @@
-.store-container{
-    // height: 100vh;
-    // background: url("../images/backgrounds/6.png") no-repeat;
-    // background-size: cover;
-    // background-position: center;
+.store-container {
+  // height: 100vh;
+  // background: url("../images/backgrounds/6.png") no-repeat;
+  // background-size: cover;
+  // background-position: center;
+  .store-wrapper {
+    .carousel-container {
+      display: flex;
+      justify-content: center;
+      height: 500px;
+      .slick-slider {
+        width: $f610 + $f233;
+        height: 100%;
+        .slick-list {
+          display: flex;
+          align-items: center;
+          height: 100% !important;
+          .slick-slide {
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+          }
+          .slick-center {
+            -webkit-transform: scale(1.8);
+            transform: scale(1.8);
+          }
+          .slick-track {
+            display: flex;
+            align-items: center;
+            .carousel-block {
+              .carousel-info {
+                &__merch {
+                  margin: 20px;
+                  .merch-logo {
+                    width: 246px;
+                    height: 272px;
+                    margin: 0 auto;
+                    transition: all 1s ease;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

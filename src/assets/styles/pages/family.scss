@@ -1,53 +1,97 @@
-.family-container{
-    // height: 100vh;
-    // background: url("../images/backgrounds/5.png") no-repeat;
-    .family-wrapper{
-        .carousel-container{
-            // display: flex;
-            .slick-slider{
-                margin: 0 50px;
-                width: $f610 + $f110;
-                .slick-list{
-                    .slick-track{
-                        display: flex;
-                        align-items: center
-                    }
-                }
-            }
-            .carousel-block{
-                .carousel-info{
-                    &__photo{
-                        .photo-logo{
-                            margin: 0 auto;
-                            width: $f377; 
-                        }
-                    }
-                    &__header{
-
-                    }
-                    &__desc{
-
-                    }
-                }
-            }
+.family-container {
+  .family-wrapper {
+    .carousel-container {
+      position: relative;
+      .slick-slider {
+        margin: 0 $f178;
+        width: $f610;
+        .slick-list {
+          .slick-track {
+            display: flex;
+            align-items: center;
+          }
         }
+      }
+      .carousel-info {
+        position: absolute;
+        top: 110px;
+        left: $f610 + $f233;
+        font-family: Lato-Regular, sans-serif;
+        color: $white-color;
+        &__photo {
+          .photo-logo {
+            margin: 0 auto;
+            width: $f400 + $f110;
+          }
+        }
+        &__header {
+          margin-bottom: $f34;
+          .info-header-name {
+            width: $f377;
+            opacity: 0.11;
+            font-size: $f68;
+            font-weight: 300;
+          }
+        }
+        &__desc {
+          .info-name {
+            width: 100%;
+            font-size: $f21;
+            font-weight: 400;
+            margin-bottom: $f8;
+          }
+          .info-position {
+            width: 100%;
+            font-size: $f21;
+            font-weight: 300;
+            text-transform: uppercase;
+          }
+        }
+        &__soc {
+          .soc-icons {
+            margin-top: $f34;
+          }
+        }
+      }
     }
+  }
 }
 
-.arrow{
-    background: url(../images/icons/arrow.png) no-repeat center/contain;
-    height: $f110;
-    width: $f110;
-    margin-bottom: $f8;
-    position: relative;
-    &.left{
-        // background: url(../images/icons/arrow.png) no-repeat center/contain;
-        // height: $f110;
-        // width: $f110;
-        // margin-bottom: $f8;
-        // position: relative;
+.slick {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  background-position: center;
+  display: block;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-image: url(../images/icons/arrow.png) !important;
+  width: 50px;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  &-prev {
+    left: -$f110;
+    transform: rotate(180deg);
+    &:hover {
+      background: url(../images/icons/arrow.png) no-repeat !important;
     }
-    &.right{
-
+  }
+  &-next {
+    right: -$f110;
+    &:hover {
+      background: url("../images/icons/arrow.png") no-repeat !important;
     }
+  }
+  &:before {
+    content: "";
+  }
+  &:hover {
+    background-repeat: no-repeat;
+    opacity: 1;
+    background-position: center !important;
+  }
 }

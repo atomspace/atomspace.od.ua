@@ -2,15 +2,16 @@ import React from "react";
 import Slider from "react-slick";
 import Anna from "../../assets/images/photos/anna-derevyanko.png";
 import Kseniya from "../../assets/images/photos/kseniya-yarmolovich.png";
-import Olha from "../../assets/images/photos/olha-sprenchan.png";
 import Soc from "../../components/Soc";
+import Arrow from "../../components/Arrow";
 // import "~slick-carousel/slick/slick.css";
 // import "~slick-carousel/slick/slick-theme.css";
 
 export default class Family extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
+      index: 0,
       entity: {
         id: 0,
         name: "",
@@ -19,6 +20,7 @@ export default class Family extends React.Component {
       }
     };
   }
+
   render() {
     const people = [
       {
@@ -32,26 +34,28 @@ export default class Family extends React.Component {
         name: "Ксения Ярмолович",
         position: "Event Manager",
         avatar: Kseniya
-      },
-      {
-        id: 2,
-        name: "Оля Спренчан",
-        position: "PR Manager",
-        avatar: Olha
       }
     ];
-    var settings = {
+    const settings = {
       // dots: true,
       infinite: true,
       speed: 500,
       arrows: true,
-      prevArrow: <a class="arrow left" />,
-      nextArrow: <a class="arrow right" />,
-      centerPadding: '0px',
+      // prevArrow: <a className="arrow left"></a>,
+      // nextArrow: <a className="arrow right"></a>,
+      prevArrow: <Arrow rotate />,
+      nextArrow: <Arrow />,
+      centerPadding: "0px",
+      // variableWidth: true,
       // slidesToShow: 1,
       // slidesToScroll: 1,
       // adaptiveHeight: true,
-      centerMode: true
+      swipeToSlide: true,
+      centerMode: true,
+      afterChange: index => {
+        console.log(index);
+        this.setState({ index: index });
+      }
     };
     return (
       <div className="section family-container">
@@ -60,28 +64,34 @@ export default class Family extends React.Component {
             <Slider {...settings}>
               {people.map((emp, index) => (
                 <div key={index} className="carousel-block">
-                  <div className="carousel-info">
-                    <div className="carousel-info__photo">
-                      <img className="photo-logo" src={emp.avatar} alt="" />
-                    </div>
+                  <div className="carousel-info__photo">
+                    <img className="photo-logo" src={emp.avatar} alt="" />
                   </div>
                 </div>
               ))}
             </Slider>
-            <div className="carousel-info__header">
-              <span className="info-header-name">{`КОМАНДА`}</span>
-            </div>
-            <div className="carousel-info__desc">
-              <span className="info-name">name</span>
-              <span className="info-position">position</span>
-            </div>
-            <div className="carousel-info__soc">
-              <Soc
-                src={{
-                  facebook: "https://www.facebook.com/atomspace.od.ua/",
-                  instagram: "https://www.instagram.com/atomspace.od/"
-                }}
-              />
+            <div className="carousel-info">
+              <div className="carousel-info__header">
+                <p className="info-header-name">{`КОМАНДА`}</p>
+              </div>
+              <div className="carousel-info__desc">
+                <p className="info-name">
+                  {people[this.state.index] && people[this.state.index].name}
+                </p>
+                <p className="info-position">
+                  {people[this.state.index] &&
+                    people[this.state.index].position}
+                </p>
+              </div>
+              <div className="carousel-info__soc">
+                <Soc
+                  src={{
+                    facebook: "https://www.facebook.com/atomspace.od.ua/",
+                    linkedin: "https://www.instagram.com/atomspace.od/"
+                  }}
+                  classes={"flex soc-icons"}
+                />
+              </div>
             </div>
           </div>
         </div>

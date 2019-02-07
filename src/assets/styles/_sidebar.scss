@@ -13,6 +13,7 @@
   position: relative;
   background-image: url(../images/icons/AtomSpace-logo.png);
   left: -$f5;
+  display: block;
   height: 110px;
   background-size: $f233;
   background-position: center center;
@@ -20,36 +21,45 @@
 }
 
 .soc-icons {
-  position: absolute;
-  left: $f34;
   height: 26px;
-  bottom: $f55;
   width: $f110;
-  > div:not(:last-child) {
+  > a:not(:last-child) {
     margin-right: $f16;
   }
-  > div {
+
+  .icon {
     position: relative;
     height: 26px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    width: $f34;
+    width: 26px;
   }
-  .facebook-icon {
+
+  .facebook {
     background: url(../images/icons/facebook-light.svg) no-repeat center/contain;
     opacity: 0.8;
     display: block;
-    width: 100%;
     &:hover {
       opacity: 1;
     }
+
+    // position: relative;
+    // height: 26px;
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // width: $f34;
   }
-  .instagram-icon {
+  .instagram {
     background: url(../images/icons/instagram-light.svg) no-repeat
       center/contain;
     display: block;
     opacity: 0.8;
-    width: 100%;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .linkedin {
+    background: url(../images/icons/linkedin-light.svg) no-repeat center/contain;
+    display: block;
+    opacity: 0.8;
     &:hover {
       opacity: 1;
     }
@@ -126,10 +136,23 @@ li {
 
   .sidebar {
     &__left {
+      .soc-icons {
+        position: absolute;
+        left: $f34;
+        bottom: $f55;
+      }
       .list-item {
         left: -$f16;
         opacity: $text-opacity;
         text-align: left;
+      }
+      &.light_theme {
+        .instagram {
+          background: url(../images/icons/instagram-dark.svg) no-repeat;
+        }
+        .facebook {
+          background: url(../images/icons/facebook-dark.svg) no-repeat;
+        }
       }
     }
     &__right {
@@ -144,7 +167,6 @@ li {
         }
       }
     }
-    
   }
   .light_theme {
     .list-item {
