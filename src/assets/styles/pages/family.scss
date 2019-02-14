@@ -14,7 +14,7 @@
       }
       .carousel-info {
         position: absolute;
-        top: 110px;
+        top: $f110;
         left: $f610 + $f233;
         font-family: Lato-Regular, sans-serif;
         color: $white-color;
@@ -34,17 +34,15 @@
           }
         }
         &__desc {
+          text-transform: uppercase;
+          font-size: $f21;
+          width: 100%;
           .info-name {
-            width: 100%;
-            font-size: $f21;
             font-weight: 400;
             margin-bottom: $f8;
           }
           .info-position {
-            width: 100%;
-            font-size: $f21;
             font-weight: 300;
-            text-transform: uppercase;
           }
         }
         &__soc {
@@ -54,6 +52,12 @@
         }
       }
     }
+  }
+  .family-wrapper-bot{
+    background: url(../images/backgrounds/background-family-bot.png) no-repeat;
+    position: absolute;
+    bottom: 0;
+    z-index: 1000;
   }
 }
 
@@ -70,7 +74,7 @@
   border: none;
   outline: none;
   background-image: url(../images/icons/arrow.png) !important;
-  width: 50px;
+  width: $f68;
   background-repeat: no-repeat;
   opacity: 0.7;
   &-prev {
@@ -83,7 +87,7 @@
   &-next {
     right: -$f110;
     &:hover {
-      background: url("../images/icons/arrow.png") no-repeat !important;
+      background: url(../images/icons/arrow.png) no-repeat !important;
     }
   }
   &:before {

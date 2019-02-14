@@ -1,5 +1,4 @@
-import Arrow from "../../assets/images/icons/arrow.png";
-import React, { PureComponent } from 'react';
+import React from 'react';
 export default (props) =>{
     const classes = ['slick'];
     props.rotate ? classes.push('slick-prev') : classes.push('slick-next');

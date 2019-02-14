@@ -27,13 +27,16 @@ export default class Family extends React.Component {
         id: 0,
         name: "Анна Деревянко",
         position: "CEO",
-        avatar: Anna
+        avatar: Anna,
+        facebook: 'https://www.facebook.com/anna.derevyankoo',
       },
       {
         id: 1,
         name: "Ксения Ярмолович",
         position: "Event Manager",
-        avatar: Kseniya
+        avatar: Kseniya,
+        facebook: 'https://www.facebook.com/yarmolovi4',
+        linkedin: 'https://www.linkedin.com/in/kseniya-yarmolovich-322918170/',
       }
     ];
     const settings = {
@@ -41,19 +44,12 @@ export default class Family extends React.Component {
       infinite: true,
       speed: 500,
       arrows: true,
-      // prevArrow: <a className="arrow left"></a>,
-      // nextArrow: <a className="arrow right"></a>,
       prevArrow: <Arrow rotate />,
       nextArrow: <Arrow />,
       centerPadding: "0px",
-      // variableWidth: true,
-      // slidesToShow: 1,
-      // slidesToScroll: 1,
-      // adaptiveHeight: true,
       swipeToSlide: true,
       centerMode: true,
       afterChange: index => {
-        console.log(index);
         this.setState({ index: index });
       }
     };
@@ -86,14 +82,15 @@ export default class Family extends React.Component {
               <div className="carousel-info__soc">
                 <Soc
                   src={{
-                    facebook: "https://www.facebook.com/atomspace.od.ua/",
-                    linkedin: "https://www.instagram.com/atomspace.od/"
+                    facebook: people[this.state.index] && people[this.state.index].facebook,
+                    linkedin: people[this.state.index] && people[this.state.index].linkedin
                   }}
                   classes={"flex soc-icons"}
                 />
               </div>
             </div>
           </div>
+          <div className="family-wrapper-bot"/>
         </div>
       </div>
     );

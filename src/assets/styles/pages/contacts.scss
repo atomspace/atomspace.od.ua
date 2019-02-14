@@ -1,6 +1,55 @@
-.contacts-container{
-    // height: 100vh;
-    // background: url("../images/backgrounds/7.png") no-repeat;
-    // background-size: cover;
-    // background-position: center;
+.contacts-container {
+  .contacts-wrapper {
+    .center-container {
+      width: $f610 + $f400;
+      margin: 0 auto;
+      .main-block {
+        text-align: right;
+        position: relative;
+        margin-bottom: $f144 + $f13;
+        .header-answer {
+          height: $f21;
+          color: $black-color;
+          font-size: $f21 + $f3;
+          font-weight: 700;
+          margin-bottom: $f68;
+        }
+        &__information {
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-end;
+          margin-bottom: $f13;
+          .header-ask {
+            color: $black-color;
+            font-size: $f21;
+            font-weight: 400;
+          }
+          .logo-wrapper {
+            margin-left: $f13;
+            img.rocket-image {
+              width: $f178;
+              height: $f178;
+            }
+          }
+        }
+        &__requests {
+          .request-button-container {
+            justify-content: flex-end;
+            .request-button-block {
+              margin: 0 $f10;
+              .request-button {
+              }
+            }
+            .request-button-block + .request-button-block {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+      .donate-block {
+        .donate-container-button {
+        }
+      }
+    }
+  }
 }

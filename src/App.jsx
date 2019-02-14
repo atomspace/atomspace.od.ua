@@ -6,20 +6,35 @@ import { Mentor, Resident } from "./components/Forms";
 import Sidebar from "./routes/Sidebar/Sidebar.jsx";
 import ReactFullpage from "@fullpage/react-fullpage";
 
-export const urls = ["main", "about", "edu", "blog", "family", "store", "contacts"];
+export const urls = [
+  "main",
+  "about",
+  "edu",
+  "blog",
+  "family",
+  "store",
+  "contacts"
+];
 
 class App extends Component {
   state = {
-    currentPage: "main"
+    currentPage: "main",
+    order: {
+      name: "i-need-more-space",
+      size: "L"
+    }
   };
-  refFullPage = null;
-  reactPageScroller = null;
+
+  changeMerchAttr = prop => {
+    this.setState({
+      order: { ...this.state.order, ...prop }
+    });
+  };
 
   pageOnChange = (origin, destination, target) => {
-    
     this.setState(state => ({
       ...state,
-      currentPage: destination.anchor,
+      currentPage: destination.anchor
     }));
   };
 
@@ -28,11 +43,12 @@ class App extends Component {
       <div>
         <Sidebar
           pageName={this.state.currentPage}
+          changeMerchAttr={this.changeMerchAttr}
+          order={this.state.order}
         />
         <ReactFullpage
           anchors={urls}
           onLeave={this.pageOnChange}
-          ref={r => (this.refFullPage = r)}
           render={({ state, fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
@@ -41,7 +57,10 @@ class App extends Component {
                 <Edu />
                 <Blog />
                 <Family />
-                <Store />
+                <Store
+                  size={this.state.size}
+                  changeMerchAttr={this.changeMerchAttr}
+                />
                 <Contacts />
               </ReactFullpage.Wrapper>
             );

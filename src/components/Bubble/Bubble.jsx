@@ -30,11 +30,6 @@ export default class Bubble extends React.Component {
     }
   };
   render() {
-    const style = {
-      // width: this.props.width,
-      // height: this.props.height,
-      ...this.props.style
-    };
     const { image, animate, big, small, middle } = this.props;
     let classes = ["bubble"];
     middle && classes.push("middle");
@@ -45,14 +40,14 @@ export default class Bubble extends React.Component {
     return (
       <div
         className={classes.join(" ")}
-        style={style}
+        style={this.props.style}
         onClick={this.changePicture}
       >
         {image && (
           <img
             src={this.props.image[this.state.indexPicture]}
             className="bubble-image"
-            style={style}
+            style={this.props.style}
             onClick={this.changePicture}
           />
         )}

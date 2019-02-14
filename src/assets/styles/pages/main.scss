@@ -6,24 +6,38 @@
     height: 100%;
     flex-direction: column;
     .center-wrapper {
+      .header-stars {
+        top: $f68;
+        opacity: 0.31;
+        color: #ffffff;
+        font-size: $f13;
+        font-weight: 300;
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.52px;
+      }
       position: relative;
-      top: -10px;
+      top: -$f10;
       text-align: center;
-    
+
       .scale {
+        opacity: 0.4;
         transform: scale(0.7);
         width: 100%;
-        height: 300px;
+        height: $f288;
         position: relative;
-        left: -50px;
+        left: -$f55;
       }
       .main-logo {
-        background-image: url(/static/media/AtomSpace-logo-vertical.e1afebe6.png);
+        background-image: url(../images/icons/AtomSpace-logo-vertical.png);
         background-repeat: no-repeat;
         background-position: center;
-        width: 500px;
+        width: $f400 + $f110;
         height: 100px;
-        background-size: 500px 100px;
+        background-size: $f400 + $f110 $f110;
+        margin-bottom: $f89;
       }
     }
   }

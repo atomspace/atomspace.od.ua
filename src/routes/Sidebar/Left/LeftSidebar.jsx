@@ -1,6 +1,8 @@
 import React from "react";
 import Soc from "../../../components/Soc";
 import { urls } from "../../../App";
+import MerchSize from "../../../pages/Store/MerchSize";
+import MerchBuy from "../../../pages/Store/MerchBuy";
 
 class LeftSidebar extends React.Component {
   getLeftSidebarData() {
@@ -9,7 +11,7 @@ class LeftSidebar extends React.Component {
         return [
           {
             title: "Стать ментором",
-            link: "mentorForm"
+            link: "#mentorForm"
           },
           {
             title: "Стать резидентом",
@@ -19,10 +21,10 @@ class LeftSidebar extends React.Component {
       case urls[5]:
         return [
           {
-            title: "SIZE: S M L XL"
+            title: <MerchSize changeMerchAttr={this.props.changeMerchAttr} />
           },
           {
-            title: "BUY: 600UAH"
+            title: <MerchBuy order={this.props.order} />
           }
         ];
         break;
@@ -69,17 +71,22 @@ class LeftSidebar extends React.Component {
         <nav className={classes.join(" ")}>
           <div className="flex flex-col flex-acen">
             {sidebarRows.map((row, index) => {
-              let rowElement = (
-                <span key={index} className="list-item">
-                  {row.title.toUpperCase()}
-                </span>
-              );
-              if (row.link) {
+              let rowElement;
+              if (React.isValidElement(row.title)) {
+                rowElement = <div key={index}>{row.title}</div>;
+              } else {
                 rowElement = (
-                  <a key={index} className="list-item" href={row.link}>
+                  <span key={index} className="list-item">
                     {row.title.toUpperCase()}
-                  </a>
+                  </span>
                 );
+                if (row.link) {
+                  rowElement = (
+                    <a key={index} className="list-item" href={row.link}>
+                      {row.title.toUpperCase()}
+                    </a>
+                  );
+                }
               }
               return rowElement;
             })}

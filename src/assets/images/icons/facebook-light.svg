@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="33" viewBox="0 0 34 33"><defs><path id="n99ma" d="M597.67 5973.977c9.204 0 16.666 7.367 16.666 16.455 0 9.088-7.462 16.455-16.666 16.455-9.205 0-16.667-7.367-16.667-16.455 0-9.088 7.462-16.455 16.667-16.455z"/><path id="n99mb" d="M601.538 5990.839h-2.449v.297l-.001 8.19c0 .309 0 .309-.31.309-.932.002-1.865-.006-2.797.006-.222.002-.281-.061-.281-.277.007-2.722.005-5.446.005-8.167v-.346h-2.23v-3.033h2.229c0-.117-.002-.207 0-.297.012-.764.004-1.528.043-2.29.026-.53.114-1.053.334-1.548.374-.845 1.056-1.315 1.945-1.496.457-.092.933-.116 1.402-.13.724-.02 1.45-.002 2.175-.008.176-.002.254.031.252.23-.011.857-.008 1.716-.001 2.574.001.18-.05.244-.242.24a27.302 27.302 0 0 0-1.555.011c-.717.03-.938.25-.956.948-.014.575-.002 1.15-.002 1.758h2.768l-.33 3.029z"/><clipPath id="n99mc"><use fill="#fff" xlink:href="#n99ma"/></clipPath></defs><g><g opacity=".75" transform="translate(-581 -5974)"><use fill="#fff" xlink:href="#n99mb"/></g><g opacity=".75" transform="translate(-581 -5974)"><use fill="#fff" fill-opacity="0" stroke="#fff" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#n99mc&quot;)" xlink:href="#n99ma"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 34.5 34.1" enable-background="new 0 0 34.5 34.1" xml:space="preserve">
+<g>
+	<g transform="translate(-581 -5974)" opacity="0.75">
+		<g>
+			<path id="qy18b" fill="#FFFFFF" stroke="#FFFFFF" stroke-miterlimit="10" d="M601.1,5990.6h-2.3v0.3l0,8.1c0,0,0,0,0,0
+				c-1.1,0-2.2,0-3.2,0c0-2.7,0-5.4,0-8.1v-0.3h-2.1v-2.9h2.1c0-0.1,0-0.2,0-0.3c0-0.7,0-1.5,0-2.2c0-0.5,0.1-1,0.3-1.5
+				c0.4-0.8,1-1.3,1.9-1.4c0.4-0.1,0.9-0.1,1.3-0.1c0.7,0,1.4,0,2.1,0c0.2,0,0.2,0,0.2,0.2c0,0.8,0,1.6,0,2.5c0,0.2,0,0.2-0.2,0.2
+				c-0.5,0-1,0-1.5,0c-0.7,0-0.9,0.2-0.9,0.9c0,0.5,0,1.1,0,1.7h2.6L601.1,5990.6L601.1,5990.6z"/>
+		</g>
+	</g>
+	<g transform="translate(-581 -5974)" opacity="0.75">
+		<g>
+			<defs>
+				<ellipse id="SVGID_1_" cx="597.4" cy="5990.2" rx="15.9" ry="15.7"/>
+			</defs>
+			<clipPath id="SVGID_2_">
+				<use xlink:href="#SVGID_1_"  overflow="visible"/>
+			</clipPath>
+			<use xlink:href="#SVGID_1_"  overflow="visible" fill="none" stroke="#FFFFFF" stroke-miterlimit="10"/>
+		</g>
+	</g>
+</g>
+</svg>

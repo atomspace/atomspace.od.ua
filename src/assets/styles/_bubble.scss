@@ -4,38 +4,38 @@
     $left-gradient-color,
     $right-gradient-color
   );
-  margin-left: 50px;
+  margin-left: $f55;
   border-radius: 50%;
+  height: $f400 + $f178;
   &-image {
     content: " ";
     position: relative;
+    height: $f400 + $f178;
   }
   &.animate {
     animation-duration: 5s;
     animation-iteration-count: infinite;
   }
-  &.big {
-  }
   &.small {
     width: $f55;
     height: $f55;
-    opacity: random($limit: 7) / 10;
+    opacity: random($limit: 5) / 10;
     &.animate {
       animation-name: bubble-small;
       animation-delay: random($limit: 5) + s;
     }
     @keyframes bubble-small {
       0% {
-        right: 110px;
-        bottom: 70px;
+        right: $f110;
+        bottom: $f68;
       }
       50% {
-        right: 130px;
-        bottom: 60px;
+        right: $f110 + $f21;
+        bottom: $f55;
       }
       100% {
-        right: 110px;
-        bottom: 70px;
+        right: $f110;
+        bottom: $f68;
       }
     }
   }
@@ -49,16 +49,16 @@
     }
     @keyframes bubble-middle {
       0% {
-        right: 230px;
-        bottom: 150px;
+        right: $f233;
+        bottom: $f144;
       }
       50% {
-        right: 270px;
-        bottom: 130px;
+        right: $f233 + $f34;
+        bottom: $f110 + $f21;
       }
       100% {
-        right: 230px;
-        bottom: 150px;
+        right: $f233;
+        bottom: $f144;
       }
     }
   }

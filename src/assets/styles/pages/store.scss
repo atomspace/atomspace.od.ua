@@ -1,8 +1,4 @@
 .store-container {
-  // height: 100vh;
-  // background: url("../images/backgrounds/6.png") no-repeat;
-  // background-size: cover;
-  // background-position: center;
   .store-wrapper {
     .carousel-container {
       display: flex;
@@ -29,10 +25,10 @@
             .carousel-block {
               .carousel-info {
                 &__merch {
-                  margin: 20px;
+                  margin: $f21;
                   .merch-logo {
-                    width: 246px;
-                    height: 272px;
+                    width: $f233 + $f13;
+                    height: $f288 - $f13;
                     margin: 0 auto;
                     transition: all 1s ease;
                   }
@@ -44,4 +40,38 @@
       }
     }
   }
+}
+
+.size-container {
+  font-weight: bold;
+  .size-list {
+    .main-header {
+    }
+    .size-item {
+      cursor: pointer;
+      padding: 1px;
+      width: $f18;
+      height: $f18;
+      display: block;
+      margin: 0 $f5;
+      text-align: center;
+      line-height: $f16;
+      &:hover {
+        border: 1px solid black;
+        border-radius: 50%;
+        opacity: 0.7;
+      }
+      &.selected {
+        border: 1px solid black;
+        border-radius: 50%;
+      }
+    }
+    .size-item + .size-item {
+      margin-left: 0;
+    }
+  }
+}
+.merch-buy-link {
+  font-weight: bold;
+  cursor: pointer;
 }

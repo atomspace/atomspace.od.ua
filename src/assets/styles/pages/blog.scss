@@ -1,8 +1,6 @@
 .blog-container {
   display: flex;
   justify-content: center;
-  // height: 100vh;
-  // background: url("../images/backgrounds/4.png") no-repeat;
   .blog-wrapper {
     width: $f610 + $f178 + $f34;
     display: flex;
@@ -10,7 +8,7 @@
     align-items: center;
     margin-left: $f110 + $f400;
     .blog-main-text {
-      margin-bottom: 80px;
+      margin-bottom: $f89 - $f10;
       text-align: center;
       font-size: $f16;
     }
@@ -30,10 +28,8 @@
         &__header {
           font-size: $f21;
           font-weight: bold;
-        //   text-align: center;
         }
         &__description {
-        //   text-align: center;
           font-size: $f13;          
         }
         @each $logo in mind, people, puzzle {
@@ -43,8 +39,6 @@
               center/contain;
             height: $f178;
             width: $f178;
-            // height: $f110;
-            // width: $f110;
             margin-bottom: $f5;
             position: relative;
           }

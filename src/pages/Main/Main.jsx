@@ -7,9 +7,16 @@ class Main extends React.Component {
       <div className="section main-container">
         <div className="logo-container">
           <div className="center-wrapper">
+            <div className="header-stars">{`Вперед к звездам`}</div>
             <AnimatePlanet />
             <div className="main-logo" src={AtomSpaceLogo} />
-            <div className="btn btn-support">Поддержать проект</div>
+            <div className="donate-block">
+              <a
+                className="btn btn-support btn-donate"
+                target="_blank"
+                href="https://secure.wayforpay.com/button/b4a090420eb14"
+              >{`Поддержать проект`}</a>
+            </div>
           </div>
         </div>
       </div>
