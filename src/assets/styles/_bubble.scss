@@ -11,6 +11,7 @@
     content: " ";
     position: relative;
     height: $f400 + $f178;
+    border-radius: 50%;
   }
   &.animate {
     animation-duration: 5s;

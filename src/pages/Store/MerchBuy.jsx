@@ -2,14 +2,14 @@ import React from "react";
 
 export default class MerchBuy extends React.Component {
   orderPay = () => {
-    console.log(this.props.order);
+    console.log(this.props);
   };
   render() {
     return (
       <div
         className="list-item merch-buy-link"
         onClick={this.orderPay}
-      >{`BUY: 500UAH`}</div>
+      >{`BUY: ${this.props.order.cost}UAH`}</div>
     );
   }
 }

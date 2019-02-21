@@ -2,6 +2,14 @@
   .family-wrapper {
     .carousel-container {
       position: relative;
+      * {
+        border: none !important;
+        outline: none !important;
+      }
+      .slick-slide,
+      .slick-slide:focus * {
+        outline: none !important;
+      }
       .slick-slider {
         margin: 0 $f178;
         width: $f610;
@@ -16,12 +24,28 @@
         position: absolute;
         top: $f110;
         left: $f610 + $f233;
-        font-family: Lato-Regular, sans-serif;
         color: $white-color;
         &__photo {
           .photo-logo {
             margin: 0 auto;
             width: $f400 + $f110;
+            height: 500px;
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            -moz-box-shadow: inset 0px -650px 500px -500px #28144a;
+            -webkit-box-shadow: inset 0px -650px 500px -500px #28144a;
+            -o-box-shadow: inset 0px -650px 500px -500px #28144a;
+            box-shadow: inset 0px -650px 500px -500px #28144a;
+            &.anna {
+              background-image: url(../../assets/images/photos/anna-derevyanko.png);
+            }
+            &.kseniya {
+              background-image: url(../../assets/images/photos/kseniya-yarmolovich.png);
+            }
+            &.veronika {
+              background-image: url(../../assets/images/photos/veronika-ilnitckaya.png);
+            }
           }
         }
         &__header {
@@ -38,11 +62,11 @@
           font-size: $f21;
           width: 100%;
           .info-name {
-            font-weight: 400;
+            font-family: OpenSans-SemiBold;
             margin-bottom: $f8;
           }
           .info-position {
-            font-weight: 300;
+            font-family: OpenSans-Light;
           }
         }
         &__soc {
@@ -53,7 +77,7 @@
       }
     }
   }
-  .family-wrapper-bot{
+  .family-wrapper-bot {
     background: url(../images/backgrounds/background-family-bot.png) no-repeat;
     position: absolute;
     bottom: 0;
@@ -74,7 +98,7 @@
   border: none;
   outline: none;
   background-image: url(../images/icons/arrow.png) !important;
-  width: $f68;
+  width: $f89;
   background-repeat: no-repeat;
   opacity: 0.7;
   &-prev {

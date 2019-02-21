@@ -74,15 +74,18 @@ li {
   width: $f178 + $f21;
   margin: $f8 0;
   color: $white-color;
-  font-family: Lato-Regular, sans-serif;
   font-size: $f13;
   transition: all 0.3s;
+  color: $white-color-opacity;
+  
   &:hover {
-    opacity: 1;
-    color: $white-color-opacity;
+    color: $white-color;
   }
   &:target {
     color: green;
+  }
+  &.selected{
+    color: $white-color;
   }
 }
 :target {
@@ -97,25 +100,7 @@ li {
     border-left-color: white;
   }
 }
-// .list-item {
-//   padding: 15px;
-//   border: transparent;
-//   background: green;
-//   border-radius: 3em;
-//   text-align: center;
-//   margin: 15px 0;
-//   color: white !important;
-//   background: linear-gradient(
-//     0.4turn,
-//     $list-item-atom-space-color-left-o,
-//     $list-item-atom-space-color-right-o
-//   );
-//   a {
-//     font-family: Lato-HairlineItalic, sans-serif;
-//     font-size: 12pt;
-//     color: $white-color;
-//   }
-// }
+
 .vertical-line {
   position: fixed;
   height: 640px;
@@ -193,7 +178,20 @@ li {
         opacity: $text-opacity;
         text-align: right;
         transform: all 1s;
-        &:before {
+        &:before{
+          content: " ";
+        }
+        &.selected::before{
+          content: " ";
+          $size: $f13;
+          width: $size;
+          height: $size;
+          position: absolute;
+          top: calc(50% - #{$size} / 2);
+          right: $f8;
+          background: url(../images/icons/circle.svg) no-repeat center/contain;
+        }
+        &:hover:before {
           content: " ";
           $size: $f13;
           width: $size;

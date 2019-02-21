@@ -9,33 +9,49 @@ class Store extends Component {
   state = {
     index: 0
   };
+  merches = [
+    {
+      type: "shirt",
+      cost: 500,
+      name: "i-need-more-space",
+      image: Merch1
+    },
+    {
+      type: "shirt",
+      cost: 500,
+      name: "i-need-more-space-2",
+      image: Merch2
+    },
+    {
+      type: "shirt",
+      cost: 300,
+      name: "nlo",
+      image: Merch3
+    },
+    {
+      type: "shirt",
+      cost: 500,
+      name: "nlo",
+      image: Merch3
+    }
+  ];
+  returnDefaultMerch = () => {
+    return {
+      type: "shirt",
+      cost: 500,
+      name: "i-need-more-space",
+      image: Merch1
+    };
+  };
+  componentDidMount() {
+    this.props.changeMerchAttr({
+      type: "shirt",
+      cost: 500,
+      name: "i-need-more-space",
+      image: Merch1
+    });
+  }
   render() {
-    const merches = [
-      {
-        type: "shirt",
-        cost: 500,
-        name: "i-need-more-space",
-        image: Merch1
-      },
-      {
-        type: "shirt",
-        cost: 500,
-        name: "i-need-more-space-2",
-        image: Merch2
-      },
-      {
-        type: "shirt",
-        cost: 300,
-        name: "nlo",
-        image: Merch3
-      },
-      {
-        type: "shirt",
-        cost: 500,
-        name: "nlo",
-        image: Merch3
-      }
-    ];
     const settings = {
       infinite: true,
       speed: 500,
@@ -52,7 +68,8 @@ class Store extends Component {
       afterChange: (index, a) => {
         this.setState({ index });
         const order = {
-          name: merches[index].name
+          name: this.merches[index].name,
+          cost: this.merches[index].cost
         };
         this.props.changeMerchAttr(order);
       }
@@ -63,7 +80,7 @@ class Store extends Component {
         <div className="store-wrapper">
           <div className="carousel-container">
             <Slider {...settings}>
-              {merches.map((merch, index) => (
+              {this.merches.map((merch, index) => (
                 <div key={index} className="carousel-block">
                   <div className="carousel-info__merch">
                     <img className="merch-logo" src={merch.image} alt="" />
