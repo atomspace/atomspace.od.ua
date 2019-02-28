@@ -8,7 +8,6 @@ export default class Bubble extends React.Component {
     };
   }
   getDefaultState() {
-    const { image = [] } = this.props;
     return {
       indexPicture: 0,
     };
@@ -30,24 +29,33 @@ export default class Bubble extends React.Component {
     }
   };
   render() {
-    const { image, animate, big, small, middle } = this.props;
+    const { image, animate, big, small, semiMiddle, middle } = this.props;
     let classes = ["bubble"];
     middle && classes.push("middle");
     small && classes.push("small")
+    semiMiddle && classes.push("semi-middle")
     big && classes.push("big");
     animate && classes.push("animate");
-
+    const style = {
+      ...this.props.style,
+    }
+    if(this.props.style.position){
+      style.position = this.props.style.position
+    }else{
+      style.position = 'absolute';
+    }
     return (
       <div
         className={classes.join(" ")}
-        style={this.props.style}
+        style={style}
         onClick={this.changePicture}
       >
         {image && (
           <img
             src={this.props.image[this.state.indexPicture]}
             className="bubble-image"
-            style={this.props.style}
+            alt={"bubble image"}
+            // style={style}
             onClick={this.changePicture}
           />
         )}

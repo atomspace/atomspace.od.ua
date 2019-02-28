@@ -27,7 +27,6 @@ class LeftSidebar extends React.Component {
             title: <MerchBuy order={this.props.order} />
           }
         ];
-        break;
       case urls[6]:
         return [
           {
@@ -40,7 +39,6 @@ class LeftSidebar extends React.Component {
             title: "г. Одесса, Обсерваторный переулок, 2/6"
           }
         ];
-        break;
       default:
         return [];
     }
@@ -60,6 +58,8 @@ class LeftSidebar extends React.Component {
       case "edu":
       case "store":
       case "family":
+      case "resident":
+      case "mentor":
         classes.push("light_theme");
         break;
       default:
@@ -69,22 +69,33 @@ class LeftSidebar extends React.Component {
     return (
       <div className={sidebarClasses.join(" ")}>
         <nav className={classes.join(" ")}>
-          <div className="flex flex-col flex-acen">
+          <div className="flex flex-col">
             {sidebarRows.map((row, index) => {
               let rowElement;
               if (React.isValidElement(row.title)) {
-                rowElement = <div key={index}>{row.title}</div>;
+                rowElement = (
+                  <div className="list" key={index}>
+                    <div>{row.title}</div>
+                  </div>
+                );
               } else {
                 rowElement = (
-                  <span key={index} className="list-item">
-                    {row.title.toUpperCase()}
-                  </span>
+                  <div className="list" key={index}>
+                    <span className="list-item">{row.title.toUpperCase()}</span>
+                  </div>
                 );
                 if (row.link) {
                   rowElement = (
-                    <a key={index} className="list-item" href={row.link}>
-                      {row.title.toUpperCase()}
-                    </a>
+                    <div className="list" key={index}>
+                      <div className={"dot"} />
+                      <a
+                        className="list-item form"
+                        href={row.link}
+                        onClick={this.props.handleDialog}
+                      >
+                        {row.title.toUpperCase()}
+                      </a>
+                    </div>
                   );
                 }
               }

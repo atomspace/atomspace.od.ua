@@ -1,4 +1,2 @@
-import Mentor from './Mentor';  
-import Resident from './Resident';
-
-export {Mentor, Resident};
+import Form from './Form';
+export {Form};

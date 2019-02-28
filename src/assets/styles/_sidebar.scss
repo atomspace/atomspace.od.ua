@@ -9,7 +9,7 @@
   left: -$f5;
   display: block;
   height: 110px;
-  background-size: $f233;
+  background-size: $f178;
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -64,40 +64,74 @@ li {
 
 .list-item {
   padding: $f16;
-  position: relative;
   border: transparent;
   background: transparent;
   border-radius: 3em;
   text-align: center;
   line-height: $f16;
-  padding: $f3 $f42;
-  width: $f178 + $f21;
-  margin: $f8 0;
+  padding: $f8 $f10;
+  margin: $f3 0;
   color: $white-color;
   font-size: $f13;
   transition: all 0.3s;
   color: $white-color-opacity;
-  
+  &.form{
+    &:after{
+      content: '';
+      opacity: 0;
+    }
+    &:before{
+      content: '';      
+      opacity: 0;
+    }
+  }
   &:hover {
     color: $white-color;
   }
-  &:target {
-    color: green;
-  }
-  &.selected{
+  &.selected {
     color: $white-color;
   }
-}
-:target {
-  animation: highlight 1s ease;
-  transform: translateX($f21);
-}
-@keyframes highlight {
-  0% {
-    border-left-color: red;
-  }
-  100% {
-    border-left-color: white;
+  &.form:hover {
+    z-index: 10;
+    opacity: 1;
+    &:after {
+      content: " ";
+      opacity: 0.3;
+      cursor: pointer;
+      position: absolute;
+      width: 110%;
+      right: 0;
+      // transform: scale(1.1);
+      height: 100%;
+      transition: all 0.3s;
+      border-radius: 3em;
+      z-index: -10;
+      background: linear-gradient(
+        0.4turn,
+        $list-item-atom-space-color-left,
+        $list-item-atom-space-color-right
+      );
+      top: 0;
+    }
+    &:before {
+      content: " ";
+      opacity: 0.3;
+      cursor: pointer;
+      position: absolute;
+      // transform: scale(1.1);
+      width: 110%;
+      left: 0;
+      height: 100%;
+      transition: all 0.3s;
+      border-radius: 3em;
+      z-index: -10;
+      background: linear-gradient(
+        0.4turn,
+        $list-item-atom-space-color-left,
+        $list-item-atom-space-color-right
+      );
+      top: 0;
+    }
   }
 }
 
@@ -122,9 +156,9 @@ li {
   }
   .light_theme {
     .list-item {
-      color: $black-color;
+      color: $black-color-opacity;
       &:hover {
-        color: $black-color-opacity;
+        color: $black-color;
       }
     }
   }
@@ -135,20 +169,26 @@ li {
         left: $f34;
         bottom: $f55;
       }
-      .list-item {
-        left: -$f16;
-        opacity: $text-opacity;
-        text-align: left;
-        transform: all 1s;
-        &:before {
-          content: " ";
-          $size: $f13;
-          width: $size;
-          height: $size;
-          position: absolute;
-          top: calc(50% - #{$size} / 2);
-          left: $f8;
-          background: url(../images/icons/circle.svg) no-repeat center/contain;
+      .dot {
+        $size: $f13;
+        width: $size;
+        height: $size;
+        position: absolute;
+        left: 0;
+        background: url(../images/icons/circle.svg) no-repeat center/contain;
+      }
+      .list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        left: $f10 - $f16;
+        .list-item {
+          opacity: $text-opacity;
+          text-align: left;
+          transform: all 1s;
+          position: relative;
+          left: $f16;
         }
       }
       &.light_theme {
@@ -163,59 +203,81 @@ li {
             color: $black-color;
           }
           &:before {
-            background-image: url(../images/icons/circle-dark.svg);
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
+            background: url(../images/icons/circle-dark.svg) no-repeat
+              center/contain;
             color: $black-color;
           }
         }
       }
     }
     &__right {
-      .list-item {
-        right: -$f16;
-        opacity: $text-opacity;
-        text-align: right;
-        transform: all 1s;
-        &:before{
-          content: " ";
-        }
-        &.selected::before{
-          content: " ";
+      .atom-logo {
+        background-image: url(../images/icons/AtomSpace-logo.png);
+      }
+      .list {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        right: $f10 - $f16;
+        .dot {
+          opacity: 0;
           $size: $f13;
           width: $size;
           height: $size;
           position: absolute;
-          top: calc(50% - #{$size} / 2);
-          right: $f8;
+          right: 0;
           background: url(../images/icons/circle.svg) no-repeat center/contain;
         }
-        &:hover:before {
-          content: " ";
-          $size: $f13;
-          width: $size;
-          height: $size;
-          position: absolute;
-          top: calc(50% - #{$size} / 2);
-          right: $f8;
-          background: url(../images/icons/circle.svg) no-repeat center/contain;
+        .list-item {
+          opacity: $text-opacity;
+          text-align: right;
+          transform: all 1s;
+          position: relative;
+          right: $f16;
+        }
+        &.selected {
+          .list-item {
+            color: $white-color;
+          }
+          .dot {
+            opacity: 1;
+          }
+        }
+        &:hover .dot {
+          opacity: 1;
         }
       }
       &.light_theme {
         .atom-logo {
           background-image: url(../images/icons/AtomSpace-logo-dark.png);
         }
-        .list-item {
-          &:hover {
-            color: $black-color;
+        .list {
+          .dot {
+            opacity: 0;
+            $size: $f13;
+            width: $size;
+            height: $size;
+            position: absolute;
+            right: 0;
+            background: url(../images/icons/circle-dark.svg) no-repeat
+              center/contain;
           }
-          &:before {
-            background-image: url(../images/icons/circle-dark.svg) ;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            color: $black-color;
+          .list-item {
+            // &:hover {
+            //   color: $black-color;
+            // }
+          }
+          &.selected {
+            .list-item {
+              color: $black-color;
+            }
+            .dot {
+              opacity: 1;
+            }
+          }
+          &:hover .dot {
+            opacity: 1;
           }
         }
       }

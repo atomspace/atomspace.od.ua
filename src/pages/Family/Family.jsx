@@ -2,11 +2,6 @@ import React from "react";
 import Slider from "react-slick";
 import Soc from "../../components/Soc";
 import Arrow from "../../components/Arrow";
-import Anna from "../../assets/images/photos/anna-derevyanko.png";
-import Kseniya from "../../assets/images/photos/kseniya-yarmolovich.png";
-import Veronika from "../../assets/images/photos/veronika-ilnitckaya.png";
-// import "~slick-carousel/slick/slick.css";
-// import "~slick-carousel/slick/slick-theme.css";
 
 export default class Family extends React.Component {
   constructor() {
@@ -102,8 +97,8 @@ export default class Family extends React.Component {
               </div>
             </div>
           </div>
-          <div className="family-wrapper-bot" />
         </div>
+        <div className="family-wrapper-bot" />
       </div>
     );
   }

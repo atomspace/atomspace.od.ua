@@ -4,9 +4,12 @@
     $left-gradient-color,
     $right-gradient-color
   );
+  opacity: 0.4;
   margin-left: $f55;
   border-radius: 50%;
   height: $f400 + $f178;
+  z-index: -10;
+  
   &-image {
     content: " ";
     position: relative;
@@ -20,47 +23,48 @@
   &.small {
     width: $f55;
     height: $f55;
-    opacity: random($limit: 5) / 10;
     &.animate {
-      animation-name: bubble-small;
+      animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
     }
-    @keyframes bubble-small {
-      0% {
-        right: $f110;
-        bottom: $f68;
-      }
-      50% {
-        right: $f110 + $f21;
-        bottom: $f55;
-      }
-      100% {
-        right: $f110;
-        bottom: $f68;
-      }
+    
+  }
+  &.semi-middle{
+    width: $f144;
+    height: $f144;
+    &.animate{
+      animation-name: bubble-animation;
+      animation-delay: random($limit: 5) + s;
     }
   }
   &.middle {
     width: $f233;
     height: $f233;
-    opacity: random($limit: 7) / 10;
     &.animate {
-      animation-name: bubble-middle;
+      animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
     }
-    @keyframes bubble-middle {
-      0% {
-        right: $f233;
-        bottom: $f144;
-      }
-      50% {
-        right: $f233 + $f34;
-        bottom: $f110 + $f21;
-      }
-      100% {
-        right: $f233;
-        bottom: $f144;
-      }
+    
+  }
+  &.big {
+    width: $f377;
+    height: $f377;
+    &.animate {
+      animation-name: bubble-animation;
+      animation-delay: random($limit: 5) + s;
     }
+    
+  }
+}
+@keyframes bubble-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-$f10, $f21);
+    
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }

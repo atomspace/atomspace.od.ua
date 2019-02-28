@@ -1,0 +1,87 @@
+.form-container {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: -5px;
+  height: 102%;
+  background: url(../images/backgrounds/background-form.png) no-repeat
+    center/cover;
+
+  .resident-form-container {
+    height: 100%;
+    .form-blocks {
+      height: 100%;
+      margin-left: 10%;
+      margin-right: $f288;
+      .form-maintext-block {
+        position: relative;
+        width: $f610;
+        height: $f288;
+        &__header {
+          color: $black-color;
+          font-size: $f55;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+        &__text {
+          width: $f400 + $f89;
+          color: $black-color;
+          font-size: $f21;
+          font-weight: 400;
+          line-height: $f26;
+          margin: $f68 0 0 auto;
+        }
+      }
+    }
+    .form-registration {
+      > div {
+        margin-bottom: $f68;
+      }
+      input {
+        width: $f400 + $f144;
+        font-size: $f21;
+        padding-left: $f13;
+        height: $f42;
+        border: 0;
+        background: transparent;
+        outline: none;
+        border-bottom: 1px solid $black-color;
+        border-color: rgba(0, 0, 0, 0.3);
+      }
+      > div:nth-child(3) {
+        margin-bottom: $f178;
+      }
+      > div:nth-child(4) {
+        margin-bottom: $f34;
+      }
+      .request-button-block {
+        text-align: right;
+      }
+    }
+  }
+  .atom-logo {
+    position: absolute;
+    background-image: url(../images/icons/AtomSpace-logo-dark.png);
+    display: block;
+    height: $f68;
+    background-size: $f178;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: $f233;
+    top: $f110;
+    right: $f110;
+    left: auto;
+  }
+  .close-dialog-btn {
+      width: 30px;
+      height: 30px;
+      background: url(../images/icons/close.svg) center/contain;
+      position: absolute;
+      left: auto;
+      right: 30px;
+      top: 30px;
+      opacity: 0.3;
+      cursor: pointer;
+  }
+}

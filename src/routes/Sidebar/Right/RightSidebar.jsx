@@ -51,14 +51,17 @@ class RightSidebar extends Component {
       <div className="vertical-line right">
         <nav className={classes.join(" ")}>
           <div className="atom-logo" />
-          <div className="flex flex-col flex-acen">
+          <div className="flex flex-col">
             {links.map((link, index) => {
-              const classes = ["list-item"];
+              const classes = ["list"];
               link.href === "#" + pageName && classes.push("selected");
               return (
-                <a key={index} className={classes.join(" ")} href={link.href}>
-                  {link.text}
-                </a>
+                <div className={classes.join(" ")} key={index}>
+                  <div className="dot" />
+                  <a className={"list-item"}  href={link.href}>
+                    {link.text}
+                  </a>
+                </div>
               );
             })}
           </div>

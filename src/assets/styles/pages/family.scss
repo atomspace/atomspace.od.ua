@@ -22,21 +22,22 @@
       }
       .carousel-info {
         position: absolute;
-        top: $f110;
+        z-index: 20;
+        top: $f89;
         left: $f610 + $f233;
         color: $white-color;
         &__photo {
           .photo-logo {
             margin: 0 auto;
             width: $f400 + $f110;
-            height: 500px;
+            height: $f400 + $f400;
             background-position: center center;
             background-size: contain;
             background-repeat: no-repeat;
-            -moz-box-shadow: inset 0px -650px 500px -500px #28144a;
-            -webkit-box-shadow: inset 0px -650px 500px -500px #28144a;
-            -o-box-shadow: inset 0px -650px 500px -500px #28144a;
-            box-shadow: inset 0px -650px 500px -500px #28144a;
+            // -moz-box-shadow: inset 0px -650px 500px -500px #28144a;
+            // -webkit-box-shadow: inset 0px -650px 500px -500px #28144a;
+            // -o-box-shadow: inset 0px -650px 500px -500px #28144a;
+            // box-shadow: inset 0px -650px 500px -500px #28144a;
             &.anna {
               background-image: url(../../assets/images/photos/anna-derevyanko.png);
             }
@@ -52,13 +53,14 @@
           margin-bottom: $f34;
           .info-header-name {
             width: $f377;
+            position: relative;
+            left: -$f5;
             opacity: 0.11;
             font-size: $f68;
             font-weight: 300;
           }
         }
         &__desc {
-          text-transform: uppercase;
           font-size: $f21;
           width: 100%;
           .info-name {
@@ -78,10 +80,13 @@
     }
   }
   .family-wrapper-bot {
-    background: url(../images/backgrounds/background-family-bot.png) no-repeat;
+    background: url(../images/backgrounds/background-family-bot.png) no-repeat
+      center/cover;
     position: absolute;
     bottom: 0;
-    z-index: 1000;
+    z-index: 10;
+    width: 100%;
+    top: 0;
   }
 }
 
@@ -97,6 +102,7 @@
   cursor: pointer;
   border: none;
   outline: none;
+  z-index: 20;
   background-image: url(../images/icons/arrow.png) !important;
   width: $f89;
   background-repeat: no-repeat;

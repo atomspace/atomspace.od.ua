@@ -57,12 +57,12 @@
       text-align: center;
       line-height: $f16;
       &:hover {
-        border: 1px solid black;
+        border: 1px solid $black-color;
         border-radius: 50%;
         opacity: 0.7;
       }
       &.selected {
-        border: 1px solid black;
+        border: 1px solid $black-color;
         border-radius: 50%;
       }
     }
@@ -71,7 +71,21 @@
     }
   }
 }
-.merch-buy-link {
-  font-weight: bold;
-  cursor: pointer;
+.list{
+  
+  .size-container{
+    font-family: OpenSans-Bold;
+    color: $black-color !important;
+    &:hover{
+      color: $black-color !important;
+    }
+  }
+  .merch-buy-link {
+    font-family: OpenSans-Bold;
+    color: $black-color !important;
+    cursor: pointer;
+    &:hover{
+      color: $black-color !important;
+    }
+  }
 }

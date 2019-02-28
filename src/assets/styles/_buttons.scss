@@ -8,6 +8,7 @@
   text-align: center;
   margin: $f16 0;
   color: white !important;
+  outline: none;
   background: linear-gradient(
     0.4turn,
     $list-item-atom-space-color-left,
@@ -76,6 +77,9 @@
     &:hover {
       transform: scale(1.1);
     }
+  }
+  &[disabled]{
+    opacity: 0.3;
   }
 }
 

@@ -31,6 +31,7 @@ class Contacts extends Component {
               <a
                 className="btn btn-support btn-donate"
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://secure.wayforpay.com/button/b4a090420eb14"
               >{`Поддержать проект`}</a>
             </div>

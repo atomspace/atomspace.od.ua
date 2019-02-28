@@ -391,13 +391,13 @@ $meteor-yellow: #fedc01;
   0% {
     opacity: 0;
     top: $f144 + $f5;
-    left: 1$f377 - $f26;
+    left: $f400 + $f400 + $f110 - $f10;
   }
   50% {
     opacity: 1;
   }
   100% {
-    left: $f400 + $f400 + $f110 - $f10;
+    left: $f377 - $f26;
     top: $f610 + $f42;
     opacity: 0;
   }

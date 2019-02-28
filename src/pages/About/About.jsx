@@ -20,18 +20,10 @@ export default () => (
       </div>
       <Bubble
         image={[AboutPhoto1, AboutPhoto2, AboutPhoto3, AboutPhoto4]}
-        style={{}}
+        style={{ position: 'relative !important', zIndex: 100, opacity: 1 }}
       />
-      <Bubble
-        middle
-        animate
-        style={{ position: "absolute", bottom: 150, right: 230 }}
-      />
-      <Bubble
-        small
-        animate
-        style={{ position: "absolute", bottom: 70, right: 110 }}
-      />
+      <Bubble middle animate style={{ bottom: 150, right: 230, zIndex: 100 }} />
+      <Bubble small animate style={{ bottom: 70, right: 110, zIndex: 100 }} />
     </div>
   </div>
 );

@@ -4,12 +4,11 @@ $left-gradient-color: rgb(212, 163, 74);
 .edu-container {
   display: flex;
   align-items: center;
-  padding-right:$f400 + $f110;
-  padding-left: $f233;
   .edu-items {
-    width: 100%;
+    width: $f400 + $f610 + $f233;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
     .edu-item {
       width: $f233;
       height: $f233;
