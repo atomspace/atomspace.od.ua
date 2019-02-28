@@ -17,3 +17,12 @@ install
 
 ```cd ./server```
 ```python3 manage.py runserver```
+
+
+### Docker 
+
+##Build 
+```docker build ./ --tag atomspace```
+
+##Run
+```docker run -p 3000:3000 atomspace```

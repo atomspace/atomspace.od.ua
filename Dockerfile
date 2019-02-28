@@ -1,15 +1,17 @@
-FROM node:8.10.0-alpine
+FROM alpine:3.8
 
-# Set a working directory
-WORKDIR /usr/src/app
+MAINTAINER AtomSpace Website
+LABEL name="atomspace" version="1.0.0"
 
-# Install Node.js dependencies
-RUN npm i
+ENV NODE_ENV "development"
 
-# Run the container under "node" user by default
-USER node
+EXPOSE 3000
 
-# Set NODE_ENV env variable to "production" for faster expressjs
-ENV NODE_ENV production
+WORKDIR /root
 
-CMD [ "npm", "start" ]
+RUN apk update
+RUN apk add nodejs npm git
+RUN git clone https://github.com/atomspace/atomspace.od.ua.git ~/atomspace
+RUN npm i --prefix ~/atomspace
+
+CMD npm run start --prefix ~/atomspace
