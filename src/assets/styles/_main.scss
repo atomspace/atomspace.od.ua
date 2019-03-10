@@ -23,6 +23,7 @@ a {
   text-decoration: none;
   outline: none;
   cursor: pointer;
+  font-size: $link-font-size;
   &:hover {
     color: initial;
   }

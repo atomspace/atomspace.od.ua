@@ -15,7 +15,6 @@
 @import "carousel.scss";
 
 @import "pages/containers.scss";
-
 @import "pages/main.scss";
 @import "pages/about.scss";
 @import "pages/edu.scss";
@@ -32,6 +31,4 @@
 
 @import "flex.scss";
 
-a {
-  font-size: $link-font-size;
-}
+@import "adaptive.scss";

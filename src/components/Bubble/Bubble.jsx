@@ -54,7 +54,7 @@ export default class Bubble extends React.Component {
           <img
             src={this.props.image[this.state.indexPicture]}
             className="bubble-image"
-            alt={"bubble image"}
+            alt={"bubble"}
             // style={style}
             onClick={this.changePicture}
           />

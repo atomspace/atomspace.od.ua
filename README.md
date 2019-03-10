@@ -17,8 +17,6 @@ install
 
 ```cd ./server```
 ```python3 manage.py runserver```
-
-
 ### Docker 
 
 ##Build 

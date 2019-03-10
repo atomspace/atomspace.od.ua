@@ -46,9 +46,11 @@ class App extends Component {
   handleDialog = e => {
     this.changeDialog(e.target.hash);
   };
+
   componentDidMount() {
     this.changeDialog(window.location.hash);
   }
+  
   changeMerchAttr = prop => {
     this.setState({
       order: { ...this.state.order, ...prop }
@@ -74,6 +76,7 @@ class App extends Component {
         <ReactFullpage
           anchors={urls}
           onLeave={this.pageOnChange}
+          licenseKey="YWx2YXJvdHJpZ28uY29tX0EyMlpISmhaMEZ1WkUxdmRtVT0wWUc="
           render={({ state, fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
