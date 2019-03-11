@@ -1,0 +1,18 @@
+{% extends 'index-admin-base.html' %}
+
+{% block info_admin %}
+    <div class='container'>
+        <div class='row'>
+            <div class='col-sm'></div>
+            <div class='col-sm'>
+                <h3 style='text-align:center;margin:2%'>Edit Profile</h3>
+                <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
+                    {% csrf_token %}
+                    {{ edit_form }}
+                    <input style="width: 29%;margin-top: 1em;" type="submit" value="Edit" class="btn btn-primary">                        
+                </form>
+            </div>
+            <div class='col-sm'></div>
+        </div>
+    </div>
+{% endblock %}

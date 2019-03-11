@@ -1,0 +1,106 @@
+{% extends 'index-admin-base.html' %}
+
+{% block info_admin %}
+<h3 style='text-align: center;margin: 2%;'>Profile user</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm"><img class='rounded-circle' style="padding: 1%;width: 50%;float: right;" src={{ profile_photo }} /></div>
+            <div class="col-sm">
+                <p> Username: {{profile.name}} {{profile.surname}}</p>
+                <p> Age: {{age}} </p>
+                <p> Status: {{profile.status}} </p>
+                <p> Birthday: {{birthday}}</p>
+                <p> Email: {{profile.email}}</p>
+                <p> Last seen: {{profile.last_seen}} </p>
+                <p style="margin-bottom: 1%;line-height: 2;width:50%;"><a href="/user/{{ profile.id }}/edit"><button class="btn btn-primary" type="submit" style="width:70%;">Edit</button></a></p>
+                <p style="margin: 0;line-height: 2;home-userwidth:50%;"><a href="/user/{{ profile.id }}/delete"><button class="btn btn-primary" type="submit" style="background: #EF5350; width:70%;" >Delete</button></a></p>
+            </div>
+        </div>
+    </div>
+<h3 style='text-align: center;margin: 2%;'>Statistic user</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+<h3 style='text-align: center;margin: 2%;'>Checker user</h3>
+    <div class="container">
+        <div class="row" style="padding: 5%;padding-top: 0;padding-left:0;padding-right:0;">
+            <div class="col">
+            <div class="container list-group" style="border-bottom: black 1px outset;">
+                <div class="row">
+                    <div class="col-sm">
+                        <p style="text-align:center;margin: 0;line-height: 2;">Full name</p>
+                    </div>
+                    <div class="col-sm">
+                        <p style="text-align:center;margin: 0;line-height: 2;">Status</p>
+                    </div>
+                    <div class="col-sm">
+                        <p style="text-align:center;margin: 0;line-height: 2;">Time</p>
+                    </div>
+                </div>
+            </div>
+            <div class="userjoin-block">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="container list-group">
+                            {% for i in seen %}
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <p style="text-align:center;margin: 0;line-height: 2;">{{ i.name }}</p>
+                                    </div>
+                                    <div class="col-sm">
+                                        <p style="text-align:center;margin: 0;line-height: 2;">{{ i.status }}</p>
+                                    </div>
+                                    <div class="col-sm">
+                                        <p style="text-align:center;margin: 0;line-height: 2;">{{ i.time }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var users = [];
+    var names = [];
+    var data = [];
+    // var req = new XMLHttpRequest();
+    // req.open('GET', 'http://localhost:8000/api', s)
+    fetch('http://localhost:8000/api-attendance', {"Content-Type": "application/json"})
+    .then((res) => {
+        return res.json()
+    })
+    .then((att) => {
+        for(var i in att){
+            names.push(att[i].fields.name)
+            data.push(att[i].fields.attendance)
+        }
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: names,
+                datasets: [{
+                    label: "Attendance in this month",
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: data,
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+    })
+    .catch((err) => {console.error(err)});
+</script>
+
+{% endblock %}
