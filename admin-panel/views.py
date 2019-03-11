@@ -1,26 +1,13 @@
 import os
-import json
-import shutil
-import calendar
-import datetime
-import bcrypt
-import requests
 
 from django.conf import settings
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import HttpResponseRedirect, render
 from django.http import  HttpResponse
-from django.core import serializers
-from django.contrib import messages
 
 from .forms import MerchForm, NewsForm
 from .models import Merch, News
-
-def calculate_age(born):
-    today = datetime.date.today()
-    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 
 @login_required
