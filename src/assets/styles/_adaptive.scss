@@ -15,6 +15,33 @@
   * {
     box-sizing: border-box;
   }
+  .main-container {
+    .logo-container {
+      .center-wrapper {
+        .header-stars {
+          font-size: $f42;
+          top: 0;
+        }
+        .scale {
+          transform: scale(1);
+        }
+        .main-logo {
+          width: $f400 + $f610;
+          height: 130px;
+          background-size: $f400 + $f610 $f233;
+          margin-bottom: $f110;
+        }
+      }
+    }
+  }
+
+  .donate-block {
+    width: $f400 + $f610;
+    .btn-support {
+      height: $f144;
+      font-size: $f68;
+    }
+  }
 }
 
 $gray-dark: gray;
@@ -30,6 +57,7 @@ $gray-dark: gray;
   margin: 0;
   background: black;
   opacity: 0.9;
+  padding: 0;
   &.hide {
     display: none;
   }
