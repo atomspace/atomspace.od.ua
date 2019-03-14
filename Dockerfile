@@ -5,7 +5,7 @@ LABEL name="atomspace" version="1.0.0"
 
 ENV NODE_ENV "development"
 
-EXPOSE 3000
+EXPOSE 3000:3000
 
 WORKDIR /root
 
