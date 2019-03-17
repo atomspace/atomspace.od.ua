@@ -1,7 +1,8 @@
 {
-  "name": "landing",
-  "version": "0.1.0",
+  "name": "atomspace.od.ua",
+  "version": "1.0.0",
   "private": true,
+  "homepage": "https://github.com/atomspace/atomspace.od.ua",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@babel/plugin-transform-react-jsx": "7.1.6",
@@ -66,7 +67,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "server": "python3 server/manage.py runserver"
+    "server": "python3 server/manage.py runserver",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -122,5 +125,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
