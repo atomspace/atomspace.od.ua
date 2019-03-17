@@ -5,12 +5,10 @@ LABEL name="atomspace" version="1.0.0"
 
 ENV NODE_ENV "development"
 
-WORKDIR /app
+WORKDIR /client
 
-COPY src /app
+COPY client /client
 
-# RUN npm i 
+RUN npm i 
 
-EXPOSE 3000
-
-# ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["node", "scripts/start.js"]

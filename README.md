@@ -23,4 +23,4 @@ install
 ```docker build ./ --tag atomspace```
 
 ## Run
-```docker run -p 3000:3000 atomspace```
+```docker run -d -p 3000:3000 atomspace```
