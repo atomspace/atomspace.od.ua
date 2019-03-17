@@ -27,15 +27,15 @@ def mentors(request):
         post.number = data['number']
         post.email = data['email']
         post.information = data['information']
+        post.save()
         
-        # post.save()
 
         # TODO fix sending to email mentor
-        subject = 'Request to become a mentor'
-        from_email = settings.EMAIL_HOST_USER
-        to_email = [data['email']]
-        contact_message = f'Name: {data["name"]}\nPhone number: {data["number"]}\nE-mail: {data["email"]}\nInfo: {data["information"]}\n'
-        send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
+        # subject = 'Request to become a mentor'
+        # from_email = settings.EMAIL_HOST_USER
+        # to_email = [data['email']]
+        # contact_message = f'Name: {data["name"]}\nPhone number: {data["number"]}\nE-mail: {data["email"]}\nInfo: {data["information"]}\n'
+        # send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
 
         return JsonResponse({
             "errors": [],
@@ -63,13 +63,18 @@ def residents(request):
         return HttpResponse('It is API route, do not use it as web page')
 
     if request.method == 'POST':
+        data = json.loads(request.body.decode('utf-8'))
         post = Resident()
-        post.name = request.POST['name']
-        post.email = request.POST['email']
-        post.number = request.POST['number']
-        birth = '{}/{}/{}'.format(request.POST['date_day'],
-                                    request.POST['date_month'], request.POST['date_year'])
-        post.date = birth
+        post.name = data['name']
+        post.email = data['email']
+        post.number = data['number']
+        # birth = '{}/{}/{}'.format(request.POST['date_day'],
+        #                             request.POST['date_month'], request.POST['date_year'])
+
+        # ------------- temporary --------------
+        post.date = '05/02/2003'
+        # --------------------------------------
+
         post.save()
         # subject = 'Request to resident'
         # from_email = settings.EMAIL_HOST_USER
