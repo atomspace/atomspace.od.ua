@@ -23,7 +23,8 @@ export const createApiRequest = (url, data, method = 'GET', isCached = true) => 
           return res.json();
         })
         .then(user => {
-          res(JSON.parse(user)); // iliakan
+          console.log(user);
+          res(user);
         })
         .catch(err => {
           console.error(err);

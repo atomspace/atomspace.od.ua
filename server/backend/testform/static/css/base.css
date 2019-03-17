@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.login-block {
+    position: relative;
+    top: 75px;
+    margin: 0;
+}
+
+.camera-block {
+    background: black;
+    width: 50vh;
+    height: 50vh;
+}
+
+.form-block {
+    width: 100%;
+}
+
+.userjoin-block {
+    overflow-y: scroll;
+    max-height: 50vh;
+}
+
+.form-group {
+    width: 100%;
+    padding-left: 15px;
+    margin-bottom: 5%;
+}
+
+textarea {
+    resize: none;
+}
+
+.side-bar{
+    position: relative;
+    width: 20vw;
+    background-color: white;
+    text-align: center;
+}
+.side-bar h1{
+    border-bottom: 0.2rem solid grey;
+    padding: 1.3rem;
+}
+
+.sidebar-item{
+    display: flex;
+    height: 8%;
+    border-bottom: 0.2rem solid grey;
+    transition: all 0.5s;
+    padding: 5px;
+    width: 100%;
+}
+
+.sidebar-item:hover{
+    background-color: gray;
+    color: white;
+}
+
+.sidebar-item-text{
+    margin: auto;
+}
+
+.content {
+    background-color: white;
+    width: 80vw;
+    border-left: 0.3rem solid gray;
+}
+
+.form{
+    width: 50%;
+    margin: auto;
+    padding-top: 2vw;
+}
+
+.form h3{
+    text-align: center;
+}
+
+img.add-button{
+    width: 4vw;
+}
+
+.add-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    transition: all 0.5s;
+}
+
+.add-item:hover{
+    background-color: gray;
+    color: white;
+}
+
+.list-join {
+    display: flex !important;
+    justify-content: center;
+}
+
+.list-text {
+    text-align: center;
+    margin: 2%;
+}
+
+.register-buttom {
+    padding: 0 15px 0 15px;
+}
+
+.register-text {
+    width: 100%;
+    line-height: 2;
+    text-align: center;
+}
