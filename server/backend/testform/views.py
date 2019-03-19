@@ -31,11 +31,11 @@ def mentors(request):
         
 
         # TODO fix sending to email mentor
-        # subject = 'Request to become a mentor'
-        # from_email = settings.EMAIL_HOST_USER
-        # to_email = [data['email']]
-        # contact_message = f'Name: {data["name"]}\nPhone number: {data["number"]}\nE-mail: {data["email"]}\nInfo: {data["information"]}\n'
-        # send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
+        subject = 'Request to become a mentor'
+        from_email = settings.EMAIL_HOST_USER
+        to_email = [data['email']]
+        contact_message = f'Name: {data["name"]}\nPhone number: {data["number"]}\nE-mail: {data["email"]}\nInfo: {data["information"]}\n'
+        send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
 
         return JsonResponse({
             "errors": [],
