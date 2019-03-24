@@ -37,15 +37,18 @@ export default () => {
   ];
   return (
     <div className="section edu-container">
-      <div className="edu-items">
-        {eduItems.map((item, index) => (
-          <div key={index} className="edu-item">
-            <div className="edu-item__layout flex flex-col flex-acen flex-jcen">
-              <div className={`edu-item__${item.logo}`}/>
-              <div className="edu-item__text">{item.text}</div>
+      <div className="edu-wrapper">
+        <div className="main-text">{`ПРОГРАММЫ ATOM SPACE`}</div>
+        <div className="edu-items">
+          {eduItems.map((item, index) => (
+            <div key={index} className="edu-item">
+              <div className="edu-item__layout flex flex-col flex-acen flex-jcen">
+                <div className={`edu-item__${item.logo}`} />
+                <div className="edu-item__text">{item.text}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

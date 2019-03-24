@@ -9,19 +9,11 @@
     width: $f610 + $f610 + $f89;
     position: relative;
     margin-left: $f233;
-    .blog-main-text {
-      margin-bottom: $f110;
-      text-align: center;
-      font-size: $f16;
-      position: absolute;
-      top: -$f144;
-    }
     .blog-skill-blocks {
       display: flex;
       width: 100%;
       flex-wrap: wrap;
       justify-content: space-around;
-
       .blog-skill-item {
         display: flex;
         width: $f400 + $f178;

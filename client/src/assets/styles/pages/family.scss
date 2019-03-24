@@ -76,6 +76,44 @@
             margin-top: $f34;
           }
         }
+        &__quote-block {
+          position: relative;
+          width: $f610;
+          height: $f144;
+          left: $f178;
+          top: $f110;
+          .quotes {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+            &:before,
+            &:after {
+              content: "";
+              position: absolute;
+              background: url(../../assets/images/icons/quotes-family.svg)
+                no-repeat center/cover;
+              width: $f68 + $f3;
+              height: $f55;
+            }
+            &:before {
+              left: 0;
+              top: 0;
+            }
+            &:after {
+              bottom: 0;
+              right: 0;
+              transform: rotate(180deg);
+            }
+            .quote-text {
+              font-family: OpenSans-LightItalic;
+              font-style: italic;
+              width: 88%;
+              font-size: $f21 + $f3;
+              line-height: $f26;
+            }
+          }
+        }
       }
     }
   }

@@ -4,7 +4,7 @@ class Blog extends Component {
   state = {};
   render() {
     const mainText =
-      '"Самообучаться, помогать реализовывать собственные идеи и встречать единомышленников", Миссия Atom Space';
+      'Ценности ATOM SPACE';
 
     const skillsData = [
       {
@@ -35,7 +35,7 @@ class Blog extends Component {
     return (
       <div className="section blog-container">
         <div className="blog-wrapper flex flex-acent flex-jcent">
-          <div className="blog-main-text">{mainText}</div>
+          <div className="main-text">{mainText}</div>
           <div className="blog-skill-blocks">
             {skillsData.map((skill, index) => (
               <div key={index} className="blog-skill-item">

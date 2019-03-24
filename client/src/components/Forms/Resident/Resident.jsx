@@ -17,7 +17,6 @@ export class Resident extends Component {
   };
   createResident = async () => {
     let user = this.state.user;
-    console.log(user);
     this.setState({isDisabled: true});
     await createResident(user);
     this.setState({isDisabled: false});

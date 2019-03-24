@@ -17,7 +17,6 @@ export class Mentor extends Component {
   };
   createMentor = async () => {
     let user = this.state.user;
-    console.log(user);
     this.setState({ isDisabled: true });
     try {
       await createMentor(user);
