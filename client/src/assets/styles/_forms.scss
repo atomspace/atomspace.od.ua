@@ -20,9 +20,10 @@
         &__header {
           color: $black-color;
           font-size: $f55;
-          font-weight: 700;
-          text-transform: uppercase;
           letter-spacing: 0.5px;
+          font-weight: 900;
+          line-height: $f55 + $f8;
+          text-transform: uppercase;
         }
         &__text {
           width: $f400 + $f89;
@@ -48,6 +49,9 @@
         outline: none;
         border-bottom: 1px solid $black-color;
         border-color: rgba(0, 0, 0, 0.3);
+        &:focus {
+          border-bottom-color: $border-color-orange;
+        }
       }
       > div:nth-child(3) {
         margin-bottom: $f178;
@@ -62,7 +66,7 @@
   }
   .atom-logo {
     position: absolute;
-    background-image: url(../images/icons/AtomSpace-logo-dark.png);
+    background-image: url(../images/icons/logos/AtomSpace-logo-dark.svg);
     display: block;
     height: $f68;
     background-size: $f178;
@@ -74,14 +78,17 @@
     left: auto;
   }
   .close-dialog-btn {
-      width: 30px;
-      height: 30px;
-      background: url(../images/icons/close.svg) center/contain;
-      position: absolute;
-      left: auto;
-      right: 30px;
-      top: 30px;
-      opacity: 0.3;
-      cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background: url(../images/icons/close.svg) center/contain;
+    position: absolute;
+    left: auto;
+    right: 30px;
+    top: 30px;
+    opacity: 0.3;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
   }
 }

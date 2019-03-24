@@ -30,11 +30,10 @@ $left-gradient-color: rgb(212, 163, 74);
         opacity: 0.8;
         transition: opacity 0.1s linear;
       }
-      @each $logo in rocket, css-html, tasks, rocket-from-monitor, js, abc,
-        python, wordpress
+      @each $logo in wordpress, book, checklist, computer-rocket, layout, python, rocket, scripts
       {
         &__#{$logo}-logo {
-          background: url(../images/icons/#{$logo}-edu.svg) no-repeat center/contain;
+          background: url(../images/icons/edu/#{$logo}-logo.svg) no-repeat center/contain;
           height: $f110;
           width: $f110;
           margin-bottom: $f8;

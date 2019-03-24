@@ -6,7 +6,7 @@
 
 .atom-logo {
   position: relative;
-  background-image: url(../images/icons/AtomSpace-logo.png);
+  background-image: url(../images/icons/logos/AtomSpace-logo.svg);
   left: -$f5;
   display: block;
   height: 110px;
@@ -29,7 +29,7 @@
   }
 
   .facebook {
-    background: url(../images/icons/facebook-light.svg) no-repeat center/contain;
+    background: url(../images/icons/soc/facebook-light.svg) no-repeat center/contain;
     opacity: 0.8;
     display: block;
     &:hover {
@@ -37,7 +37,7 @@
     }
   }
   .instagram {
-    background: url(../images/icons/instagram-light.svg) no-repeat
+    background: url(../images/icons/soc/instagram-light.svg) no-repeat
       center/contain;
     display: block;
     opacity: 0.8;
@@ -46,7 +46,7 @@
     }
   }
   .linkedin {
-    background: url(../images/icons/linkedin-light.svg) no-repeat center/contain;
+    background: url(../images/icons/soc/linkedin-light.svg) no-repeat center/contain;
     display: block;
     opacity: 0.8;
     &:hover {
@@ -194,10 +194,10 @@ li {
       }
       &.light_theme {
         .instagram {
-          background: url(../images/icons/instagram-dark.svg) no-repeat;
+          background: url(../images/icons/soc/instagram-dark.svg) no-repeat;
         }
         .facebook {
-          background: url(../images/icons/facebook-dark.svg) no-repeat;
+          background: url(../images/icons/soc/facebook-dark.svg) no-repeat;
         }
         .list-item {
           &:hover {
@@ -213,7 +213,7 @@ li {
     }
     &__right {
       .atom-logo {
-        background-image: url(../images/icons/AtomSpace-logo.png);
+        background-image: url(../images/icons/logos/AtomSpace-logo.svg);
       }
       .list {
         display: flex;
@@ -251,7 +251,7 @@ li {
       }
       &.light_theme {
         .atom-logo {
-          background-image: url(../images/icons/AtomSpace-logo-dark.png);
+          background-image: url(../images/icons/logos/AtomSpace-logo-dark.svg);
         }
         .list {
           .dot {

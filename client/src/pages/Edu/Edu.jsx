@@ -7,23 +7,23 @@ export default () => {
       text: "Space management - управление проектами"
     },
     {
-      logo: "css-html-logo",
+      logo: "layout-logo",
       text: "HTML/CSS - основы"
     },
     {
-      logo: "tasks-logo",
+      logo: "checklist-logo",
       text: "Курс тестирования web - приложений"
     },
     {
-      logo: "rocket-from-monitor-logo",
+      logo: "computer-rocket-logo",
       text: "Space Marketing"
     },
     {
-      logo: "js-logo",
+      logo: "scripts-logo",
       text: "JavaScript"
     },
     {
-      logo: "abc-logo",
+      logo: "book-logo",
       text: "Английский язык"
     },
     {

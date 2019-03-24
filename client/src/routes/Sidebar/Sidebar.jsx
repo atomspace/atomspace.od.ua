@@ -67,8 +67,8 @@ class Sidebar extends Component {
         <RightSidebar {...this.props} />
         <nav className="small-nav">
           <ul className={ulClass}>
-            {links.map(link => (
-              <li>
+            {links.map((link, index) => (
+              <li key={index}>
                 <a href={link.href} onClick={this.toggleNav.bind(this, true)}>
                   {link.text}
                 </a>
@@ -77,21 +77,19 @@ class Sidebar extends Component {
           </ul>
           <div>
             {this.state.isNavOpened ? (
-              <a
-                href="#"
-                class="nav_toggle"
+              <button
+                className="nav_toggle"
                 onClick={this.toggleNav.bind(this, false)}
               >
                 <span>&nbsp;</span>
-              </a>
+              </button>
             ) : (
-              <a
-                href="#"
-                class="nav_toggle cross"
+              <button
+                className="nav_toggle cross"
                 onClick={this.toggleNav.bind(this, true)}
               >
                 <span>&nbsp;</span>
-              </a>
+              </button>
             )}
           </div>
         </nav>

@@ -1,15 +1,15 @@
 import React from "react";
 import AnimatePlanet from "./AnimatePlanet";
-import AtomSpaceLogo from "../../assets/images/icons/AtomSpace-logo-vertical.png";
+const mainText = `образовательное  Tech - пространство для подростков`;
 class Main extends React.Component {
   render() {
     return (
       <div className="section main-container">
         <div className="logo-container">
           <div className="center-wrapper">
-            <div className="header-stars">{`Вперед к звездам`}</div>
+            <div className="header-stars">{mainText}</div>
             <AnimatePlanet />
-            <div className="main-logo" src={AtomSpaceLogo} />
+            <div className="main-logo"/>
             <div className="donate-block">
               <a
                 className="btn btn-support btn-donate"

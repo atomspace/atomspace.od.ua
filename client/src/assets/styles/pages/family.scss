@@ -103,7 +103,7 @@
   border: none;
   outline: none;
   z-index: 20;
-  background-image: url(../images/icons/arrow.png) !important;
+  background-image: url(../images/icons/arrow.svg) !important;
   width: $f89;
   background-repeat: no-repeat;
   opacity: 0.7;
@@ -111,13 +111,13 @@
     left: -$f110;
     transform: rotate(180deg);
     &:hover {
-      background: url(../images/icons/arrow.png) no-repeat !important;
+      background: url(../images/icons/arrow.svg) no-repeat !important;
     }
   }
   &-next {
     right: -$f110;
     &:hover {
-      background: url(../images/icons/arrow.png) no-repeat !important;
+      background: url(../images/icons/arrow.svg) no-repeat !important;
     }
   }
   &:before {

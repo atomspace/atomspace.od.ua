@@ -42,6 +42,57 @@
       font-size: $f68;
     }
   }
+
+  .edu-container {
+    .edu-items {
+      .edu-item {
+        
+      }
+    }
+  }
+  .blog-container {
+    .blog-wrapper {
+      margin: 0 auto;
+      .blog-main-text {
+        display: none;
+      }
+      .blog-skill-blocks {
+        flex-direction: column;
+        width: initial;
+        .blog-skill-item {
+          width: $f610 + $f400 + $f110;
+          margin-right: $f68;
+          margin: 0 auto;
+          margin-bottom: $f26;
+          text-align: center;
+          > div {
+            margin: 0 auto;
+            margin-bottom: $f55;
+          }
+          &__header {
+            margin-bottom: $f55;
+            font-size: $f68;
+          }
+          &__mind-logo {
+            font-size: $f34;
+            height: $f400;
+            width: $f400;
+          }
+          &__people-logo {
+            height: $f400;
+            width: $f400;
+          }
+          &__puzzle-logo {
+            height: $f400;
+            width: $f400;
+          }
+          &__description {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
 
 $gray-dark: gray;

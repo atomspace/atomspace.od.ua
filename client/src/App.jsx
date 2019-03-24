@@ -82,8 +82,8 @@ class App extends Component {
               <ReactFullpage.Wrapper>
                 <Main />
                 <About />
-                <Edu />
                 <Blog />
+                <Edu />
                 <Family />
                 <Store
                   size={this.state.size}
