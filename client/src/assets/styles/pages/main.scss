@@ -6,8 +6,10 @@
     height: 100%;
     flex-direction: column;
     .center-wrapper {
+      position: relative;
+      top: -$f55;
+      text-align: center;
       .header-stars {
-        top: $f68;
         opacity: 0.31;
         color: #ffffff;
         font-size: $f13;
@@ -18,20 +20,17 @@
         text-transform: uppercase;
         letter-spacing: 0.52px;
       }
-      position: relative;
-      top: -$f10;
-      text-align: center;
-
       .scale {
         opacity: 0.4;
-        transform: scale(0.7);
+        transform: scale(1);
         width: 100%;
         height: $f288;
         position: relative;
         left: -$f55;
+        top: -$f34;
       }
       .main-logo {
-        background-image: url(../images/icons/AtomSpace-logo-vertical.png);
+        background-image: url(../images/icons/logos/AtomSpace-logo-vertical.svg);
         background-repeat: no-repeat;
         background-position: center;
         width: $f400 + $f110;

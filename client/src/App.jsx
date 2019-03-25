@@ -12,8 +12,8 @@ import Form from "./components/Forms/Form";
 export const urls = [
   "main",
   "about",
-  "edu",
   "blog",
+  "edu",
   "family",
   "store",
   "contacts"
@@ -29,19 +29,19 @@ class App extends Component {
     }
   };
   closeForm = () => {
-    console.log("Close");
     this.setState(state => ({ ...state, form: null }));
-    console.log(window.location);
     window.location.hash = "";
   };
   changeDialog(hash) {
-    if (hash === "#residentForm") {
-      this.setState(state => ({ ...state, form: "resident" }));
-    } else if (hash === "#mentorForm") {
-      this.setState(state => ({ ...state, form: "mentor" }));
-    } else {
-      this.setState(state => ({ ...state, form: null }));
-    }
+    this.setState(state => ({
+      ...state,
+      form:
+        hash === "#mentorForm"
+          ? "mentor"
+          : hash === "#residentForm"
+          ? "resident"
+          : null
+    }));
   }
   handleDialog = e => {
     this.changeDialog(e.target.hash);
@@ -50,7 +50,7 @@ class App extends Component {
   componentDidMount() {
     this.changeDialog(window.location.hash);
   }
-  
+
   changeMerchAttr = prop => {
     this.setState({
       order: { ...this.state.order, ...prop }
@@ -76,14 +76,14 @@ class App extends Component {
         <ReactFullpage
           anchors={urls}
           onLeave={this.pageOnChange}
-          licenseKey="YWx2YXJvdHJpZ28uY29tX0EyMlpISmhaMEZ1WkUxdmRtVT0wWUc="
+          licenseKey="OPEN-SOURCE-GPLV3-LICENSE"
           render={({ state, fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
                 <Main />
                 <About />
-                <Edu />
                 <Blog />
+                <Edu />
                 <Family />
                 <Store
                   size={this.state.size}

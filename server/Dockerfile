@@ -9,7 +9,12 @@ WORKDIR /server
 
 COPY ./ /server
 
-# RUN npm i 
+RUN apk add --no-cache --virtual .build-deps build-base \
+    linux-headers jpeg-dev zlib-dev
+RUN pip3 install setuptools 
+RUN pip3 install Django
+RUN pip3 install django-rest-framework
+RUN pip3 install django-cors-headers 
+RUN pip3 install Pillow 
 
-# Тут вызов команды что запускается когда происходит docker run, все что выше этой команды запускается при docker build.
-# ENTRYPOINT ["node", "scripts/start.js"]
+ENTRYPOINT ["python3", "backend/manage.py", "runserver"]

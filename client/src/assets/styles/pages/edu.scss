@@ -4,60 +4,71 @@ $left-gradient-color: rgb(212, 163, 74);
 .edu-container {
   display: flex;
   align-items: center;
-  .edu-items {
-    width: $f400 + $f610 + $f233;
+  .edu-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    .edu-item {
-      width: $f233;
-      height: $f233;
-      background: black;
-      border-radius: 50%;
-      margin: $f21;
-      background: linear-gradient(
-        45deg,
-        $left-gradient-color,
-        $right-gradient-color
-      );
-      cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    width: 68.189vw;
+    position: relative;
+    margin-left: 12.135vw;
+    .edu-items {
+      width: $f400 + $f610 + $f233;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      margin: 0 auto;
       justify-content: center;
-      position: relative;
-      &:hover{
-        opacity: 0.8;
-        transition: opacity 0.1s linear;
-      }
-      @each $logo in rocket, css-html, tasks, rocket-from-monitor, js, abc,
-        python, wordpress
-      {
-        &__#{$logo}-logo {
-          background: url(../images/icons/#{$logo}-edu.svg) no-repeat center/contain;
-          height: $f110;
-          width: $f110;
-          margin-bottom: $f8;
+      .edu-item {
+        width: $f233;
+        height: $f233;
+        background: black;
+        border-radius: 50%;
+        margin: $f21;
+        background: linear-gradient(
+          45deg,
+          $left-gradient-color,
+          $right-gradient-color
+        );
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        &:hover {
+          opacity: 0.8;
+          transition: opacity 0.1s linear;
+        }
+        @each $logo in wordpress, book, checklist, computer-rocket, layout,
+          python, rocket, scripts
+        {
+          &__#{$logo}-logo {
+            background: url(../images/icons/edu/#{$logo}-logo.svg)
+              no-repeat
+              center/contain;
+            height: $f110;
+            width: $f110;
+            margin-bottom: $f8;
+            position: relative;
+          }
+        }
+        &__text {
+          text-align: center;
+          font-size: $f16;
+          color: $black-color;
           position: relative;
         }
-      }
-      &__text {
-        text-align: center;
-        font-size: $f16;
-        color: $black-color;
-        position: relative;
-      }
-      &__layout {
-        margin-bottom: $f5;
-        width: $f144;
-      }
-      &::before {
-        content: " ";
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 50%;
+        &__layout {
+          margin-bottom: $f5;
+          width: $f144;
+        }
+        &::before {
+          content: " ";
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 50%;
+        }
       }
     }
   }

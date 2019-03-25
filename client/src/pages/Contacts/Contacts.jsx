@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Rocket from "../../assets/images/icons/rocket-donate.png";
+import Rocket from "../../assets/images/icons/rocket-donate.svg";
 
 class Contacts extends Component {
   state = {};

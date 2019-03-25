@@ -1,17 +1,9 @@
 import { createApiRequest } from "./base";
 
 export const createResident = async data => {
-  try {
-    return await createApiRequest("/residents", "POST", data);
-  } catch (e) {
-    console.log(e);
-  }
+  return await createApiRequest("/residents", "POST", data);
 };
 
 export const getAllResidents = async () => {
-    try {
-      return await createApiRequest("/residents", "GET");
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  return await createApiRequest("/residents", "GET");
+};

@@ -23,22 +23,22 @@ export default class Family extends React.Component {
         id: 0,
         name: "Анна Деревянко",
         position: "CEO",
-        avatar: 'anna',
+        avatar: "anna",
         facebook: "https://www.facebook.com/anna.derevyankoo"
       },
       {
         id: 1,
         name: "Ксения Ярмолович",
         position: "Event Manager",
-        avatar: 'kseniya',
-        facebook: "https://www.facebook.com/yarmolovi4",
+        avatar: "kseniya",
+        facebook: "https://www.facebook.com/yarmolovi4"
       },
       {
         id: 1,
         name: "Вероника Ильницкая",
         position: "PR Manager",
-        avatar: 'veronika',
-        facebook: "https://www.facebook.com/verilnitskaya",
+        avatar: "veronika",
+        facebook: "https://www.facebook.com/verilnitskaya"
       }
     ];
     const settings = {
@@ -64,7 +64,10 @@ export default class Family extends React.Component {
               {people.map((emp, index) => (
                 <div key={index} className="carousel-block">
                   <div className="carousel-info__photo">
-                    <div className={`photo-logo ${emp.avatar}`} alt={emp.avatar} />
+                    <div
+                      className={`photo-logo ${emp.avatar}`}
+                      alt={emp.avatar}
+                    />
                   </div>
                 </div>
               ))}
@@ -94,6 +97,13 @@ export default class Family extends React.Component {
                   }}
                   classes={"flex soc-icons"}
                 />
+              </div>
+              <div className="carousel-info__quote-block">
+                <div className="quotes">
+                  <p className="quote-text">
+                    {`Мы создаем возможности для талантливых подростков, которые мечтают строить будущее с помощью инновационных технологий.`}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

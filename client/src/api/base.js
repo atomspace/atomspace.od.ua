@@ -27,7 +27,7 @@ export const createApiRequest = (url, data, method = 'GET', isCached = true) => 
           res(user);
         })
         .catch(err => {
-          console.error(err);
+          rej(err);
         });
     });
   };

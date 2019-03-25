@@ -17,7 +17,6 @@ export class Resident extends Component {
   };
   createResident = async () => {
     let user = this.state.user;
-    console.log(user);
     this.setState({isDisabled: true});
     await createResident(user);
     this.setState({isDisabled: false});
@@ -36,7 +35,7 @@ export class Resident extends Component {
     return (
       <section className={"flex flex-acen resident-form-container"}>
         <Bubble big animate style={{ bottom: 453, left: 451 }} />
-        <Bubble semiMiddle animate style={{ bottom: 453, left: 751, opacity: 1 }} />
+        <Bubble semiMiddle animate style={{ bottom:  "19vw", left: "38vw", opacity: 1 }} />
         <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2 }} />
         <div className="form-blocks flex flex-cen">
           <div className="form-maintext-block">
