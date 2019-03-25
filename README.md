@@ -13,6 +13,7 @@ install
 ```Django```
 ```django-rest-framework```
 ```django-cors-headers```
+```Pillow```
 ## Start server
 
 ```cd ./server```
