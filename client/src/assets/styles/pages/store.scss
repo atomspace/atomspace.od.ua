@@ -30,10 +30,15 @@
           .slick-slide {
             -webkit-transition: all 0.3s ease-out;
             transition: all 0.3s ease-out;
+            opacity: 0.2;
+          }
+          .slick-active {
+            opacity: 0.4;
           }
           .slick-center {
             -webkit-transform: scale(1.8);
             transform: scale(1.8);
+            opacity: 1;
           }
           .slick-track {
             display: flex;

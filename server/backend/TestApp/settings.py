@@ -133,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = os.path.join(BASE_DIR, 'testform/static/')
 LOGIN_URL = 'login/'
-LOGIN_REDIRECT_URL = '/api/v1/merch'
+LOGIN_REDIRECT_URL = 'merch/'
 
 # CORS_ORIGIN_WHITELIST = 'http://localhost:3000'
 CORS_ORIGIN_ALLOW_ALL = True
