@@ -34,3 +34,12 @@ class News(models.Model):
     news_picture_url = models.ImageField(upload_to='news_photos')
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(null=True)
+    
+class Order(models.Model):
+    first_name = models.CharField(max_length=40)
+    last_name = models.CharField(max_length=40)
+    phone = models.CharField(max_length=13)
+    email = models.EmailField(max_length=50)
+    merch_name = models.CharField(max_length=70)
+    merch_size = models.CharField(max_length=10)
+    merch_cost = models.IntegerField()

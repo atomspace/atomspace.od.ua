@@ -11,10 +11,10 @@ COPY ./ /server
 
 RUN apk add --no-cache --virtual .build-deps build-base \
     linux-headers jpeg-dev zlib-dev
-RUN pip3 install setuptools 
-RUN pip3 install Django
-RUN pip3 install django-rest-framework
-RUN pip3 install django-cors-headers 
-RUN pip3 install Pillow 
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 8000
+
+CMD gunicorn TestApp.wsgi:application --bind 127.0.0.1:8000 --workers 3
 
 ENTRYPOINT ["python3", "backend/manage.py", "runserver"]

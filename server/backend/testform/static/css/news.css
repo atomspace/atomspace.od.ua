@@ -5,7 +5,11 @@
 }
 
 .side-bar{
-    position: relative;
+    position: fixed;
+    border-right: 0.3rem solid gray;
+    margin-top: 3%;
+    z-index: 1;
+    height: 100%;
     width: 20vw;
     background-color: white;
     text-align: center;
@@ -35,8 +39,9 @@
 
 .content {
     background-color: white;
+    margin-left: 20vw;
     width: 80vw;
-    border-left: 0.3rem solid gray;
+    margin-top: 3%;
 }
 
 .form h3{

@@ -12,7 +12,7 @@ from django.shortcuts import HttpResponseRedirect, render
 from django.http import  HttpResponse
 
 from .forms import MerchForm, NewsForm
-from .models import Merch, News, Mentor, Resident
+from .models import Merch, News, Mentor, Resident, Order
 
 
 
@@ -31,7 +31,7 @@ def mentors(request):
         post.save()
         
 
-        # TODO fix sending to email mentor
+        # Sending callback email
         subject = 'Request to become a mentor'
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email']]
@@ -148,7 +148,31 @@ def get_merches(request):
 @csrf_exempt
 def get_news(request):
     news_object = serializers.serialize('json', News.objects.all())
-    return HttpResponse(news_object) 
+    return HttpResponse(news_object)
+
+@csrf_exempt
+def orders(request):
+    if request.method == 'POST': # Create new order
+        data = json.loads(request.body.decode('utf-8'))
+        order = Order()
+        order.first_name = data['name']
+        order.last_name = data['surname']
+        order.phone = data['phone']
+        order.email = data['email']
+        order.merch_name = data['merch_name']
+        order.merch_size = data['merch_size']
+        order.merch_cost = data['merch_cost']
+
+        subject = 'Request to order a merch item'
+        from_email = settings.EMAIL_HOST_USER
+        to_email = [data['email']]
+        contact_message = f'Name: {data["name"]} {data["surname"]}\nPhone number: {data["phone"]}\nE-mail: {data["email"]}\nInfo about merch:\n\nItem: {data["merch_name"]}\nSize: {data["merch_size"]}\nCost: {data["merch_cost"]}'
+        send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
+
+        return JsonResponse({'ok': 'true'})
+    else: # Get all orders
+        orders_list = serializers.serialize('json', Order.objects.all())
+        return HttpResponse(orders_list)
 
 @login_required
 def delete_article(request, pk):

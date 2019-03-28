@@ -10,15 +10,16 @@ from django.views.static import serve
 
 
 urlpatterns = [
-    url(r'^api/v1/mentors', views.mentors, name='mentors'),
-    url(r'^api/v1/residents', views.residents, name='residents'),
-    url(r'^api/v1/merches', views.get_merches, name='get_merches'),
-    url(r'^api/v1/news', views.get_news, name='get_news'),
+    url('api/v1/mentors', views.mentors, name='mentors'),
+    url('api/v1/residents', views.residents, name='residents'),
+    url('api/v1/merches', views.get_merches, name='get_merches'),
+    url('api/v1/news', views.get_news, name='get_news'),
+    url('api/v1/orsers', views.orders, name='orders'),
     path('', views.index, name='index'),
-    path(r'^api/v1/merch', views.merch, name='merch'),
-    path(r'^api/v1/news', views.news, name='news'),
-    path(r'^api/v1/login/', auth_views.LoginView.as_view(template_name='login/index.html')),
-    path(r'^api/v1/logout', views.logout, name='logout'),
+    path('merch', views.merch, name='merch'),
+    path('news', views.news, name='news'),
+    path('login/', auth_views.LoginView.as_view(template_name='login/index.html')),
+    path('logout', views.logout, name='logout'),
     url(r'^news/(?P<pk>\d+)/delete$', views.delete_article, name='delete_article'),
     url(r'^merch/(?P<pk>\d+)/delete$', views.delete_merch, name='delete_merch'),
 ]
