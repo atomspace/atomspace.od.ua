@@ -147,13 +147,15 @@ def news(request):
 
 @csrf_exempt
 def get_merches(request):
-    merches_object = serializers.serialize('json', Merch.objects.all())
-    return HttpResponse(merches_object)
+    merches_object = json.loads(serializers.serialize('json', Merch.objects.all()))
+    new_list = [i['fields'] for i in merches_object]
+    return JsonResponse(new_list, safe=False)
 
 @csrf_exempt
 def get_news(request):
-    news_object = serializers.serialize('json', News.objects.all())
-    return HttpResponse(news_object)
+    news_object = json.loads(serializers.serialize('json', News.objects.all()))
+    new_list = [i['fields'] for i in news_object]
+    return JsonResponse(new_list, safe=False)
 
 @csrf_exempt
 def orders(request):
@@ -176,8 +178,9 @@ def orders(request):
 
         return JsonResponse({'ok': 'true'})
     else: # Get all orders
-        orders_list = serializers.serialize('json', Order.objects.all())
-        return HttpResponse(orders_list)
+        orders_list = json.loads(serializers.serialize('json', Order.objects.all()))
+        new_list = [i['fields'] for i in orders_list]
+        return JsonResponse(new_list, safe=False)
 
 @login_required
 def delete_article(request, pk):
