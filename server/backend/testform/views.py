@@ -21,7 +21,7 @@ def mentors(request):
     if request.method == 'GET':
         mentors_list = json.loads(serializers.serialize('json', Mentor.objects.all()))
         new_list = [i['fields'] for i in mentors_list]
-        return JsonResponse(new_list)
+        return JsonResponse(new_list, safe=False)
         
 
     if request.method == 'POST':
@@ -66,7 +66,7 @@ def residents(request):
     if request.method == 'GET':
         residents_list = json.loads(serializers.serialize('json', Resident.objects.all()))
         new_list = [i['fields'] for i in residents_list]
-        return JsonResponse(new_list)
+        return JsonResponse(new_list,safe=False)
 
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
