@@ -6,9 +6,11 @@ import Merch2 from "../../assets/images/photos/i-need-more-space-shirt.png";
 import Merch3 from "../../assets/images/photos/nlo-shirt.png";
 
 class Store extends Component {
+  
   state = {
     index: 0
   };
+
   merches = [
     {
       type: "shirt",
@@ -35,14 +37,14 @@ class Store extends Component {
       image: Merch3
     }
   ];
-  returnDefaultMerch = () => {
-    return {
-      type: "shirt",
-      cost: 500,
-      name: "i-need-more-space",
-      image: Merch1
-    };
-  };
+
+  returnDefaultMerch = () => ({
+    type: "shirt",
+    cost: 500,
+    name: "i-need-more-space",
+    image: Merch1
+  });
+
   componentDidMount() {
     this.props.changeMerchAttr({
       type: "shirt",
@@ -51,6 +53,7 @@ class Store extends Component {
       image: Merch1
     });
   }
+
   render() {
     const settings = {
       infinite: true,
@@ -78,6 +81,12 @@ class Store extends Component {
     return (
       <div className="section store-container">
         <div className="store-wrapper">
+          <div className="store-main-text">
+          {`хочешь содействовать развитию проекта?`}
+          </div>
+          <div className="store-additional-text">
+          {`Выбирай и носи стильную атомную футболку!?`}
+          </div>
           <div className="carousel-container">
             <Slider {...settings}>
               {this.merches.map((merch, index) => (
