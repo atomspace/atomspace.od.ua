@@ -19,8 +19,10 @@ from .models import Merch, News, Mentor, Resident, Order
 @csrf_exempt
 def mentors(request):
     if request.method == 'GET':
-        mentors_list = serializers.serialize('json', Mentor.objects.all())
-        return HttpResponse(mentors_list)
+        mentors_list = json.loads(serializers.serialize('json', Mentor.objects.all()))
+        new_list = [i['fields'] for i in mentors_list]
+        return JsonResponse(new_list)
+        
 
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
@@ -62,8 +64,9 @@ def mentors(request):
 @csrf_exempt
 def residents(request):
     if request.method == 'GET':
-        residents_list = serializers.serialize('json', Resident.objects.all())
-        return HttpResponse(residents_list)
+        residents_list = json.loads(serializers.serialize('json', Resident.objects.all()))
+        new_list = [i['fields'] for i in residents_list]
+        return JsonResponse(new_list)
 
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
