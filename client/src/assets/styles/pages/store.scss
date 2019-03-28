@@ -1,5 +1,21 @@
 .store-container {
   .store-wrapper {
+    .store-main-text {
+      font-family: OpenSans-Light;
+      font-weight: 300;
+      font-size: $f42;
+      line-height: $f55;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .store-additional-text {
+      font-family: OpenSans-Light;
+      font-weight: 300;
+      font-size: $f34;
+      line-height: $f42;
+      text-align: center;
+      text-transform: capitalize;
+    }
     .carousel-container {
       display: flex;
       justify-content: center;
@@ -71,12 +87,11 @@
     }
   }
 }
-.list{
-  
-  .size-container{
+.list {
+  .size-container {
     font-family: OpenSans-Bold;
     color: $black-color !important;
-    &:hover{
+    &:hover {
       color: $black-color !important;
     }
   }
@@ -84,7 +99,7 @@
     font-family: OpenSans-Bold;
     color: $black-color !important;
     cursor: pointer;
-    &:hover{
+    &:hover {
       color: $black-color !important;
     }
   }
