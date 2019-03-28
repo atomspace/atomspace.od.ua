@@ -12,8 +12,8 @@ from django.views.static import serve
 urlpatterns = [
     url('api/v1/mentors', views.mentors, name='mentors'),
     url('api/v1/residents', views.residents, name='residents'),
-    url('api/v1/merches', views.get_merches, name='get_merches'),
-    url('api/v1/news', views.get_news, name='get_news'),
+    url('api/v1/merches', views.merches, name='merches'),
+    url('api/v1/news', views.news, name='news'),
     url('api/v1/orders', views.orders, name='orders'),
     path('', views.index, name='index'),
     path('merch', views.merch, name='merch'),

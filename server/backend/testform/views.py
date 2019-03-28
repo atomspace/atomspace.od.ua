@@ -146,12 +146,12 @@ def news(request):
         return render(request, 'news/index.html', context)
 
 @csrf_exempt
-def get_merches(request):
+def merches(request):
     merches_object = serializers.serialize('json', Merch.objects.all())
     return HttpResponse(merches_object)
 
 @csrf_exempt
-def get_news(request):
+def news(request):
     news_object = serializers.serialize('json', News.objects.all())
     return HttpResponse(news_object)
 
