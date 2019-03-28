@@ -20,8 +20,9 @@ from .models import Merch, News, Mentor, Resident, Order
 def mentors(request):
     if request.method == 'GET':
         mentors_list = json.loads(serializers.serialize('json', Mentor.objects.all()))
-        new_list = [i['fields'] for i in mentors_list]
-        return JsonResponse(new_list, safe=False)
+        for i in mentors_list:
+            del i['model']
+        return JsonResponse(mentors_list, safe=False)
         
 
     if request.method == 'POST':
@@ -65,8 +66,9 @@ def mentors(request):
 def residents(request):
     if request.method == 'GET':
         residents_list = json.loads(serializers.serialize('json', Resident.objects.all()))
-        new_list = [i['fields'] for i in residents_list]
-        return JsonResponse(new_list,safe=False)
+        for i in residents_list:
+            del i['model']
+        return JsonResponse(residents_list,safe=False)
 
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
@@ -127,7 +129,7 @@ def merch(request):
         return render(request, 'merch/index.html', context)
 
 @login_required
-def news(request):
+def news_template(request):
     if request.method == 'POST':
         f = NewsForm(request.POST, request.FILES)
         if f.is_valid():
@@ -146,16 +148,19 @@ def news(request):
         return render(request, 'news/index.html', context)
 
 @csrf_exempt
-def get_merches(request):
+def merches(request):
     merches_object = json.loads(serializers.serialize('json', Merch.objects.all()))
-    new_list = [i['fields'] for i in merches_object]
-    return JsonResponse(new_list, safe=False)
+    for i in merches_object:
+        del i['model']
+
+    return JsonResponse(merches_object, safe=False)
 
 @csrf_exempt
-def get_news(request):
+def news(request):
     news_object = json.loads(serializers.serialize('json', News.objects.all()))
-    new_list = [i['fields'] for i in news_object]
-    return JsonResponse(new_list, safe=False)
+    for i in news_object:
+        del i['model']
+    return JsonResponse(news_object, safe=False)
 
 @csrf_exempt
 def orders(request):
@@ -179,8 +184,9 @@ def orders(request):
         return JsonResponse({'ok': 'true'})
     else: # Get all orders
         orders_list = json.loads(serializers.serialize('json', Order.objects.all()))
-        new_list = [i['fields'] for i in orders_list]
-        return JsonResponse(new_list, safe=False)
+        for i in orders_list:
+            del i['model']
+        return JsonResponse(orders_list, safe=False)
 
 @login_required
 def delete_article(request, pk):
