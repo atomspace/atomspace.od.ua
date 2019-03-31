@@ -1,19 +1,18 @@
 .store-container {
   .store-wrapper {
+    font-family: OpenSans-Light;
     .store-main-text {
-      font-family: OpenSans-Light;
-      font-weight: 300;
       font-size: $f42;
       line-height: $f55;
       text-align: center;
       text-transform: uppercase;
+      margin-bottom: $f34;
     }
     .store-additional-text {
-      font-family: OpenSans-Light;
-      font-weight: 300;
       font-size: $f34;
       line-height: $f42;
       text-align: center;
+      margin-bottom: $f110;
       text-transform: capitalize;
     }
     .carousel-container {

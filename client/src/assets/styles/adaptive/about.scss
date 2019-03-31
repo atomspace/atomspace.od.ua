@@ -1,0 +1,48 @@
+.about-container {
+  background-position: top;
+  background-size: contain;
+  .about-blocks {
+    display: flex;
+    flex-direction: column;
+
+    .about-maintext-block {
+      width: 230px;
+      left: 27px;
+      &__atomspace {
+        width: 235px;
+        height: 65px;
+        position: relative;
+      }
+      &__text {
+        display: none;
+      }
+      &__text:nth-child(2) {
+        display: block;
+        font-size: 14px;
+        line-height: 24px;
+      }
+      &__text--second {
+        display: none;
+      }
+    }
+    .bubble {
+      display: none;
+    }
+    .bubble.interactive {
+      display: block;
+      $size: $f610 + $f610;
+      width: $size;
+      height: $size;
+      margin-top: 24px;
+      .image-block {
+        .arrow {
+          display: block;
+        }
+        .bubble-image {
+          width: $size;
+          height: $size;
+        }
+      }
+    }
+  }
+}

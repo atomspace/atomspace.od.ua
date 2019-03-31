@@ -9,12 +9,36 @@
   border-radius: 50%;
   height: $f400 + $f178;
   z-index: -10;
-  
-  &-image {
-    content: " ";
+  .image-block {
     position: relative;
-    height: $f400 + $f178;
-    border-radius: 50%;
+    .arrow {
+      display: none;
+      width: 26px;
+      height: 7px;
+      position: absolute;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;      
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+    .left-arrow {
+      background-image: url(#{$path-to-images}/icons/arrow-prev-dark.svg);
+      top: 50%;
+      left: -40px;
+    }
+    .right-arrow {
+      background-image: url(#{$path-to-images}/icons/arrow-next-dark.svg);  
+      top: 50%;
+      right: -40px; 
+    }
+    .bubble-image {
+      content: " ";
+      position: relative;
+      height: $f400 + $f178;
+      border-radius: 50%;
+    }
   }
   &.animate {
     animation-duration: 5s;
@@ -27,12 +51,11 @@
       animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
     }
-    
   }
-  &.semi-middle{
+  &.semi-middle {
     width: $f144;
     height: $f144;
-    &.animate{
+    &.animate {
       animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
     }
@@ -44,7 +67,6 @@
       animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
     }
-    
   }
   &.big {
     width: $f377;
@@ -53,7 +75,6 @@
       animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
     }
-    
   }
 }
 @keyframes bubble-animation {
@@ -62,7 +83,6 @@
   }
   50% {
     transform: translate(-$f10, $f21);
-    
   }
   100% {
     transform: translate(0, 0);

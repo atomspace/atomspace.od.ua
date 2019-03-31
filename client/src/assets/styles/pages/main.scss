@@ -1,4 +1,7 @@
 .main-container {
+  background: url(../images/backgrounds/background-main.svg);
+  background-size: cover;
+  background-position: center;
   .logo-container {
     display: flex;
     justify-content: center;
@@ -37,6 +40,12 @@
         height: 110px;
         background-size: $f400 + $f110 $f110;
         margin-bottom: $f89;
+      }
+      .support-container {
+        display: none;
+      }
+      .bottom-quastion {
+        display: none;
       }
     }
   }

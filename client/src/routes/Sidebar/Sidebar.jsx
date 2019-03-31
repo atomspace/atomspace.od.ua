@@ -42,7 +42,7 @@ class Sidebar extends Component {
       <div className={classes}>
         <LeftSidebar {...this.props} />
         <RightSidebar {...this.props} links={links} />
-        <SmallSidebar links={links} />
+        <SmallSidebar {...this.props} links={links} />
       </div>
     );
   }

@@ -15,6 +15,10 @@
   background-repeat: no-repeat;
 }
 
+.small-nav {
+  display: none;
+}
+
 .soc-icons {
   height: $f26;
   width: $f110;
@@ -288,6 +292,54 @@ li {
           }
         }
       }
+    }
+  }
+}
+
+.small-nav {
+  .nav-list {
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: url(../images/backgrounds/background-gamburger.svg) center/cover
+      no-repeat;
+    &.hide {
+      display: none;
+    }
+    li {
+      margin-bottom: $f42;
+      border: 0;
+      margin-bottom: 20px;
+      a {
+        font-size: $f89;
+        color: white;
+      }
+    }
+  }
+  .nav_toggle,
+  .nav_toggle.cross {
+    width: 34px;
+    height: 29px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  &.light_theme .nav_toggle {
+    background: url(../images/icons/gamburgers/gamburger-main-light.svg)
+      center/cover no-repeat;
+  }
+  .nav_toggle {
+    background: url(../images/icons/gamburgers/gamburger-main-dark.svg)
+      center/cover no-repeat;
+    &.cross {
+      background: url(../images/icons/gamburgers/gamburger-back.svg)
+        center/cover no-repeat;
     }
   }
 }

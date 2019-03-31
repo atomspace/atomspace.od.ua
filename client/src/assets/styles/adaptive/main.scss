@@ -1,0 +1,76 @@
+.main-container .logo-container .center-wrapper {
+    position: inherit;
+    .header-stars {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+      text-transform: uppercase;
+      width: 188px;
+      text-align: center;
+      position: inherit;
+      margin: 0 auto;
+    }
+    .scale {
+      margin-top: 51px;
+      opacity: 0.4;
+      transform: scale(3);
+      width: 100%;
+      position: inherit;
+      height: 15vw;
+      top: -1.77vw;
+      margin-bottom: 80px;
+    }
+    .main-logo {
+      width: 230px;
+      height: 40px;
+      background-size: $f400 + $f610 $f233;
+      margin: 0 auto;
+      margin-bottom: $f110;
+    }
+    .donate-block {
+      display: none;
+    }
+    .support-container {
+      display: block;
+      .support {
+        border: 0;
+        padding: 0;
+        height: 38px;
+        width: 154px;
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+        color: white;
+      }
+      .resident-support {
+        background: url(../images/icons/be-resident-block.svg) center/cover
+          no-repeat;
+        position: absolute;
+        left: 0;
+        padding-right: 24px;
+        color: white;
+      }
+      .mentor-support {
+        background: url(../images/icons/be-mentor-block.svg) center/cover
+          no-repeat;
+        position: absolute;
+        right: 0;
+        padding-left: 24px;
+      }
+    }
+    .bottom-quastion {
+      display: block;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+      text-align: center;
+      text-transform: uppercase;
+      opacity: 0.31;
+      color: $white-color;
+      width: 116px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+  }

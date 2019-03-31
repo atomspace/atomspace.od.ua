@@ -108,7 +108,6 @@ export default class Family extends React.Component {
             </div>
           </div>
         </div>
-        <div className="family-wrapper-bot" />
       </div>
     );
   }

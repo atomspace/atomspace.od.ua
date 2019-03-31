@@ -1,6 +1,6 @@
 import React from "react";
 import AnimatePlanet from "./AnimatePlanet";
-const mainText = `образовательное  Tech - пространство для подростков`;
+const mainText = `образовательное  Tech-пространство для подростков`;
 class Main extends React.Component {
   render() {
     return (
@@ -9,7 +9,7 @@ class Main extends React.Component {
           <div className="center-wrapper">
             <div className="header-stars">{mainText}</div>
             <AnimatePlanet />
-            <div className="main-logo"/>
+            <div className="main-logo" />
             <div className="donate-block">
               <a
                 className="btn btn-support btn-donate"
@@ -17,6 +17,13 @@ class Main extends React.Component {
                 rel="noopener noreferrer"
                 href="https://secure.wayforpay.com/button/b4a090420eb14"
               >{`Поддержать проект`}</a>
+            </div>
+            <div className="bottom-quastion">
+              {`Кем, ты хочешь стать?`}
+            </div>
+            <div className="support-container">
+              <button className="support resident-support">{`Резидентом`}</button>
+              <button className="support mentor-support" >{`Ментором`}</button>
             </div>
           </div>
         </div>

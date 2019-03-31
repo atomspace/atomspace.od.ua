@@ -1,4 +1,5 @@
 import React from "react";
+import * as classnames from "classnames";
 
 export default class Bubble extends React.Component {
   constructor(props) {
@@ -9,55 +10,72 @@ export default class Bubble extends React.Component {
   }
   getDefaultState() {
     return {
-      indexPicture: 0,
+      indexPicture: 0
     };
   }
-  changePicture = () => {
+  prevImage = () => {
     const { image = [] } = this.props;
-
-    if (image.length) {
-      if (this.state.indexPicture !== image.length - 1) {
-        this.setState(state => {
-          return {
-            ...state,
-            indexPicture: this.state.indexPicture + 1,
-          };
-        });
-      } else {
-        this.setState(state => this.getDefaultState());
-      }
+    if (!image.length) return false;
+    if (this.state.indexPicture) {
+      this.setState(state => ({
+        ...state,
+        indexPicture: this.state.indexPicture - 1
+      }));
+    } else {
+      this.setState(state => ({indexPicture: image.length - 1}));
+    }
+  };
+  nextImage = () => {
+    const { image = [] } = this.props;
+    if (!image.length) return false;
+    if (this.state.indexPicture !== image.length - 1) {
+      this.setState(state => ({
+        ...state,
+        indexPicture: this.state.indexPicture + 1
+      }));
+    } else {
+      this.setState(state => this.getDefaultState());
     }
   };
   render() {
-    const { image, animate, big, small, semiMiddle, middle } = this.props;
-    let classes = ["bubble"];
-    middle && classes.push("middle");
-    small && classes.push("small")
-    semiMiddle && classes.push("semi-middle")
-    big && classes.push("big");
-    animate && classes.push("animate");
+    const {
+      image,
+      animate,
+      big,
+      small,
+      semiMiddle,
+      middle,
+      interactive
+    } = this.props;
+    let classes = classnames("bubble", {
+      middle,
+      small,
+      semiMiddle,
+      big,
+      animate,
+      interactive
+    });
     const style = {
-      ...this.props.style,
-    }
-    if(this.props.style.position){
-      style.position = this.props.style.position
-    }else{
-      style.position = 'absolute';
+      ...this.props.style
+    };
+    if (this.props.style.position) {
+      style.position = this.props.style.position;
+    } else {
+      style.position = "absolute";
     }
     return (
-      <div
-        className={classes.join(" ")}
-        style={style}
-        onClick={this.changePicture}
-      >
+      <div className={classes} style={style}>
         {image && (
-          <img
-            src={this.props.image[this.state.indexPicture]}
-            className="bubble-image"
-            alt={"bubble"}
-            // style={style}
-            onClick={this.changePicture}
-          />
+          <div className="image-block">
+            <div className="arrow left-arrow" onClick={this.prevImage} />
+            <img
+              src={this.props.image[this.state.indexPicture]}
+              className="bubble-image"
+              alt={"bubble"}
+              onClick={this.nextImage}
+            />
+            <div className="arrow right-arrow" onClick={this.nextImage} />
+          </div>
         )}
       </div>
     );

@@ -42,9 +42,10 @@ $left-gradient-color: rgb(212, 163, 74);
           python, rocket, scripts
         {
           &__#{$logo}-logo {
-            background: url(../images/icons/edu/#{$logo}-logo.svg)
-              no-repeat
-              center/contain;
+            background: url(../images/icons/edu/#{$logo}-logo.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
             height: $f110;
             width: $f110;
             margin-bottom: $f8;

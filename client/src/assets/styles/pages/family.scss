@@ -1,11 +1,12 @@
 .family-container {
+  background: url(../images/backgrounds/background-family.svg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
   .family-wrapper {
     .carousel-container {
       position: relative;
-      * {
-        border: none !important;
-        outline: none !important;
-      }
+
       .slick-slide,
       .slick-slide:focus * {
         outline: none !important;
@@ -14,6 +15,11 @@
         margin: 0 $f178;
         width: $f610;
         .slick-list {
+          border: 1px solid transparent;
+          padding: 0px;
+          border-radius: 50%;
+          height: $f400 + $f178;
+          width: $f400 + $f178;
           .slick-track {
             display: flex;
             align-items: center;
@@ -34,10 +40,6 @@
             background-position: center center;
             background-size: contain;
             background-repeat: no-repeat;
-            // -moz-box-shadow: inset 0px -650px 500px -500px #28144a;
-            // -webkit-box-shadow: inset 0px -650px 500px -500px #28144a;
-            // -o-box-shadow: inset 0px -650px 500px -500px #28144a;
-            // box-shadow: inset 0px -650px 500px -500px #28144a;
             &.anna {
               background-image: url(../../assets/images/photos/anna-derevyanko.png);
             }
@@ -81,7 +83,6 @@
           width: $f610;
           height: $f144;
           left: $f178;
-          top: $f110;
           .quotes {
             display: flex;
             align-items: center;
@@ -117,22 +118,14 @@
       }
     }
   }
-  .family-wrapper-bot {
-    background: url(../images/backgrounds/background-family-bot.png) no-repeat
-      center/cover;
-    position: absolute;
-    bottom: 0;
-    z-index: 10;
-    width: 100%;
-    top: 0;
-  }
+  
 }
 
 .slick {
   font-size: 0;
   line-height: 0;
   position: absolute;
-  top: 50%;
+  bottom: 0;
   background-position: center;
   display: block;
   padding: 0;
@@ -140,22 +133,23 @@
   cursor: pointer;
   border: none;
   outline: none;
+  top: inherit;
   z-index: 30;
-  background-image: url(../images/icons/arrow.svg) !important;
   width: $f89;
   background-repeat: no-repeat;
   opacity: 0.7;
   &-prev {
     left: -$f110;
-    transform: rotate(180deg);
+    background-image: url(../images/icons/arrow-prev.svg) !important;
     &:hover {
-      background: url(../images/icons/arrow.svg) no-repeat !important;
+      background: url(../images/icons/arrow-prev.svg) no-repeat !important;
     }
   }
   &-next {
     right: -$f110;
+    background-image: url(../images/icons/arrow-next.svg) !important;
     &:hover {
-      background: url(../images/icons/arrow.svg) no-repeat !important;
+      background: url(../images/icons/arrow-next.svg) no-repeat !important;
     }
   }
   &:before {

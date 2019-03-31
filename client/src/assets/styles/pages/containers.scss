@@ -1,8 +1,0 @@
-$containers: about blog edu family main store contacts;
-
-@each $name in $containers {
-  .#{$name}-container {
-    background: url(../images/backgrounds/background-#{$name}.png) center/cover;
-    height: 100vh;
-  }
-}

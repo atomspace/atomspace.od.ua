@@ -14,11 +14,27 @@ export default class SmallSidebar extends React.Component {
       isNavOpened: status
     }));
   };
-
+  isLightTheme = () => {
+    const { pageName } = this.props;
+    switch (pageName) {
+      case "about":
+      case "blog":
+      case "edu":
+      case "store":
+      case "contacts":
+        return true;
+      default:
+        return false;
+    }
+  };
   render() {
     const ulClass = classnames("nav-list", { hide: this.state.isNavOpened });
+    const navClass = classnames("small-nav", {
+      light_theme: this.isLightTheme()
+    });
+
     return (
-      <nav className="small-nav">
+      <nav className={navClass}>
         <ul className={ulClass}>
           {this.props.links.map((link, index) => (
             <li key={index}>
@@ -30,19 +46,15 @@ export default class SmallSidebar extends React.Component {
         </ul>
         <div>
           {this.state.isNavOpened ? (
-            <button
+            <div
               className="nav_toggle"
               onClick={this.toggleNav.bind(this, false)}
-            >
-              <span>&nbsp;</span>
-            </button>
+            />
           ) : (
-            <button
+            <div
               className="nav_toggle cross"
               onClick={this.toggleNav.bind(this, true)}
-            >
-              <span>&nbsp;</span>
-            </button>
+            />
           )}
         </div>
       </nav>
