@@ -1,9 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+body {
+    background: url(../img/background-main.png)
+}
+
 .login-block {
     position: relative;
     top: 75px;
     margin: 0;
+}
+
+li {
+    margin-bottom: 4vh;
+    list-style-type: none;
+}
+
+.card {
+    background-color: rgba(61, 62, 62, 0.8) !important;
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.navbar {
+    color: white;
+    font-size: 1.5em;
 }
 
 .navigation-bar{
@@ -71,10 +91,10 @@ textarea {
 }
 
 .content {
-    background-color: white;
-    margin-left: 20vw;
-    width: 80vw;
-    margin-top: 3%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 12vh;
 }
 
 .form{

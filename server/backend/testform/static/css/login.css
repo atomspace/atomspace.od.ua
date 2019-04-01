@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
 
 body {
-    background-color: #2b2c30;
+    background: url(../img/background-main.png);
     background-repeat: no-repeat;
     background-size: 2200px;
     position: relative;
@@ -10,31 +10,48 @@ body {
 h1 {
     font-family: 'Satisfy', cursive;
     text-align: center;
-    margin-top: 120px;
-    margin-bottom: 120px;
+    margin: 0;
     font-size: 3em;
     color: white;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 form {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 320px;
-    max-width: 20rem;
+    margin: 0 auto;
+    padding: 25px;
     width: 80%;
+    position: relative;
+    top: 80px;
+    background: #212121;
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label {
+    color: white;
+}
+
+li {
+    color: white;
 }
 
 input, .inputs {
     outline: 0;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.form-auth p {
+    width: 100%;
+    text-align: center;
 }
 
 .form-auth > input {
-    margin: 3%;
     width: 100%;
     color: white;
-    height: 48px;
     border-radius: 48px;
-    padding-left: 20px;
     background-color: rgba(230, 230, 230, 0.5);
     border: 1px solid transparent;
     line-height: 32px;
@@ -43,12 +60,9 @@ input, .inputs {
 }
 
 input:focus  .form-auth {
-    margin: 3%;
     width: 100%;
     color: white;
-    height: 48px;
     border-radius: 48px;
-    padding-left: 20px;
     background-color: rgba(230, 230, 230, 0.5);
     border: 1px solid transparent;
     line-height: 32px;
@@ -57,7 +71,6 @@ input:focus  .form-auth {
 }
 
 input.login-input {
-    margin: 3%;
     width: 100%;
     color: white;
     height: 48px;
@@ -95,9 +108,12 @@ input.password-input {
 input.submit-input {
     margin: 3%;
     width: 100%;
-    background-color: rgba(61, 136, 233, 0.8);
+    background-color: rgba(61, 62, 62, 0.8);
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
     color: white;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
     line-height: 45px;
     border-radius: 50px;
     border: 1px solid transparent;
@@ -105,8 +121,8 @@ input.submit-input {
 }
 
 input.submit-input:hover {
-    transition: all .5s ease;
-    background-color: rgba(61, 136, 233);
+    transition: all 2s ease;
+    background-color: rgba(43, 44, 44, 0.8);
 }
 
 .request-text {
@@ -125,3 +141,14 @@ input.submit-input:hover {
     justify-content: center;
 }
 
+@media screen and (max-width: 600px) {
+    h1 {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    h1 {
+        font-size: 1.5em;
+    }
+}

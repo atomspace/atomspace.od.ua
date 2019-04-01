@@ -2,12 +2,46 @@
     float: right;
 }
 
+.navbar-brand {
+    color: white !important;
+}
+
+.li-add {
+    background-color: rgba(61, 62, 62, 0.8) !important;
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 2vh;
+}
+
+.li-add h3 {
+    margin: 0;
+}
+
 .merch-item-btns img{
-    width: 3vw;
+    width: 25px;
 }
 
 .img-square-wrapper img {
-    width: 16vw;
+    width: 150px;
+}
+
+.add-merch-block {
+    background-color: rgba(61, 62, 62, 0.8) !important;
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 25px;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
 }
 
 @media screen and (max-width: 1100px) {
