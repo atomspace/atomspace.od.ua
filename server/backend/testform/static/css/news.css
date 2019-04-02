@@ -42,6 +42,10 @@
     margin: auto;
 }
 
+.add-item h3 {
+    font-size: 1.5em;
+}
+
 .form h3{
     text-align: center;
 }

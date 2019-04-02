@@ -14,7 +14,7 @@
     <div class="content">
         {% if merch %}
             <ul class="list-group">
-                    <li class="li-add" id="dialog"><img style="width: 30px;margin: 0 auto;" src={% static 'img/plus.svg' %} /><h3>Add Item</h3></li>
+                    <li class="li-add" id="dialog"><img style="width: 35px;margin: 0 auto;" src={% static 'img/plus.svg' %} />&nbsp;<h3>Add Item</h3></li>
                     <div class="add-merch-block popup-form">
                         <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
                             {% csrf_token %}
@@ -67,11 +67,11 @@
     $('#dialog').click(() => {
         if(new RegExp('Close').test(document.getElementById('dialog').textContent)){
             $('.popup-form').css('display', 'none');
-            document.getElementById('dialog').innerHTML = "<img style='width: 4.5vw;margin: 0 auto;' src={% static 'img/plus.svg' %} />&nbsp;&nbsp;&nbsp;<h3>Add Item</h3>"
+            document.getElementById('dialog').innerHTML = "<img style='width: 35px;margin: 0 auto;' src={% static 'img/plus.svg' %} />&nbsp;<h3>Add Item</h3>"
         } else{
             $('.popup-form').css('display', 'block');
             doc = document.getElementById('dialog').innerHTML;
-            document.getElementById('dialog').innerHTML = "<img style='width: 4.5vw;margin: 0 auto;' src={% static 'img/cancel.svg' %} />&nbsp;&nbsp;&nbsp;<h3>Close Form</h3>"
+            document.getElementById('dialog').innerHTML = "<img style='width: 35px;margin: 0 auto;' src={% static 'img/cancel.svg' %} />&nbsp;<h3>Close Form</h3>"
         }
     });
     $('.form-on').click(() => {

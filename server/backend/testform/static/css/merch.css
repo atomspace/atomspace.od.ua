@@ -24,6 +24,10 @@
     margin: 0;
 }
 
+.li-add h3 {
+    font-size: 1.5em;
+}
+
 .merch-item-btns img{
     width: 25px;
 }
