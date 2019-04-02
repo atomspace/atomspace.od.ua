@@ -12,16 +12,18 @@ from django.views.static import serve
 urlpatterns = [
     url('api/v1/mentors', views.mentors, name='mentors'),
     url('api/v1/residents', views.residents, name='residents'),
-    url('api/v1/merches', views.merches, name='merches'),
-    url('api/v1/news', views.news, name='news'),
+    url('api/v1/merches', views.get_merches, name='get_merches'),
+    url('api/v1/news', views.get_news, name='get_news'),
     url('api/v1/orders', views.orders, name='orders'),
     path('', views.index, name='index'),
     path('merch', views.merch, name='merch'),
-    path('newss', views.news_template, name='news_template'),
-    path('login/', auth_views.LoginView.as_view(template_name='login/index.html')),
+    path('news', views.news, name='news'),
     path('logout', views.logout, name='logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='login/index.html')),
     url(r'^news/(?P<pk>\d+)/delete$', views.delete_article, name='delete_article'),
     url(r'^merch/(?P<pk>\d+)/delete$', views.delete_merch, name='delete_merch'),
+    url(r'^news/(?P<pk>\d+)/edit$', views.edit_article, name='edit_article'),
+    url(r'^merch/(?P<pk>\d+)/edit$', views.edit_merch, name='edit_merch'),
 ]
 
 if settings.DEBUG:

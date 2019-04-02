@@ -1,5 +1,6 @@
 import json
 import os
+import datetime
 
 from django.http import JsonResponse
 from django.core import serializers
@@ -11,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
 from django.http import  HttpResponse
 
-from .forms import MerchForm, NewsForm
+from .forms import MerchForm, NewsForm, EditMerch, EditNews
 from .models import Merch, News, Mentor, Resident, Order
 
 
@@ -24,7 +25,6 @@ def mentors(request):
             del i['model']
         return JsonResponse(mentors_list, safe=False)
         
-
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         post = Mentor()
@@ -97,7 +97,7 @@ def residents(request):
             "affected":[{
                 "statusCode": 200,
                 "message": "Resident created",
-                "fields": [form.cleaned_data]
+                "fields": '[form.cleaned_data]'
             }]
         }], safe=False)
     else:
@@ -106,7 +106,7 @@ def residents(request):
             "errors": [{
                 "statusCode": 500,
                 "message": "Values is not valid",
-                "fields": [form.errors]
+                "fields": '[form.errors]'
             }]
         })
 
@@ -129,7 +129,7 @@ def merch(request):
         return render(request, 'merch/index.html', context)
 
 @login_required
-def news_template(request):
+def news(request):
     if request.method == 'POST':
         f = NewsForm(request.POST, request.FILES)
         if f.is_valid():
@@ -148,7 +148,7 @@ def news_template(request):
         return render(request, 'news/index.html', context)
 
 @csrf_exempt
-def merches(request):
+def get_merches(request):
     merches_object = json.loads(serializers.serialize('json', Merch.objects.all()))
     for i in merches_object:
         del i['model']
@@ -156,7 +156,7 @@ def merches(request):
     return JsonResponse(merches_object, safe=False)
 
 @csrf_exempt
-def news(request):
+def get_news(request):
     news_object = json.loads(serializers.serialize('json', News.objects.all()))
     for i in news_object:
         del i['model']
@@ -201,6 +201,42 @@ def delete_merch(request, pk):
     os.remove('{}/{}'.format(settings.MEDIA_ROOT, m.avatar_url))
     m.delete()
     return HttpResponseRedirect('/merch')
+
+@login_required
+def edit_merch(request, pk):
+    if request.method == 'POST':
+        f = EditMerch(request.POST)
+        if f.is_valid():
+            p = Merch.objects.filter(id=pk)
+            if request.POST['name']:
+                p.update(name = request.POST['name'])
+            if request.POST['price']:
+                p.update(price = request.POST['price'])
+            p.update(updated_time = datetime.datetime.now())
+            return HttpResponseRedirect('/merch')
+    else:
+        context = {
+            'form': EditMerch()
+        }
+        return render(request, 'edit_merch/index.html', context)
+
+@login_required
+def edit_article(request, pk):
+    if request.method == 'POST':
+        f = EditNews(request.POST)
+        if f.is_valid():
+            p = News.objects.filter(id=pk)
+            if request.POST['header']:
+                p.update(header = request.POST['header'])
+            if request.POST['content']:
+                p.update(content = request.POST['content'])
+            p.update(updated_time = datetime.datetime.now())
+            return HttpResponseRedirect('/news')
+    else:
+        context = {
+            'form': EditNews()
+        }
+        return render(request, 'edit_news/index.html', context)
 
 @login_required
 def index(request):
