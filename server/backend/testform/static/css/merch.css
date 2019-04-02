@@ -44,6 +44,15 @@
     margin-bottom: 4vh;
 }
 
+.edit {
+    color: white;
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1100px) {
     .side-bar h1 {
         font-size: 2em;

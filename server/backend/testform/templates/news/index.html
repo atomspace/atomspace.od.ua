@@ -35,6 +35,7 @@
                                         <h3 class="card-title">{{ item.header }}</h3>
                                         <p class="card-text">{{ item.content }}</p>
                                         <div class="news-item-btns">
+                                            <a href='/news/{{ item.id }}/edit'><img src={% static 'img/edit.svg' %}/></a>
                                             <a href="/news/{{ item.id }}/delete"><img src={% static 'img/remove.svg' %}/></a>
                                         </div>
                                     </div>

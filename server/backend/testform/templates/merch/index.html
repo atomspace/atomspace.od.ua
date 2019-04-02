@@ -10,15 +10,11 @@
     <a class="sidebar-item-text" href="{% url 'news' %}">News</a>
     <a href="{% url 'logout' %}"><button class="btn btn-primary" type="submit" >Log out</button></a>
 </nav>
-<!-- <div class="container"> -->
 <div style="display:flex;height:91vh;">
-    {% comment %} <div class="side-bar">
-      <h1 style="margin:0;">Categories</h1>
-    </div> {% endcomment %}
     <div class="content">
         {% if merch %}
             <ul class="list-group">
-                    <li class="li-add" id="dialog"><img style="width: 30px;margin: 0 auto;" src={% static 'img/plus.svg' %} />&nbsp;&nbsp;&nbsp;<h3>Add Item</h3></li>
+                    <li class="li-add" id="dialog"><img style="width: 30px;margin: 0 auto;" src={% static 'img/plus.svg' %} /><h3>Add Item</h3></li>
                     <div class="add-merch-block popup-form">
                         <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
                             {% csrf_token %}
@@ -38,6 +34,7 @@
                                         <h3 class="card-title">Name: {{ item.name }}</h3>
                                         <p class="card-text">Price: {{ item.price }}₴</p>
                                         <div class="merch-item-btns">
+                                            <a href='/merch/{{item.id}}/edit'><img src={% static 'img/edit.svg' %}/></a>
                                             <a href='/merch/{{item.id}}/delete'><img src={% static 'img/remove.svg' %}/></a>
                                         </div>
                                     </div>
@@ -60,7 +57,6 @@
             <div class="col-sm"></div>
         {% endif %}
     </div>
-  </div>
 </div>
 
 <script>
