@@ -40,7 +40,13 @@
 
 .sidebar-item-text{
     margin: auto;
-    text-decoration: none;
+    text-decoration: none !important;
+    color: white;
+    transition: 1s;
+}
+
+.sidebar-item-text:hover {
+    color: rgb(214, 213, 213);
 }
 
 .add-item h3 {
