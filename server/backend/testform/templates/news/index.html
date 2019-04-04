@@ -4,61 +4,47 @@
 {% load staticfiles %}
 <link rel="stylesheet" media="all" href="{% static 'css/news.css' %}" type="text/css">
 
-<nav class="navigation-bar navbar navbar-light" style="background-color: #e3f2fd;">
+<nav class="navbar" style="background-color: rgba(61, 62, 62);position: fixed;width: 100%">
     <a class="navbar-brand">Admin panel</a>
-    <a href="{% url 'logout' %}"><button class="btn btn-primary" type="submit" >Log out</button></a> 
+    <a class="sidebar-item-text" href="{% url 'merch' %}">Merch</a>
+    <a class="sidebar-item-text" href="{% url 'news' %}">News</a>
+    <a href="{% url 'logout' %}"><button class="btn btn-primary" type="submit" >Log out</button></a>
 </nav>
 
-<div style="display:flex;height:94vh;">
-    <div class="side-bar">
-      <h1 style="margin:0;">Categories</h1>
-      <div class="sidebar-item merch">
-        <img src="{% static 'img/t-shirt.svg' %}" style="width:70px;" alt="Merch">
-        <h4 class="sidebar-item-text">Merch</h4>
-      </div>
-      <div class="sidebar-item news">
-        <img src="{% static 'img/news.svg' %}" style="width:70px;" alt="News">
-        <h4 class="sidebar-item-text">News</h4>
-      </div>
-    </div>
+<div style="display:flex;height:91vh;">
     <div class="content">
         {% if news %}
             <ul class="list-group">
+                <li class="add-item" id="dialog"> <img style="width: 35px;margin: 0 auto;" src={% static 'img/plus.svg' %} />&nbsp;<h3>Add Article</h3> </li>
+                <div class="add-news-block popup-form">
+                    <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
+                    </form>
+                </div>
                 {% for item in news %}
-                    <li class="list-group-item">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-12 mt-3">
-                                    <div class="card">
-                                        <div class="card-horizontal horizontal">
-                                            <div class="img-square-wrapper">
-                                                <img class="" src="http://localhost:8000/media/{{ item.news_picture_url }}" alt="Card image cap">
-                                            </div>
-                                            <div class="card-body">
-                                                <h3 class="card-title">{{ item.header }}</h3>
-                                                <p class="card-text">{{ item.content }}</p>
-                                            </div>
+                    <li>
+                        <div class="content-news">
+                            <div class="card">
+                                <div style="display:flex;">
+                                    <div class="img-square-wrapper">
+                                        <img class="" src="http://localhost:8000/media/{{ item.news_picture_url }}" alt="Card image cap">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{ item.header }}</h3>
+                                        <p class="card-text">{{ item.content }}</p>
+                                        <div class="news-item-btns">
+                                            <a href='/news/{{ item.id }}/edit'><img src={% static 'img/edit.svg' %}/></a>
+                                            <a href="/news/{{ item.id }}/delete"><img src={% static 'img/remove.svg' %}/></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="news-item-btns">
-                            <!-- <img src={% static 'img/view.svg' %}/>
-                            <img src={% static 'img/edit.svg' %}/> -->
-                            <a href="/news/{{ item.id }}/delete"><img src={% static 'img/remove.svg' %}/></a>
-                        </div>
                     </li>
                 {% endfor %}
-                <li class="list-group-item add-item" id="dialog"> <img style="width: 4.5vw;" src={% static 'img/plus.svg' %} />&nbsp;&nbsp;&nbsp;<h3>Add Article</h3> </li>
             </ul>
-            <div class="col-sm popup-form">
-                <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
-                    {% csrf_token %}
-                    {{ form }}
-                    <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">                        
-                </form>
-            </div>
         {% else %}
             <div class="col-sm"></div>
             <div class="col-sm form">
@@ -66,7 +52,7 @@
                 <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
                     {% csrf_token %}
                     {{ form }}
-                    <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">                        
+                    <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
                 </form>
             </div>
             <div class="col-sm"></div>
@@ -82,11 +68,11 @@
     $('#dialog').click(() => {
         if(new RegExp('Close').test(document.getElementById('dialog').textContent)){
             $('.popup-form').css('display', 'none');
-            document.getElementById('dialog').innerHTML = "<img style='width: 4.5vw;' src={% static 'img/plus.svg' %} />&nbsp;&nbsp;&nbsp;<h3>Add Item</h3>"
+            document.getElementById('dialog').innerHTML = "<img style='width: 35px;' src={% static 'img/plus.svg' %} />&nbsp;<h3>Add Article</h3>"
         } else{
             $('.popup-form').css('display', 'block');
             doc = document.getElementById('dialog').innerHTML;
-            document.getElementById('dialog').innerHTML = "<img style='width: 4.5vw;' src={% static 'img/cancel.svg' %} />&nbsp;&nbsp;&nbsp;<h3>Close Form</h3>"
+            document.getElementById('dialog').innerHTML = "<img style='width: 35px;' src={% static 'img/cancel.svg' %} />&nbsp;<h3>Close Form</h3>"
         }
     });
     $('.form-on').click(() => {
