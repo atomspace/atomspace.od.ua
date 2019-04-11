@@ -190,6 +190,10 @@ li {
         align-items: center;
         position: relative;
         left: $f10 - $f16;
+        > div{
+          display: flex;
+          flex-direction: column;
+        }
         .list-item {
           opacity: $text-opacity;
           text-align: left;

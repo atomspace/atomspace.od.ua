@@ -2,14 +2,18 @@
   * {
     box-sizing: border-box;
   }
+
   .vertical-line {
     display: none;
   }
+
   .small-nav {
     display: block;
   }
+
   .donate-block {
     width: $f400 + $f610;
+
     .btn-support {
       height: $f144;
       font-size: $f68;
@@ -19,4 +23,8 @@
   @import './adaptive/main.scss';
   @import './adaptive/about.scss';
   @import './adaptive/blog.scss';
+  @import './adaptive/edu.scss';
+  @import './adaptive/family.scss';
+  @import './adaptive/store.scss';
+  @import './adaptive/contacts.scss';
 }
