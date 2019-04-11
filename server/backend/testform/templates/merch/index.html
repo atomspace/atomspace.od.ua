@@ -13,37 +13,35 @@
 <div style="display:flex;height:91vh;">
     <div class="content">
         {% if merch %}
-            <ul class="list-group">
-                    <li class="li-add" id="dialog"><img style="width: 35px;margin: 0 auto;" src={% static 'img/plus.svg' %} />&nbsp;<h3>Add Item</h3></li>
-                    <div class="add-merch-block popup-form">
-                        <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
-                            {% csrf_token %}
-                            {{ form }}
-                            <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
-                        </form>
-                    </div>
-                {% for item in merch %}
-                    <li>
-                        <div class="content-merch">
-                            <div class="card">
-                                <div style="display:flex;">
-                                    <div class="img-square-wrapper">
-                                        <img class="" src="http://localhost:8000/media/{{ item.avatar_url }}" alt="Card image cap">
-                                    </div>
-                                    <div class="card-body">
-                                        <h3 class="card-title">Name: {{ item.name }}</h3>
-                                        <p class="card-text">Price: {{ item.price }}₴</p>
-                                        <div class="merch-item-btns">
-                                            <a href='/merch/{{item.id}}/edit'><img src={% static 'img/edit.svg' %}/></a>
-                                            <a href='/merch/{{item.id}}/delete'><img src={% static 'img/remove.svg' %}/></a>
-                                        </div>
+                <li class="li-add" id="dialog"><img style="width: 35px;margin: 0 auto;" src={% static 'img/plus.svg' %} />&nbsp;<h3>Add Item</h3></li>
+                <div class="add-merch-block popup-form">
+                    <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
+                    </form>
+                </div>
+            {% for item in merch %}
+                <li>
+                    <div class="content-merch">
+                        <div class="card">
+                            <div style="display:flex;">
+                                <div class="img-square-wrapper">
+                                    <img class="" src="http://localhost:8000/media/{{ item.avatar_url }}" alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title">Name: {{ item.name }}</h3>
+                                    <p class="card-text">Price: {{ item.price }}₴</p>
+                                    <div class="merch-item-btns">
+                                        <a href='/merch/{{item.id}}/edit'><img src={% static 'img/edit.svg' %}/></a>
+                                        <a href='/merch/{{item.id}}/delete'><img src={% static 'img/remove.svg' %}/></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </div>
+                </li>
                 {% endfor %}
-            </ul>
         {% else %}
             <div class="col-sm"></div>
             <div class="col-sm form">
@@ -61,9 +59,6 @@
 
 <script>
     var doc = ''
-    $(document).ready(() => {
-        $('.popup-form').css('display', 'none');
-    });
     $('#dialog').click(() => {
         if(new RegExp('Close').test(document.getElementById('dialog').textContent)){
             $('.popup-form').css('display', 'none');

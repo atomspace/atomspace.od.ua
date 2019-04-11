@@ -17,7 +17,7 @@
             <ul class="list-group">
                 <li class="add-item" id="dialog"> <img style="width: 35px;margin: 0 auto;" src={% static 'img/plus.svg' %} />&nbsp;<h3>Add Article</h3> </li>
                 <div class="add-news-block popup-form">
-                    <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
+                    <form enctype="multipart/form-data" action="" method="post">
                         {% csrf_token %}
                         {{ form }}
                         <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
@@ -61,10 +61,7 @@
   </div>
 </div>
 <script>
-    var doc = ''
-    $(document).ready(() => {
-        $('.popup-form').css('display', 'none');
-    });
+    var doc = ''    
     $('#dialog').click(() => {
         if(new RegExp('Close').test(document.getElementById('dialog').textContent)){
             $('.popup-form').css('display', 'none');
