@@ -4,8 +4,8 @@
 {% load staticfiles %}
 <link rel="stylesheet" media="all" href="{% static 'css/news.css' %}" type="text/css">
 
-<nav class="navbar" style="background-color: rgba(61, 62, 62);position: fixed;width: 100%">
-    <a class="navbar-brand">Admin panel</a>
+<nav class="navbar">
+    <a class="navbar-brand"><img src={% static 'img/AtomSpace-logo.svg' %}></a>
     <a class="sidebar-item-text" href="{% url 'merch' %}">Merch</a>
     <a class="sidebar-item-text" href="{% url 'news' %}">News</a>
     <a href="{% url 'logout' %}"><button class="btn btn-primary" type="submit" >Log out</button></a>
@@ -15,7 +15,7 @@
     <div class="content">
         {% if news %}
             <ul class="list-group">
-                <li class="add-item" id="dialog"> <img style="width: 35px;margin: 0 auto;" src={% static 'img/plus.svg' %} />&nbsp;<h3>Add Article</h3> </li>
+                <li class="add-item" id="dialog"> <img style="width: 35px;margin:auto;padding:5px;" src={% static 'img/plus.svg' %} /></li>
                 <div class="add-news-block popup-form">
                     <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
                         {% csrf_token %}
@@ -23,13 +23,14 @@
                         <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
                     </form>
                 </div>
+                <div class="news-card">
                 {% for item in news %}
                     <li>
                         <div class="content-news">
                             <div class="card">
                                 <div style="display:flex;">
                                     <div class="img-square-wrapper">
-                                        <img class="" src="http://localhost:8000/media/{{ item.news_picture_url }}" alt="Card image cap">
+                                        <img style="margin:15px;" src="http://localhost:8000/media/{{ item.news_picture_url }}" alt="Card image cap">
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title">{{ item.header }}</h3>
@@ -44,6 +45,7 @@
                         </div>
                     </li>
                 {% endfor %}
+                </div>
             </ul>
         {% else %}
             <div class="col-sm"></div>
@@ -66,13 +68,12 @@
         $('.popup-form').css('display', 'none');
     });
     $('#dialog').click(() => {
-        if(new RegExp('Close').test(document.getElementById('dialog').textContent)){
+        if(new RegExp('cancel').test(document.getElementById('dialog').innerHTML)){
             $('.popup-form').css('display', 'none');
-            document.getElementById('dialog').innerHTML = "<img style='width: 35px;' src={% static 'img/plus.svg' %} />&nbsp;<h3>Add Article</h3>"
+            document.getElementById('dialog').innerHTML = "<img style='width: 35px;margin:auto;padding:5px;' src={% static 'img/plus.svg' %} />"
         } else{
             $('.popup-form').css('display', 'block');
-            doc = document.getElementById('dialog').innerHTML;
-            document.getElementById('dialog').innerHTML = "<img style='width: 35px;' src={% static 'img/cancel.svg' %} />&nbsp;<h3>Close Form</h3>"
+            document.getElementById('dialog').innerHTML = "<img style='width: 35px;margin:auto;padding:5px;' src={% static 'img/cancel.svg' %} />"
         }
     });
     $('.form-on').click(() => {
