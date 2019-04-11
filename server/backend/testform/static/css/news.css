@@ -4,9 +4,15 @@
     padding-top: 2vw;
 }
 
-
 .navbar-brand {
     color: white !important;
+}
+
+.navbar {
+    background-color: rgba(61, 62, 62, 0.8) !important;
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
 }
 
 .side-bar{
@@ -40,6 +46,20 @@
 
 .sidebar-item-text{
     margin: auto;
+    text-decoration: none !important;
+    color: white;
+    transition: 1s;
+}
+
+.sidebar-item-text:hover {
+    color: rgb(214, 213, 213);
+}
+
+.news-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 2vw;
 }
 
 .add-item h3 {
@@ -72,15 +92,12 @@ img.add-button{
     background-color: rgba(61, 62, 62, 0.8) !important;
     box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
     color: white;
-    width: 150px;
-    display: flex;
-    flex-direction: column;
     text-align: center;
     margin: 0 auto;
-    margin-bottom: 2vh;
-    padding: 5px;
+    padding: 15px;
     cursor: pointer;
-    transition: all 0.5s;
+    border-radius: 50px;
+    margin-bottom: 3vh;
 }
 
 .add-news-block {

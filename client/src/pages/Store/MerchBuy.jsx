@@ -6,10 +6,9 @@ export default class MerchBuy extends React.Component {
   };
   render() {
     return (
-      <div
-        className="list-item merch-buy-link"
-        onClick={this.orderPay}
-      >{`BUY: ${this.props.order.cost}UAH`}</div>
+      <div className="list-item merch-buy-link" onClick={this.orderPay}>
+        <div className="main-header">{`BUY: ${this.props.order.cost}UAH`}</div>
+      </div>
     );
   }
 }

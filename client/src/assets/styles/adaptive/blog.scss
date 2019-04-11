@@ -1,43 +1,112 @@
 .blog-container {
   .blog-wrapper {
-    margin: 0 auto;
+    margin: 0;
+    width: 100%;
+
+    .main-text {
+      display: none;
+    }
+
+    .main-text-mobile {
+      display: block;
+    }
+
     .blog-main-text {
       display: none;
     }
-    .blog-skill-blocks {
-      flex-direction: column;
-      width: initial;
-      .blog-skill-item {
-        width: $f610 + $f400 + $f110;
-        margin-right: $f68;
-        margin: 0 auto;
-        margin-bottom: $f26;
-        text-align: center;
-        > div {
-          margin: 0 auto;
-          margin-bottom: $f55;
+
+    .blog-skill-blocks-mobile {
+      display: block;
+
+      .slick-slider {
+        height: 100%;
+        width: 100%;
+
+        .slick-dots {
+          li {
+            border: 0;
+          }
         }
-        &__header {
-          margin-bottom: $f55;
-          font-size: $f68;
+
+        .slick-list {
+          display: flex;
+          align-items: center;
+          height: 100% !important;
+
+          .slick-slide {
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            opacity: 0.2;
+            padding: 0 20px;
+            // >div {
+            //   width: 110%;
+            // }
+          }
+
+          .slick-active {
+            opacity: 0.4;
+          }
+
+          .slick-center {
+            opacity: 1;
+          }
+
+          .slick-track {
+            display: flex;
+            align-items: center;
+          }
         }
-        &__mind-logo {
-          font-size: $f34;
-          height: $f400;
-          width: $f400;
-        }
-        &__people-logo {
-          height: $f400;
-          width: $f400;
-        }
-        &__puzzle-logo {
-          height: $f400;
-          width: $f400;
-        }
-        &__description {
-          display: none;
+
+        .blog-skill-item {
+          outline: none;
+          // width: 110%;
+
+          // margin: 0 30px;
+          >div {
+            margin: 0 auto
+          }
+
+          &-information {
+            >div {
+              margin: 0 auto
+            }
+
+            &__header {
+              font-family: OpenSans-SemiBold;
+              font-size: 22px;
+              line-height: 28px;
+              margin-bottom: 10px !important;
+            }
+
+            &__description {
+              font-family: OpenSans-Regular;
+              font-size: 14px;
+              line-height: 17px;
+              width: 210px;
+            }
+          }
+
+          $size-logo: $f610+$f400;
+
+          @each $logo in mind,
+          team,
+          trust,
+          puzzle {
+            &__#{$logo}-logo {
+
+              background: url(../images/icons/blog/#{$logo}-logo.svg) no-repeat center/contain;
+              height: $size-logo;
+              width: $size-logo;
+              margin-bottom: $f5;
+              position: relative;
+            }
+          }
         }
       }
+    }
+
+    .blog-skill-blocks {
+      display: none;
     }
   }
 }

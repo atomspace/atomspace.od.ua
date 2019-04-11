@@ -38,7 +38,7 @@
             width: $f400 + $f110;
             height: $f400 + $f400;
             background-position: center center;
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
             &.anna {
               background-image: url(../../assets/images/photos/anna-derevyanko.png);

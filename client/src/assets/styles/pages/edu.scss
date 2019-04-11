@@ -4,43 +4,63 @@ $left-gradient-color: rgb(212, 163, 74);
 .edu-container {
   display: flex;
   align-items: center;
+
   .edu-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 68.189vw;
-    position: relative;
     margin-left: 12.135vw;
+
+    .main-text {
+      display: block;
+    }
+
+    .main-text-mobile {
+      display: none;
+    }
+
+    .edu-items-mobile {
+      display: none;
+    }
+
     .edu-items {
       width: $f400 + $f610 + $f233;
       display: flex;
       flex-wrap: wrap;
       margin: 0 auto;
       justify-content: center;
+
       .edu-item {
         width: $f233;
         height: $f233;
         background: black;
         border-radius: 50%;
         margin: $f21;
-        background: linear-gradient(
-          45deg,
+        background: linear-gradient(45deg,
           $left-gradient-color,
-          $right-gradient-color
-        );
+          $right-gradient-color);
         cursor: pointer;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: relative;
+
         &:hover {
           opacity: 0.8;
           transition: opacity 0.1s linear;
         }
-        @each $logo in wordpress, book, checklist, computer-rocket, layout,
-          python, rocket, scripts
-        {
+
+        @each $logo in wordpress,
+        book,
+        checklist,
+        computer-rocket,
+        layout,
+        python,
+        rocket,
+        scripts {
+
           &__#{$logo}-logo {
             background: url(../images/icons/edu/#{$logo}-logo.svg);
             background-repeat: no-repeat;
@@ -52,16 +72,19 @@ $left-gradient-color: rgb(212, 163, 74);
             position: relative;
           }
         }
+
         &__text {
           text-align: center;
           font-size: $f16;
           color: $black-color;
           position: relative;
         }
+
         &__layout {
           margin-bottom: $f5;
           width: $f144;
         }
+
         &::before {
           content: " ";
           height: 100%;
