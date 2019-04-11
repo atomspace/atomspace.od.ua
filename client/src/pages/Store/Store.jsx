@@ -4,12 +4,18 @@ import Slider from "react-slick";
 import Merch1 from "../../assets/images/photos/i-need-more-space-2-shirt.png";
 import Merch2 from "../../assets/images/photos/i-need-more-space-shirt.png";
 import Merch3 from "../../assets/images/photos/nlo-shirt.png";
+import Arrow from "../../components/Arrow";
+import MerchSize from "../../pages/Store/MerchSize";
+import MerchBuy from "../../pages/Store/MerchBuy";
 
 class Store extends Component {
-  
   state = {
     index: 0
   };
+  mainText = `хочешь содействовать развитию проекта?`;
+  mainTextMobile = `Желаешь поддержать нас?`;
+  additionalText = `Выбирай и носи стильную атомную футболку!?`;
+  additionalTextMobile = `Покупай футболку!`;
 
   merches = [
     {
@@ -62,9 +68,12 @@ class Store extends Component {
       dots: false,
       slidesToShow: 3,
       slidesToScroll: 1,
+      arrows: true,
+      prevArrow: <Arrow rotate />,
+      nextArrow: <Arrow />,
       variableWidth: true,
       focusOnSelect: true,
-      swipe: false,
+      swipe: true,
       adaptiveHeight: true,
       swipeToSlide: true,
       centerMode: true,
@@ -81,11 +90,11 @@ class Store extends Component {
     return (
       <div className="section store-container">
         <div className="store-wrapper">
-          <div className="store-main-text">
-          {`хочешь содействовать развитию проекта?`}
-          </div>
-          <div className="store-additional-text">
-          {`Выбирай и носи стильную атомную футболку!?`}
+          <div className="store-main-text">{this.mainText}</div>
+          <div className="store-main-text-mobile">{this.mainTextMobile}</div>
+          <div className="store-additional-text">{this.additionalText}</div>
+          <div className="store-additional-text-mobile">
+            {this.additionalTextMobile}
           </div>
           <div className="carousel-container">
             <Slider {...settings}>
@@ -97,6 +106,12 @@ class Store extends Component {
                 </div>
               ))}
             </Slider>
+          </div>
+          <div className="store-buttons-mobile">
+            {/* <div className="size-button" /> */}
+            <MerchSize changeMerchAttr={this.props.changeMerchAttr} />
+            <MerchBuy order={this.props.order} />
+            {/* <div className="buy-button" /> */}
           </div>
         </div>
       </div>

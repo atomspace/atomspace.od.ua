@@ -86,6 +86,7 @@ class App extends Component {
                 <Edu />
                 <Family />
                 <Store
+                  order={this.state.order}
                   size={this.state.size}
                   changeMerchAttr={this.changeMerchAttr}
                 />

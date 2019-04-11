@@ -3,6 +3,29 @@ import Slider from "react-slick";
 import Soc from "../../components/Soc";
 import Arrow from "../../components/Arrow";
 
+const people = [
+  {
+    id: 0,
+    name: "Анна Деревянко",
+    position: "CEO",
+    avatar: "anna",
+    facebook: "https://www.facebook.com/anna.derevyankoo"
+  },
+  {
+    id: 1,
+    name: "Ксения Ярмолович",
+    position: "Event Manager",
+    avatar: "kseniya",
+    facebook: "https://www.facebook.com/yarmolovi4"
+  },
+  {
+    id: 1,
+    name: "Вероника Ильницкая",
+    position: "PR Manager",
+    avatar: "veronika",
+    facebook: "https://www.facebook.com/verilnitskaya"
+  }
+];
 export default class Family extends React.Component {
   constructor() {
     super();
@@ -18,29 +41,6 @@ export default class Family extends React.Component {
   }
 
   render() {
-    const people = [
-      {
-        id: 0,
-        name: "Анна Деревянко",
-        position: "CEO",
-        avatar: "anna",
-        facebook: "https://www.facebook.com/anna.derevyankoo"
-      },
-      {
-        id: 1,
-        name: "Ксения Ярмолович",
-        position: "Event Manager",
-        avatar: "kseniya",
-        facebook: "https://www.facebook.com/yarmolovi4"
-      },
-      {
-        id: 1,
-        name: "Вероника Ильницкая",
-        position: "PR Manager",
-        avatar: "veronika",
-        facebook: "https://www.facebook.com/verilnitskaya"
-      }
-    ];
     const settings = {
       // dots: true,
       infinite: true,
@@ -59,6 +59,8 @@ export default class Family extends React.Component {
     return (
       <div className="section family-container">
         <div className="family-wrapper">
+          <div className="main-text-mobile">{`КОМАНДА`}</div>
+          <div className="tap-swipe-logo" />
           <div className="carousel-container">
             <Slider {...settings}>
               {people.map((emp, index) => (

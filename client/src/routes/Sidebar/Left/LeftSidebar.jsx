@@ -3,6 +3,7 @@ import Soc from "../../../components/Soc";
 import { urls } from "../../../App";
 import MerchSize from "../../../pages/Store/MerchSize";
 import MerchBuy from "../../../pages/Store/MerchBuy";
+import ContactInfo from "../../../pages/Contacts/ContactInfo";
 
 class LeftSidebar extends React.Component {
   getLeftSidebarData() {
@@ -30,13 +31,7 @@ class LeftSidebar extends React.Component {
       case urls[6]:
         return [
           {
-            title: "+380 73 139 57 87"
-          },
-          {
-            title: "info@atomspace.od.ua"
-          },
-          {
-            title: "г. Одесса, Обсерваторный переулок, 2/6"
+            title: <ContactInfo />
           }
         ];
       default:
@@ -56,6 +51,7 @@ class LeftSidebar extends React.Component {
     switch (pageName) {
       case "about":
       case "edu":
+      case "blog":
       case "store":
       case "family":
       case "resident":
@@ -79,11 +75,6 @@ class LeftSidebar extends React.Component {
                   </div>
                 );
               } else {
-                rowElement = (
-                  <div className="list" key={index}>
-                    <span className="list-item">{row.title.toUpperCase()}</span>
-                  </div>
-                );
                 if (row.link) {
                   rowElement = (
                     <div className="list" key={index}>

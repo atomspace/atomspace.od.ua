@@ -22,7 +22,7 @@
     }
     .main-logo {
       width: 230px;
-      height: 40px;
+      height: 50px;
       background-size: $f400 + $f610 $f233;
       margin: 0 auto;
       margin-bottom: $f110;
@@ -44,7 +44,7 @@
         color: white;
       }
       .resident-support {
-        background: url(../images/icons/be-resident-block.svg) center/cover
+        background: url(../images/icons/adaptive/be-resident-block.svg) center/cover
           no-repeat;
         position: absolute;
         left: 0;
@@ -52,7 +52,7 @@
         color: white;
       }
       .mentor-support {
-        background: url(../images/icons/be-mentor-block.svg) center/cover
+        background: url(../images/icons/adaptive/be-mentor-block.svg) center/cover
           no-repeat;
         position: absolute;
         right: 0;

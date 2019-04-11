@@ -1,9 +1,16 @@
-.main-text {
+.main-text,
+.main-text-mobile {
   font-family: OpenSans-Light;
   margin-bottom: $f110;
   text-align: center;
-  font-size: $f68;
   line-height: $f68 + $f8;
   text-align: center;
   text-transform: uppercase;
+  font-size: $f68;
+}
+
+.main-text-mobile {
+  font-size: 35px;
+  line-height: 50px;
+  opacity: 0.3;
 }
