@@ -1,0 +1,123 @@
+.store-container {
+  .store-wrapper {
+    font-size: 19px;
+    line-height: 30px;
+    text-align: center;
+
+    .store-main-text-mobile {
+      display: block;
+      font-family: OpenSans-SemiBold;
+    }
+
+    .store-additional-text-mobile {
+      display: block;
+      font-family: OpenSans-Light;
+      margin-bottom: 10%;
+    }
+
+    .store-main-text {
+      display: none;
+    }
+
+    .store-additional-text {
+      display: none;
+    }
+
+    .carousel-container {
+      height: 300px;
+
+      .slick-slider {
+        width: 100%;
+
+        .slick-list {
+          .slick-track {
+            .carousel-block {
+              .carousel-info {
+                &__merch {
+                  .merch-logo {
+                    width: 139px;
+                    height: 156px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+
+  }
+}
+
+.slick {
+  width: 37px;
+  height: 17px;
+  display: block;
+  bottom: 40px;
+
+  &.slick-prev {
+    background-image: url(../images/icons/store/arrow-left-store-mobile.svg) !important;
+    left: 30px;
+  }
+
+  &.slick-next {
+    background-image: url(../images/icons/store/arrow-right-store-mobile.svg) !important;
+    right: 30px;
+    left: auto;
+  }
+}
+
+.store-buttons-mobile {
+  display: block;
+  margin-top: 10%;
+  .size-container {
+    font-size: 14px;
+    line-height: 14px;
+    font-family: OpenSans-SemiBold;
+    background-image: url(../images/icons/store/size-button-background.svg) !important;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 250px;
+    margin-bottom: 24px;
+    color: $black-color;
+    justify-content: space-around;
+    left: -40px;
+    position: relative;
+
+    .main-header {
+      position: relative;
+      left: 40px;
+    }
+
+    .size-list {
+      .size-item {
+        width: 20px;
+        height: 20px;
+        margin: 0 0.26vw;
+        line-height: 15px;
+      }
+    }
+  }
+
+  .merch-buy-link {
+    font-size: 14px;
+    line-height: 14px;
+    font-family: OpenSans-SemiBold;
+    background-image: url(../images/icons/store/buy-button-background.svg) !important;
+    background-repeat: no-repeat;
+    height: 40px;
+    color: $black-color;
+    align-items: center;
+    display: flex;
+    width: 250px;
+    position: relative;
+    left: -40px;
+
+    .main-header {
+      position: relative;
+      left: 72px;
+    }
+  }
+}
