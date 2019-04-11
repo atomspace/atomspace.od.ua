@@ -62,10 +62,6 @@
     grid-gap: 2vw;
 }
 
-.card {
-    height: 32vh;
-}
-
 .add-item h3 {
     font-size: 1.5em;
 }

@@ -24,10 +24,6 @@
     color: rgb(214, 213, 213);
 }
 
-.card {
-    height: 32vh;
-}
-
 .merch-card {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
