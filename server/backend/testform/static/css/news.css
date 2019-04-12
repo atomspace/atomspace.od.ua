@@ -44,6 +44,10 @@
     color: white;
 }
 
+label {
+    margin-top: .3rem;
+}
+
 .sidebar-item-text{
     margin: auto;
     text-decoration: none !important;

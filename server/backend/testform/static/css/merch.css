@@ -76,6 +76,10 @@
     color: white;
 }
 
+label {
+    margin-top: .3rem;
+}
+
 .cont {
     display: flex;
     justify-content: center;

@@ -16,7 +16,7 @@
         {% if news %}
             <ul class="list-group">
                 <li class="add-item" id="dialog"> <img style="width: 35px;margin:auto;padding:5px;" src={% static 'img/plus.svg' %} /></li>
-                <div class="add-news-block popup-form">
+                <div style="display: none;" class="add-news-block popup-form">
                     <form enctype="multipart/form-data" action="" method="post">
                         {% csrf_token %}
                         {{ form }}
