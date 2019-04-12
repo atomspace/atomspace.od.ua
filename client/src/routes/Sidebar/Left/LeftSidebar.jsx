@@ -4,56 +4,53 @@ import { urls } from "../../../App";
 import MerchSize from "../../../pages/Store/MerchSize";
 import MerchBuy from "../../../pages/Store/MerchBuy";
 import ContactInfo from "../../../pages/Contacts/ContactInfo";
-
+import Link from "../Link";
+import * as classnames from "classnames";
 class LeftSidebar extends React.Component {
   getLeftSidebarData() {
     switch (this.props.pageName) {
       case urls[0]:
         return [
-          {
-            title: "Стать ментором",
-            link: "#mentorForm"
-          },
-          {
-            title: "Стать резидентом",
-            link: "#residentForm"
-          }
+          <Link
+            handleDialog={this.handleDialog}
+            row={{
+              title: "Стать ментором",
+              link: "#mentorForm"
+            }}
+          />,
+          <Link
+            handleDialog={this.handleDialog}
+            row={{
+              title: "Стать резидентом",
+              link: "#residentForm"
+            }}
+          />
         ];
       case urls[5]:
         return [
-          {
-            title: <MerchSize changeMerchAttr={this.props.changeMerchAttr} />
-          },
-          {
-            title: <MerchBuy order={this.props.order} />
-          }
+          <MerchSize changeMerchAttr={this.props.changeMerchAttr} />,
+          <MerchBuy order={this.props.order} />
         ];
       case urls[6]:
-        return [
-          {
-            title: <ContactInfo />
-          }
-        ];
+        return [<ContactInfo />];
       default:
         return [];
     }
   }
   render() {
     const { pageName } = this.props;
-    const classes = ["sidebar__left"];
     const sidebarRows = this.getLeftSidebarData();
 
-    const sidebarClasses = ["vertical-line left"];
-    if (!sidebarRows.length) {
-      sidebarClasses.push("border-none");
-    }
+    const sidebarClasses = classnames("vertical-line left", {
+      "border-none": !sidebarRows.length
+    });
 
+    const classes = ["sidebar__left"];
     switch (pageName) {
       case "about":
       case "edu":
       case "blog":
       case "store":
-      case "family":
       case "resident":
       case "mentor":
         classes.push("light_theme");
@@ -63,35 +60,14 @@ class LeftSidebar extends React.Component {
     }
 
     return (
-      <div className={sidebarClasses.join(" ")}>
+      <div className={sidebarClasses}>
         <nav className={classes.join(" ")}>
           <div className="flex flex-col">
-            {sidebarRows.map((row, index) => {
-              let rowElement;
-              if (React.isValidElement(row.title)) {
-                rowElement = (
-                  <div className="list" key={index}>
-                    <div>{row.title}</div>
-                  </div>
-                );
-              } else {
-                if (row.link) {
-                  rowElement = (
-                    <div className="list" key={index}>
-                      <div className={"dot"} />
-                      <a
-                        className="list-item form"
-                        href={row.link}
-                        onClick={this.props.handleDialog}
-                      >
-                        {row.title.toUpperCase()}
-                      </a>
-                    </div>
-                  );
-                }
-              }
-              return rowElement;
-            })}
+            {sidebarRows.map((el, index) => 
+              <div className="list" key={index}>
+                {el}
+              </div>
+            )}
           </div>
           <Soc
             src={{

@@ -3,6 +3,7 @@ import AnimatePlanet from "./AnimatePlanet";
 const mainText = `образовательное  Tech-пространство для подростков`;
 class Main extends React.Component {
   render() {
+    const { handleDialog } = this.props;
     return (
       <div className="section main-container">
         <div className="logo-container">
@@ -18,12 +19,18 @@ class Main extends React.Component {
                 href="https://secure.wayforpay.com/button/b4a090420eb14"
               >{`Поддержать проект`}</a>
             </div>
-            <div className="bottom-quastion">
-              {`Кем, ты хочешь стать?`}
-            </div>
+            <div className="bottom-quastion">{`Кем, ты хочешь стать?`}</div>
             <div className="support-container">
-              <button className="support resident-support">{`Резидентом`}</button>
-              <button className="support mentor-support" >{`Ментором`}</button>
+              <a
+                className="support resident-support"
+                href={"#residentForm"}
+                onClick={handleDialog}
+              >{`Резидентом`}</a>
+              <a
+                className="support mentor-support"
+                href={"#mentorForm"}
+                onClick={handleDialog}
+              >{`Ментором`}</a>
             </div>
           </div>
         </div>

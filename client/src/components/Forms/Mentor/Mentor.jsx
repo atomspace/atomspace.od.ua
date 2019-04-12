@@ -36,7 +36,7 @@ export class Mentor extends Component {
   };
   render() {
     return (
-      <section className={"flex flex-acen resident-form-container"}>
+      <section className={"flex flex-acen main-form-container"}>
         <Bubble big animate style={{ bottom: 453, left: 451 }} />
         <Bubble
           middle

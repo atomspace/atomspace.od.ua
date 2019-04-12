@@ -17,9 +17,9 @@ export class Resident extends Component {
   };
   createResident = async () => {
     let user = this.state.user;
-    this.setState({isDisabled: true});
+    this.setState({ isDisabled: true });
     await createResident(user);
-    this.setState({isDisabled: false});
+    this.setState({ isDisabled: false });
     this.props.closeForm();
   };
 
@@ -32,10 +32,40 @@ export class Resident extends Component {
     });
   };
   render() {
+    const inputData = [
+      {
+        id: "name",
+        placeholder: "Имя:",
+        value: this.state.user.name,
+        onChange: this.onChangeUser
+      },
+      {
+        id: "number",
+        placeholder: "Телефон:",
+        value: this.state.user.number,
+        onChange: this.onChangeUser
+      },
+      {
+        id: "email",
+        placeholder: "Email:",
+        value: this.state.user.email,
+        onChange: this.onChangeUser
+      },
+      {
+        id: "information",
+        placeholder: "Почему хочешь стать резидентом Atom Space?",
+        value: this.state.user.information,
+        onChange: this.onChangeUser
+      }
+    ];
     return (
-      <section className={"flex flex-acen resident-form-container"}>
+      <section className={"flex flex-acen main-form-container"}>
         <Bubble big animate style={{ bottom: 453, left: 451 }} />
-        <Bubble semiMiddle animate style={{ bottom:  "19vw", left: "38vw", opacity: 1 }} />
+        <Bubble
+          semiMiddle
+          animate
+          style={{ bottom: "19vw", left: "38vw", opacity: 1 }}
+        />
         <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2 }} />
         <div className="form-blocks flex flex-cen">
           <div className="form-maintext-block">
@@ -44,41 +74,17 @@ export class Resident extends Component {
           </div>
         </div>
         <div className="form-registration">
-          <div className="form-name-block">
-            <input
-              id="name"
-              placeholder="Имя:"
-              type="text"
-              value={this.state.user.name}
-              onChange={this.onChangeUser}
-            />
-          </div>
-          <div className="form-number-block">
-            <input
-              id="number"
-              placeholder="Телефон:"
-              value={this.state.user.number}
-              onChange={this.onChangeUser}
-            />
-          </div>
-          <div className="form-email-block">
-            <input
-              id="email"
-              type="text"
-              placeholder="Email:"
-              value={this.state.user.email}
-              onChange={this.onChangeUser}
-            />
-          </div>
-          <div className="form-information-block">
-            <input
-              id="information"
-              placeholder="Почему хочешь стать резидентом Atom Space?"
-              type="text"
-              value={this.state.user.information}
-              onChange={this.onChangeUser}
-            />
-          </div>
+          {inputData.map(data => (
+            <div className="form-block">
+              <input
+                id={data.id}
+                placeholder={data.placeholder}
+                value={data.value}
+                onChange={data.onChange}
+              />
+            </div>
+          ))}
+
           <div className="request-button-block">
             <button
               className="btn btn-support btn-request"

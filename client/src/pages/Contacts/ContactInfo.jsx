@@ -12,4 +12,8 @@ const info = [
   }
 ];
 export default () =>
-  info.map(val => <span className="list-item">{val.title.toUpperCase()}</span>);
+  info.map((val, index) => (
+    <span className="list-item" key={index}>
+      {val.title.toUpperCase()}
+    </span>
+  ));

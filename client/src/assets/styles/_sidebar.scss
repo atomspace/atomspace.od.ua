@@ -179,25 +179,19 @@ li {
       .dot {
         $size: $f13;
         width: $size;
-        height: $size;
-        position: absolute;
-        left: -1px;
         background: url(../images/icons/circle.svg) no-repeat center/contain;
       }
       .list {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        position: relative;
-        left: $f10 - $f16;
+        flex-direction: column;
         > div{
+          width: 100%;
           display: flex;
-          flex-direction: column;
         }
         .list-item {
           opacity: $text-opacity;
           text-align: left;
-          transform: all 1s;
           position: relative;
           left: $f16;
         }

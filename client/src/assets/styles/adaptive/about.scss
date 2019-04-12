@@ -7,13 +7,15 @@
     flex-direction: column;
 
     .about-maintext-block {
-      width: 67%;
+      width: 78%;
       left: $f26;
 
       &__atomspace {
-        width: $f610;
-        height: $f68;
+        width: 235px;
+        height: 26.97px;
         position: relative;
+        left: 0;
+        top: -$f55;
       }
 
       &__text {
@@ -24,7 +26,7 @@
       &__text:nth-child(2) {
         display: block;
         font-size: $f89;
-        line-height: $f110 + $f26;
+        line-height: $f110 + $f55;
       }
 
       &__text--second {

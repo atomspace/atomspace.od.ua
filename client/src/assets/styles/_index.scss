@@ -7,6 +7,9 @@
 @import "fonts.scss";
 
 @import "variables.scss";
+@import "mixins.scss";
+@import "flex.scss";
+
 
 @import "main.scss";
 @import "sidebar.scss";
@@ -14,20 +17,10 @@
 @import "header.scss";
 @import "carousel.scss";
 
-@import "pages/main.scss";
-@import "pages/about.scss";
-@import "pages/edu.scss";
-@import "pages/blog.scss";
-@import "pages/family.scss";
-@import "pages/store.scss";
-@import "pages/contacts.scss";
-
-@import "forms.scss";
+@import "./pages/index.scss";
+@import "./adaptive/index.scss";
 
 @import "animations.scss";
 
 @import "bubble.scss";
 
-@import "flex.scss";
-
-@import "adaptive.scss";

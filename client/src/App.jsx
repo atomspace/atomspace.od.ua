@@ -80,7 +80,7 @@ class App extends Component {
           render={({ state, fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
-                <Main />
+                <Main handleDialog={this.handleDialog} />
                 <About />
                 <Blog />
                 <Edu />
@@ -90,7 +90,7 @@ class App extends Component {
                   size={this.state.size}
                   changeMerchAttr={this.changeMerchAttr}
                 />
-                <Contacts />
+                <Contacts handleDialog={this.handleDialog} />
               </ReactFullpage.Wrapper>
             );
           }}

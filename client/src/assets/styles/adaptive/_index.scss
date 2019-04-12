@@ -20,11 +20,12 @@
     }
   }
 
-  @import './adaptive/main.scss';
-  @import './adaptive/about.scss';
-  @import './adaptive/blog.scss';
-  @import './adaptive/edu.scss';
-  @import './adaptive/family.scss';
-  @import './adaptive/store.scss';
-  @import './adaptive/contacts.scss';
+  @import 'main.scss';
+  @import 'about.scss';
+  @import 'blog.scss';
+  @import 'edu.scss';
+  @import 'family.scss';
+  @import 'store.scss';
+  @import 'contacts.scss';
+  @import 'forms.scss';
 }

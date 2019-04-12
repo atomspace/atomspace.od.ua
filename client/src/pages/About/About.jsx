@@ -5,8 +5,7 @@ import AboutPhoto2 from "../../assets/images/photos/about_photo_2.png";
 import AboutPhoto3 from "../../assets/images/photos/about_photo_3.png";
 import AboutPhoto4 from "../../assets/images/photos/about_photo_4.png";
 
-const headerText = `— социальный образовательный`;
-const mainText = `проект, основанный Provectus и IT2School с целью создать возможность для талантливых подростков расти и развиваться в сфере IT. `;
+const mainText = `— социальный образовательный проект, основанный Provectus и IT2School с целью создать возможность для талантливых подростков расти и развиваться в сфере IT. `;
 const mainText1 = `Это креативное пространство, в котором подростки под руководством практикующих cпециалистов бесплатно обучаются IT, получают навыки командной работы и реализовывают собственные идеи.
 Глобальная миссия Atom Space - изменить формат и подход к IT-образованию`;
 const mainText2 = `Мы верим в то, что образование не ограничивается стенами школы, колледжа, университета. Поэтому мы создаем возможности для талантливых подростков, которые хотят получать знания в сфере высоких технологий, развивая навыки командной работы под руководством менторов.`;
@@ -18,7 +17,6 @@ export default () => (
       <div className="about-maintext-block">
         <div className={"about-maintext-block__atomspace"} />
         <div className={"about-maintext-block__text"}>
-          <div className={"align-right"}>{headerText}</div>
           <span className={"about-maintext-block__text--first"}>
             {mainText}
           </span>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Rocket from "../../assets/images/icons/contacts/rocket-donate.svg";
-
+import ContactInfo from "./ContactInfo";
 class Contacts extends Component {
   state = {};
   render() {
@@ -19,10 +19,18 @@ class Contacts extends Component {
                 <p className="header-answer">{`Давайте развивать Atom Space вместе!`}</p>
                 <div className="request-button-container flex">
                   <div className="request-button-block">
-                    <button className="btn btn-support btn-request">{`Стать ментором`}</button>
+                    <a
+                      className="btn btn-support btn-request"
+                      href={"#mentorForm"}
+                      onClick={this.props.handleDialog}
+                    >{`Стать ментором`}</a>
                   </div>
                   <div className="request-button-block">
-                    <button className="btn btn-support btn-request">{`Стать резидентом`}</button>
+                    <a
+                      className="btn btn-support btn-request"
+                      href={"#residentForm"}
+                      onClick={this.props.handleDialog}
+                    >{`Стать резидентом`}</a>
                   </div>
                 </div>
               </div>
@@ -35,6 +43,9 @@ class Contacts extends Component {
                 href="https://secure.wayforpay.com/button/b4a090420eb14"
               >{`Поддержать проект`}</a>
             </div>
+          </div>
+          <div className="contact-info-mobile">
+            <ContactInfo />
           </div>
         </div>
       </div>

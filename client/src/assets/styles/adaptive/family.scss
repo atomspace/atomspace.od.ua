@@ -21,6 +21,8 @@
 				top: 80px;
 				left: -50px;
 
+				@include noArrows;
+
 				.slick-list {
 					border: 1px solid transparent;
 					padding: 0px;
@@ -34,6 +36,7 @@
 			.carousel-info {
 				left: auto;
 				right: 0;
+
 				&__header {
 					display: none;
 				}
@@ -84,7 +87,8 @@
 			}
 		}
 	}
-	.tap-swipe-logo{
+
+	.tap-swipe-logo {
 		background-image: url(../../assets/images/icons/adaptive/tap-swipe.svg);
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -94,16 +98,5 @@
 		position: absolute;
 		bottom: 20px;
 		right: 20px;
-	}
-}
-
-.slick {
-
-	&-prev {
-		display: none !important;
-	}
-
-	&-next {
-		display: none !important;
 	}
 }
