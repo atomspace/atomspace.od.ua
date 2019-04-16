@@ -15,6 +15,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
 
-CMD gunicorn TestApp.wsgi:application --bind 127.0.0.1:8000 --workers 3
-
-ENTRYPOINT ["python3", "backend/manage.py", "runserver"]
+CMD [ "uwsgi", "--socket", "0.0.0.0:8000", \
+               "--uid", "uwsgi", \
+               "--plugins", "python3", \
+               "--protocol", "uwsgi", \
+               "--wsgi", "backend/TestApp/wsgi:application" ]

@@ -1,0 +1,12 @@
+version: "3"
+services:
+  server:
+    container_name: atomspace_server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: atomspace_server_image
+    volumes:
+      - .:/home/misha/vsc/atomspace.od.ua/server/backend
+    ports:
+      - "8000:8000"
