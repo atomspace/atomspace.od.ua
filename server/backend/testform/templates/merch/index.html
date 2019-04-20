@@ -15,7 +15,7 @@
         {% if merch %}
             <ul class="list-group">
                     <li class="li-add" id="dialog"><img style="width: 35px;margin:auto;padding:5px;" src={% static 'img/plus.svg' %} /></li>
-                    <div class="add-merch-block popup-form">
+                    <div style="display: none;" class="add-merch-block popup-form">
                         <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
                             {% csrf_token %}
                             {{ form }}
@@ -63,9 +63,6 @@
 
 <script>
     var doc = ''
-    $(document).ready(() => {
-        $('.popup-form').css('display', 'none');
-    });
     $('#dialog').click(() => {
         if(new RegExp('cancel').test(document.getElementById('dialog').innerHTML)){
             $('.popup-form').css('display', 'none');

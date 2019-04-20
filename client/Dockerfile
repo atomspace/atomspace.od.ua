@@ -1,14 +1,13 @@
 FROM node:10.15.3-alpine
 
-MAINTAINER AtomSpace Website
 LABEL name="atomspace" version="1.0.0"
 
 ENV NODE_ENV "development"
 
-WORKDIR /client
+WORKDIR /src
 
-COPY ./ /client
+COPY ./ /src
 
-RUN npm i 
+RUN npm i
 
 ENTRYPOINT ["node", "scripts/start.js"]

@@ -44,6 +44,10 @@
     color: white;
 }
 
+label {
+    margin-top: .3rem;
+}
+
 .sidebar-item-text{
     margin: auto;
     text-decoration: none !important;
@@ -60,10 +64,6 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-gap: 2vw;
-}
-
-.card {
-    height: 32vh;
 }
 
 .add-item h3 {

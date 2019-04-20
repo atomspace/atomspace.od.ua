@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  client:
+    container_name: atomspace_client
+    build: ./client
+    image: atomspace_client
+    ports:
+      - "3000:3000"
+
+  server:
+    container_name: atomspace_server
+    build: ./server
+    image: atomspace_server
+    ports:
+      - "8000:8000"

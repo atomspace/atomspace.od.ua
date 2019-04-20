@@ -24,10 +24,6 @@
     color: rgb(214, 213, 213);
 }
 
-.card {
-    height: 32vh;
-}
-
 .merch-card {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -64,6 +60,7 @@
 }
 
 .add-merch-block {
+    /* display: none; */
     background-color: rgba(61, 62, 62, 0.8) !important;
     box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
     color: white;
@@ -77,6 +74,10 @@
 
 .edit {
     color: white;
+}
+
+label {
+    margin-top: .3rem;
 }
 
 .cont {
