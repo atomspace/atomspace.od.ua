@@ -4,66 +4,90 @@
   width: 100%;
   top: -5px;
   height: 102%;
-  background: url(../images/backgrounds/background-fixed.svg) no-repeat
-    center/cover;
+  background: url(../images/backgrounds/background-fixed.svg) no-repeat center/cover;
   background-color: $white-color;
+
   .main-form-container {
     height: 100%;
-    .form-blocks {
-      height: 100%;
-      margin-left: 10%;
-      margin-right: $f288;
-      .form-maintext-block {
-        position: relative;
-        width: $f610;
-        height: $f288;
-        &__header {
-          color: $black-color;
-          font-size: $f55;
-          letter-spacing: 0.5px;
-          font-weight: 900;
-          line-height: $f55 + $f8;
-          text-transform: uppercase;
+    display: flex;
+
+    .form-request {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .form-blocks {
+        height: 100%;
+        margin-left: 10%;
+        margin-right: $f288;
+
+        .form-maintext-block {
+          position: relative;
+          width: $f610;
+
+          &__header {
+            color: $black-color;
+            font-size: $f55;
+            letter-spacing: 0.5px;
+            font-weight: 900;
+            line-height: $f55 + $f8;
+            text-transform: uppercase;
+          }
+
+          &__text {
+            width: $f400 + $f89;
+            color: $black-color;
+            font-size: $f21;
+            font-weight: 400;
+            line-height: $f26;
+            margin: $f68 0 0 auto;
+            .bold{
+              font-weight: bold;
+            }
+          }
         }
-        &__text {
-          width: $f400 + $f89;
-          color: $black-color;
+      }
+
+      .form-registration {
+        >div {
+          margin-bottom: $f68;
+        }
+
+        input {
+          width: $f400 + $f144;
           font-size: $f21;
-          font-weight: 400;
-          line-height: $f26;
-          margin: $f68 0 0 auto;
+          padding-left: $f13;
+          height: $f42;
+          border: 0;
+          background: transparent;
+          outline: none;
+          border-bottom: 1px solid $black-color;
+          border-color: rgba(0, 0, 0, 0.3);
+
+          &:focus {
+            border-bottom-color: $border-color-orange;
+          }
+        }
+
+        >div:nth-child(3) {
+          margin-bottom: $f178;
+        }
+
+        >div:nth-child(4) {
+          margin-bottom: $f34;
+        }
+
+        .request-button-block {
+          text-align: right;
         }
       }
     }
-    .form-registration {
-      > div {
-        margin-bottom: $f68;
-      }
-      input {
-        width: $f400 + $f144;
-        font-size: $f21;
-        padding-left: $f13;
-        height: $f42;
-        border: 0;
-        background: transparent;
-        outline: none;
-        border-bottom: 1px solid $black-color;
-        border-color: rgba(0, 0, 0, 0.3);
-        &:focus {
-          border-bottom-color: $border-color-orange;
-        }
-      }
-      > div:nth-child(3) {
-        margin-bottom: $f178;
-      }
-      > div:nth-child(4) {
-        margin-bottom: $f34;
-      }
-      .request-button-block {
-        text-align: right;
-      }
+
+    .nav_toggle,
+    .mobile-form-request {
+      display: none;
     }
   }
+
   .atom-logo {
     position: absolute;
     background-image: url(../images/icons/logos/AtomSpace-logo-dark.svg);
@@ -77,6 +101,7 @@
     right: $f110;
     left: auto;
   }
+
   .close-dialog-btn {
     width: 30px;
     height: 30px;
@@ -87,6 +112,7 @@
     top: 30px;
     opacity: 0.3;
     cursor: pointer;
+
     &:hover {
       opacity: 1;
     }

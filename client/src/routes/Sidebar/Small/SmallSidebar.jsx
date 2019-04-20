@@ -52,7 +52,7 @@ export default class SmallSidebar extends React.Component {
             />
           ) : (
             <div
-              className="nav_toggle cross"
+              className="nav_toggle cross light "
               onClick={this.toggleNav.bind(this, true)}
             />
           )}

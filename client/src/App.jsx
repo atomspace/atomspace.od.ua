@@ -6,8 +6,6 @@ import { Resident } from "./components/Forms/Resident";
 
 import Sidebar from "./routes/Sidebar/Sidebar.jsx";
 import ReactFullpage from "@fullpage/react-fullpage";
-import Form from "./components/Forms/Form";
-// import { Resident, Mentor } from "./components/Forms";
 
 export const urls = [
   "main",
@@ -96,14 +94,10 @@ class App extends Component {
           }}
         />
         {this.state.form === "resident" && (
-          <Form pageName={this.state.form} closeForm={this.closeForm}>
-            <Resident closeForm={this.closeForm} />
-          </Form>
+          <Resident pageName={this.state.form} closeForm={this.closeForm} />
         )}
         {this.state.form === "mentor" && (
-          <Form pageName={this.state.form} closeForm={this.closeForm}>
-            <Mentor closeForm={this.closeForm} />
-          </Form>
+          <Mentor pageName={this.state.form} closeForm={this.closeForm} />
         )}
       </div>
     );

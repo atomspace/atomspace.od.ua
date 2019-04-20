@@ -12,14 +12,14 @@ class LeftSidebar extends React.Component {
       case urls[0]:
         return [
           <Link
-            handleDialog={this.handleDialog}
+            handleDialog={this.props.handleDialog}
             row={{
               title: "Стать ментором",
               link: "#mentorForm"
             }}
           />,
           <Link
-            handleDialog={this.handleDialog}
+            handleDialog={this.props.handleDialog}
             row={{
               title: "Стать резидентом",
               link: "#residentForm"

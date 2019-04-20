@@ -1,9 +1,18 @@
-import { createApiRequest } from "./base";
+import {
+  createApiRequest
+} from "./base";
 
-export const createResident = async data => {
-  return await createApiRequest("/residents", "POST", data);
+
+/**
+ * "name":"",
+ * "email":"a@a.com",
+ * "number":"1122",
+ * "information": "1122"
+ */
+export const createResident = data => {
+  return createApiRequest("/residents", "POST", data);
 };
 
-export const getAllResidents = async () => {
-  return await createApiRequest("/residents", "GET");
+export const getAllResidents = () => {
+  return createApiRequest("/residents", "GET");
 };

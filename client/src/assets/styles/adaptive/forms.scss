@@ -1,0 +1,99 @@
+.form-container {
+
+  .main-form-container {
+
+    .atom-logo,
+    .close-dialog-btn,
+    .form-request,
+    .form-maintext-block__header,
+    .request-button-block {
+      display: none;
+    }
+
+    .nav_toggle {
+      display: block;
+    }
+
+    .mobile-form-request {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .header-text {
+        font-family: OpenSans-SemiBold;
+        font-size: 26px;
+        line-height: 32px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 34px;
+        margin-top: 70px;
+      }
+
+      .form-blocks {
+        .form-maintext-block {
+          &__text {
+            font-size: 16px;
+            line-height: 24px;
+            padding: 0 43px;
+            margin-bottom: 80px;
+            .bold{
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      .form-main{
+        width: 80%;
+        position: fixed;
+        top: 170px;
+        .form-registration{
+          .form-block{
+            > input{
+              outline: none;
+              font-weight: bold;
+              font-size: 15px;
+              line-height: 20px;
+              background: transparent;
+              border: 0;
+              width: 100%;
+              border-bottom: 1px solid black;
+              padding-left: 8px;
+              padding-bottom: 5px;   
+            }
+            > input.error{
+              border-color: $red-color;
+              border-width: 3px;
+            }
+            margin-bottom: 30px; 
+          }
+          .form-block:nth-child(4){
+            position: fixed;
+            width: 80%;
+            bottom: 100px;
+          }
+        }
+      }
+
+      .button-next-preview {
+        background: url(../images/icons/support-button-mobile.svg);
+        width: 100%;
+        height: 45px;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-position: center;
+        text-transform: uppercase;
+        color: $white-color;
+        bottom: 40px;
+        position: fixed;
+        outline: none;
+        border: 0;
+        &.disabled{
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
