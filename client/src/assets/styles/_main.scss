@@ -9,7 +9,8 @@ body {
   font-family: OpenSans-Regular;
   background: url(#{$path-to-images}/backgrounds/background-fixed.svg);
   background-position: center;
-  background-size: cover;
+  background-size: 80% auto;
+  background-repeat: no-repeat;
 }
 p {
   margin: 0;
