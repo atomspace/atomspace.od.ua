@@ -5,7 +5,7 @@
 <link rel="stylesheet" media="all" href="{% static 'css/merch.css' %}" type="text/css">
 
 <nav class="navbar">
-    <a class="navbar-brand"><img src={% static 'img/AtomSpace-logo.svg' %}></a>
+    <a href="/" class="navbar-brand"><img src={% static 'img/AtomSpace-logo.svg' %}></a>
     <a class="sidebar-item-text" href="{% url 'merch' %}">Merch</a>
     <a class="sidebar-item-text" href="{% url 'news' %}">News</a>
     <a href="{% url 'logout' %}"><button class="btn btn-primary" type="submit" >Log out</button></a>
@@ -14,7 +14,7 @@
     <div class="content">
         {% if merch %}
             <ul class="list-group">
-                    <li class="li-add" id="dialog"><img style="width: 35px;margin:auto;padding:5px;" src={% static 'img/plus.svg' %} /></li>
+                    <li class="li-add" id="dialog"><img style="width: 35px;margin:auto;padding:5px;" src="{% static 'img/plus.svg' %}" /></li>
                     <div style="display: none;" class="add-merch-block popup-form">
                         <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
                             {% csrf_token %}
@@ -29,14 +29,14 @@
                             <div class="card">
                                 <div style="display:flex;">
                                     <div class="img-square-wrapper">
-                                        <img style="margin:15px;" src="http://localhost:8000/media/{{ item.avatar_url }}" alt="Card image cap">
+                                        <img style="margin:15px;" src="http://{{ request.get_host }}/media/{{ item.avatar_url }}" alt="Card image cap">
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title">Name: {{ item.name }}</h3>
                                         <p class="card-text">Price: {{ item.price }}₴</p>
                                         <div class="merch-item-btns">
-                                            <a href='/merch/{{item.id}}/edit'><img src={% static 'img/edit.svg' %}/></a>
-                                            <a href='/merch/{{item.id}}/delete'><img src={% static 'img/remove.svg' %}/></a>
+                                            <a href='/merch/{{item.id}}/edit'><img src="{% static 'img/edit.svg' %}"/></a>
+                                            <a href='/merch/{{item.id}}/delete'><img src="{% static 'img/remove.svg' %}"/></a>
                                         </div>
                                     </div>
                                 </div>

@@ -1,0 +1,128 @@
+.form{
+    width: 50%;
+    margin: auto;
+    padding-top: 2vw;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+.navbar {
+    background-color: rgba(61, 62, 62, 0.8) !important;
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+}
+
+.side-bar{
+    position: fixed;
+    border-right: 0.3rem solid gray;
+    margin-top: 3%;
+    z-index: 1;
+    height: 100%;
+    width: 20vw;
+    background-color: white;
+    text-align: center;
+}
+.side-bar h1{
+    border-bottom: 0.2rem solid grey;
+    padding: 1.3rem;
+}
+
+.sidebar-item{
+    display: flex;
+    height: 8%;
+    border-bottom: 0.2rem solid grey;
+    transition: all 0.5s;
+    padding: 5px;
+    width: 100%;
+}
+
+.sidebar-item:hover{
+    background-color: gray;
+    color: white;
+}
+
+label {
+    margin-top: .3rem;
+}
+
+.sidebar-item-text{
+    margin: auto;
+    text-decoration: none !important;
+    color: white;
+    transition: 1s;
+}
+
+.sidebar-item-text:hover {
+    color: rgb(214, 213, 213);
+}
+
+.news-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 2vw;
+}
+
+.add-item h3 {
+    font-size: 1.5em;
+}
+
+.form h3{
+    text-align: center;
+}
+.horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.news-item-btns img{
+    width: 25px;
+}
+
+.news-item-btns {
+    float: right;
+    margin: 1%;
+}
+
+img.add-button{
+    width: 4vw;
+}
+
+.add-item{
+    background-color: rgba(61, 62, 62, 0.8) !important;
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-bottom: 3vh;
+}
+
+.add-news-block {
+    background-color: rgba(61, 62, 62, 0.8) !important;
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 25px;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    cursor: pointer;
+}
+
+
+.add-item:hover{
+    background-color: gray;
+    color: white;
+}
+
+.img-square-wrapper img {
+    width: 150px;
+}

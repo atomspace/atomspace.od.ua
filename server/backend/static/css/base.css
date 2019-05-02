@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+body {
+    background: url(../img/background-main.png)
+}
+
+.login-block {
+    position: relative;
+    top: 75px;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 4vh;
+    list-style-type: none;
+}
+
+.card {
+    background-color: rgba(61, 62, 62, 0.8) !important;
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.content-merch {
+    display: flex !important;
+}
+
+.navbar {
+    color: white;
+    font-size: 1.5em;
+}
+
+.navigation-bar {
+    z-index: 2;
+    position: fixed !important;
+    width: 100%;
+}
+
+.camera-block {
+    background: black;
+    width: 50vh;
+    height: 50vh;
+}
+
+.form-block {
+    width: 100%;
+}
+
+.userjoin-block {
+    overflow-y: scroll;
+    max-height: 50vh;
+}
+
+.form-group {
+    width: 100%;
+    padding-left: 15px;
+    margin-bottom: 5%;
+}
+
+textarea {
+    resize: none;
+}
+
+.side-bar {
+    position: fixed;
+    border-right: 0.3rem solid gray;
+    margin-top: 3%;
+    z-index: 1;
+    height: 100%;
+    width: 20vw;
+    background-color: white;
+    text-align: center;
+}
+
+.side-bar h1 {
+    border-bottom: 0.2rem solid grey;
+    padding: 1.3rem;
+}
+
+.sidebar-item {
+    display: flex;
+    height: 8%;
+    border-bottom: 0.2rem solid grey;
+    transition: all 0.5s;
+    padding: 5px;
+    width: 100%;
+}
+
+.sidebar-item:hover {
+    background-color: gray;
+    color: white;
+}
+
+.sidebar-item-text {
+    margin: auto;
+}
+
+/* .add-merch-block{
+    display: none;
+} */
+
+.content {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 12vh;
+}
+
+.form {
+    width: 50%;
+    margin: auto;
+    padding-top: 2vw;
+}
+
+.form h3 {
+    text-align: center;
+}
+
+img.add-button {
+    width: 4vw;
+}
+
+.add-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    transition: all 0.5s;
+}
+
+.add-item:hover {
+    background-color: gray;
+    color: white;
+}
+
+.list-join {
+    display: flex !important;
+    justify-content: center;
+}
+
+.list-text {
+    text-align: center;
+    margin: 2%;
+}
+
+.register-buttom {
+    padding: 0 15px 0 15px;
+}
+
+.register-text {
+    width: 100%;
+    line-height: 2;
+    text-align: center;
+}

@@ -39,7 +39,7 @@ def mentors(request):
         subject = 'Request to become a mentor'
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email']]
-        contact_message = f'Name: {data["name"]}\nPhone number: {data["number"]}\nE-mail: {data["email"]}\nInfo: {data["information"]}\n'
+        contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(data['name'], data["number"], data["email"], data["information"])
         send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
 
         return JsonResponse({
@@ -178,7 +178,9 @@ def orders(request):
         subject = 'Request to order a merch item'
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email']]
-        contact_message = f'Name: {data["name"]} {data["surname"]}\nPhone number: {data["phone"]}\nE-mail: {data["email"]}\nInfo about merch:\n\nItem: {data["merch_name"]}\nSize: {data["merch_size"]}\nCost: {data["merch_cost"]}'
+        contact_message = 'Name: {} {}\nPhone number: {}\nE-mail: {}\nInfo about merch:\n\nItem: {}\nSize: {}\nCost: {}'.format(
+            data["name"], data["surname"], data["phone"], data["email"], data["merch_name"], data["merch_size"], data["merch_cost"]
+            )
         send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
 
         return JsonResponse({'ok': 'true'})
@@ -245,4 +247,4 @@ def index(request):
 @login_required
 def logout(request):
     django_logout(request)
-    return HttpResponseRedirect('/login')
+    return HttpResponseRedirect('/merch')
