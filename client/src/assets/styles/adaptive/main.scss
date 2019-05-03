@@ -54,7 +54,7 @@
       align-items: center;
 
       &.resident-support {
-        background: url(../images/icons/adaptive/be-resident-block.svg) center/cover no-repeat;
+        background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg) center/cover no-repeat;
         position: absolute;
         left: 0;
         padding-right: 24px;
@@ -62,7 +62,7 @@
       }
 
       &.mentor-support {
-        background: url(../images/icons/adaptive/be-mentor-block.svg) center/cover no-repeat;
+        background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg) center/cover no-repeat;
         position: absolute;
         right: 0;
         padding-left: 24px;

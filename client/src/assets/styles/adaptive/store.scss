@@ -34,9 +34,14 @@
             .carousel-block {
               .carousel-info {
                 &__merch {
-                  .merch-logo {
+                  .ellipse {
                     width: 139px;
                     height: 156px;
+                  }
+
+                  .merch-logo {
+                    width: 139px;
+                    height: 156px !important;
                   }
                 }
               }
@@ -72,6 +77,7 @@
 .store-buttons-mobile {
   display: block;
   margin-top: 10%;
+
   .size-container {
     font-size: 14px;
     line-height: 14px;
@@ -118,6 +124,145 @@
     .main-header {
       position: relative;
       left: 72px;
+      font-size: 14px;
+    }
+  }
+}
+
+.buy-form-container {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: -5px;
+  height: 102%;
+  background: url(#{$path-to-images}/backgrounds/background-fixed.svg);
+  background-color: white;
+
+  .nav_toggle {
+    left: 20px;
+    transform: rotate(180deg);
+  }
+
+  .order-block {
+    background-image: url(#{$path-to-images}/backgrounds/background-buy-form-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    .order-items {
+      color: $white-color;
+      padding: 35px;
+
+      .main-header {
+        margin: 0 0 12px 0;
+        font-family: OpenSans-SemiBold;
+        font-size: 16px;
+        line-height: 20px;
+        text-transform: capitalize;
+      }
+
+      .additional-header {
+        margin: 0 0 20px 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      .order-form {
+
+        >div {
+          margin-bottom: 20px;
+        }
+
+        input {
+          width: 100%;
+          background: transparent;
+          border: 0;
+          font-family: OpenSans-SemiBold;
+          font-size: 15px;
+          outline: none;
+          border-bottom: 1px solid white;
+          padding: 0 0 5px 0;
+          color: white !important;
+
+          &::placeholder {
+            color: $white-color;
+            opacity: 1;
+          }
+
+          &:-ms-input-placeholder {
+            color: $white-color;
+          }
+
+          &::-ms-input-placeholder {
+            color: $white-color;
+          }
+        }
+      }
+
+      .order-request {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .pay-button {
+          display: flex;
+          justify-content: center;
+          width: 180px;
+          height: 36px;
+          font-size: 14px;
+          line-height: 16px;
+        }
+
+        .cost-info {
+          margin: 0;
+          padding: 0 10px;
+          font-family: OpenSans-SemiBold;
+          font-size: 24px;
+          line-height: 28px;
+          text-align: center;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  .show-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+
+    .text-info {
+      font-size: 16px;
+      line-height: 22px;
+      text-align: right;
+      margin-right: 13px;
+
+      &__choice {
+        font-family: OpenSans-SemiBold;
+        margin-bottom: 12px;
+      }
+
+      &__name {}
+
+      &__size {
+        .bold {
+          font-family: OpenSans-SemiBold;
+
+        }
+      }
+    }
+
+    .merch-photo {
+      .image {
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 150px;
+      }
     }
   }
 }

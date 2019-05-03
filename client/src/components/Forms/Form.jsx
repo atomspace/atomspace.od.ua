@@ -47,9 +47,9 @@ export default class Form extends React.Component {
         name: user.name.value,
         email: user.email.value,
         number: user.number.value,
-        information: user.number.information,
+        information: user.information.value,
       }
-      await this.props.createOrder(user);
+      await this.props.createOrder(data);
       this.setState({ isDisabled: false });
       this.props.closeForm();
     } catch (e) {
@@ -129,7 +129,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <div className={"main-form-container"}>
-        <div className={"navigation " + this.props.pageName}>
+        <div className={"navigation"}>
           <LeftSidebar {...this.props} />
         </div>
         <Bubble big animate style={{ bottom: 453, left: 451 }} />

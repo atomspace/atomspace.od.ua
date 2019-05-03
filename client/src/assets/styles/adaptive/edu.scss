@@ -39,7 +39,7 @@
                         scripts {
                             .edu-item__#{$logo}-logo {
 
-                                background: url(../images/icons/edu/#{$logo}-logo.svg);
+                                background: url(#{$path-to-images}/icons/edu/#{$logo}-logo.svg);
                                 background-repeat: no-repeat;
                                 background-size: contain;
                                 background-position: center;

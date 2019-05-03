@@ -1,5 +1,5 @@
 .contacts-container {
-  background: url(../images/backgrounds/background-contacts-bottom.svg);
+  background: url(#{$path-to-images}/backgrounds/background-contacts-bottom.svg);
   background-repeat: no-repeat;
   background-position: bottom;
   .contacts-wrapper {

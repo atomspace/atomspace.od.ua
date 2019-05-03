@@ -29,7 +29,10 @@ class LeftSidebar extends React.Component {
       case urls[5]:
         return [
           <MerchSize changeMerchAttr={this.props.changeMerchAttr} />,
-          <MerchBuy order={this.props.order} />
+          <MerchBuy
+            handleDialog={this.props.handleDialog}
+            order={this.props.order}
+          />
         ];
       case urls[6]:
         return [<ContactInfo />];
@@ -63,11 +66,11 @@ class LeftSidebar extends React.Component {
       <div className={sidebarClasses}>
         <nav className={classes.join(" ")}>
           <div className="flex flex-col">
-            {sidebarRows.map((el, index) => 
+            {sidebarRows.map((el, index) => (
               <div className="list" key={index}>
                 {el}
               </div>
-            )}
+            ))}
           </div>
           <Soc
             src={{

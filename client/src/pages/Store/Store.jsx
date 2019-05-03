@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import Merch1 from "../../assets/images/photos/i-need-more-space-2-shirt.png";
 import Merch2 from "../../assets/images/photos/i-need-more-space-shirt.png";
 import Merch3 from "../../assets/images/photos/nlo-shirt.png";
+import Merch4 from "../../assets/images/photos/shirt.png";
 import Arrow from "../../components/Arrow";
 import MerchSize from "../../pages/Store/MerchSize";
 import MerchBuy from "../../pages/Store/MerchBuy";
@@ -21,26 +22,26 @@ class Store extends Component {
     {
       type: "shirt",
       cost: 500,
-      name: "i-need-more-space",
+      name: "I need more space",
       image: Merch1
     },
     {
       type: "shirt",
       cost: 500,
-      name: "i-need-more-space-2",
+      name: "I need more space 2",
       image: Merch2
     },
     {
       type: "shirt",
       cost: 300,
-      name: "nlo",
+      name: "NLO Shirt",
       image: Merch3
     },
     {
       type: "shirt",
       cost: 500,
-      name: "nlo",
-      image: Merch3
+      name: "NLO shirt without circle",
+      image: Merch4
     }
   ];
 
@@ -81,7 +82,8 @@ class Store extends Component {
         this.setState({ index });
         const order = {
           name: this.merches[index].name,
-          cost: this.merches[index].cost
+          cost: this.merches[index].cost,
+          image: this.merches[index].image
         };
         this.props.changeMerchAttr(order);
       }
@@ -101,7 +103,10 @@ class Store extends Component {
               {this.merches.map((merch, index) => (
                 <div key={index} className="carousel-block">
                   <div className="carousel-info__merch">
-                    <img className="merch-logo" src={merch.image} alt="" />
+                    <div className="wrapper">
+                      <div className="ellipse" />
+                      <img className="merch-logo" src={merch.image} alt="" />
+                    </div>
                   </div>
                 </div>
               ))}
@@ -110,7 +115,10 @@ class Store extends Component {
           <div className="store-buttons-mobile">
             {/* <div className="size-button" /> */}
             <MerchSize changeMerchAttr={this.props.changeMerchAttr} />
-            <MerchBuy order={this.props.order} />
+            <MerchBuy
+              order={this.props.order}
+              handleDialog={this.props.handleDialog}
+            />
             {/* <div className="buy-button" /> */}
           </div>
         </div>

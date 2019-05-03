@@ -6,6 +6,8 @@ import { Resident } from "./components/Forms/Resident";
 
 import Sidebar from "./routes/Sidebar/Sidebar.jsx";
 import ReactFullpage from "@fullpage/react-fullpage";
+import BuyForm from "./pages/Store/BuyForm";
+import Merch1 from "./assets/images/photos/i-need-more-space-2-shirt.png";
 
 export const urls = [
   "main",
@@ -18,12 +20,14 @@ export const urls = [
 ];
 
 class App extends Component {
-  state = {
+  state = { 
     currentPage: "main",
     form: null,
     order: {
-      name: "i-need-more-space",
-      size: "L"
+      name: "I need more space",
+      size: "L",
+      cost: 500,
+      image: Merch1
     }
   };
   closeForm = () => {
@@ -33,15 +37,11 @@ class App extends Component {
   changeDialog(hash) {
     this.setState(state => ({
       ...state,
-      form:
-        hash === "#mentorForm"
-          ? "mentor"
-          : hash === "#residentForm"
-          ? "resident"
-          : null
+      form: hash
     }));
   }
   handleDialog = e => {
+    console.log(e);
     this.changeDialog(e.target.hash);
   };
 
@@ -87,17 +87,21 @@ class App extends Component {
                   order={this.state.order}
                   size={this.state.size}
                   changeMerchAttr={this.changeMerchAttr}
+                  handleDialog={this.handleDialog}
                 />
                 <Contacts handleDialog={this.handleDialog} />
               </ReactFullpage.Wrapper>
             );
           }}
         />
-        {this.state.form === "resident" && (
-          <Resident pageName={this.state.form} closeForm={this.closeForm} />
+        {this.state.form === "#residentForm" && (
+          <Resident closeForm={this.closeForm} />
         )}
-        {this.state.form === "mentor" && (
-          <Mentor pageName={this.state.form} closeForm={this.closeForm} />
+        {this.state.form === "#mentorForm" && (
+          <Mentor closeForm={this.closeForm} />
+        )}
+        {this.state.form === "#buyForm" && (
+          <BuyForm closeForm={this.closeForm} order={this.state.order} />
         )}
       </div>
     );

@@ -12,10 +12,10 @@ class Mentor(models.Model):
 
 
 class Resident(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
-    number = models.CharField(max_length=13)
-    date = models.CharField(max_length=20)
+    name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
+    number = models.IntegerField()
+    information = models.CharField(max_length=100)
     created_at = models.DateField(default=timezone.now)
 
     def __str__(self):

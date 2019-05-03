@@ -1,5 +1,5 @@
 .about-container {
-  background: url(../images/backgrounds/background-about-top.svg);
+  background: url(#{$path-to-images}/backgrounds/background-about-top.svg);
   background-repeat: no-repeat;
   background-position: top;
   .about-blocks {
@@ -13,7 +13,7 @@
       font-weight: 300;
       line-height: $f26;
       &__atomspace {
-        background: url(../images/icons/logos/AtomSpace-about-maintext.svg) no-repeat;
+        background: url(#{$path-to-images}/icons/logos/AtomSpace-about-maintext.svg) no-repeat;
         background-position: center;
         background-size: contain;
         height: $f34;

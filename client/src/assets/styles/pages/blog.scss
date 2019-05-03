@@ -53,7 +53,7 @@
         trust,
         puzzle {
           &__#{$logo}-logo {
-            background: url(../images/icons/blog/#{$logo}-logo.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/blog/#{$logo}-logo.svg) no-repeat center/contain;
             height: $f178 - $f8;
             width: $f178 - $f8;
             margin-bottom: $f5;

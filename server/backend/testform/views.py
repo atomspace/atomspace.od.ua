@@ -80,7 +80,7 @@ def residents(request):
         #                             request.POST['date_month'], request.POST['date_year'])
 
         # ------------- temporary --------------
-        post.date = '05/02/2003'
+        post.information = data['information']
         # --------------------------------------
 
         post.save()

@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -11,9 +12,11 @@ body {
   background-position: center;
   background-size: cover;
 }
+
 p {
   margin: 0;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -22,16 +25,20 @@ code {
 li {
   list-style: none;
 }
+
 a {
   text-decoration: none;
   outline: none;
   cursor: pointer;
   font-size: $link-font-size;
+
   &:hover {
     color: initial;
   }
+
+  &:active {
+    color: black;
+  }
 }
 
-.fullpage-wrapper{
-  
-}
+.fullpage-wrapper {}
