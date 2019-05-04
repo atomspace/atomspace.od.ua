@@ -8,3 +8,6 @@ Landing
 .env.development.local
 .env.test.local
 .env.production.local
+
+atomspace.od.ua/
+server/backend/static/
