@@ -21,7 +21,7 @@ install
 ### Docker 
 
 ## Build 
-```docker build ./ --tag atomspace```
+```docker-compose build```
 
 ## Run
-```docker run -d -p 3000:3000 atomspace```
+```docker-compose up```
