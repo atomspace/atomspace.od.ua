@@ -14,6 +14,7 @@ install
 ```django-rest-framework```
 ```django-cors-headers```
 ```Pillow```
+```gunicorn```
 ## Start server
 
 ```cd ./server```
