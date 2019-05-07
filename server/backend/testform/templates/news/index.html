@@ -15,7 +15,7 @@
     <div class="content">
         {% if news %}
             <ul class="list-group">
-                <li class="add-item" id="dialog"> <img style="width: 35px;margin:auto;padding:5px;" src={% static 'img/plus.svg' %} /></li>
+                <li class="add-item" id="dialog"> <img style="width: 35px;margin:auto;padding:5px;" src="{% static 'img/plus.svg' %}" /></li>
                 <div style="display: none;" class="add-news-block popup-form">
                     <form enctype="multipart/form-data" action="" method="post">
                         {% csrf_token %}
@@ -30,14 +30,14 @@
                             <div class="card">
                                 <div style="display:flex;">
                                     <div class="img-square-wrapper">
-                                        <img style="margin:15px;" src="http://localhost:8000/media/{{ item.news_picture_url }}" alt="Card image cap">
+                                        <img style="margin:15px;" src="http://{{ request.get_host }}/media/{{ item.news_picture_url }}" alt="Card image cap">
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title">{{ item.header }}</h3>
                                         <p class="card-text">{{ item.content }}</p>
                                         <div class="news-item-btns">
-                                            <a href='/news/{{ item.id }}/edit'><img src={% static 'img/edit.svg' %}/></a>
-                                            <a href="/news/{{ item.id }}/delete"><img src={% static 'img/remove.svg' %}/></a>
+                                            <a href='/news/{{ item.id }}/edit'><img src="{% static 'img/edit.svg' %}"/></a>
+                                            <a href="/news/{{ item.id }}/delete"><img src="{% static 'img/remove.svg' %}"/></a>
                                         </div>
                                     </div>
                                 </div>

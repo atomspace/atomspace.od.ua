@@ -2,7 +2,6 @@ import React from "react";
 import LeftSidebar from "../../routes/Sidebar/Left";
 import { Bubble } from "../Bubble";
 import * as classnames from "classnames";
-import { createApiRequest } from "../../api/base";
 
 export default class Form extends React.Component {
   state = {
@@ -20,10 +19,9 @@ export default class Form extends React.Component {
 
   createOrder = async () => {
     let user = this.state.user;
-    const errored = [];
     const stateUser = { ...this.state.user };
     let isDisabled = false;
-    Object.keys(this.state.user).map(key => {
+    Object.keys(this.state.user).forEach(key => {
       const value = this.state.user[key].value;
       const validated = () =>{
         const isExist = this.props.inputData.find(val => val.id === key);
@@ -58,8 +56,6 @@ export default class Form extends React.Component {
   };
 
   onBlurUser = (event, validate) => {
-    console.log(event.target.id);
-    console.log(validate);
     const name = event.target.id;
 
     const error = !event.target.value.length || (validate && !validate(event.target.value));

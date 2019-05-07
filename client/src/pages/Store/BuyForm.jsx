@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 
 const mainHeader = "ДЕТАЛИ ЗАКАЗА";
 const additionalHeader =
@@ -6,9 +6,11 @@ const additionalHeader =
 
 export default class BuyForm extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <div className="buy-form-container">
+        <div className="main-header">
+          <p>{`Оформить покупку`}</p>
+        </div>
         <div className="close-dialog-btn" onClick={this.props.closeForm} />
         <div className="nav_toggle cross" onClick={this.props.closeForm} />
         <div className="show-block">
@@ -21,12 +23,16 @@ export default class BuyForm extends React.Component {
             </div>
           </div>
           <div className="merch-photo">
-            <img className="image" src={this.props.order.image} />
+            <img
+              alt="merch"
+              className="image"
+              src={`http://localhost:8000/media/${this.props.order.avatar_url}`}
+            />
           </div>
         </div>
         <div className="order-block">
           <div className="order-items">
-            <h1 className="main-header">{mainHeader}</h1>
+            <h1 className="order-items__header">{mainHeader}</h1>
             <h2 className="additional-header">{additionalHeader}</h2>
             <div className="order-form">
               <div className="fio-block">
@@ -49,7 +55,7 @@ export default class BuyForm extends React.Component {
             </div>
             <div className="order-request">
               <button className="btn btn-support btn-request pay-button">{`Оплатить`}</button>
-              <h3 className="cost-info">{`₴ ${this.props.order.cost}`}</h3>
+              <h3 className="price-info">{`₴ ${this.props.order.price}`}</h3>
             </div>
           </div>
         </div>

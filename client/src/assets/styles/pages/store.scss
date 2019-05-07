@@ -61,6 +61,7 @@
             align-items: center;
 
             .carousel-block {
+              outline: none;
               .carousel-info {
                 &__merch {
                   margin: 0 $f21;
@@ -86,10 +87,8 @@
                       height: $height;
                       margin: 0 auto;
                       transition: all 1s ease;
-
                     }
                   }
-
                 }
               }
             }
@@ -104,7 +103,8 @@
   font-weight: bold;
 
   .size-list {
-    .main-header {}
+    .main-header {
+    }
 
     .size-item {
       cursor: pointer;
@@ -128,7 +128,7 @@
       }
     }
 
-    .size-item+.size-item {
+    .size-item + .size-item {
       margin-left: 0;
     }
   }
@@ -159,9 +159,6 @@
   display: none;
 }
 
-
-
-
 .buy-form-container {
   position: fixed;
   z-index: 1000;
@@ -170,27 +167,40 @@
   height: 102%;
   background: url(#{$path-to-images}/backgrounds/background-fixed.svg);
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  > .main-header {
+    position: absolute;
+    top: 90px;
+    p {
+      font-style: normal;
+      font-size: 42px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
   .nav_toggle {
     cursor: pointer;
-    left: 20px;
     transform: rotate(180deg);
     transition: 1s all;
+    left: 15%;
+    top: 15%;
   }
 
   .order-block {
-    background-image: url(#{$path-to-images}/backgrounds/background-buy-form-mobile.svg);
+    background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
     background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed;
     bottom: 0;
-    width: 100%;
-
+    width: 375px;
+    height: 375px;
+    background-size: contain;
     .order-items {
       color: $white-color;
       padding: 35px;
 
-      .main-header {
+      &__header {
         margin: 0 0 12px 0;
         font-family: OpenSans-SemiBold;
         font-size: 16px;
@@ -207,8 +217,7 @@
       }
 
       .order-form {
-
-        >div {
+        > div {
           margin-bottom: 20px;
         }
 
@@ -252,7 +261,7 @@
           line-height: 16px;
         }
 
-        .cost-info {
+        .price-info {
           margin: 0;
           padding: 0 10px;
           font-family: OpenSans-SemiBold;
@@ -270,33 +279,38 @@
     align-items: center;
     justify-content: center;
     height: 60%;
-
+    flex-direction: row-reverse;
+    margin-right: 85px;
+    width: 30%;
+    height: 44%;
     .text-info {
       font-size: 16px;
       line-height: 22px;
-      text-align: right;
+      text-align: left;
       margin-right: 13px;
-
+      margin-left: 50px;
+      width: 300px;
       &__choice {
         font-family: OpenSans-SemiBold;
         margin-bottom: 12px;
       }
 
-      &__name {}
+      &__name {
+      }
 
       &__size {
         .bold {
           font-family: OpenSans-SemiBold;
-
         }
       }
     }
 
     .merch-photo {
+      width: 100%;
       .image {
         background-repeat: no-repeat;
         background-size: contain;
-        width: 150px;
+        width: 100%;
       }
     }
   }

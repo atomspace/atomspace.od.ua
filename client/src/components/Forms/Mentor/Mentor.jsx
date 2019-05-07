@@ -21,7 +21,7 @@ const inputData = [
     id: "email",
     placeholder: "Email:",
     type: 'email',
-    validate: (val) => val.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/),
+    validate: val => val.match(/^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+).([a-zA-Z]{2,5})$/),
   },
   {
     id: "information",

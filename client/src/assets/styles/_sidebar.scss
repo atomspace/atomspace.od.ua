@@ -192,6 +192,8 @@ li {
       .dot {
         $size: $f13;
         width: $size;
+        position: relative;
+        left: -$f13 / 2;
         background: url(../images/icons/circle.svg) no-repeat center/contain;
       }
 
@@ -334,7 +336,7 @@ li {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: url(../images/backgrounds/background-gamburger.svg) center/cover no-repeat;
+    background: url(../images/backgrounds/background-gamburger.svg) center/contain no-repeat;
 
     &.hide {
       display: none;
@@ -353,7 +355,7 @@ li {
   }
 
   &.light_theme .nav_toggle {
-    background: url(../images/icons/gamburgers/gamburger-main-light.svg) center/cover no-repeat;
+    background: url(../images/icons/gamburgers/gamburger-main-light.svg) center/contain no-repeat;
   }
 
 
@@ -361,8 +363,10 @@ li {
 
 .nav_toggle,
 .nav_toggle.cross {
-  width: 34px;
-  height: 29px;
+  width: $f178;
+  height: $f144;
+  // width: 34px;
+  // height: 29px;
   position: absolute;
   right: 20px;
   top: 20px;
@@ -370,13 +374,13 @@ li {
 
 
 .nav_toggle {
-  background: url(../images/icons/gamburgers/gamburger-main-dark.svg) center/cover no-repeat;
+  background: url(../images/icons/gamburgers/gamburger-main-dark.svg) center/contain no-repeat;
 
   &.cross {
-    background: url(../images/icons/gamburgers/gamburger-back.svg) center/cover no-repeat;
+    background: url(../images/icons/gamburgers/gamburger-back.svg) center/contain no-repeat;
   }
 
   &.cross.light {
-    background: url(../images/icons/gamburgers/gamburger-back-light.svg) center/cover no-repeat;
+    background: url(../images/icons/gamburgers/gamburger-back-light.svg) center/contain no-repeat;
   }
 }

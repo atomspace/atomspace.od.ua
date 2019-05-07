@@ -50,9 +50,6 @@
         }
       }
     }
-
-
-
   }
 }
 
@@ -138,24 +135,28 @@
   background: url(#{$path-to-images}/backgrounds/background-fixed.svg);
   background-color: white;
 
+  .main-header {
+    display: none;
+  }
   .nav_toggle {
     left: 20px;
+    top: 20px;
     transform: rotate(180deg);
   }
 
   .order-block {
-    background-image: url(#{$path-to-images}/backgrounds/background-buy-form-mobile.svg);
+    background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: fixed;
-    bottom: 0;
+    bottom: -50px;
     width: 100%;
 
     .order-items {
       color: $white-color;
       padding: 35px;
 
-      .main-header {
+      &__header {
         margin: 0 0 12px 0;
         font-family: OpenSans-SemiBold;
         font-size: 16px;
@@ -172,8 +173,7 @@
       }
 
       .order-form {
-
-        >div {
+        > div {
           margin-bottom: 20px;
         }
 
@@ -217,7 +217,7 @@
           line-height: 16px;
         }
 
-        .cost-info {
+        .price-info {
           margin: 0;
           padding: 0 10px;
           font-family: OpenSans-SemiBold;
@@ -235,24 +235,27 @@
     align-items: center;
     justify-content: center;
     height: 60%;
+    top: 0;
+    position: absolute;
+    width: 80%;
 
     .text-info {
       font-size: 16px;
       line-height: 22px;
       text-align: right;
       margin-right: 13px;
-
+      margin-left: 0;
       &__choice {
         font-family: OpenSans-SemiBold;
         margin-bottom: 12px;
       }
 
-      &__name {}
+      &__name {
+      }
 
       &__size {
         .bold {
           font-family: OpenSans-SemiBold;
-
         }
       }
     }

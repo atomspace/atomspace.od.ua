@@ -7,7 +7,6 @@ import { Resident } from "./components/Forms/Resident";
 import Sidebar from "./routes/Sidebar/Sidebar.jsx";
 import ReactFullpage from "@fullpage/react-fullpage";
 import BuyForm from "./pages/Store/BuyForm";
-import Merch1 from "./assets/images/photos/i-need-more-space-2-shirt.png";
 
 export const urls = [
   "main",
@@ -24,10 +23,6 @@ class App extends Component {
     currentPage: "main",
     form: null,
     order: {
-      name: "I need more space",
-      size: "L",
-      cost: 500,
-      image: Merch1
     }
   };
   closeForm = () => {
@@ -41,7 +36,6 @@ class App extends Component {
     }));
   }
   handleDialog = e => {
-    console.log(e);
     this.changeDialog(e.target.hash);
   };
 

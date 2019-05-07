@@ -3,10 +3,10 @@
 
   .header-stars {
     font-weight: 300;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: $f89;
+    line-height: $f110;
     text-transform: uppercase;
-    width: 188px;
+    width: $f610 + $f400 + $f89;
     text-align: center;
     position: inherit;
     margin: 0 auto;
@@ -24,8 +24,7 @@
   }
 
   .main-logo {
-    width: 230px;
-    height: 50px;
+    width: $f610 + $f400 + $f89;
     background-size: $f400 + $f610 $f233;
     margin: 0 auto;
     margin-bottom: $f110;
@@ -43,8 +42,12 @@
       padding: 0;
       height: 38px;
       width: 154px;
-      font-size: 16px;
-      line-height: 16px;
+
+      width: $f400 + $f233 + $f110;
+      height: $f233;
+
+      font-size: $f68 + $f5;
+      line-height: $f89;
       letter-spacing: -0.05em;
       text-transform: uppercase;
       color: white;
@@ -54,34 +57,34 @@
       align-items: center;
 
       &.resident-support {
-        background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg) center/cover no-repeat;
+        background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg)
+          center/contain no-repeat;
         position: absolute;
         left: 0;
-        padding-right: 24px;
+        padding-right: $f110;
         color: white;
       }
 
       &.mentor-support {
-        background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg) center/cover no-repeat;
+        background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg)
+          center/contain no-repeat;
         position: absolute;
         right: 0;
-        padding-left: 24px;
+        padding-left: $f110;
       }
     }
-
   }
 
   .bottom-quastion {
     display: block;
     font-style: normal;
     font-weight: 300;
-    font-size: 14px;
+    font-size: $f68;
     line-height: 18px;
     text-align: center;
     text-transform: uppercase;
     opacity: 0.31;
     color: $white-color;
-    width: 116px;
     margin: 0 auto;
     margin-bottom: 40px;
   }

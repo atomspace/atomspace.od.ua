@@ -27,7 +27,7 @@ SECRET_KEY = '74_md3%zb&-tb3vq)74p7z82oiv(lqbt3epug1+#0#iw7^2zg+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'admin.atomspace.od.ua', '0.0.0.0']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'osadchyimax17@gmail.com'
@@ -131,9 +131,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = os.path.join(BASE_DIR, 'testform/static/')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_URL = 'login/'
-LOGIN_REDIRECT_URL = 'merch/'
+LOGIN_REDIRECT_URL = 'merch'
 
-# CORS_ORIGIN_WHITELIST = 'http://localhost:3000'
 CORS_ORIGIN_ALLOW_ALL = True
