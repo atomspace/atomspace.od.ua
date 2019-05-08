@@ -14,8 +14,8 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MEDIA_ROOT = '/media_folder/'
 MEDIA_URL = '/media/'
+MEDIA_ROOT = '/media_folder/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/static/'
@@ -27,9 +27,9 @@ STATIC_ROOT = '/static/'
 SECRET_KEY = '74_md3%zb&-tb3vq)74p7z82oiv(lqbt3epug1+#0#iw7^2zg+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'admin.atomspace.od.ua', '0.0.0.0', '172.18.0.2']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'admin.atomspace.od.ua', '0.0.0.0']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'osadchyimax17@gmail.com'
