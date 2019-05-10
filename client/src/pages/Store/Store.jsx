@@ -5,6 +5,7 @@ import Arrow from "../../components/Arrow";
 import MerchSize from "../../pages/Store/MerchSize";
 import MerchBuy from "../../pages/Store/MerchBuy";
 import { getAllMerches } from "../../api/merch";
+import { MEDIA_URL } from "../../utils/config";
 
 class Store extends Component {
   state = {
@@ -16,46 +17,11 @@ class Store extends Component {
   additionalText = `Выбирай и носи стильную атомную футболку!?`;
   additionalTextMobile = `Покупай футболку!`;
 
-  // merches = [
-  //   {
-  //     price: 500,
-  //     name: "I need more space",
-  //     avatar_url: Merch1
-  //   },
-  //   {
-  //     price: 500,
-  //     name: "I need more space 2",
-  //     avatar_url: Merch2
-  //   },
-  //   {
-  //     price: 300,
-  //     name: "NLO Shirt",
-  //     avatar_url: Merch3
-  //   },
-  //   {
-  //     price: 500,
-  //     name: "NLO shirt without circle",
-  //     avatar_url: Merch4
-  //   }
-  // ];
-
-  // returnDefaultMerch = () => ({
-  //   type: "shirt",
-  //   price: 500,
-  //   name: "i-need-more-space",
-  //   avatar_url: Merch1
-  // });
-
   async componentDidMount() {
+    console.log('before');
     const merches = await getAllMerches();
+    console.log('after');
     this.setState({ merches: merches.map(merch => merch.fields) });
-    console.log(this.state.merches);
-    // this.props.changeMerchAttr({
-    //   type: "shirt",
-    //   price: 500,
-    //   name: "i-need-more-space",
-    //   avatar_url: Merch1
-    // });
   }
 
   render() {
@@ -89,6 +55,8 @@ class Store extends Component {
       };
     }
 
+    console.log(this.state.merches.length);
+    console.log(this.state.merches.length && 555);
     return (
       <div className="section store-container">
         <div className="store-wrapper">
@@ -101,22 +69,23 @@ class Store extends Component {
           <div className="carousel-container">
             {this.state.merches.length && (
               <Slider {...settings}>
-                {this.state.merches.map((merch, index) => (
-                  <div key={index} className="carousel-block">
-                    <div className="carousel-info__merch">
-                      <div className="wrapper">
-                        <div className="ellipse" />
-                        <img
-                          className="merch-logo"
-                          src={`http://localhost:8000/media/${
-                            merch.avatar_url
-                          }`}
-                          alt=""
-                        />
+                {this.state.merches.map((merch, index) => {
+                  console.log(123);
+                  return (
+                    <div key={index} className="carousel-block">
+                      <div className="carousel-info__merch">
+                        <div className="wrapper">
+                          <div className="ellipse" />
+                          <img
+                            className="merch-logo"
+                            src={`${MEDIA_URL}${merch.avatar_url}`}
+                            alt=""
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </Slider>
             )}
           </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { MEDIA_URL } from "../../utils/config";
 
 const mainHeader = "ДЕТАЛИ ЗАКАЗА";
 const additionalHeader =
@@ -26,7 +27,7 @@ export default class BuyForm extends React.Component {
             <img
               alt="merch"
               className="image"
-              src={`http://localhost:8000/media/${this.props.order.avatar_url}`}
+              src={`${MEDIA_URL}${this.props.order.avatar_url}`}
             />
           </div>
         </div>

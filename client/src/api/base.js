@@ -1,5 +1,4 @@
-export const apiUrl = "http://127.0.0.1:8000/api/v1";
-
+import { API_URL } from "../utils/config";
 
 export const createApiRequest = (url, method = 'GET', data, isCached = true) => {
   return new Promise((resolve, reject) => {
@@ -15,9 +14,7 @@ export const createApiRequest = (url, method = 'GET', data, isCached = true) => 
     if (data) {
       options.body = JSON.stringify(data)
     }
-    console.log(options);
-    console.log(apiUrl + url);
-    fetch(apiUrl + url, options)
+    fetch(API_URL + url, options)
       .then(res => res.json())
       .then(user => {
         resolve(user);
