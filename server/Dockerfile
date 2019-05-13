@@ -4,12 +4,13 @@ LABEL name="atomspace" version="1.0.0"
 
 ENV NODE_ENV "development"
 
-WORKDIR /src
+WORKDIR /app
 
-COPY .. /src
+COPY .. /app
 
 RUN apk add --no-cache --virtual .build-deps build-base \
     linux-headers jpeg-dev zlib-dev uwsgi-python3
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
