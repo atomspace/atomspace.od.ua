@@ -27,7 +27,7 @@ SECRET_KEY = '74_md3%zb&-tb3vq)74p7z82oiv(lqbt3epug1+#0#iw7^2zg+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'admin.atomspace.od.ua', '0.0.0.0']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'admin.atomspace.od.ua', '0.0.0.0', 'atomspace-test.com', 'admin.atomspace-test.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'osadchyimax17@gmail.com'
