@@ -27,15 +27,15 @@ install
 ### Django (Server)
 
 #### Build
-```docker build ./server/docker --tag atomspace-server```
+```docker build ./server --tag atomspace_server```
 
 #### Run
-```docker run -d --name atomspace-server -p 81:8080 atomspace-server```
+```docker run -d --name atomspace_server -p 81:8080 atomspace_server```
 
 ### React (Client)
 
 #### Build
-```docker build ./client/docker --tag atomspace-client```
+```docker build ./client --tag atomspace-client```
 
 #### Run
-```docker run -d --name atomspace-client -p 80:3000 atomspace-client```
+```docker run -d --name atomspace_client -p 80:3000 atomspace_client```

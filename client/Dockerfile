@@ -6,9 +6,11 @@ ENV NODE_ENV "development"
 
 WORKDIR /app
 
-COPY .. /app
+COPY ./ /app
 
 RUN npm i
+
+RUN npm rebuild node-sass
 
 EXPOSE 3000
 
