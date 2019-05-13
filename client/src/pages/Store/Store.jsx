@@ -18,9 +18,7 @@ class Store extends Component {
   additionalTextMobile = `Покупай футболку!`;
 
   async componentDidMount() {
-    console.log('before');
     const merches = await getAllMerches();
-    console.log('after');
     this.setState({ merches: merches.map(merch => merch.fields) });
   }
 
@@ -55,8 +53,6 @@ class Store extends Component {
       };
     }
 
-    console.log(this.state.merches.length);
-    console.log(this.state.merches.length && 555);
     return (
       <div className="section store-container">
         <div className="store-wrapper">
@@ -69,9 +65,7 @@ class Store extends Component {
           <div className="carousel-container">
             {this.state.merches.length && (
               <Slider {...settings}>
-                {this.state.merches.map((merch, index) => {
-                  console.log(123);
-                  return (
+                {this.state.merches.map((merch, index) => (
                     <div key={index} className="carousel-block">
                       <div className="carousel-info__merch">
                         <div className="wrapper">
@@ -84,8 +78,8 @@ class Store extends Component {
                         </div>
                       </div>
                     </div>
-                  );
-                })}
+                  )
+                )}
               </Slider>
             )}
           </div>

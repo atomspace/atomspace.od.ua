@@ -7,6 +7,7 @@ import { Resident } from "./components/Forms/Resident";
 import Sidebar from "./routes/Sidebar/Sidebar.jsx";
 import ReactFullpage from "@fullpage/react-fullpage";
 import BuyForm from "./pages/Store/BuyForm";
+import {MEDIA_URL} from './utils/config';
 
 export const urls = [
   "main",
@@ -19,7 +20,7 @@ export const urls = [
 ];
 
 class App extends Component {
-  state = { 
+  state = {
     currentPage: "main",
     form: null,
     order: {
@@ -57,6 +58,7 @@ class App extends Component {
   };
 
   render() {
+      console.log(MEDIA_URL)
     return (
       <div>
         <Sidebar
