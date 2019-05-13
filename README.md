@@ -1,27 +1,41 @@
-### Atom Space public site
+# Atom Space public site
+
+# Development
 
 ### Client
 
-## Dev 
 ``` npm run start```
 
-## Prod
-
 ### Server
-## Requirenments
+
+#### Requirenments
 install 
 ```Django```
 ```django-rest-framework```
 ```django-cors-headers```
 ```Pillow```
-## Start server
+#### Start server
 
 ```cd ./server```
 ```python3 manage.py runserver```
-### Docker 
 
-## Build 
-```docker build ./ --tag atomspace```
 
-## Run
-```docker run -d -p 3000:3000 atomspace```
+# Server production
+
+## Docker 
+
+### Django (Server)
+
+#### Build
+```docker build ./server/docker --tag atomspace-server```
+
+#### Run
+```docker run -d --name atomspace-server -p 81:8080 atomspace-server```
+
+### React (Client)
+
+#### Build
+```docker build ./client/docker --tag atomspace-client```
+
+#### Run
+```docker run -d --name atomspace-client -p 80:3000 atomspace-client```

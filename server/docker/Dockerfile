@@ -6,7 +6,7 @@ ENV NODE_ENV "development"
 
 WORKDIR /src
 
-COPY ./ /src
+COPY .. /src
 
 RUN apk add --no-cache --virtual .build-deps build-base \
     linux-headers jpeg-dev zlib-dev uwsgi-python3

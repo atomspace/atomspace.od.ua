@@ -6,7 +6,7 @@ ENV NODE_ENV "development"
 
 WORKDIR /src
 
-COPY ./ /src
+COPY .. /src
 
 RUN npm i
 
