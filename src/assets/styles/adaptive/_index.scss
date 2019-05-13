@@ -1,0 +1,31 @@
+@media only screen and (max-width: 1152px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  .vertical-line {
+    display: none;
+  }
+
+  .small-nav {
+    display: block;
+  }
+
+  .donate-block {
+    width: $f400 + $f610;
+
+    .btn-support {
+      height: $f144;
+      font-size: $f68;
+    }
+  }
+
+  @import 'main.scss';
+  @import 'about.scss';
+  @import 'blog.scss';
+  @import 'edu.scss';
+  @import 'family.scss';
+  @import 'store.scss';
+  @import 'contacts.scss';
+  @import 'forms.scss';
+}
