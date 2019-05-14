@@ -30,7 +30,7 @@ install
 ```docker build ./server --tag atomspace_server```
 
 #### Run
-```docker run -d --name atomspace_server -p 81:8080 atomspace_server```
+```docker run -d --name atomspace_server -p 8000:8000 atomspace_server```
 
 ### React (Client)
 
