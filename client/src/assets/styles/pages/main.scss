@@ -1,5 +1,5 @@
 .main-container {
-  background: url(../images/backgrounds/background-main.svg);
+  background: url(#{$path-to-images}/backgrounds/background-main.svg);
   background-size: cover;
   background-position: center;
   .logo-container {
@@ -33,11 +33,7 @@
         top: -$f34;
       }
       .main-logo {
-        // background-image: url(../images/icons/logos/AtomSpace-logo-vertical.svg);
-        // background-repeat: no-repeat;
-        // background-position: center;
         width: $f400 + $f110;
-        // height: 110px;
         background-size: $f400 + $f110 $f110;
         margin-bottom: $f89;
       }

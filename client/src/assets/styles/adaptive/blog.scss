@@ -21,7 +21,7 @@
       .slick-slider {
         height: 100%;
         width: 100%;
-        
+
         @include noArrows;
 
         .slick-dots {
@@ -64,27 +64,24 @@
           // width: 110%;
 
           // margin: 0 30px;
-          >div {
+          > div {
             margin: 0 auto
           }
 
           &-information {
-            >div {
+            > div {
               margin: 0 auto
             }
 
             &__header {
-              font-family: OpenSans-SemiBold;
+              font-family: OpenSans-SemiBold, sans-serif;
               margin-bottom: 10px !important;
               font-size: $f68;
               line-height: $f89 + $f10;
             }
 
             &__description {
-              font-family: OpenSans-Regular;
-              // font-size: 14px;
-              // line-height: 17px;
-              // width: 210px;
+              font-family: OpenSans-Regular, sans-serif;
               font-size: $f55 + $f18;
               line-height: $f89;
               width: $f610 + $f178;

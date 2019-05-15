@@ -38,8 +38,8 @@ $left-gradient-color: rgb(212, 163, 74);
         border-radius: 50%;
         margin: $f21;
         background: linear-gradient(45deg,
-          $left-gradient-color,
-          $right-gradient-color);
+                $left-gradient-color,
+                $right-gradient-color);
         cursor: pointer;
         display: flex;
         flex-direction: column;
@@ -60,9 +60,8 @@ $left-gradient-color: rgb(212, 163, 74);
         python,
         rocket,
         scripts {
-
           &__#{$logo}-logo {
-            background: url(../images/icons/edu/#{$logo}-logo.svg);
+            background-image: url(#{$path-to-images}/icons/edu/#{$logo}-logo.svg);
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;

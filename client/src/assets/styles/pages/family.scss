@@ -1,9 +1,14 @@
 .family-container {
-  background: url(../images/backgrounds/background-family.svg);
+  background-image: url(#{$path-to-images}/backgrounds/background-family.svg);
   background-position: center;
   background-size: cover;
   height: 100vh;
+
   .family-wrapper {
+    .main-text-mobile {
+      display: none;
+    }
+
     .carousel-container {
       position: relative;
 
@@ -11,27 +16,32 @@
       .slick-slide:focus * {
         outline: none !important;
       }
+
       .slick-slider {
         margin: 0 $f178;
         width: $f610;
+
         .slick-list {
           border: 1px solid transparent;
-          padding: 0px;
+          padding: 0;
           border-radius: 50%;
           height: $f400 + $f178;
           width: $f400 + $f178;
+
           .slick-track {
             display: flex;
             align-items: center;
           }
         }
       }
+
       .carousel-info {
         position: absolute;
         z-index: 20;
         top: $f89;
         left: $f610 + $f233;
         color: $white-color;
+
         &__photo {
           .photo-logo {
             margin: 0 auto;
@@ -40,19 +50,24 @@
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
+
             &.anna {
               background-image: url(../../assets/images/photos/anna-derevyanko.png);
             }
+
             &.kseniya {
               background-image: url(../../assets/images/photos/kseniya-yarmolovich.png);
             }
+
             &.veronika {
               background-image: url(../../assets/images/photos/veronika-ilnitckaya.png);
             }
           }
         }
+
         &__header {
           margin-bottom: $f34;
+
           .info-header-name {
             width: $f377;
             position: relative;
@@ -62,52 +77,61 @@
             font-weight: 300;
           }
         }
+
         &__desc {
           font-size: $f21;
           width: 100%;
+
           .info-name {
-            font-family: OpenSans-SemiBold;
+            font-family: OpenSans-SemiBold, sans-serif;
             margin-bottom: $f8;
           }
+
           .info-position {
-            font-family: OpenSans-Light;
+            font-family: OpenSans-Light, sans-serif;
           }
         }
+
         &__soc {
           .soc-icons {
             margin-top: $f34;
           }
         }
+
         &__quote-block {
           position: relative;
           width: $f610;
           height: $f144;
           left: $f178;
+
           .quotes {
             display: flex;
             align-items: center;
             height: 100%;
             justify-content: center;
+
             &:before,
             &:after {
               content: "";
               position: absolute;
-              background: url(../../assets/images/icons/quotes-family.svg)
-                no-repeat center/cover;
+              background: url(../../assets/images/icons/quotes-family.svg) no-repeat center/cover;
               width: $f68 + $f3;
               height: $f55;
             }
+
             &:before {
               left: 0;
               top: 0;
             }
+
             &:after {
               bottom: 0;
               right: 0;
               transform: rotate(180deg);
             }
+
             .quote-text {
-              font-family: OpenSans-LightItalic;
+              font-family: OpenSans-LightItalic, sans-serif;
               font-style: italic;
               width: 88%;
               font-size: $f21 + $f3;
@@ -118,7 +142,7 @@
       }
     }
   }
-  
+
 }
 
 .slick {
@@ -138,23 +162,29 @@
   width: $f89;
   background-repeat: no-repeat;
   opacity: 0.7;
+
   &-prev {
     left: -$f110;
-    background-image: url(../images/icons/arrow-prev.svg) !important;
+    background-image: url(#{$path-to-images}/icons/arrow-prev.svg) !important;
+
     &:hover {
-      background: url(../images/icons/arrow-prev.svg) no-repeat !important;
+      background: url(#{$path-to-images}/icons/arrow-prev.svg) no-repeat !important;
     }
   }
+
   &-next {
     right: -$f110;
-    background-image: url(../images/icons/arrow-next.svg) !important;
+    background-image: url(#{$path-to-images}/icons/arrow-next.svg) !important;
+
     &:hover {
-      background: url(../images/icons/arrow-next.svg) no-repeat !important;
+      background: url(#{$path-to-images}/icons/arrow-next.svg) no-repeat !important;
     }
   }
+
   &:before {
     content: "";
   }
+
   &:hover {
     background-repeat: no-repeat;
     opacity: 1;

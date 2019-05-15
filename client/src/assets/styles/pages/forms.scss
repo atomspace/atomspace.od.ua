@@ -4,7 +4,7 @@
   width: 100%;
   top: -5px;
   height: 102%;
-  background: url(../images/backgrounds/background-fixed.svg) no-repeat center/cover;
+  background: url(#{$path-to-images}/backgrounds/background-fixed.svg) no-repeat center/cover;
   background-color: $white-color;
 
   .main-form-container {
@@ -90,7 +90,7 @@
 
   .atom-logo {
     position: absolute;
-    background-image: url(../images/icons/logos/AtomSpace-logo-dark.svg);
+    background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo-dark.svg);
     display: block;
     height: $f68;
     background-size: $f178;
@@ -105,7 +105,7 @@
   .close-dialog-btn {
     width: 30px;
     height: 30px;
-    background: url(../images/icons/close.svg) center/contain;
+    background: url(#{$path-to-images}/icons/close.svg) center/contain;
     position: absolute;
     left: auto;
     right: 30px;

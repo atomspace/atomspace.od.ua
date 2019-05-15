@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Slider from "react-slick";
 
 import Arrow from "../../components/Arrow";
 import MerchSize from "../../pages/Store/MerchSize";
 import MerchBuy from "../../pages/Store/MerchBuy";
-import { getAllMerches } from "../../api/merch";
-import { MEDIA_URL } from "../../utils/config";
+import {getAllMerches} from "../../api/merch";
+import {MEDIA_URL} from "../../utils/config";
 
 class Store extends Component {
   state = {
@@ -19,7 +19,7 @@ class Store extends Component {
 
   async componentDidMount() {
     const merches = await getAllMerches();
-    this.setState({ merches: merches.map(merch => merch.fields) });
+    this.setState({merches: merches.map(merch => merch.fields)});
   }
 
   render() {
@@ -33,23 +33,23 @@ class Store extends Component {
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: true,
-        prevArrow: <Arrow rotate />,
-        nextArrow: <Arrow />,
-        variableWidth: true,
+        prevArrow: <Arrow rotate/>,
+        nextArrow: <Arrow/>,
         focusOnSelect: true,
         swipe: true,
         adaptiveHeight: true,
         swipeToSlide: true,
         centerMode: true,
-        afterChange: (index, a) => {
-          this.setState({ index });
+        afterChange: (index) => {
+          this.setState({index});
+          const merch = this.state.merches[index];
           const order = {
-            name: this.state.merches[index].name,
-            price: this.state.merches[index].price,
-            avatar_url: this.state.merches[index].avatar_url
+            name: merch.name,
+            price: merch.price,
+            avatar_url: merch.avatar_url
           };
           this.props.changeMerchAttr(order);
-        }
+        },
       };
     }
 
@@ -63,28 +63,26 @@ class Store extends Component {
             {this.additionalTextMobile}
           </div>
           <div className="carousel-container">
-            {this.state.merches.length && (
-              <Slider {...settings}>
-                {this.state.merches.map((merch, index) => (
-                    <div key={index} className="carousel-block">
-                      <div className="carousel-info__merch">
-                        <div className="wrapper">
-                          <div className="ellipse" />
-                          <img
-                            className="merch-logo"
-                            src={`${MEDIA_URL}${merch.avatar_url}`}
-                            alt=""
-                          />
-                        </div>
+            <Slider {...settings}>
+              {this.state.merches.map((merch, index) => (
+                  <div key={index} className="carousel-block">
+                    <div className="carousel-info__merch">
+                      <div className="wrapper">
+                        <div className="ellipse"/>
+                        <img
+                          className="merch-logo"
+                          src={`${MEDIA_URL}/${merch.avatar_url}`}
+                          alt="merch"
+                        />
                       </div>
                     </div>
-                  )
-                )}
-              </Slider>
-            )}
+                  </div>
+                )
+              )}
+            </Slider>
           </div>
           <div className="store-buttons-mobile">
-            <MerchSize changeMerchAttr={this.props.changeMerchAttr} />
+            <MerchSize changeMerchAttr={this.props.changeMerchAttr}/>
             <MerchBuy
               order={this.props.order}
               handleDialog={this.props.handleDialog}

@@ -34,13 +34,13 @@
 
         &-information {
           &__header {
-            font-family: OpenSans-SemiBold;
+            font-family: OpenSans-SemiBold, sans-serif;
             font-size: $f26;
             line-height: $f34;
           }
 
           &__description {
-            font-family: OpenSans-Light;
+            font-family: OpenSans-Light, sans-serif;
             font-weight: 300;
             font-size: $f18;
             line-height: $f26;

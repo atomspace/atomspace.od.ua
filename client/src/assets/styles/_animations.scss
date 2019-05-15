@@ -155,13 +155,11 @@ $meteor-yellow: #fedc01;
     div:nth-child(2) {
       width: $f16 - $f10;
       height: $f21;
-      top: -$f5;
       position: absolute;
       background: #fff;
       @include border-radius(100%);
       left: $f8;
       top: -$f8;
-      transform-origin: middle;
       @include animation(twinkle-height 1s ease infinite);
     }
 

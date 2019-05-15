@@ -26,7 +26,7 @@ export default class Form extends React.Component {
       const validated = () =>{
         const isExist = this.props.inputData.find(val => val.id === key);
         return (isExist.validate && !isExist.validate(value))
-      }
+      };
       stateUser[key].error = !value.length || validated();
       if (!value.length || validated()) {
         isDisabled = true;
@@ -46,7 +46,7 @@ export default class Form extends React.Component {
         email: user.email.value,
         number: user.number.value,
         information: user.information.value,
-      }
+      };
       await this.props.createOrder(data);
       this.setState({ isDisabled: false });
       this.props.closeForm();

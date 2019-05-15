@@ -6,7 +6,7 @@
 
 .atom-logo {
   position: relative;
-  background-image: url(../images/icons/logos/AtomSpace-logo.svg);
+  background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo.svg);
   left: -$f5;
   display: block;
   height: 110px;
@@ -34,7 +34,7 @@
   }
 
   .facebook {
-    background: url(../images/icons/soc/facebook-light.svg) no-repeat center/contain;
+    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat center/contain;
     opacity: 0.8;
     display: block;
 
@@ -44,7 +44,7 @@
   }
 
   .instagram {
-    background: url(../images/icons/soc/instagram-light.svg) no-repeat center/contain;
+    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat center/contain;
     display: block;
     opacity: 0.8;
 
@@ -54,7 +54,7 @@
   }
 
   .linkedin {
-    background: url(../images/icons/soc/linkedin-light.svg) no-repeat center/contain;
+    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat center/contain;
     display: block;
     opacity: 0.8;
 
@@ -194,7 +194,7 @@ li {
         width: $size;
         position: relative;
         left: -$f13 / 2;
-        background: url(../images/icons/circle.svg) no-repeat center/contain;
+        background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
       }
 
       .list {
@@ -217,11 +217,11 @@ li {
 
       &.light_theme {
         .instagram {
-          background: url(../images/icons/soc/instagram-dark.svg) no-repeat;
+          background: url(#{$path-to-images}/icons/soc/instagram-dark.svg) no-repeat;
         }
 
         .facebook {
-          background: url(../images/icons/soc/facebook-dark.svg) no-repeat;
+          background: url(#{$path-to-images}/icons/soc/facebook-dark.svg) no-repeat;
         }
 
         .list-item {
@@ -230,7 +230,7 @@ li {
           }
 
           &:before {
-            background: url(../images/icons/circle-dark.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
             color: $black-color;
           }
         }
@@ -239,7 +239,7 @@ li {
 
     &__right {
       .atom-logo {
-        background-image: url(../images/icons/logos/AtomSpace-logo.svg);
+        background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo.svg);
       }
 
       .list {
@@ -256,13 +256,13 @@ li {
           height: $size;
           position: absolute;
           right: -$f8 / 2;
-          background: url(../images/icons/circle.svg) no-repeat center/contain;
+          background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
         }
 
         .list-item {
           opacity: $text-opacity;
           text-align: right;
-          transform: all 1s;
+          transition: all 1s;
           position: relative;
           right: $f16;
         }
@@ -273,7 +273,7 @@ li {
           }
 
           .dot {
-            background: url(../images/icons/circle-sidebar.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-sidebar.svg) no-repeat center/contain;
             opacity: 1;
           }
         }
@@ -285,7 +285,7 @@ li {
 
       &.light_theme {
         .atom-logo {
-          background-image: url(../images/icons/logos/AtomSpace-logo-dark.svg);
+          background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo-dark.svg);
         }
 
         .list {
@@ -296,7 +296,7 @@ li {
             height: $size;
             position: absolute;
             right: -$f8 / 2;
-            background: url(../images/icons/circle-dark.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
           }
 
           .list-item {
@@ -311,7 +311,7 @@ li {
             }
 
             .dot {
-              background: url(../images/icons/circle-sidebar-light.svg) no-repeat center/contain;
+              background: url(#{$path-to-images}/icons/circle-sidebar-light.svg) no-repeat center/contain;
               opacity: 1;
             }
           }
@@ -336,14 +336,13 @@ li {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: url(../images/backgrounds/background-gamburger.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg) center/contain no-repeat;
 
     &.hide {
       display: none;
     }
 
     li {
-      margin-bottom: $f42;
       border: 0;
       margin-bottom: 20px;
 
@@ -355,7 +354,7 @@ li {
   }
 
   &.light_theme .nav_toggle {
-    background: url(../images/icons/gamburgers/gamburger-main-light.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg) center/contain no-repeat;
   }
 
 
@@ -374,13 +373,13 @@ li {
 
 
 .nav_toggle {
-  background: url(../images/icons/gamburgers/gamburger-main-dark.svg) center/contain no-repeat;
+  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-dark.svg) center/contain no-repeat;
 
   &.cross {
-    background: url(../images/icons/gamburgers/gamburger-back.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg) center/contain no-repeat;
   }
 
   &.cross.light {
-    background: url(../images/icons/gamburgers/gamburger-back-light.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg) center/contain no-repeat;
   }
 }

@@ -87,6 +87,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
             },
             stage: 3,
           }),
+          require('autoprefixer'),
         ],
         sourceMap: shouldUseSourceMap,
       },

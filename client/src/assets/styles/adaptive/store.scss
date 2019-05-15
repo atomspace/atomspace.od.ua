@@ -6,12 +6,12 @@
 
     .store-main-text-mobile {
       display: block;
-      font-family: OpenSans-SemiBold;
+      font-family: OpenSans-SemiBold, sans-serif;
     }
 
     .store-additional-text-mobile {
       display: block;
-      font-family: OpenSans-Light;
+      font-family: OpenSans-Light, sans-serif;
       margin-bottom: 10%;
     }
 
@@ -40,8 +40,7 @@
                   }
 
                   .merch-logo {
-                    width: 139px;
-                    height: 156px !important;
+                    width: 100%;
                   }
                 }
               }
@@ -60,12 +59,12 @@
   bottom: 40px;
 
   &.slick-prev {
-    background-image: url(../images/icons/store/arrow-left-store-mobile.svg) !important;
+    background-image: url(#{$path-to-images}/icons/store/arrow-left-store-mobile.svg) !important;
     left: 30px;
   }
 
   &.slick-next {
-    background-image: url(../images/icons/store/arrow-right-store-mobile.svg) !important;
+    background-image: url(#{$path-to-images}/icons/store/arrow-right-store-mobile.svg) !important;
     right: 30px;
     left: auto;
   }
@@ -78,8 +77,8 @@
   .size-container {
     font-size: 14px;
     line-height: 14px;
-    font-family: OpenSans-SemiBold;
-    background-image: url(../images/icons/store/size-button-background.svg) !important;
+    font-family: OpenSans-SemiBold, sans-serif;
+    background-image: url(#{$path-to-images}/icons/store/size-button-background.svg) !important;
     background-repeat: no-repeat;
     height: 40px;
     width: 250px;
@@ -107,8 +106,8 @@
   .merch-buy-link {
     font-size: 14px;
     line-height: 14px;
-    font-family: OpenSans-SemiBold;
-    background-image: url(../images/icons/store/buy-button-background.svg) !important;
+    font-family: OpenSans-SemiBold, sans-serif;
+    background-image: url(#{$path-to-images}/icons/store/buy-button-background.svg) !important;
     background-repeat: no-repeat;
     height: 40px;
     color: $black-color;
@@ -132,12 +131,13 @@
   width: 100%;
   top: -5px;
   height: 102%;
-  background: url(#{$path-to-images}/backgrounds/background-fixed.svg);
+  background-image: url(#{$path-to-images}/backgrounds/background-fixed.svg);
   background-color: white;
 
   .main-header {
     display: none;
   }
+
   .nav_toggle {
     left: 20px;
     top: 20px;
@@ -158,7 +158,7 @@
 
       &__header {
         margin: 0 0 12px 0;
-        font-family: OpenSans-SemiBold;
+        font-family: OpenSans-SemiBold, sans-serif;
         font-size: 16px;
         line-height: 20px;
         text-transform: capitalize;
@@ -181,7 +181,7 @@
           width: 100%;
           background: transparent;
           border: 0;
-          font-family: OpenSans-SemiBold;
+          font-family: OpenSans-SemiBold, sans-serif;
           font-size: 15px;
           outline: none;
           border-bottom: 1px solid white;
@@ -220,7 +220,7 @@
         .price-info {
           margin: 0;
           padding: 0 10px;
-          font-family: OpenSans-SemiBold;
+          font-family: OpenSans-SemiBold, sans-serif;
           font-size: 24px;
           line-height: 28px;
           text-align: center;
@@ -245,8 +245,9 @@
       text-align: right;
       margin-right: 13px;
       margin-left: 0;
+
       &__choice {
-        font-family: OpenSans-SemiBold;
+        font-family: OpenSans-SemiBold, sans-serif;
         margin-bottom: 12px;
       }
 
@@ -255,7 +256,7 @@
 
       &__size {
         .bold {
-          font-family: OpenSans-SemiBold;
+          font-family: OpenSans-SemiBold, sans-serif;
         }
       }
     }

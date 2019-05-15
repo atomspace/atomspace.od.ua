@@ -7,8 +7,8 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: OpenSans-Regular;
-  background: url(#{$path-to-images}/backgrounds/background-fixed.svg);
+  font-family: OpenSans-Regular, sans-serif;
+  background-image: url(#{$path-to-images}/backgrounds/background-fixed.svg);
   background-position: center;
   background-size: 80% auto;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@ p {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  monospace;
 }
 
 li {
@@ -42,4 +42,5 @@ a {
   }
 }
 
-.fullpage-wrapper {}
+.fullpage-wrapper {
+}

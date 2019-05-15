@@ -1,10 +1,9 @@
 .main-text,
 .main-text-mobile {
-  font-family: OpenSans-Light;
+  font-family: OpenSans-Light, sans-serif;
   margin-bottom: $f110;
   text-align: center;
   line-height: $f68 + $f8;
-  text-align: center;
   text-transform: uppercase;
   font-size: $f68;
 }
