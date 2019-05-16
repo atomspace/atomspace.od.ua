@@ -1,4 +1,6 @@
 {% load staticfiles %}
+<title>Admin Panel</title>
+<link rel="icon" href="{% static 'img/favicon.ico' %}">
 <link rel="stylesheet" media="all" href="{% static 'css/login.css' %}" type="text/css">
 
 <div class="container">
@@ -9,7 +11,7 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input class="submit-input" type="submit" onclick="" value="Log in">
-            </div>   
+            </div>
         </form>
     </div>
-</div>  
+</div>

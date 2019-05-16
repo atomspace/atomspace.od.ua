@@ -7,11 +7,15 @@ body {
     position: relative;
 }
 
+label {
+    display: none;
+}
+
 h1 {
     font-family: 'Satisfy', cursive;
     text-align: center;
     margin: 0;
-    font-size: 3em;
+    font-size: 2.5em;
     color: white;
     margin-left: 10%;
     margin-right: 10%;
@@ -38,9 +42,10 @@ li {
 
 input, .inputs {
     outline: 0;
-    padding: 5px;
+    padding: 10px;
     border: none;
     border-radius: 3px;
+    width: 75%;
 }
 
 .form-auth p {
@@ -114,7 +119,7 @@ input.submit-input {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-    line-height: 45px;
+    line-height: 25px;
     border-radius: 50px;
     border: 1px solid transparent;
     cursor: pointer;
