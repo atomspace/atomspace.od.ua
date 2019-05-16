@@ -42,9 +42,6 @@ EMAIL_HOST_PASSWORD = 'trifonmax'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-CORS_ORIGIN_WHITELIST = (
-    '*',
-)
 # Application definition
 
 INSTALLED_APPS = [
