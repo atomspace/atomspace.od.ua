@@ -1,0 +1,83 @@
+.contacts-container {
+  .contacts-wrapper {
+
+    .center-container {
+      width: 100%;
+
+      .main-block {
+        &__requests {
+          flex-direction: row;
+          margin-top: 40px;
+          justify-content: center;
+
+          .header-answer {
+            height: initial;
+            font-size: 22px;
+            font-family: OpenSans-Regular;
+            font-weight: 100;
+            width: 235px;
+            text-align: center;
+          }
+
+        }
+
+        .request-button-container {
+          display: none;
+        }
+
+        &__information {
+          width: 80%;
+          margin: 0 auto;
+          align-items: center;
+
+          .header-ask {
+            font-size: 15px;
+            margin-right: 17px;
+          }
+
+          .logo-wrapper {
+            .rocket-image {
+              width: 120px;
+              height: 120px;
+            }
+          }
+        }
+      }
+
+      .donate-block {
+        margin-top: 40px;
+
+        .btn-donate {
+          height: $f233;
+          width: 100%;
+        }
+      }
+    }
+
+    .contact-info-mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 50px;
+      margin-left: 57px;
+      position: relative;
+      .list-item {
+        &::before {
+          content: " ";
+          $size: $f13;
+          width: $size;
+          background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
+          position: absolute;
+          width: 15px;
+          height: 15px;
+          left: -32px;
+        }
+
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: -0.05em;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

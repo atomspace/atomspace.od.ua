@@ -1,0 +1,317 @@
+.store-container {
+  .store-wrapper {
+    font-family: OpenSans-Light;
+
+    .store-main-text-mobile {
+      display: none;
+    }
+
+    .store-additional-text-mobile {
+      display: none;
+    }
+
+    .store-main-text {
+      font-size: $f42;
+      line-height: $f55;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: $f34;
+    }
+
+    .store-additional-text {
+      font-size: $f34;
+      line-height: $f42;
+      text-align: center;
+      margin-bottom: $f110;
+      text-transform: capitalize;
+    }
+
+    .carousel-container {
+      display: flex;
+      justify-content: center;
+      height: 500px;
+
+      .slick-slider {
+        width: $f610 + $f89;
+        height: 100%;
+
+        .slick-list {
+          display: flex;
+          align-items: center;
+          height: 100% !important;
+
+          .slick-slide {
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            opacity: 0.2;
+          }
+
+          .slick-active {
+            opacity: 0.4;
+          }
+
+          .slick-center {
+            -webkit-transform: scale(1.8);
+            transform: scale(1.8);
+            opacity: 1;
+          }
+
+          .slick-track {
+            display: flex;
+            align-items: center;
+
+            .carousel-block {
+              outline: none;
+              .carousel-info {
+                &__merch {
+                  margin: 0 $f21;
+
+                  .wrapper {
+                    position: relative;
+                    $width: $f233 + $f13;
+                    $height: $f233 - $f13;
+
+                    .ellipse {
+                      background-image: url(../images/icons/ellipse.svg);
+                      background-repeat: no-repeat;
+                      position: absolute;
+                      background-repeat: no-repeat;
+                      background-size: contain;
+                      width: 100%;
+                      height: 100%;
+                      background-position: center;
+                      z-index: -1;
+                    }
+
+                    .merch-logo {
+                      height: $height;
+                      margin: 0 auto;
+                      transition: all 1s ease;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.size-container {
+  font-weight: bold;
+
+  .size-list {
+    .main-header {
+    }
+
+    .size-item {
+      cursor: pointer;
+      padding: 1px;
+      width: $f18;
+      height: $f18;
+      display: block;
+      margin: 0 $f5;
+      text-align: center;
+      line-height: $f16;
+
+      &:hover {
+        border: 1px solid $black-color;
+        border-radius: 50%;
+        opacity: 0.7;
+      }
+
+      &.selected {
+        border: 1px solid $black-color;
+        border-radius: 50%;
+      }
+    }
+
+    .size-item + .size-item {
+      margin-left: 0;
+    }
+  }
+}
+
+.list {
+  .size-container {
+    font-family: OpenSans-Bold;
+    color: $black-color !important;
+
+    &:hover {
+      color: $black-color !important;
+    }
+  }
+
+  .merch-buy-link {
+    font-family: OpenSans-Bold;
+    color: $black-color !important;
+    cursor: pointer;
+
+    &:hover {
+      color: $black-color !important;
+    }
+  }
+}
+
+.store-buttons-mobile {
+  display: none;
+}
+
+.buy-form-container {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: -5px;
+  height: 102%;
+  background: url(#{$path-to-images}/backgrounds/background-fixed.svg);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > .main-header {
+    position: absolute;
+    top: 90px;
+    p {
+      font-style: normal;
+      font-size: 42px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  .nav_toggle {
+    cursor: pointer;
+    transform: rotate(180deg);
+    transition: 1s all;
+    left: 15%;
+    top: 15%;
+  }
+
+  .order-block {
+    background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
+    background-repeat: no-repeat;
+    bottom: 0;
+    width: 375px;
+    height: 375px;
+    background-size: contain;
+    .order-items {
+      color: $white-color;
+      padding: 35px;
+
+      &__header {
+        margin: 0 0 12px 0;
+        font-family: OpenSans-SemiBold;
+        font-size: 16px;
+        line-height: 20px;
+        text-transform: capitalize;
+      }
+
+      .additional-header {
+        margin: 0 0 20px 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      .order-form {
+        > div {
+          margin-bottom: 20px;
+        }
+
+        input {
+          width: 100%;
+          background: transparent;
+          border: 0;
+          font-family: OpenSans-SemiBold;
+          font-size: 15px;
+          outline: none;
+          border-bottom: 1px solid white;
+          padding: 0 0 5px 0;
+          color: white !important;
+
+          &::placeholder {
+            color: $white-color;
+            opacity: 1;
+          }
+
+          &:-ms-input-placeholder {
+            color: $white-color;
+          }
+
+          &::-ms-input-placeholder {
+            color: $white-color;
+          }
+        }
+      }
+
+      .order-request {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .pay-button {
+          display: flex;
+          justify-content: center;
+          width: 180px;
+          height: 36px;
+          font-size: 14px;
+          line-height: 16px;
+        }
+
+        .price-info {
+          margin: 0;
+          padding: 0 10px;
+          font-family: OpenSans-SemiBold;
+          font-size: 24px;
+          line-height: 28px;
+          text-align: center;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  .show-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    flex-direction: row-reverse;
+    margin-right: 85px;
+    width: 30%;
+    height: 44%;
+    .text-info {
+      font-size: 16px;
+      line-height: 22px;
+      text-align: left;
+      margin-right: 13px;
+      margin-left: 50px;
+      width: 300px;
+      &__choice {
+        font-family: OpenSans-SemiBold;
+        margin-bottom: 12px;
+      }
+
+      &__name {
+      }
+
+      &__size {
+        .bold {
+          font-family: OpenSans-SemiBold;
+        }
+      }
+    }
+
+    .merch-photo {
+      width: 100%;
+      .image {
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+      }
+    }
+  }
+}

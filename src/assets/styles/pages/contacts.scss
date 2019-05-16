@@ -1,0 +1,59 @@
+.contacts-container {
+  background: url(#{$path-to-images}/backgrounds/background-contacts-bottom.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  .contacts-wrapper {
+    .center-container {
+      width: $f610 + $f400;
+      margin: 0 auto;
+      .main-block {
+        text-align: right;
+        position: relative;
+        margin-bottom: $f144 + $f13;
+        .header-answer {
+          height: $f21;
+          color: $black-color;
+          font-size: $f21 + $f3;
+          font-weight: 700;
+          margin-bottom: $f68;
+        }
+        &__information {
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-end;
+          margin-bottom: $f13;
+          .header-ask {
+            color: $black-color;
+            font-size: $f21;
+            font-weight: 400;
+          }
+          .logo-wrapper {
+            margin-left: $f13;
+            .rocket-image {
+              width: $f178;
+              height: $f178;
+            }
+          }
+        }
+        &__requests {
+          .request-button-container {
+            justify-content: flex-end;
+            .request-button-block {
+              margin: 0 $f18;
+            }
+            .request-button-block + .request-button-block {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+      .donate-block {
+        .donate-container-button {
+        }
+      }
+    }
+    .contact-info-mobile{
+      display: none;
+    }
+  }
+}

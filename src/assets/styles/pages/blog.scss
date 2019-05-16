@@ -1,0 +1,74 @@
+.blog-container {
+  display: flex;
+  justify-content: center;
+
+  .main-text-mobile {
+    display: none;
+  }
+
+  .blog-wrapper {
+    width: $f610 + $f178 + $f34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: $f610 + $f610 + $f89;
+    position: relative;
+    margin-left: $f233;
+
+    .blog-skill-blocks-mobile,
+    .blog-skill-blocks {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      .blog-skill-item {
+        display: flex;
+        width: $f400 + $f178;
+        justify-content: space-between;
+        align-items: center;
+
+        >div {
+          margin: $f55 0;
+        }
+
+        &-information {
+          &__header {
+            font-family: OpenSans-SemiBold;
+            font-size: $f26;
+            line-height: $f34;
+          }
+
+          &__description {
+            font-family: OpenSans-Light;
+            font-weight: 300;
+            font-size: $f18;
+            line-height: $f26;
+            width: $f377 - $f26;
+          }
+        }
+
+        @each $logo in mind,
+        team,
+        trust,
+        puzzle {
+          &__#{$logo}-logo {
+            background: url(#{$path-to-images}/icons/blog/#{$logo}-logo.svg) no-repeat center/contain;
+            height: $f178 - $f8;
+            width: $f178 - $f8;
+            margin-bottom: $f5;
+            position: relative;
+          }
+        }
+      }
+
+      .blog-skill-item:last-child {
+        margin: 0;
+      }
+    }
+
+    .blog-skill-blocks-mobile {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+.blog-container {
+  .blog-wrapper {
+    margin: 0;
+    width: 100%;
+
+    .main-text {
+      display: none;
+    }
+
+    .main-text-mobile {
+      display: block;
+    }
+
+    .blog-main-text {
+      display: none;
+    }
+
+    .blog-skill-blocks-mobile {
+      display: block;
+
+      .slick-slider {
+        height: 100%;
+        width: 100%;
+        
+        @include noArrows;
+
+        .slick-dots {
+          li {
+            border: 0;
+          }
+        }
+
+        .slick-list {
+          display: flex;
+          align-items: center;
+          height: 100% !important;
+
+          .slick-slide {
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            opacity: 0.2;
+            padding: 0 20px;
+            // >div {
+            //   width: 110%;
+            // }
+          }
+
+          .slick-active {
+            opacity: 0.4;
+          }
+
+          .slick-center {
+            opacity: 1;
+          }
+
+          .slick-track {
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        .blog-skill-item {
+          outline: none;
+          // width: 110%;
+
+          // margin: 0 30px;
+          >div {
+            margin: 0 auto
+          }
+
+          &-information {
+            >div {
+              margin: 0 auto
+            }
+
+            &__header {
+              font-family: OpenSans-SemiBold;
+              margin-bottom: 10px !important;
+              font-size: $f68;
+              line-height: $f89 + $f10;
+            }
+
+            &__description {
+              font-family: OpenSans-Regular;
+              // font-size: 14px;
+              // line-height: 17px;
+              // width: 210px;
+              font-size: $f55 + $f18;
+              line-height: $f89;
+              width: $f610 + $f178;
+            }
+          }
+
+          $size-logo: $f610+$f400;
+
+          @each $logo in mind,
+          team,
+          trust,
+          puzzle {
+            &__#{$logo}-logo {
+
+              background: url(#{$path-to-images}/icons/blog/#{$logo}-logo.svg) no-repeat center/contain;
+              height: $size-logo;
+              width: $size-logo;
+              margin-bottom: $f5;
+              position: relative;
+            }
+          }
+        }
+      }
+    }
+
+    .blog-skill-blocks {
+      display: none;
+    }
+  }
+}
