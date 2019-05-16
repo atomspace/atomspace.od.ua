@@ -68,7 +68,8 @@
     "test": "node scripts/test.js",
     "server": "python3 server/manage.py runserver",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploy:local": "cp -R build/* /var/www/atomspace-test.com/"
   },
   "eslintConfig": {
     "extends": "react-app"
