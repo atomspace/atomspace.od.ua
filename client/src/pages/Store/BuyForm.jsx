@@ -26,7 +26,7 @@ export default class BuyForm extends React.Component {
             <img
               alt="merch"
               className="image"
-              src={`http://localhost:8000/media/${this.props.order.avatar_url}`}
+              src={`https://admin.atomspace.od.ua/media/${this.props.order.avatar_url}`}
             />
           </div>
         </div>

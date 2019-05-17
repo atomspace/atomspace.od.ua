@@ -108,7 +108,7 @@ class Store extends Component {
                         <div className="ellipse" />
                         <img
                           className="merch-logo"
-                          src={`http://localhost/media/${
+                          src={`https://admin.atomspace.od.ua/media/${
                             merch.avatar_url
                           }`}
                           alt=""
