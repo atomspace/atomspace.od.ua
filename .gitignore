@@ -9,5 +9,5 @@ Landing
 .env.test.local
 .env.production.local
 
-
-server/static/
+atomspace-env/
+server/backend/static/

@@ -12,7 +12,7 @@ class Main extends React.Component {
           <div className="center-wrapper">
             <div className="header-stars">{mainText}</div>
             <AnimatePlanet />
-            <img className="main-logo" src={MainLogo}/>
+            <img alt="Main Logo" className="main-logo" src={MainLogo}/>
             <div className="donate-block">
               <a
                 className="btn btn-support btn-donate"

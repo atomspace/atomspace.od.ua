@@ -5,3 +5,4 @@ django-cors-headers==2.5.2
 Pillow==5.4.1
 setuptools==40.8.0
 uwsgi==2.0.18
+decouple==3.1
