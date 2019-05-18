@@ -4,6 +4,7 @@ import AboutPhoto1 from "../../assets/images/photos/about_photo_1.png";
 import AboutPhoto2 from "../../assets/images/photos/about_photo_2.png";
 import AboutPhoto3 from "../../assets/images/photos/about_photo_3.png";
 import AboutPhoto4 from "../../assets/images/photos/about_photo_4.png";
+import AtomspaceText from "../../assets/images/icons/logos/AtomSpace-about-maintext.svg";
 
 const mainText = `— социальный образовательный проект, основанный Provectus и IT2School с целью создать возможность для талантливых подростков расти и развиваться в сфере IT. `;
 const mainText1 = `Это креативное пространство, в котором подростки под руководством практикующих cпециалистов бесплатно обучаются IT, получают навыки командной работы и реализовывают собственные идеи.
@@ -11,11 +12,13 @@ const mainText1 = `Это креативное пространство, в ко
 const mainText2 = `Мы верим в то, что образование не ограничивается стенами школы, колледжа, университета. Поэтому мы создаем возможности для талантливых подростков, которые хотят получать знания в сфере высоких технологий, развивая навыки командной работы под руководством менторов.`;
 const mainText3 = `Мы стремимся к созданию сообщества выпускников-резидентов, готовых осваивать новые технологии и способных адаптироваться к условиям динамично развивающегося мира; они генерируют нестандартные решения, которые меняют мир к лучшему, и популяризируют идею менторства, обучая других.`;
 
+
+
 export default () => (
   <div className="section about-container">
     <div className="about-blocks flex flex-cen">
       <div className="about-maintext-block">
-        <div className={"about-maintext-block__atomspace"} />
+        <img src={AtomspaceText} className={"about-maintext-block__atomspace"} />
         <div className={"about-maintext-block__text"}>
           <span className={"about-maintext-block__text--first"}>
             {mainText}

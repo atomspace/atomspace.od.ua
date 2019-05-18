@@ -17,8 +17,17 @@ class Store extends Component {
   additionalText = `Выбирай и носи стильную атомную футболку!?`;
   additionalTextMobile = `Покупай футболку!`;
 
+  increaseCountOfMerch(merches){
+    let tempMerch = [];
+    while(tempMerch.length <= 3){
+      tempMerch = tempMerch.concat(merches);
+    }
+    return tempMerch;
+  }
+
   async componentDidMount() {
-    const merches = await getAllMerches();
+    let merches = await getAllMerches();
+    merches = this.increaseCountOfMerch(merches);
     this.setState({merches: merches.map(merch => merch.fields)});
   }
 

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classname from "classnames";
 
 class RightSidebar extends Component {
   render() {
@@ -22,11 +23,11 @@ class RightSidebar extends Component {
           <div className="atom-logo" />
           <div className="flex flex-col">
             {this.props.links.map((link, index) => {
-              const classes = ["list"];
-              link.href === "#" + pageName && classes.push("selected");
               return (
-                <div className={classes.join(" ")} key={index}>
-                  <div className="dot" />
+                <div className={
+                  classname({list: true, selected: link.href === "#" + pageName})
+                  } key={index}>
+                  <div className={"dot"} />
                   <a className={"list-item"}  href={link.href}>
                     {link.text}
                   </a>

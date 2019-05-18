@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "python3 backend/manage.py runserver",
+    "start": "python3 manage.py runserver",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

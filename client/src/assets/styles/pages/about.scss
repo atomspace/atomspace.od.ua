@@ -13,14 +13,11 @@
       font-weight: 300;
       line-height: $f26;
       &__atomspace {
-        background: url(#{$path-to-images}/icons/logos/AtomSpace-about-maintext.svg) no-repeat;
         background-position: center;
         background-size: contain;
         height: $f34;
-        width: 60%;
-        position: absolute;
-        left: -$f55;
-        top: -$f16;
+        float: left;
+        padding-right: 20px;
       }
       &__text {
         font-size: $f18;
