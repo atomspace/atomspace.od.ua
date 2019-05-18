@@ -4,6 +4,9 @@
   background-size: cover;
   height: 100vh;
   .family-wrapper {
+    .main-text-mobile {
+      display: none;
+    }
     .carousel-container {
       position: relative;
 
@@ -118,7 +121,6 @@
       }
     }
   }
-  
 }
 
 .slick {

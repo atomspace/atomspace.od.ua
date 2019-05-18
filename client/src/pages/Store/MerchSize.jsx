@@ -1,4 +1,5 @@
 import React from "react";
+import classname from "classnames";
 
 export default class MerchSize extends React.Component {
   state = {
@@ -20,14 +21,10 @@ export default class MerchSize extends React.Component {
         <span className="main-header flex flex-acen">{`SIZE:`}</span>
         <div className="size-list flex flex-acen">
           {this.sizes.map((size, index) => {
-            const classes = ["size-item"];
-            if (index === this.state.index) {
-              classes.push("selected");
-            }
             return (
               <span
                 key={index}
-                className={classes.join(" ")}
+                className={classname({'size-item': true, selected: index === this.state.index})}
                 onClick={this.changeMerchAttr.bind(this, index)}
               >
                 {size}
