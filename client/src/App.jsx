@@ -18,7 +18,7 @@ export const urls = [
 ];
 
 class App extends Component {
-  state = {
+  state = { 
     currentPage: "main",
     form: null,
     order: {}

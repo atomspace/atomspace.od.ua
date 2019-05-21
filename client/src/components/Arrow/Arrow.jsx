@@ -1,6 +1,6 @@
 import React from 'react';
-export default (props) =>{
-    const classes = ['slick'];
-    props.rotate ? classes.push('slick-prev') : classes.push('slick-next');
-    return <div onClick={props.onClick} className={classes.join(' ')}></div>
+import classname from "classnames";
+
+export default props =>{
+    return <div onClick={props.onClick} className={classname({slick: true, 'slick-prev': props.rotate, 'slick-next': !props.rotate})}></div>
 }
