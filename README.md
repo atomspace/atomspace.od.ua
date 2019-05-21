@@ -47,13 +47,12 @@ docker run -d --name atomspace_server -p 8000:8000 atomspace_server
 ### React (Client)
 
 #### Build
-```
-docker build ./client --tag atomspace-client
-```
 
-#### Run
+To deploy client first you need to build then to move build to your website folder of nginx  
+ 
 ```
-docker run -d --name atomspace_client -p 80:3000 atomspace_client
+npm run build
+cp -R build/* /var/www/{name-of-site}.com/
 ```
 
 
@@ -61,8 +60,8 @@ docker run -d --name atomspace_client -p 80:3000 atomspace_client
 
 ```
 sudo apt-get install nginx
-sudo /etc/init.d/nginx start
-``` 
+nginx start
+```
 
 ## Installing and configure Postgresql
 
@@ -72,3 +71,11 @@ CREATE ROLE "admin";
 GRANT ALL PRIVILEGES ON DATABASE "atomspace.od.ua" TO "admin";
 ALTER ROLE "admin" WITH LOGIN;
 ```
+
+## Craete user in admin panel
+
+You need to get inside docker container of django like
+```
+docker exec -ti atomspace_server sh
+```
+and then run  

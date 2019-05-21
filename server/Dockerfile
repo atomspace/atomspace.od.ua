@@ -8,7 +8,7 @@ WORKDIR /app
 
 COPY ./ /app
 
-RUN apk add --virtual .build-deps build-base \
+RUN apk add --virtual .build-deps build-base postgresql-dev \
     linux-headers jpeg-dev zlib-dev uwsgi-python3
 
 RUN pip install --upgrade pip
