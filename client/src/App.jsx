@@ -17,6 +17,8 @@ export const urls = [
   "contacts"
 ];
 
+console.log(process.env)
+
 class App extends Component {
   state = { 
     currentPage: "main",
