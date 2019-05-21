@@ -8,3 +8,9 @@ Landing
 .env.development.local
 .env.test.local
 .env.production.local
+ssl
+
+atomspace-env/
+server/backend/static
+
+.ftpconfig
