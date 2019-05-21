@@ -63,3 +63,12 @@ docker run -d --name atomspace_client -p 80:3000 atomspace_client
 sudo apt-get install nginx
 sudo /etc/init.d/nginx start
 ``` 
+
+## Installing and configure Postgresql
+
+Log in by root to ```psql``` and confirm these commands.
+```
+CREATE ROLE "admin";
+GRANT ALL PRIVILEGES ON DATABASE "atomspace.od.ua" TO "admin";
+ALTER ROLE "admin" WITH LOGIN;
+```
