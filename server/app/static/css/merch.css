@@ -91,4 +91,12 @@ label {
     }
 }
 
+.header-article{
+    color:white;
+}
+
+.news-form{
+    color:white;
+    display: grid;
+}
 /* ------------------------------------------------------------- */

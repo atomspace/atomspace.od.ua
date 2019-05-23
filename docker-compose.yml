@@ -12,17 +12,20 @@ services:
   #     - "3000:3000"
 
   server:
-    build: .
+    container_name: atomspace_server
+    build: 
+      context: ./server
     volumes:
       - ./server/static:/src/static
       - ./server/media:/src/media
     ports:
       - 8000:8000
     command: gunicorn -w 4 config.wsgi -b 0.0.0.0:8000
-
+    depends_on:
+      - postgres
   postgres:
+    container_name: atomspace_postgres
     image: postgres:10.1-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    depends_on:
-      - postgres
+    

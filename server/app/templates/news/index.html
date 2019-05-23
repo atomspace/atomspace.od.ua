@@ -50,8 +50,8 @@
         {% else %}
             <div class="col-sm"></div>
             <div class="col-sm form">
-                <h3>Create new article</h3>
-                <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
+                <h3 class="header-article">Create new article</h3>
+                <form class="news-form" enctype="multipart/form-data" action="" method="post">
                     {% csrf_token %}
                     {{ form }}
                     <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
