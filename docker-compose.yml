@@ -34,6 +34,6 @@ services:
     #   POSTGRES_PASS: AtomSpaceWebsiteOnAWS2019!
     container_name: atomspace_postgres
     volumes:
-      - ./postgres:/var/lib/postgresql/data
+      - /usr/local/share/postgres:/var/lib/postgresql/data
     ports:
       - 5432:5432

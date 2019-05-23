@@ -18,7 +18,7 @@ export default () => (
   <div className="section about-container">
     <div className="about-blocks flex flex-cen">
       <div className="about-maintext-block">
-        <img src={AtomspaceText} className={"about-maintext-block__atomspace"} />
+        <img alt="AtomSpacetext" src={AtomspaceText} className={"about-maintext-block__atomspace"} />
         <div className={"about-maintext-block__text"}>
           <span className={"about-maintext-block__text--first"}>
             {mainText}
