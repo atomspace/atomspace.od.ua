@@ -12,15 +12,9 @@ services:
   #     - "3000:3000"
 
   server:
-<<<<<<< HEAD
     container_name: atomspace_server
     build: 
       context: ./server
-=======
-    build:
-        context: ./server
-    container_name: atomspace_server
->>>>>>> 24e2311f5e7175e3215e351ec52437891d59114d
     volumes:
       - /home/ubuntu/atomspace.od.ua/server/static:/app/static
       - /home/ubuntu/atomspace.od.ua/server/media:/app/media
@@ -29,10 +23,6 @@ services:
     command: gunicorn -w 4 config.wsgi -b 0.0.0.0:8000
     depends_on:
       - postgres
-<<<<<<< HEAD
-=======
-
->>>>>>> 24e2311f5e7175e3215e351ec52437891d59114d
   postgres:
     container_name: atomspace_postgres
     image: postgres:10.1-alpine
@@ -44,11 +34,6 @@ services:
     #   POSTGRES_PASS: AtomSpaceWebsiteOnAWS2019!
     container_name: atomspace_postgres
     volumes:
-<<<<<<< HEAD
-      - postgres_data:/var/lib/postgresql/data/
-    
-=======
-      - ./postgres:/var/lib/postgresql/data
+      - /usr/local/share/postgres:/var/lib/postgresql/data
     ports:
       - 5432:5432
->>>>>>> 24e2311f5e7175e3215e351ec52437891d59114d
