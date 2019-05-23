@@ -9,7 +9,7 @@ WORKDIR /app
 COPY ./ /app
 
 RUN apk add --virtual .build-deps build-base postgresql-dev \
-    linux-headers jpeg-dev zlib-dev uwsgi-python3
+    linux-headers jpeg-dev zlib-dev
 
 RUN pip install --upgrade pip
 
@@ -17,4 +17,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-ENTRYPOINT ["uwsgi", "uwsgi.config.ini"]
+#ENTRYPOINT ["uwsgi", "uwsgi.config.ini"]

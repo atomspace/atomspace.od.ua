@@ -24,7 +24,7 @@ def mentors(request):
         for i in mentors_list:
             del i['model']
         return JsonResponse(mentors_list, safe=False)
-        
+
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         post = Mentor()
@@ -33,7 +33,7 @@ def mentors(request):
         post.email = data['email']
         post.information = data['information']
         post.save()
-        
+
 
         # Sending callback email
         subject = 'Request to become a mentor'
@@ -200,7 +200,10 @@ def delete_article(request, pk):
 @login_required
 def delete_merch(request, pk):
     m = Merch.objects.get(id=pk)
-    os.remove('{}/{}'.format(settings.MEDIA_ROOT, m.avatar_url))
+    try:
+        os.remove('{}/{}'.format(settings.MEDIA_ROOT, m.avatar_url))
+    except:
+        pass
     m.delete()
     return HttpResponseRedirect('/merch')
 
