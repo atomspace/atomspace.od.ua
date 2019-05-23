@@ -1,4 +1,4 @@
-version: "3.7"
+version: "2.0"
 volumes:
   static:
   media_folder:
@@ -12,17 +12,28 @@ services:
   #     - "3000:3000"
 
   server:
-    build: .
+    build:
+        context: ./server
+    container_name: atomspace_server
     volumes:
-      - ./server/static:/src/static
-      - ./server/media:/src/media
+      - /home/ubuntu/atomspace.od.ua/server/static:/app/static
+      - /home/ubuntu/atomspace.od.ua/server/media:/app/media
     ports:
       - 8000:8000
     command: gunicorn -w 4 config.wsgi -b 0.0.0.0:8000
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:10.1-alpine
+    env_file:
+      - ./server/.env
+    # environment:
+    #   POSTGRES_USER: admin
+    #   POSTGRES_DB: atomspace.od.ua
+    #   POSTGRES_PASS: AtomSpaceWebsiteOnAWS2019!
+    container_name: atomspace_postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    depends_on:
-      - postgres
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
