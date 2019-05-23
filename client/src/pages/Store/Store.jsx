@@ -51,7 +51,7 @@ class Store extends Component {
         centerMode: true,
         afterChange: (index) => {
           this.setState({index});
-          const merch = this.state.merches[index];
+          const merch = this.state.merches[index] || this.state.merches[0];
           const order = {
             name: merch.name,
             price: merch.price,

@@ -24,7 +24,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# ATTANTION! Change to True when HTTPS is good!
+CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_DOMAIN = ['admin.atomspace-test.com', 'admin.atomspace.od.ua']
 
 # Quick-start development settings - unsuitable for production

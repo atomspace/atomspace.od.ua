@@ -4,19 +4,12 @@ volumes:
   media_folder:
 
 services:
-  # client:
-  #   container_name: atomspace_client
-  #   build: ./client
-  #   image: atomspace_client
-  #   ports:
-  #     - "3000:3000"
-
   server:
     container_name: atomspace_server
     build: 
       context: ./server
     volumes:
-      - /home/ubuntu/atomspace.od.ua/server/static:/app/static
+      - /home/ubuntu/atomspace.od.ua/server/static:/app/app/static
       - /home/ubuntu/atomspace.od.ua/server/media:/app/media
     ports:
       - 8000:8000
@@ -28,10 +21,6 @@ services:
     image: postgres:10.1-alpine
     env_file:
       - ./server/.env
-    # environment:
-    #   POSTGRES_USER: admin
-    #   POSTGRES_DB: atomspace.od.ua
-    #   POSTGRES_PASS: AtomSpaceWebsiteOnAWS2019!
     container_name: atomspace_postgres
     volumes:
       - /usr/local/share/postgres:/var/lib/postgresql/data
