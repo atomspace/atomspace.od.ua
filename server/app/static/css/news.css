@@ -114,7 +114,6 @@ img.add-button{
     padding: 25px;
     margin-top: 4vh;
     margin-bottom: 4vh;
-    cursor: pointer;
 }
 
 
@@ -125,4 +124,12 @@ img.add-button{
 
 .img-square-wrapper img {
     width: 150px;
+}
+
+.header-article{
+    color: white;
+}
+.news-form{
+    display: grid;
+    color: white;
 }
