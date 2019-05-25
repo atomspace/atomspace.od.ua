@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import logging
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,8 +24,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-# ATTANTION! Change to True when HTTPS is good!
+SESSION_COOKIE_SECURE = False
+# ---------------------- ATTENTION! Change to True when HTTPS is good! ----------------------
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_DOMAIN = ['admin.atomspace-test.com', 'admin.atomspace.od.ua']
 
@@ -88,6 +89,25 @@ TEMPLATES = [
     },
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/logs.txt',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
@@ -146,5 +166,7 @@ LOGIN_REDIRECT_URL = 'merch'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
     'atomspace-test.com',
-    'admin.atomspace-test.com'
+    'admin.atomspace-test.com',
+    'atomspace.od.ua',
+    'admin.atomspace.od.ua'
 ]

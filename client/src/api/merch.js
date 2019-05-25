@@ -6,3 +6,7 @@ import {
 export const getAllMerches = () => {
   return createApiRequest("/merches", "GET");
 };
+
+export const sendRequestForMerch = () => {
+  return createApiRequest("/orders", "GET");
+};

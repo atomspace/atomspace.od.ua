@@ -15,6 +15,13 @@ RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
+RUN rm /usr/local/lib/python3.7/site-packages/django/contrib/auth/views.py
+RUN rm /usr/local/lib/python3.7/site-packages/django/contrib/admin/sites.py
+RUN rm /usr/local/lib/python3.7/site-packages/django/contrib/admin/templates/admin/login.html
+COPY ./csrf_exempt/views.py /usr/local/lib/python3.7/site-packages/django/contrib/auth
+COPY ./csrf_exempt/sites.py /usr/local/lib/python3.7/site-packages/django/contrib/admin
+COPY ./csrf_exempt/login.html /usr/local/lib/python3.7/site-packages/django/contrib/admin/templates/admin
+
 EXPOSE 8000
 
 #ENTRYPOINT ["uwsgi", "uwsgi.config.ini"]
