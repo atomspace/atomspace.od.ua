@@ -336,7 +336,7 @@ li {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg) center/cover no-repeat;
 
     &.hide {
       display: none;
