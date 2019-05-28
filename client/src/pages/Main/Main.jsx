@@ -21,7 +21,7 @@ class Main extends React.Component {
                 href="https://secure.wayforpay.com/button/b4a090420eb14"
               >{`Поддержать проект`}</a>
             </div>
-            <div className="bottom-quastion">{`Кем, ты хочешь стать?`}</div>
+            <div className="bottom-quastion">{`Кем ты хочешь стать?`}</div>
             <div className="support-container">
               <a
                 className="support resident-support"
