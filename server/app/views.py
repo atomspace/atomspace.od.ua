@@ -35,13 +35,12 @@ def mentors(request):
         post.information = data['information']
         post.save()
         
-
         # Sending callback email
         subject = 'Request to become a mentor'
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email']]
-        contact_message = 'Name:'
-        send_mail(subject, contact_message, from_email, ['polossless@gmail.com'], fail_silently=False)
+        contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(data['name'], data["number"], data["email"], data["information"])
+        send_mail(subject, contact_message, from_email, to_email, fail_silently=False)
         
         return JsonResponse({
             "errors": [],
@@ -77,21 +76,16 @@ def residents(request):
         post.name = data['name']
         post.email = data['email']
         post.number = data['number']
-        # birth = '{}/{}/{}'.format(request.POST['date_day'],
-        #                             request.POST['date_month'], request.POST['date_year'])
-
-        # ------------- temporary --------------
         post.information = data['information']
-        # --------------------------------------
-
         post.save()
-        # subject = 'Request to resident'
-        # from_email = settings.EMAIL_HOST_USER
-        # to_email = [from_email]
-        # contact_message = 'Name: {}\nE-mail: {}\nPhone number: {}\nBirth date: {}\n'.format(
-        #     post.name, post.email, post.number, post.date)
-        # send_mail(subject, contact_message, from_email,
-        #           to_email, fail_silently=False)
+        
+        # Sending callback email
+        subject = 'Request to become a resident'
+        from_email = settings.EMAIL_HOST_USER
+        to_email = [data['email']]
+        contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(data['name'], data["number"], data["email"], data["information"])
+        send_mail(subject, contact_message, from_email, to_email, fail_silently=False)
+
         return JsonResponse([{
             "errors": [],
             "success": True,

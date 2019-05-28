@@ -3,7 +3,7 @@ from django.utils import timezone
 
 class Mentor(models.Model):
     name = models.CharField(max_length=30)
-    number = models.IntegerField()
+    number = models.CharField(max_length=30)
     email = models.EmailField(max_length=30)
     information = models.CharField(max_length=100)
     created_at = models.DateField(default=timezone.now)
@@ -14,7 +14,7 @@ class Mentor(models.Model):
 class Resident(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(max_length=30)
-    number = models.IntegerField()
+    number = models.CharField(max_length=30)
     information = models.CharField(max_length=100)
     created_at = models.DateField(default=timezone.now)
 

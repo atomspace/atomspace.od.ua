@@ -44,7 +44,7 @@ export default class Form extends React.Component {
       let data = {
         name: user.name.value,
         email: user.email.value,
-        number: user.number.value,
+        number: +user.number.value,
         information: user.information.value,
       };
       await this.props.createOrder(data);

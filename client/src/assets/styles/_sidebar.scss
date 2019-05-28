@@ -23,7 +23,7 @@
   height: $f26;
   width: $f110;
 
-  >a:not(:last-child) {
+  > a:not(:last-child) {
     margin-right: $f16;
   }
 
@@ -34,7 +34,8 @@
   }
 
   .facebook {
-    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat center/contain;
+    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat
+      center/contain;
     opacity: 0.8;
     display: block;
 
@@ -44,7 +45,8 @@
   }
 
   .instagram {
-    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat center/contain;
+    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat
+      center/contain;
     display: block;
     opacity: 0.8;
 
@@ -54,7 +56,8 @@
   }
 
   .linkedin {
-    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat center/contain;
+    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat
+      center/contain;
     display: block;
     opacity: 0.8;
 
@@ -122,9 +125,11 @@ li {
       transition: all 0.3s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(0.4turn,
+      background: linear-gradient(
+        0.4turn,
         $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right);
+        $list-item-atom-space-color-right
+      );
       top: 0;
     }
 
@@ -140,9 +145,11 @@ li {
       transition: all 0.3s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(0.4turn,
+      background: linear-gradient(
+        0.4turn,
         $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right);
+        $list-item-atom-space-color-right
+      );
       top: 0;
     }
   }
@@ -194,7 +201,8 @@ li {
         width: $size;
         position: relative;
         left: -$f13 / 2;
-        background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
+        background: url(#{$path-to-images}/icons/circle.svg) no-repeat
+          center/contain;
       }
 
       .list {
@@ -202,7 +210,7 @@ li {
         justify-content: flex-start;
         flex-direction: column;
 
-        >div {
+        > div {
           width: 100%;
           display: flex;
         }
@@ -217,11 +225,13 @@ li {
 
       &.light_theme {
         .instagram {
-          background: url(#{$path-to-images}/icons/soc/instagram-dark.svg) no-repeat;
+          background: url(#{$path-to-images}/icons/soc/instagram-dark.svg)
+            no-repeat;
         }
 
         .facebook {
-          background: url(#{$path-to-images}/icons/soc/facebook-dark.svg) no-repeat;
+          background: url(#{$path-to-images}/icons/soc/facebook-dark.svg)
+            no-repeat;
         }
 
         .list-item {
@@ -230,7 +240,8 @@ li {
           }
 
           &:before {
-            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
+              center/contain;
             color: $black-color;
           }
         }
@@ -256,7 +267,8 @@ li {
           height: $size;
           position: absolute;
           right: -$f8 / 2;
-          background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
+          background: url(#{$path-to-images}/icons/circle.svg) no-repeat
+            center/contain;
         }
 
         .list-item {
@@ -273,7 +285,8 @@ li {
           }
 
           .dot {
-            background: url(#{$path-to-images}/icons/circle-sidebar.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-sidebar.svg)
+              no-repeat center/contain;
             opacity: 1;
           }
         }
@@ -296,7 +309,8 @@ li {
             height: $size;
             position: absolute;
             right: -$f8 / 2;
-            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
+              center/contain;
           }
 
           .list-item {
@@ -311,7 +325,8 @@ li {
             }
 
             .dot {
-              background: url(#{$path-to-images}/icons/circle-sidebar-light.svg) no-repeat center/contain;
+              background: url(#{$path-to-images}/icons/circle-sidebar-light.svg)
+                no-repeat center/contain;
               opacity: 1;
             }
           }
@@ -336,7 +351,8 @@ li {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg) center/cover no-repeat;
+    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg)
+      center/cover no-repeat;
 
     &.hide {
       display: none;
@@ -354,32 +370,31 @@ li {
   }
 
   &.light_theme .nav_toggle {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg)
+      center/contain no-repeat;
   }
-
-
 }
 
 .nav_toggle,
 .nav_toggle.cross {
   width: $f178;
   height: $f144;
-  // width: 34px;
-  // height: 29px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  position: fixed;
+  right: 7%;
+  top: 4%;
 }
 
-
 .nav_toggle {
-  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-dark.svg) center/contain no-repeat;
+  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-dark.svg)
+    center/contain no-repeat;
 
   &.cross {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg)
+      center/contain no-repeat;
   }
 
   &.cross.light {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg)
+      center/contain no-repeat;
   }
 }
