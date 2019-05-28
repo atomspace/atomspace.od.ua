@@ -163,7 +163,7 @@ def get_news(request):
     return JsonResponse(news_object, safe=False)
 
 @csrf_exempt
-def orders(request):
+def api_orders(request):
     if request.method == 'POST': # Create new order
         data = json.loads(request.body.decode('utf-8'))
         order = Order()
@@ -189,6 +189,13 @@ def orders(request):
         for i in orders_list:
             del i['model']
         return JsonResponse(orders_list, safe=False)
+
+@login_required
+def orders(request):
+    context = {
+        'orders': Order.objects.all()
+    }
+    return render(request, 'orders/index.html', context)
 
 @login_required
 def delete_article(request, pk):

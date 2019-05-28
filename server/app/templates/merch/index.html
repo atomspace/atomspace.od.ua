@@ -4,12 +4,6 @@
 {% load staticfiles %}
 <link rel="stylesheet" media="all" href="{% static 'css/merch.css' %}" type="text/css">
 
-<nav class="navbar">
-    <a href="/" class="navbar-brand"><img src={% static 'img/AtomSpace-logo.svg' %}></a>
-    <a class="sidebar-item-text" href="{% url 'merch' %}">Merch</a>
-    <a class="sidebar-item-text" href="{% url 'news' %}">News</a>
-    <a href="{% url 'logout' %}"><button class="btn btn-primary" type="submit" >Log out</button></a>
-</nav>
 <div style="display:flex;height:91vh;">
     <div class="content">
         {% if merch %}
