@@ -36,7 +36,7 @@ CSRF_COOKIE_DOMAIN = ['admin.atomspace-test.com', 'admin.atomspace.od.ua']
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'admin.atomspace.od.ua', '0.0.0.0', 'admin.atomspace-test.com', 'atomspace-test.com', 'atomspace.od.ua']
 

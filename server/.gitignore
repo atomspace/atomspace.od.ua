@@ -3,3 +3,4 @@
 media/merch_photos/*
 .env
 static/
+logs/
