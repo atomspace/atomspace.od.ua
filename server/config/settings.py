@@ -24,10 +24,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = False
+# SESSION_COOKIE_SECURE = False
 # ---------------------- ATTENTION! Change to True when HTTPS is good! ----------------------
-CSRF_COOKIE_SECURE = False
-CSRF_COOKIE_DOMAIN = ['admin.atomspace-test.com', 'admin.atomspace.od.ua']
+# CSRF_COOKIE_SECURE = False
+# CSRF_COOKIE_DOMAIN = ['admin.atomspace-test.com', 'admin.atomspace.od.ua']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -117,12 +117,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config('DB_ENGINE'),
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config("DB_PASSWORD"),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
     }
 }
 
@@ -166,9 +162,9 @@ LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = 'merch'
 
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = [
-    'atomspace-test.com',
-    'admin.atomspace-test.com',
-    'atomspace.od.ua',
-    'admin.atomspace.od.ua'
-]
+# CORS_ORIGIN_WHITELIST = [
+#     'atomspace-test.com',
+#     'admin.atomspace-test.com',
+#     'atomspace.od.ua',
+#     'admin.atomspace.od.ua'
+# ]
