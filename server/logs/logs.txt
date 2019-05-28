@@ -2144,3 +2144,63 @@ Not Found: /favicon.ico
 "GET /api/v1/merches HTTP/1.1" 200 364
 "GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 200 217533
 "GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 304 0
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 304 0
+(0.001) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media/merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+(0.001) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+(0.001) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 200 217533
+"OPTIONS /api/v1/merches HTTP/1.1" 200 0
+(0.002) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 200 217533
+(0.003) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+(0.008) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 304 0
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 304 0
+(0.003) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 200 217533
+(0.005) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 200 217533
+(0.001) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 200 217533
+(0.005) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 200 217533
+(0.001) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 200 217533
+(0.038) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+(0.009) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+(0.002) SELECT "app_merch"."id", "app_merch"."name", "app_merch"."price", "app_merch"."avatar_url", "app_merch"."created_time", "app_merch"."updated_time" FROM "app_merch"; args=()
+"GET /api/v1/merches HTTP/1.1" 200 364
+"GET /media//merch_photos/i-need-more-space-2-shirt.png HTTP/1.1" 200 85039
+"GET /media//merch_photos/i-need-more-space-shirt.png HTTP/1.1" 200 217533

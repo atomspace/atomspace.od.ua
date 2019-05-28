@@ -6,10 +6,11 @@ const additionalHeader =
   "Чтоб мы могли вам отправить футболку, заполните поля ниже.";
 const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14'
 export default class BuyForm extends React.Component {
+  
   buyMerch = () =>{
-    
     window.location = way4payLink;
   }
+  
   render() {
     return (
       <div className="buy-form-container">
