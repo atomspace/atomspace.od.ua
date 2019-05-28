@@ -28,7 +28,9 @@ class LeftSidebar extends React.Component {
         ];
       case urls[5]:
         return [
-          <MerchSize changeMerchAttr={this.props.changeMerchAttr} />,
+          <MerchSize
+            changeMerchAttr={this.props.changeMerchAttr}
+          />,
           <MerchBuy
             handleDialog={this.props.handleDialog}
             order={this.props.order}

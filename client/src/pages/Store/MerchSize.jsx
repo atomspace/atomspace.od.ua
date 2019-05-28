@@ -6,7 +6,6 @@ export default class MerchSize extends React.Component {
     index: 2
   };
   sizes = ["S", "M", "L", "XL"];
-
   changeMerchAttr = index => {
     const order = {
       size: this.sizes[index]

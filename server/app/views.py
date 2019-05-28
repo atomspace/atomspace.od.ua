@@ -27,21 +27,22 @@ def mentors(request):
 
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
+        
         post = Mentor()
         post.name = data['name']
         post.number = data['number']
         post.email = data['email']
         post.information = data['information']
         post.save()
-
+        
 
         # Sending callback email
         subject = 'Request to become a mentor'
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email']]
-        contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(data['name'], data["number"], data["email"], data["information"])
-        send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
-
+        contact_message = 'Name:'
+        send_mail(subject, contact_message, from_email, ['polossless@gmail.com'], fail_silently=False)
+        
         return JsonResponse({
             "errors": [],
             "success": True,
@@ -174,14 +175,15 @@ def orders(request):
         order.merch_name = data['merch_name']
         order.merch_size = data['merch_size']
         order.merch_cost = data['merch_cost']
+        order.save()
 
-        subject = 'Request to order a merch item'
-        from_email = settings.EMAIL_HOST_USER
-        to_email = [data['email']]
-        contact_message = 'Name: {} {}\nPhone number: {}\nE-mail: {}\nInfo about merch:\n\nItem: {}\nSize: {}\nCost: {}'.format(
-            data["name"], data["surname"], data["phone"], data["email"], data["merch_name"], data["merch_size"], data["merch_cost"]
-            )
-        send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
+        # subject = 'Request to order a merch item'
+        # from_email = settings.EMAIL_HOST_USER
+        # to_email = [data['email']]
+        # contact_message = 'Name: {} {}\nPhone number: {}\nE-mail: {}\nInfo about merch:\n\nItem: {}\nSize: {}\nCost: {}'.format(
+        #     data["name"], data["surname"], data["phone"], data["email"], data["merch_name"], data["merch_size"], data["merch_cost"]
+        #     )
+        # send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
 
         return JsonResponse({'ok': 'true'})
     else: # Get all orders
