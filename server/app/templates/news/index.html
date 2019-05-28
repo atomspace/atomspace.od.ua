@@ -18,7 +18,6 @@
                 <li class="add-item" id="dialog"> <img style="width: 35px;margin:auto;padding:5px;" src="{% static 'img/plus.svg' %}" /></li>
                 <div style="display: none;" class="add-news-block popup-form">
                     <form enctype="multipart/form-data" action="" method="post">
-                        {% csrf_token %}
                         {{ form }}
                         <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
                     </form>
@@ -52,7 +51,6 @@
             <div class="col-sm form">
                 <h3 class="header-article">Create new article</h3>
                 <form class="news-form" enctype="multipart/form-data" action="" method="post">
-                    {% csrf_token %}
                     {{ form }}
                     <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
                 </form>

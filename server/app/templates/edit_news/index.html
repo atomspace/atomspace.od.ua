@@ -17,7 +17,6 @@
         <div class="col-sm form edit">
             <h3>Edit article</h3>
             <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
-                {% csrf_token %}
                 {{ form }}
                 <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
             </form>
