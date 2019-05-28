@@ -12,6 +12,7 @@ ssl
 
 atomspace-env/
 server/backend/static
+server/logs/
 
 .ftpconfig
 
