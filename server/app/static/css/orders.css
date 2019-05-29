@@ -1,0 +1,50 @@
+.orders-item{
+    display: flex;
+    justify-content: space-around;
+}
+
+.orders-h2{
+    margin: 20px;
+    text-align: center;
+    color: white;
+}
+
+select {
+    color: white;
+    cursor: pointer;
+    background: #34343B;
+    border: 2px solid white;
+    padding: 0.5em;
+    padding-right: 2em;
+}
+
+span {
+    display: block;
+    position: relative;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+span:before, span:after {
+    content: "";
+    position: absolute;
+}
+
+span:after {
+    color: white;
+    font-family: "Fontawesome";
+    font-size: inherit;
+    padding: 0.5em;
+    pointer-events: none;
+    right: 0.3em;
+    top: 25%;
+    vertical-align: middle;
+}
+
+select option{
+    background-color: #34343B;
+}
+
+#mentors{
+    display: none;
+}
