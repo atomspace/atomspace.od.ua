@@ -194,6 +194,14 @@ def orders(request):
     return render(request, 'orders/index.html', context)
 
 @login_required
+def people(request):
+    context = {
+        'mentors': Mentor.objects.all(),
+        'residents': Resident.objects.all()
+    }
+    return render(request, 'people/index.html', context)
+
+@login_required
 def delete_article(request, pk):
     n = News.objects.get(id=pk)
     os.remove('{}/{}'.format(settings.MEDIA_ROOT, n.news_picture_url))

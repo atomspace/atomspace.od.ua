@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load staticfiles %}
+<link rel="stylesheet" media="all" href="{% static 'css/news.css' %}" type="text/css">
+<link rel="stylesheet" media="all" href="{% static 'css/orders.css' %}" type="text/css">
+
+<div style="display: flex; height: 91vh;">
+    <div class="content">
+        {% if mentors %}
+            <span>
+                <select id="select" onchange="change()">
+                    <option value="Residents" selected>Residents</option>
+                    <option value="Mentors">Mentors</option>
+                </select>
+            </span>
+            <ul id="residents">
+            <li class="list-group-item orders-item">
+                <div>Name</div>
+                <div>Email</div>
+                <div>Phone</div>
+            </li>
+            {% for i in residents %}
+                <li class="list-group-item orders-item">
+                    <div>{{ i }}</div>
+                    <div>{{ i.email }}</div>
+                    <div>{{ i.number }}</div>
+                </li>
+            {% endfor %}
+            </ul>
+            <ul id="mentors">
+            <li class="list-group-item orders-item">
+                <div>Name</div>
+                <div>Email</div>
+                <div>Phone</div>
+            </li>
+            {% for i in mentors %}
+                <li class="list-group-item orders-item">
+                    <div>{{ i }}</div>
+                    <div>{{ i.email }}</div>
+                    <div>{{ i.number }}</div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <h2 class="orders-h2">No requests found</h2>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    var change = (e) => {
+        var select = document.getElementById('select').value;
+        if (select === 'Mentors'){
+            $('#residents').css('display', 'none');
+            $('#mentors').css('display', 'block');
+        } else {
+            $('#residents').css('display', 'block');
+            $('#mentors').css('display', 'none');
+        }
+    }
+</script>
+
+{% endblock %}

@@ -18,6 +18,7 @@ urlpatterns = [
     path('merch', views.merch, name='merch'),
     path('news', views.news, name='news'),
     path('orders', views.orders, name='orders'),
+    path('people', views.people, name='people'),
     path('logout', views.logout, name='logout'),
     path('login/', auth_views.LoginView.as_view(template_name='login/index.html')),
     url(r'^news/(?P<pk>\d+)/delete$', views.delete_article, name='delete_article'),
