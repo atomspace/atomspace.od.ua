@@ -4,7 +4,6 @@ import datetime
 
 from django.http import JsonResponse
 from django.core import serializers
-from django.core.mail import send_mail
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout as django_logout
@@ -14,6 +13,7 @@ from django.http import  HttpResponse
 
 from .forms import MerchForm, NewsForm, EditMerch, EditNews
 from .models import Merch, News, Mentor, Resident, Order
+from .utils import EmailThread
 
 
 
@@ -40,7 +40,7 @@ def mentors(request):
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email']]
         contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(data['name'], data["number"], data["email"], data["information"])
-        send_mail(subject, contact_message, from_email, to_email, fail_silently=False)
+        EmailThread(subject, contact_message, to_email, from_email).start()
         
         return JsonResponse({
             "errors": [],
@@ -84,7 +84,7 @@ def residents(request):
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email']]
         contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(data['name'], data["number"], data["email"], data["information"])
-        send_mail(subject, contact_message, from_email, to_email, fail_silently=False)
+        EmailThread(subject, contact_message, to_email, from_email).start()
 
         return JsonResponse([{
             "errors": [],
@@ -170,14 +170,6 @@ def api_orders(request):
         order.merch_size = data['merch_size']
         order.merch_cost = data['merch_cost']
         order.save()
-
-        # subject = 'Request to order a merch item'
-        # from_email = settings.EMAIL_HOST_USER
-        # to_email = [data['email']]
-        # contact_message = 'Name: {} {}\nPhone number: {}\nE-mail: {}\nInfo about merch:\n\nItem: {}\nSize: {}\nCost: {}'.format(
-        #     data["name"], data["surname"], data["phone"], data["email"], data["merch_name"], data["merch_size"], data["merch_cost"]
-        #     )
-        # send_mail(subject, contact_message, from_email, ['mishkabudish@gmail.com'], fail_silently=False)
 
         return JsonResponse({'ok': 'true'})
     else: # Get all orders
