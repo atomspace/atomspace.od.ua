@@ -4,20 +4,12 @@
 {% load staticfiles %}
 <link rel="stylesheet" media="all" href="{% static 'css/merch.css' %}" type="text/css">
 
-<nav class="navbar" style="background-color: rgba(61, 62, 62);position: fixed;width: 100%">
-    <a class="navbar-brand">Admin panel</a>
-    <a class="sidebar-item-text" href="{% url 'merch' %}">Merch</a>
-    <a class="sidebar-item-text" href="{% url 'news' %}">News</a>
-    <a href="{% url 'logout' %}"><button class="btn btn-primary" type="submit" >Log out</button></a>
-</nav>
-
 <div style="display:flex;height:91vh;">
     <div class="content cont">
         <div class="col-sm"></div>
         <div class="col-sm form edit">
             <h3>Edit article</h3>
             <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
-                {% csrf_token %}
                 {{ form }}
                 <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
             </form>

@@ -4,8 +4,13 @@ import { MEDIA_URL } from "../../utils/config";
 const mainHeader = "ДЕТАЛИ ЗАКАЗА";
 const additionalHeader =
   "Чтоб мы могли вам отправить футболку, заполните поля ниже.";
-
+const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14'
 export default class BuyForm extends React.Component {
+  
+  buyMerch = () =>{
+    window.location = way4payLink;
+  }
+  
   render() {
     return (
       <div className="buy-form-container">
@@ -55,7 +60,7 @@ export default class BuyForm extends React.Component {
               </div>
             </div>
             <div className="order-request">
-              <button className="btn btn-support btn-request pay-button">{`Оплатить`}</button>
+              <button className="btn btn-support btn-request pay-button" onClick={this.buyMerch}>{`Оплатить`}</button>
               <h3 className="price-info">{`₴ ${this.props.order.price}`}</h3>
             </div>
           </div>

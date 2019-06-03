@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load staticfiles %}
+<link rel="stylesheet" media="all" href="{% static 'css/news.css' %}" type="text/css">
+<link rel="stylesheet" media="all" href="{% static 'css/orders.css' %}" type="text/css">
+
+<div style="display: flex; height: 91vh;">
+    <div class="content">
+        {% if orders %}
+            <h2 class="orders-h2">Orders</h2>
+            <ul class="list-group">
+                <li class="list-group-item orders-item">
+                    <h4>Name</h4>
+                    <h4>Phone</h4>
+                    <h4>Email</h4>
+                    <h4>Merch</h4>
+                </li>
+            {% for i in orders %}
+                <li class="list-group-item orders-item">
+                    <div>{{ i }}</div>
+                    <div>{{ i.phone }}</div>
+                    <div>{{ i.email }}</div>
+                    <div>{{ i.merch_name }}</div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <h2 class="orders-h2">No objects found</h2>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

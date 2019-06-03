@@ -1,5 +1,5 @@
 .family-container {
-  background-size: auto;
+  background-size: cover;
 
   .family-wrapper {
     height: 75%;
@@ -54,14 +54,12 @@
           letter-spacing: -0.03em;
 
           .info-name {
-            line-height: 28px;
             text-align: right;
             letter-spacing: -0.03em;
             margin-bottom: 0;
           }
 
           .info-position {
-            line-height: 24px;
             text-align: right;
           }
         }
@@ -92,11 +90,10 @@
     background-image: url(../../assets/images/icons/adaptive/tap-swipe.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    $size: 39px;
-    width: $size;
-    height: 39px;
+    width: 10%;
+    height: 6%;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30%;
+    right: 5%;
   }
 }

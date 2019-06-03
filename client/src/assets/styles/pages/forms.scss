@@ -4,7 +4,8 @@
   width: 100%;
   top: -5px;
   height: 102%;
-  background: url(#{$path-to-images}/backgrounds/background-fixed.svg) no-repeat center/cover;
+  background: url(#{$path-to-images}/backgrounds/background-fixed.svg) no-repeat
+    center/cover;
   background-color: $white-color;
 
   .main-form-container {
@@ -40,7 +41,7 @@
             font-weight: 400;
             line-height: $f26;
             margin: $f68 0 0 auto;
-            .bold{
+            .bold {
               font-weight: bold;
             }
           }
@@ -48,10 +49,15 @@
       }
 
       .form-registration {
-        >div {
+        .form-block {
           margin-bottom: $f68;
-        }
 
+          .error {
+            border-color: $red-color;
+            border-width: 3px;
+          }
+          margin-bottom: 30px;
+        }
         input {
           width: $f400 + $f144;
           font-size: $f21;
@@ -68,11 +74,11 @@
           }
         }
 
-        >div:nth-child(3) {
+        > div:nth-child(3) {
           margin-bottom: $f178;
         }
 
-        >div:nth-child(4) {
+        > div:nth-child(4) {
           margin-bottom: $f34;
         }
 
