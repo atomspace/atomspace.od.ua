@@ -54,8 +54,8 @@
         puzzle {
           &__#{$logo}-logo {
             background: url(#{$path-to-images}/icons/blog/#{$logo}-logo.svg) no-repeat center/contain;
-            height: $f178 - $f8;
-            width: $f178 - $f8;
+            height: 300px;
+            width: 300px;
             margin-bottom: $f5;
             position: relative;
           }

@@ -29,10 +29,6 @@ class App extends Component {
   };
 
   getCachedMerch() {
-    // const cachedMerch = window.localStorage.getItem("currentMerch");
-    // if(!cachedMerch){
-    //   return {name: '', avatar_url: '', price: 0, size: 'L'};
-    // }
     return JSON.parse(window.localStorage.getItem("currentMerch"));
   }
 

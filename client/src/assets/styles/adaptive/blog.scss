@@ -76,15 +76,15 @@
             &__header {
               font-family: OpenSans-SemiBold, sans-serif;
               margin-bottom: 10px !important;
-              font-size: $f68;
-              line-height: $f89 + $f10;
+              font-size: 1.5em;
+              line-height: inherit;
             }
 
             &__description {
               font-family: OpenSans-Regular, sans-serif;
-              font-size: $f55 + $f18;
-              line-height: $f89;
-              width: $f610 + $f178;
+              font-size: 1.5em;
+              line-height: inherit;
+              width: 100%;
             }
           }
 
@@ -97,8 +97,8 @@
             &__#{$logo}-logo {
 
               background: url(#{$path-to-images}/icons/blog/#{$logo}-logo.svg) no-repeat center/contain;
-              height: $size-logo;
-              width: $size-logo;
+              height: 300px;
+              width: 300px;
               margin-bottom: $f5;
               position: relative;
             }

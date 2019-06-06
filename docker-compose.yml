@@ -5,8 +5,9 @@ volumes:
 
 services:
   server:
+
     container_name: atomspace_server
-    build: 
+    build:
       context: ./server
     volumes:
       - /home/ubuntu/atomspace.od.ua/server/static:/app/app/static
