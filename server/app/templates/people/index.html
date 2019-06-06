@@ -19,12 +19,14 @@
                 <div>Name</div>
                 <div>Email</div>
                 <div>Phone</div>
+                <div>Info</div>
             </li>
             {% for i in residents %}
                 <li class="list-group-item orders-item">
                     <div>{{ i }}</div>
                     <div>{{ i.email }}</div>
                     <div>{{ i.number }}</div>
+                    <div>{{ i.information }}</div>
                 </li>
             {% endfor %}
             </ul>
@@ -33,12 +35,14 @@
                 <div>Name</div>
                 <div>Email</div>
                 <div>Phone</div>
+                <div>Info</div>
             </li>
             {% for i in mentors %}
                 <li class="list-group-item orders-item">
                     <div>{{ i }}</div>
                     <div>{{ i.email }}</div>
                     <div>{{ i.number }}</div>
+                    <div>{{ i.information }}</div>
                 </li>
             {% endfor %}
             </ul>
