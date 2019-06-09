@@ -22,6 +22,9 @@ COPY ./csrf_exempt/views.py /usr/local/lib/python3.7/site-packages/django/contri
 COPY ./csrf_exempt/sites.py /usr/local/lib/python3.7/site-packages/django/contrib/admin
 COPY ./csrf_exempt/login.html /usr/local/lib/python3.7/site-packages/django/contrib/admin/templates/admin
 
+#RUN python manage.py makemigrations
+#RUN python manage.py migrate
+
 EXPOSE 8000
 
 #ENTRYPOINT ["uwsgi", "uwsgi.config.ini"]
