@@ -7,11 +7,17 @@
 
 <div style="display: flex; height: 91vh;">
     <div class="content">
-        {% if mentors %}
+        {% if mentors or residents %}
             <span>
                 <select id="select" onchange="change()">
-                    <option value="Residents" selected>Residents</option>
-                    <option value="Mentors">Mentors</option>
+                    {% if residents %}
+                        <option value="Residents" selected>Residents</option>
+                        <option value="Mentors">Mentors</option>
+                    {% endif %}
+                    {% if mentors %}
+                        <option value="Residents">Residents</option>
+                        <option value="Mentors" selected>Mentors</option>
+                    {% endif %}
                 </select>
             </span>
             <ul id="residents">
@@ -63,6 +69,8 @@
             $('#mentors').css('display', 'none');
         }
     }
+
+    $().ready(() => change())
 </script>
 
 {% endblock %}

@@ -70,7 +70,8 @@
 
           &-information {
             > div {
-              margin: 0 auto
+              margin: 0 auto;
+              font-size: small;
             }
 
             &__header {
@@ -97,8 +98,8 @@
             &__#{$logo}-logo {
 
               background: url(#{$path-to-images}/icons/blog/#{$logo}-logo.svg) no-repeat center/contain;
-              height: 300px;
-              width: 300px;
+              height: 180px;
+              width: 180px;
               margin-bottom: $f5;
               position: relative;
             }
