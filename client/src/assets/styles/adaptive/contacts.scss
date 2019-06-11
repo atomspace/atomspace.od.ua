@@ -59,6 +59,12 @@
       flex-direction: column;
       align-items: flex-start;
       margin-top: 50px;
+      @media only screen and (max-height: 850px) and (min-height: 750px) {
+        margin-top: 110px;
+      }
+      @media only screen and (max-height: 1368px) and (min-height: 851px) {
+        margin-top: 150px;
+      }
       margin-left: 57px;
       position: relative;
       .list-item {

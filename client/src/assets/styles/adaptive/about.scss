@@ -14,6 +14,10 @@
         width: 235px;
         height: 26.97px;
         position: relative;
+        @media only screen and (max-height: 1367px) and (min-height: 851px) {
+          width: 310px;
+          height: 85px;
+        }
       }
 
       &__text {
