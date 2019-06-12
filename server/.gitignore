@@ -1,6 +1,7 @@
 #python
 /**/__pycache__
 media/merch_photos/*
+media/news_photos/*
 .env
 static/
 logs/
