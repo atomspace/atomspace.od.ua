@@ -50,13 +50,11 @@
 
       .form-registration {
         .form-block {
-          margin-bottom: $f68;
-
+          margin-bottom: 30px;
           .error {
             border-color: $red-color;
             border-width: 3px;
           }
-          margin-bottom: 30px;
         }
         input {
           width: $f400 + $f144;

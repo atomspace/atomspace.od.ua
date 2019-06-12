@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { createMentor } from "../../../api/mentor";
 import Form from "../Form";
+import {Bubble} from '../../Bubble';
 
 const headerText = "Стать ментором";
 const mainText =
@@ -35,6 +36,13 @@ export class Mentor extends Component {
   render() {
     return (
       <section className={"form-container"}>
+        <Bubble big animate style={{ bottom: 453, left: 451 }} />
+        <Bubble
+          middle
+          animate
+          style={{ bottom: 240, left: "34vw", opacity: 1 }}
+        />
+        <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2 }} />
         <Form
           inputData={inputData}
           createOrder={createMentor}
