@@ -14,6 +14,7 @@ RUN apk add --virtual .build-deps build-base postgresql-dev \
 RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
+#RUN python manage.py collectstatic
 
 RUN rm /usr/local/lib/python3.7/site-packages/django/contrib/auth/views.py
 RUN rm /usr/local/lib/python3.7/site-packages/django/contrib/admin/sites.py
