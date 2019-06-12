@@ -1,6 +1,5 @@
 import React from "react";
 import LeftSidebar from "../../routes/Sidebar/Left";
-import { Bubble } from "../Bubble";
 import * as classnames from "classnames";
 
 export default class Form extends React.Component {
@@ -128,13 +127,7 @@ export default class Form extends React.Component {
         <div className={"navigation"}>
           <LeftSidebar {...this.props} />
         </div>
-        <Bubble big animate style={{ bottom: 453, left: 451 }} />
-        <Bubble
-          middle
-          animate
-          style={{ bottom: 240, left: "34vw", opacity: 1 }}
-        />
-        <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2 }} />
+
         <div className="form-request">
           {this.renderFormBlocks()}
           {this.renderFormRegister()}

@@ -29,7 +29,8 @@ class Store extends Component {
     let merches = await getAllMerches();
     if (merches.length) {
       merches = this.increaseCountOfMerch(merches);
-      this.props.changeMerchAttr(this.props.getCachedMerch() || merches[0].fields);
+      const merch = {...merches[0].fields, ...this.props.getCachedMerch()};
+      this.props.changeMerchAttr(merch);
       this.setState({merches: merches.map(merch => merch.fields)});
     }
   }

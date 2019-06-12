@@ -153,7 +153,7 @@
   .order-block {
     background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     position: fixed;
     bottom: -50px;
     width: 100%;

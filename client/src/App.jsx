@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "./assets/styles/_index.scss";
-import { Main, About, Contacts, Edu, Family, Blog, Store } from "./pages";
-import { Mentor } from "./components/Forms/Mentor";
-import { Resident } from "./components/Forms/Resident";
+import {About, Blog, Contacts, Edu, Family, Main, Store} from "./pages";
+import {Mentor} from "./components/Forms/Mentor";
+import {Resident} from "./components/Forms/Resident";
 import Sidebar from "./routes/Sidebar/Sidebar.jsx";
 import ReactFullpage from "@fullpage/react-fullpage";
 import BuyForm from "./pages/Store/BuyForm";
@@ -23,8 +23,12 @@ class App extends Component {
     form: null,
     order: this.getCachedMerch()
   };
+  componentDidMount() {
+    this.changeDialog(window.location.hash);
+  }
+
   closeForm = () => {
-    this.setState(state => ({ ...state, form: null }));
+    this.setState(state => ({...state, form: null}));
     window.location.hash = "";
   };
 
@@ -43,21 +47,18 @@ class App extends Component {
     this.changeDialog(e.target.hash);
   };
 
-  componentDidMount() {
-    this.changeDialog(window.location.hash);
-  }
-
   saveToCache = prop => {
+    console.log({...this.state.order, ...prop});
     window.localStorage.setItem(
       "currentMerch",
-      JSON.stringify({ ...this.state.order, ...prop })
+      JSON.stringify({...this.state.order, ...prop})
     );
   };
 
   changeMerchAttr = prop => {
     this.saveToCache(prop);
     this.setState({
-      order: { ...this.state.order, ...prop }
+      order: {...this.state.order, ...prop}
     });
   };
 
@@ -84,11 +85,11 @@ class App extends Component {
           render={() => {
             return (
               <ReactFullpage.Wrapper>
-                <Main handleDialog={this.handleDialog} />
-                <About />
-                <Blog />
-                <Edu />
-                <Family />
+                <Main handleDialog={this.handleDialog}/>
+                <About/>
+                <Blog/>
+                <Edu/>
+                <Family/>
                 <Store
                   order={this.state.order}
                   size={this.state.size}
@@ -96,19 +97,19 @@ class App extends Component {
                   handleDialog={this.handleDialog}
                   getCachedMerch={this.getCachedMerch}
                 />
-                <Contacts handleDialog={this.handleDialog} />
+                <Contacts handleDialog={this.handleDialog}/>
               </ReactFullpage.Wrapper>
             );
           }}
         />
         {this.state.form === "#residentForm" && (
-          <Resident closeForm={this.closeForm} />
+          <Resident closeForm={this.closeForm}/>
         )}
         {this.state.form === "#mentorForm" && (
-          <Mentor closeForm={this.closeForm} />
+          <Mentor closeForm={this.closeForm}/>
         )}
         {this.state.form === "#buyForm" && (
-          <BuyForm closeForm={this.closeForm} order={this.state.order} />
+          <BuyForm closeForm={this.closeForm} order={this.state.order}/>
         )}
       </div>
     );
