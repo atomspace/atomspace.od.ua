@@ -130,7 +130,7 @@ DATABASES = {
 
         # ------------------- FOR DEV --------------------
 
-	# 'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': 'db.sqlite3'
     }
 }
@@ -175,6 +175,7 @@ LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = 'merch'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
 # CORS_ORIGIN_WHITELIST = [
 #     'atomspace-test.com',
 #     'admin.atomspace-test.com',
