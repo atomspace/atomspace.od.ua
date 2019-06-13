@@ -25,6 +25,8 @@ urlpatterns = [
     url(r'^merch/(?P<pk>\d+)/delete$', views.delete_merch, name='delete_merch'),
     url(r'^news/(?P<pk>\d+)/edit$', views.edit_article, name='edit_article'),
     url(r'^merch/(?P<pk>\d+)/edit$', views.edit_merch, name='edit_merch'),
+
+    path('.well-known/pki-validation/6997F32619F63E8F8CE04D49CDFC416F.txt', views.ssl, name='ssl'),
 ]
 
 if settings.DEBUG:
