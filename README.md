@@ -14,10 +14,7 @@ npm run start
 
 Install manually to host machine
 ```
-Django
-django-rest-framework
-django-cors-headers
-Pillow
+pip3 install -r requirements.txt
 ```
 
 #### Start server
