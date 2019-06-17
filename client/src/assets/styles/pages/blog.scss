@@ -15,6 +15,10 @@
     position: relative;
     margin-left: $f233;
 
+    .main-text{
+      margin-bottom: 0;
+    }
+
     .blog-skill-blocks-mobile,
     .blog-skill-blocks {
       display: flex;
@@ -29,7 +33,7 @@
         align-items: center;
 
         >div {
-          margin: $f55 0;
+          margin: $f55 0 $f55 1vw;
         }
 
         &-information {
