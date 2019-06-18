@@ -16,11 +16,6 @@ from .models import Merch, News, Mentor, Resident, Order
 from .utils import EmailThread
 
 @csrf_exempt
-def ssl(request):
-    f = open(os.path.join(settings.BASE_DIR, 'app/ssl.txt')).read()
-    return HttpResponse(f)
-
-@csrf_exempt
 def mentors(request):
     if request.method == 'GET':
         mentors_list = json.loads(serializers.serialize('json', Mentor.objects.all()))
