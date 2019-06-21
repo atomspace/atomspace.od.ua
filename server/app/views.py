@@ -6,12 +6,12 @@ from django.http import JsonResponse
 from django.core import serializers
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import logout as django_logout
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
 from django.http import  HttpResponse
 
-from .forms import MerchForm, NewsForm, EditMerch, EditNews
+from .forms import MerchForm, NewsForm, EditMerch, EditNews, LoginForm
 from .models import Merch, News, Mentor, Resident, Order
 from .utils import EmailThread
 
@@ -247,6 +247,18 @@ def edit_article(request, pk):
 @login_required
 def index(request):
     return HttpResponseRedirect('/merch')
+
+@csrf_exempt
+def login(request):
+    if request.method == 'POST':
+        user = authenticate(username=request.POST['username'], password=request.POST['password'])
+        django_login(request, user)
+        return HttpResponseRedirect('/merch')
+    else:
+        context = {
+            'form': LoginForm()
+        }
+        return render(request, "login/index.html", context)
 
 @login_required
 def logout(request):

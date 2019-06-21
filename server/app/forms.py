@@ -17,3 +17,7 @@ class EditMerch(forms.Form):
 class EditNews(forms.Form):
     header = forms.CharField(widget=forms.TextInput(attrs={'class': 'input-group-text'}), required=False)
     content = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}), required=False)
+
+class LoginForm(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'input-group-item', 'placeholder': 'Username:'}))
+    password = forms.CharField(widget=forms.TextInput(attrs={'class': 'input-group-item', 'placeholder': 'Password:'}))
