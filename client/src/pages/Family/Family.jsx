@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import Soc from "../../components/Soc";
 import Arrow from "../../components/Arrow";
+// import Loader from "../../components/Loader";
 
 const people = [
   {
