@@ -14,7 +14,7 @@ class Store extends Component {
   };
   mainText = `хочешь содействовать развитию проекта?`;
   mainTextMobile = `Желаешь поддержать нас?`;
-  additionalText = `Выбирай и носи стильную атомную футболку!?`;
+  additionalText = `Выбирай и носи стильную атомную футболку!`;
   additionalTextMobile = `Покупай футболку!`;
 
   increaseCountOfMerch(merches) {

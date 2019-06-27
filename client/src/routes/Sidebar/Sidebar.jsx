@@ -36,6 +36,10 @@ class Sidebar extends Component {
       {
         href: "#contacts",
         text: `КОНТАКТЫ`
+      },
+      {
+        href: "#it2school",
+        text: `IT2SCHOOL`
       }
     ];
     return (

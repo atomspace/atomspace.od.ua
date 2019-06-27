@@ -1,6 +1,6 @@
 # Atom Space public site
 
-# Development
+## Development
 
 ### Client
 
@@ -36,15 +36,31 @@ Preinstall:
 #### Django (Server)
 ##### Prebuild
 ```
-cp ./server/.env.example ./server/.env.production
 mkdir /usr/local/share/postgresql
+cp ./server/.env.example ./server/.env
+cp ./server/.env.production.example ./server/.env.production
 ```
-Check file ```./server/.env.production``` and correct all config
+Check file ```./server/.env.production``` and ```./server/.env```
+ to correct all config
 
 ##### Run
 ```
 docker-compose -f docker-compose.prod.yml up -d
-docker-compose -f docker-compose.prod.yml down
+```
+
+
+Then config postgres and startup user into container.
+```
+docker exec -ti atomspace_server sh
+```
+To migrate all tables in database.
+```
+python manage.py migrate
+```
+
+To create superuser for admin panel.
+```
+python manage.py createsuperuser
 ```
 
 #### React (Client)
@@ -59,18 +75,9 @@ npm run build
 cp -R build/* /var/www/{name-of-site}.com/
 ```
 
-
 ### Installing and configure Nginx
 
 ```
 sudo apt-get install nginx
 nginx start
 ```
-
-### Craete user in admin panel
-
-You need to get inside docker container of django like
-```
-docker exec -ti atomspace_server sh
-```
-and then run  

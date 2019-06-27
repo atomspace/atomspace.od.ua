@@ -1,7 +1,6 @@
 .about-container {
-  background: url(#{$path-to-images}/backgrounds/background-about-top.svg);
+  background: url(#{$path-to-images}/backgrounds/background-about-top.svg) top/contain;
   background-repeat: no-repeat;
-  background-position: top;
   .about-blocks {
     height: 100%;
     .about-maintext-block {

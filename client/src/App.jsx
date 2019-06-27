@@ -16,7 +16,6 @@ export const urls = [
   "store",
   "contacts"
 ];
-
 class App extends Component {
   state = {
     currentPage: "main",
