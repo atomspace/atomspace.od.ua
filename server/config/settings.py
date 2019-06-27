@@ -125,7 +125,7 @@ DATABASES = {
         'NAME': config('DB_NAME'),
         'HOST': config('DB_HOST'),
         'USER': config('DB_USER'),
-        'PASS': config('DB_PASSWORD'),
+        'PASSWORD': config('DB_PASSWORD'),
         'PORT': config('DB_PORT')
 
         # ------------------- FOR DEV --------------------

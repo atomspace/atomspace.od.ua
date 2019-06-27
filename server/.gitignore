@@ -3,5 +3,6 @@
 media/merch_photos/*
 media/news_photos/*
 .env
+.env.production
 static/
 logs/

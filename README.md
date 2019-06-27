@@ -25,51 +25,49 @@ python3 manage.py runserver
 ```
 
 
-# Server production
+# Server production startup
 
-## Docker 
+Preinstall:
+- docker
+- node (latest version)
 
-### Django (Server)
+### Docker 
 
-#### Build
+#### Django (Server)
+##### Prebuild
 ```
-docker build ./server --tag atomspace_server
+cp ./server/.env.example ./server/.env.production
+mkdir /usr/local/share/postgresql
+```
+Check file ```./server/.env.production``` and correct all config
+
+##### Run
+```
+docker-compose -f docker-compose.prod.yml up -d
+docker-compose -f docker-compose.prod.yml down
 ```
 
-#### Run
-```
-docker run -d --name atomspace_server -p 8000:8000 atomspace_server
-```
+#### React (Client)
 
-### React (Client)
-
-#### Build
+##### Build
 
 To deploy client first you need to build then to move build to your website folder of nginx  
  
 ```
+npm install
 npm run build
 cp -R build/* /var/www/{name-of-site}.com/
 ```
 
 
-## Installing and configure Nginx
+### Installing and configure Nginx
 
 ```
 sudo apt-get install nginx
 nginx start
 ```
 
-## Installing and configure Postgresql
-
-Log in by root to ```psql``` and confirm these commands.
-```
-CREATE ROLE "admin";
-GRANT ALL PRIVILEGES ON DATABASE "atomspace.od.ua" TO "admin";
-ALTER ROLE "admin" WITH LOGIN;
-```
-
-## Craete user in admin panel
+### Craete user in admin panel
 
 You need to get inside docker container of django like
 ```

@@ -1,8 +1,9 @@
+version: '3.1'
 services:
   server:
     container_name: atomspace_server
     env_file:
-      - ./server/.env
+      - ./server/.env.production
     build: ./server
     volumes:
       - ./server/static:/app/app/static
@@ -16,7 +17,7 @@ services:
     container_name: atomspace_postgres
     image: postgres:10.1-alpine
     env_file:
-      - ./server/.env
+      - ./server/.env.production
     volumes:
       - /usr/local/share/postgresql:/var/lib/postgresql/data
     ports:
