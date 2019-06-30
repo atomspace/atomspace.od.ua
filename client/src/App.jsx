@@ -16,29 +16,38 @@ export const urls = [
   "store",
   "contacts"
 ];
+
 class App extends Component {
   state = {
     currentPage: "main",
-    userHash: [],
+    userHash: ["#"],
     form: null,
     order: this.getCachedMerch()
   };
+
   componentDidMount() {
     this.changeDialog(window.location.hash);
+    this.handleBack()
   }
 
-  closeForm = () => {
+  getBack = () => {
     this.setState(state => ({...state, form: null}));
-    window.location.hash = "";
+    const preLastUserHash = this.state.userHash[this.state.userHash.length - 2];
+    const lastUserHash = this.state.userHash[this.state.userHash.length - 1];
+    window.location.hash = preLastUserHash ? preLastUserHash : lastUserHash;
   };
 
   handleBack = () => {
     window.onpopstate = () => {
-      let userHash = [...this.state.userHash, window.location.hash];
-      if (window.location.hash === userHash[userHash.length-3]) this.closeForm();
+      const hash = window.location.hash ? window.location.hash : "#";
+      const forms = ['#mentorForm', '#residentForm'];
+      const userHash = [...this.state.userHash, hash];
+      if (forms.includes(userHash[userHash.length - 2])) {
+        this.getBack();
+      }
       this.setState({userHash});
     }
-  }
+  };
 
   getCachedMerch() {
     return JSON.parse(window.localStorage.getItem("currentMerch"));
@@ -78,10 +87,9 @@ class App extends Component {
   };
 
   render() {
-      // console.log(window.location.hash)
-      return (
-        <div>
-        {this.handleBack()}
+    // console.log(window.location.hash)
+    return (
+      <div>
         <Sidebar
           pageName={this.state.currentPage}
           handleDialog={this.handleDialog}
@@ -113,13 +121,13 @@ class App extends Component {
           }}
         />
         {this.state.form === "#residentForm" && (
-          <Resident closeForm={this.closeForm}/>
+          <Resident closeForm={this.getBack}/>
         )}
         {this.state.form === "#mentorForm" && (
-          <Mentor closeForm={this.closeForm}/>
+          <Mentor closeForm={this.getBack}/>
         )}
         {this.state.form === "#buyForm" && (
-          <BuyForm closeForm={this.closeForm} order={this.state.order}/>
+          <BuyForm closeForm={this.getBack} order={this.state.order}/>
         )}
       </div>
     );

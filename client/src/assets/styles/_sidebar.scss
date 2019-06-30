@@ -198,7 +198,7 @@ li {
 
       .dot {
         width: 14px;
-        height: 12px;
+        height: 14px;
         position: relative;
         left: 7px;
         background: url(#{$path-to-images}/icons/circle.svg) no-repeat
@@ -265,7 +265,7 @@ li {
         .dot {
           opacity: 0;
           width: 14px;
-          height: 13px;
+          height: 14px;
           position: absolute;
           //right: -$f8 / 2;
           right: -7px;
@@ -307,7 +307,7 @@ li {
           .dot {
             opacity: 0;
             width: 14px;
-            height: 13px;
+            height: 14px;
             position: absolute;
             //right: -$f8 / 2;
             background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat

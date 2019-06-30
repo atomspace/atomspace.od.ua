@@ -67,7 +67,7 @@ export default class BuyForm extends React.Component {
       await this.props.createOrder(data);
       window.location = way4payLink;
       this.setState({isDisabled: false});
-      this.props.closeForm();
+      this.props.getBack();
     } catch (e) {
       this.setState({isDisabled: true});
     }

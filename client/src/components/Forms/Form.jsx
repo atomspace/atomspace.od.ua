@@ -48,7 +48,7 @@ export default class Form extends React.Component {
       };
       await this.props.createOrder(data);
       this.setState({ isDisabled: false });
-      this.props.closeForm();
+      this.props.getBack();
     } catch (e) {
       this.setState({ isDisabled: true });
     }
