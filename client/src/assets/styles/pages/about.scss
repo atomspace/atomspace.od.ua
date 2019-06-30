@@ -5,12 +5,10 @@
     height: 100%;
     .about-maintext-block {
       position: relative;
-      width: $f400 + $f68;
-      line-height: $f34;
-      position: relative;
       width: $f400 + $f144;
       font-weight: 300;
       line-height: $f26;
+      height: 52%;
       &__atomspace {
         background-position: center;
         background-size: contain;

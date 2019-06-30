@@ -261,14 +261,14 @@ li {
         justify-content: flex-end;
         align-items: center;
         position: relative;
-        right: $f10 - $f16;
 
         .dot {
           opacity: 0;
           width: 14px;
           height: 13px;
           position: absolute;
-          right: -$f8 / 2;
+          //right: -$f8 / 2;
+          right: -7px;
           background: url(#{$path-to-images}/icons/circle.svg) no-repeat
             center/contain;
         }
@@ -309,7 +309,7 @@ li {
             width: 14px;
             height: 13px;
             position: absolute;
-            right: -$f8 / 2;
+            //right: -$f8 / 2;
             background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
               center/contain;
           }
