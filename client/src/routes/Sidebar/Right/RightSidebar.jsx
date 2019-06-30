@@ -1,34 +1,24 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import classname from "classnames";
 
 class RightSidebar extends Component {
   render() {
-    const { pageName } = this.props;
-    let classes = ["sidebar__right"];
-    switch (pageName) {
-      case "about":
-      case "blog":
-      case "edu":
-      case "store":
-      case "contacts":
-        classes.push("light_theme");
-        break;
-      default:
-        break;
-    }
+    const {pageName} = this.props;
+    const lightPages = ["about", "blog", "edu", "store", "contacts"];
+
     return (
       <div className="vertical-line right">
-        <nav className={classes.join(" ")}>
-          <div className="atom-logo" />
+        <nav className={classname({sidebar__right: true, light_theme: lightPages.includes(pageName)})}>
+          <div className="atom-logo"/>
           <div className="flex flex-col">
             {this.props.links.map((link, index) => {
               const isSelected = link.href === "#" + pageName;
               return (
                 <div className={
                   classname({list: true, selected: isSelected})
-                  } key={index}>
+                } key={index}>
                   <div className={"dot"}/>
-                  <a className={"list-item"}  href={link.href}>
+                  <a className={"list-item"} href={link.href}>
                     {link.text}
                   </a>
                 </div>

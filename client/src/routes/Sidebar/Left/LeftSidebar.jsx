@@ -1,11 +1,12 @@
 import React from "react";
 import Soc from "../../../components/Soc";
-import { urls } from "../../../App";
+import {urls} from "../../../App";
 import MerchSize from "../../../pages/Store/MerchSize";
 import MerchBuy from "../../../pages/Store/MerchBuy";
 import ContactInfo from "../../../pages/Contacts/ContactInfo";
 import Link from "../Link";
-import * as classnames from "classnames";
+import classname from "classnames";
+
 class LeftSidebar extends React.Component {
   getLeftSidebarData() {
     switch (this.props.pageName) {
@@ -37,36 +38,24 @@ class LeftSidebar extends React.Component {
           />
         ];
       case urls[6]:
-        return [<ContactInfo />];
+        return [<ContactInfo/>];
       default:
         return [];
     }
   }
+
   render() {
-    const { pageName } = this.props;
+    const {pageName} = this.props;
     const sidebarRows = this.getLeftSidebarData();
 
-    const sidebarClasses = classnames("vertical-line left", {
+    const sidebarClasses = classname("vertical-line left", {
       "border-none": !sidebarRows.length
     });
-
-    const classes = ["sidebar__left"];
-    switch (pageName) {
-      case "about":
-      case "edu":
-      case "blog":
-      case "store":
-      case "resident":
-      case "mentor":
-        classes.push("light_theme");
-        break;
-      default:
-        break;
-    }
+    const lightPages = ["about", "edu", "blog", "store", "resident", "mentor"];
 
     return (
       <div className={sidebarClasses}>
-        <nav className={classes.join(" ")}>
+        <nav className={classname({sidebar__left: true, light_theme: lightPages.includes(pageName)})}>
           <div className="flex flex-col">
             {sidebarRows.map((el, index) => (
               <div className="list" key={index}>
