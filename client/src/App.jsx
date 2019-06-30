@@ -65,7 +65,6 @@ class App extends Component {
   };
 
   saveToCache = prop => {
-    console.log({...this.state.order, ...prop});
     window.localStorage.setItem(
       "currentMerch",
       JSON.stringify({...this.state.order, ...prop})
@@ -87,7 +86,6 @@ class App extends Component {
   };
 
   render() {
-    // console.log(window.location.hash)
     return (
       <div>
         <Sidebar
