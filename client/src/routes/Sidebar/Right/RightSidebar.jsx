@@ -16,18 +16,18 @@ class RightSidebar extends Component {
       default:
         break;
     }
-    
     return (
       <div className="vertical-line right">
         <nav className={classes.join(" ")}>
           <div className="atom-logo" />
           <div className="flex flex-col">
             {this.props.links.map((link, index) => {
+              const isSelected = link.href === "#" + pageName;
               return (
                 <div className={
-                  classname({list: true, selected: link.href === "#" + pageName})
+                  classname({list: true, selected: isSelected})
                   } key={index}>
-                  <div className={"dot"} />
+                  <div className={"dot"}/>
                   <a className={"list-item"}  href={link.href}>
                     {link.text}
                   </a>

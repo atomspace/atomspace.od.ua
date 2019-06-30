@@ -197,10 +197,10 @@ li {
       }
 
       .dot {
-        $size: $f13;
-        width: $size;
+        width: 14px;
+        height: 12px;
         position: relative;
-        left: -$f13 / 2;
+        left: 7px;
         background: url(#{$path-to-images}/icons/circle.svg) no-repeat
           center/contain;
       }
@@ -213,6 +213,9 @@ li {
         > div {
           width: 100%;
           display: flex;
+          align-items: center;
+          position: relative;
+          left: -14px;
         }
 
         .list-item {
@@ -262,9 +265,8 @@ li {
 
         .dot {
           opacity: 0;
-          $size: $f16 + $f3;
-          width: $size;
-          height: $size;
+          width: 14px;
+          height: 13px;
           position: absolute;
           right: -$f8 / 2;
           background: url(#{$path-to-images}/icons/circle.svg) no-repeat
@@ -304,9 +306,8 @@ li {
         .list {
           .dot {
             opacity: 0;
-            $size: $f16 + $f3;
-            width: $size;
-            height: $size;
+            width: 14px;
+            height: 13px;
             position: absolute;
             right: -$f8 / 2;
             background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
