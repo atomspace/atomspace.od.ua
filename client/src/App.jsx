@@ -19,6 +19,7 @@ export const urls = [
 class App extends Component {
   state = {
     currentPage: "main",
+    userHash: [],
     form: null,
     order: this.getCachedMerch()
   };
@@ -30,6 +31,14 @@ class App extends Component {
     this.setState(state => ({...state, form: null}));
     window.location.hash = "";
   };
+
+  handleBack = () => {
+    window.onpopstate = () => {
+      let userHash = [...this.state.userHash, window.location.hash];
+      if (window.location.hash === userHash[userHash.length-3]) this.closeForm();
+      this.setState({userHash});
+    }
+  }
 
   getCachedMerch() {
     return JSON.parse(window.localStorage.getItem("currentMerch"));
@@ -69,8 +78,10 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div>
+      // console.log(window.location.hash)
+      return (
+        <div>
+        {this.handleBack()}
         <Sidebar
           pageName={this.state.currentPage}
           handleDialog={this.handleDialog}

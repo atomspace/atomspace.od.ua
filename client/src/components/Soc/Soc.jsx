@@ -2,12 +2,12 @@ import React from "react";
 export default props => (
   <div className={props.classes}>
     {props.src.facebook ? (
-      <a className="icon facebook" href={props.src.facebook}>
+      <a className="icon facebook" rel="noopener noreferrer"  target="_blank" href={props.src.facebook}>
         &nbsp;
       </a>
     ) : null}
     {props.src.instagram ? (
-      <a className="icon instagram" href={props.src.instagram}>
+      <a className="icon instagram" rel="noopener noreferrer" target="_blank" href={props.src.instagram}>
         &nbsp;
       </a>
     ) : null}
