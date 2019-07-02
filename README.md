@@ -51,15 +51,15 @@ docker-compose -f docker-compose.prod.yml up -d --build
 
 Then config postgres and startup user into container.
 
-Config postgres container
-<!--```-->
-<!--docker exec --user postgres -ti atomspace_postgres sh-->
-<!--```-->
-<!--Then enter the postgresql by command ```psql```-->
-<!--and then change user settings-->
-<!--```-->
-<!--ALTER USER (user from .env.production) WITH PASSWORD (password from .env.production);-->
-<!--```-->
+Config postgres container (!!! IF YOU HAVE 500 ERROR IN SERVER !!!)
+```
+docker exec --user postgres -ti atomspace_postgres sh
+```
+Then enter the postgresql by command ```psql```
+and then change user settings
+```
+ALTER USER (user from .env.production) WITH PASSWORD (password from .env.production);
+```
 After that make migrations and create user
 ```
 docker exec -ti atomspace_server sh
