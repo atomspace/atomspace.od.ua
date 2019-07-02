@@ -20,4 +20,4 @@ class EditNews(forms.Form):
 
 class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'input-group-item', 'placeholder': 'Username:'}))
-    password = forms.CharField(widget=forms.TextInput(attrs={'class': 'input-group-item', 'placeholder': 'Password:'}))
+    password = forms.CharField(widget=forms.TextInput(attrs={'class': 'input-group-item', 'placeholder': 'Password:', 'type': 'password'}))
