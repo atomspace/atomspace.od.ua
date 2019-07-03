@@ -2,8 +2,8 @@
   background: url(#{$path-to-images}/backgrounds/background-contacts-bottom.svg);
   background-repeat: no-repeat;
   background-position: bottom;
-  @media only screen and (max-height: 800px) and (max-width: 1400px){
-    background-position: 70% 230%;
+  @media only screen and (max-height: 800px) and (max-width: 1400px) and (min-width: 1150px){
+    background-position: 70% 280%;
   }
   .contacts-wrapper {
     .center-container {
