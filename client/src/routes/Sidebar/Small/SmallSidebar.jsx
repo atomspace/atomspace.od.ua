@@ -22,6 +22,7 @@ export default class SmallSidebar extends React.Component {
       case "edu":
       case "store":
       case "contacts":
+      case "family":
         return true;
       default:
         return false;
