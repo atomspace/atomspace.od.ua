@@ -7,9 +7,11 @@ from django.core import serializers
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
 from django.http import  HttpResponse
+from django.contrib import messages
 
 from .forms import MerchForm, NewsForm, EditMerch, EditNews, LoginForm
 from .models import Merch, News, Mentor, Resident, Order
@@ -251,8 +253,17 @@ def index(request):
 @csrf_exempt
 def login(request):
     if request.method == 'POST':
-        user = authenticate(username=request.POST['username'], password=request.POST['password'])
-        django_login(request, user)
+        try:
+            try:
+                User.objects.get(username=request.POST['username'])
+            except:
+                messages.warning(request, "User not found")
+                return HttpResponseRedirect("#")
+            user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            django_login(request, user)
+        except AttributeError:
+            messages.warning(request, 'Incorrect credentials')
+            return HttpResponseRedirect('#')
         return HttpResponseRedirect('/merch')
     else:
         context = {
