@@ -1,2 +1,3 @@
-import Form from './Form';
-export {Form};
+import UserForm from './UserForm';
+
+export default UserForm;

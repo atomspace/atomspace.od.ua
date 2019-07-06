@@ -1,21 +1,25 @@
-import React, {Component} from "react";
-import Slider from "react-slick";
+import React, {Component} from 'react';
+import Slider from 'react-slick';
 
-import Arrow from "../../components/Arrow";
-import MerchSize from "../../pages/Store/MerchSize";
-import MerchBuy from "../../pages/Store/MerchBuy";
-import {getAllMerches} from "../../api/merch";
-import {MEDIA_URL} from "../../utils/config";
+import Arrow from '../../components/Arrow';
+import MerchSize from '../../pages/Store/MerchSize';
+import MerchBuy from '../../pages/Store/MerchBuy';
+import {getAllMerches} from '../../api/merch';
+import {MEDIA_URL} from '../../utils/config';
 
+const mainText = `хочешь содействовать развитию проекта?`;
+const mainTextMobile = `Желаешь поддержать нас?`;
+const additionalText = `Выбирай и носи стильную атомную футболку!`;
+const additionalTextMobile = `Покупай футболку!`;
 class Store extends Component {
-  state = {
-    index: 0,
-    merches: []
-  };
-  mainText = `хочешь содействовать развитию проекта?`;
-  mainTextMobile = `Желаешь поддержать нас?`;
-  additionalText = `Выбирай и носи стильную атомную футболку!`;
-  additionalTextMobile = `Покупай футболку!`;
+  constructor(prop) {
+    super(prop);
+    this.state = {
+      index: 0,
+      merches: [],
+    };
+  }
+
 
   increaseCountOfMerch(merches) {
     let tempMerch = [];
@@ -31,7 +35,7 @@ class Store extends Component {
       merches = this.increaseCountOfMerch(merches);
       const merch = {...merches[0].fields, ...this.props.getCachedMerch()};
       this.props.changeMerchAttr(merch);
-      this.setState({merches: merches.map(merch => merch.fields)});
+      this.setState({merches: merches.map((merch) => merch.fields)});
     }
   }
 
@@ -41,7 +45,7 @@ class Store extends Component {
       settings = {
         infinite: true,
         speed: 500,
-        centerPadding: "0px",
+        centerPadding: '0px',
         dots: false,
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -53,22 +57,22 @@ class Store extends Component {
         adaptiveHeight: true,
         swipeToSlide: true,
         centerMode: true,
-        afterChange: index => {
+        afterChange: (index) => {
           this.setState({index});
           const merch = this.state.merches[index] || this.state.merches[0];
           this.props.changeMerchAttr(merch);
-        }
+        },
       };
     }
 
     return (
       <div className="section store-container">
         <div className="store-wrapper">
-          <div className="store-main-text">{this.mainText}</div>
-          <div className="store-main-text-mobile">{this.mainTextMobile}</div>
-          <div className="store-additional-text">{this.additionalText}</div>
+          <div className="store-main-text">{mainText}</div>
+          <div className="store-main-text-mobile">{mainTextMobile}</div>
+          <div className="store-additional-text">{additionalText}</div>
           <div className="store-additional-text-mobile">
-            {this.additionalTextMobile}
+            {additionalTextMobile}
           </div>
           <div className="carousel-container">
             <Slider {...settings}>
