@@ -4,6 +4,7 @@ import datetime
 
 from django.http import JsonResponse
 from django.core import serializers
+from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
@@ -254,16 +255,16 @@ def index(request):
 def login(request):
     if request.method == 'POST':
         try:
-            try:
-                User.objects.get(username=request.POST['username'])
-            except:
-                messages.warning(request, "User not found")
-                return HttpResponseRedirect("#")
             user = authenticate(username=request.POST['username'], password=request.POST['password'])
             django_login(request, user)
         except AttributeError:
             messages.warning(request, 'Incorrect credentials')
             return HttpResponseRedirect('#')
+        try:
+            User.objects.get(username=request.POST['username'])
+        except ObjectDoesNotExist:
+            messages.warning(request, "User not found")
+            return HttpResponseRedirect("#")
         return HttpResponseRedirect('/merch')
     else:
         context = {
