@@ -157,3 +157,12 @@ input.submit-input:hover {
         font-size: 1.5em;
     }
 }
+
+.messages {
+    text-align: center;
+    color: white;
+}
+
+.messages h4 {
+    border: 1px solid gray;
+}

@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import "./assets/styles/_index.scss";
 import {About, Blog, Contacts, Edu, Family, Main, Store} from "./pages";
-import {Mentor} from "./components/Forms/Mentor";
-import {Resident} from "./components/Forms/Resident";
+import Mentor from "./components/Forms/Mentor";
 import Sidebar from "./routes/Sidebar/Sidebar.jsx";
 import ReactFullpage from "@fullpage/react-fullpage";
-import BuyForm from "./pages/Store/BuyForm";
+import BuyForm from "./components/Forms/BuyForm";
+import Resident from "./components/Forms/Resident/Resident";
 
 export const urls = [
   "main",
@@ -119,13 +119,13 @@ class App extends Component {
           }}
         />
         {this.state.form === "#residentForm" && (
-          <Resident closeForm={this.getBack}/>
+          <Resident getBack={this.getBack}/>
         )}
         {this.state.form === "#mentorForm" && (
-          <Mentor closeForm={this.getBack}/>
+          <Mentor getBack={this.getBack}/>
         )}
         {this.state.form === "#buyForm" && (
-          <BuyForm closeForm={this.getBack} order={this.state.order}/>
+          <BuyForm getBack={this.getBack} order={this.state.order}/>
         )}
       </div>
     );
