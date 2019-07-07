@@ -165,4 +165,5 @@ server {
 ```
 - create symlink to ```/etc/nginx/sites-enabled``` folder
 - copy your ssls to ```/home/ubuntu/ssl/```
+    - you must have 2 ```.crt``` and 2 ```.pem``` files for ```admin.*.com``` and ```*.com```
 - reload nginx ```nginx -s reload```
