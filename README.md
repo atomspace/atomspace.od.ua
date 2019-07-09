@@ -59,12 +59,11 @@ If you cannot reach the website of admin panel - it might be that migrations sta
 To deploy client first you need to build then to move build to your website folder of nginx  
 
 ```
-cp ./client/.env.production.example ./client/.env.production
+cp ./client/.env.example ./client/.env
 cd client
 npm install
 ```
-Change in ```./client/.env``` file change to ```production```
-Check file ```./client/.env.production```
+Check file ```./client/.env```
  to correct all config
 ```
 npm run build

@@ -26,6 +26,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    console.log(process.env)
     this.changeDialog(window.location.hash);
     this.handleBack()
   }
