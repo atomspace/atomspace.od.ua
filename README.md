@@ -37,14 +37,13 @@ Preinstall:
 ##### Prebuild
 ```
 mkdir /usr/local/share/postgresql
-cp ./server/.env.example ./server/.env
 cp ./server/.env.production.example ./server/.env.production
 cp ./server/createsuperuser.sh.example ./server/createsuperuser.sh
 
 mkdir ./server/logs
 touch ./server/logs/logs.txt
 ```
-Check file ```./server/.env.production``` and ```./server/.env```
+Check file ```./server/.env.production``` and ```./server/createsuperuser.sh```
  to correct all config
 
 ##### Run
@@ -66,7 +65,7 @@ npm install
 npm run build
 cp -R build/* /var/www/{name-of-site}.com/
 ```
-Check file ```./client/.env.production``` and ```./server/.env```
+Check file ```./client/.env.production```
  to correct all config
 
 ### Installing and configure Nginx
