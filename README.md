@@ -48,7 +48,7 @@ Check file ```./server/.env.production``` and ```./server/createsuperuser.sh```
 
 ##### Run
 ```
-docker-compose -f docker-compose.prod.yml up -d --build
+sudo docker-compose -f docker-compose.prod.yml up -d --build
 ```
 If you cannot reach the website of admin panel - it might be that migrations started before DB was configured, try to stop and start docker-compose again, but before that remove folder ```./server/static/``` for using previous container.
 
