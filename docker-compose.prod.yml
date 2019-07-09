@@ -7,7 +7,7 @@ services:
       - ./server/.env.production
     build: ./server
     volumes:
-      - ./server/static:/app/app/static
+      - ./server/static:/app/static
       - ./server/media:/app/media
     ports:
       - 8000:8000
