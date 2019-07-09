@@ -67,6 +67,7 @@ Check file ```./client/.env```
  to correct all config
 ```
 npm run build
+cp -R build/* /var/www/{name_of_site}.com/
 ```
 ### Installing and configure Nginx
 ```
@@ -94,7 +95,7 @@ server  {
         ssl_certificate /home/ubuntu/ssl/atomspace-test.com.crt;
         ssl_certificate_key /home/ubuntu/ssl/atomspace-test.com-key.pem;
 
-        root /home/ubuntu/atomspace.od.ua/client/build;
+        root /var/www/atomspace.od.ua/;
 
         index index.html index.htm index.nginx-debian.html;
 
