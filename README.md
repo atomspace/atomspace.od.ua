@@ -39,6 +39,7 @@ Preinstall:
 mkdir /usr/local/share/postgresql
 cp ./server/.env.example ./server/.env
 cp ./server/.env.production.example ./server/.env.production
+cp ./server/createsuperuser.sh.example ./server/createsuperuser.sh
 
 mkdir ./server/logs
 touch ./server/logs/logs.txt
