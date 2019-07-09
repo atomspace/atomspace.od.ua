@@ -11,8 +11,10 @@ services:
       - ./server/media:/app/media
     ports:
       - 8000:8000
-    command: gunicorn -w 4 config.wsgi -b 0.0.0.0:8000
+    command: sh -c "python manage.py migrate && python manage.py collectstatic && gunicorn -w 4 config.wsgi -b 0.0.0.0:8000"
     depends_on:
+      - postgres
+    links:
       - postgres
   postgres:
     container_name: atomspace_postgres
@@ -24,3 +26,12 @@ services:
       - /usr/local/share/postgresql:/var/lib/postgresql/data
     ports:
       - 5432:5432
+  createuser:
+    build: ./server
+    command: sh createsuperuser.sh
+    depends_on:
+      - server
+      - postgres
+    links:
+      - server
+      - postgres

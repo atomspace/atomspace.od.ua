@@ -4,5 +4,6 @@ media/merch_photos/*
 media/news_photos/*
 .env
 .env.production
+createsuperuser.sh
 static/
 logs/
