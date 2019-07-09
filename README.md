@@ -39,6 +39,9 @@ Preinstall:
 mkdir /usr/local/share/postgresql
 cp ./server/.env.example ./server/.env
 cp ./server/.env.production.example ./server/.env.production
+
+mkdir ./server/logs
+touch ./server/logs/logs.txt
 ```
 Check file ```./server/.env.production``` and ```./server/.env```
  to correct all config
