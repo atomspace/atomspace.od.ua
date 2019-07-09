@@ -51,38 +51,7 @@ Check file ```./server/.env.production``` and ```./server/.env```
 ```
 docker-compose -f docker-compose.prod.yml up -d --build
 ```
-
-
-Then config postgres and startup user into container.
-
-Config postgres container  
-!!! IF YOU HAVE 500 ERROR IN SERVER !!! 
------------------
-```
-docker exec --user postgres -ti atomspace_postgres sh
-```
-Then enter the postgresql by command ```psql```
-and then change user settings
-```
-ALTER USER (user from .env.production) WITH PASSWORD (password from .env.production);
-```
------------------  
-After that make migrations and create user
-```
-docker exec -ti atomspace_server sh
-```
-To migrate all tables in database.
-```
-python manage.py migrate
-```
-To create static folder.
-```
-python manage.py collectstatic
-```
-To create superuser for admin panel.
-```
-python manage.py createsuperuser
-```
+If you cannot reach the website of admin panel - it might be that migrations started before DB was configured, try to stop and start docker-compose again, but before that remove folder ```./server/static/``` for using previous container.
 
 #### React (Client)
 
