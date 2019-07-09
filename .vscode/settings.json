@@ -5,5 +5,22 @@
   "search.exclude": {
     "**/src/utils": true
   },
-  "eslint.enable": false
+  "eslint.enable": false,
+  "sqltools.connections": [
+    {
+      "database": "/Users/lossless/Documents/Projects/localsites/AtomSpace/Landing/server/db.sqlite3",
+      "dialect": "SQLite",
+      "name": "AtomSpace"
+    },
+    {
+      "askForPassword": true,
+      "connectionTimeout": 30,
+      "database": "atomspace.od.ua",
+      "dialect": "PostgreSQL",
+      "name": "Atomspace-test",
+      "port": 5432,
+      "server": "ec2-52-15-67-42.us-east-2.compute.amazonaws.com",
+      "username": "postgres"
+    }
+  ]
 }

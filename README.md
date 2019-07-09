@@ -57,27 +57,23 @@ If you cannot reach the website of admin panel - it might be that migrations sta
 ##### Build
 
 To deploy client first you need to build then to move build to your website folder of nginx  
- 
+
 ```
 cp ./client/.env.production.example ./client/.env.production
 cd client
 npm install
-npm run build
-cp -R build/* /var/www/{name-of-site}.com/
 ```
+Change in ```./client/.env``` file change to ```production```
 Check file ```./client/.env.production```
  to correct all config
-
+```
+npm run build
+```
 ### Installing and configure Nginx
-
-
 ```
 sudo apt-get install nginx
 nginx start
 ```
-
-
-
 Config nginx
 ```
 vim /etc/nginx/sites-available/atomspace.od.ua
