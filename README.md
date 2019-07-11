@@ -37,19 +37,18 @@ Preinstall:
 ##### Prebuild
 ```
 mkdir /usr/local/share/postgresql
-cp ./server/.env.example ./server/.env
 cp ./server/.env.production.example ./server/.env.production
 cp ./server/createsuperuser.sh.example ./server/createsuperuser.sh
 
 mkdir ./server/logs
 touch ./server/logs/logs.txt
 ```
-Check file ```./server/.env.production``` and ```./server/.env```
+Check file ```./server/.env.production``` and ```./server/createsuperuser.sh```
  to correct all config
 
 ##### Run
 ```
-docker-compose -f docker-compose.prod.yml up -d --build
+sudo docker-compose -f docker-compose.prod.yml up -d --build
 ```
 If you cannot reach the website of admin panel - it might be that migrations started before DB was configured, try to stop and start docker-compose again, but before that remove folder ```./server/static/``` for using previous container.
 
@@ -58,27 +57,23 @@ If you cannot reach the website of admin panel - it might be that migrations sta
 ##### Build
 
 To deploy client first you need to build then to move build to your website folder of nginx  
- 
+
 ```
-cp ./client/.env.production.example ./client/.env.production
+cp ./client/.env.example ./client/.env
 cd client
 npm install
-npm run build
-cp -R build/* /var/www/{name-of-site}.com/
 ```
-Check file ```./client/.env.production``` and ```./server/.env```
+Check file ```./client/.env```
  to correct all config
-
+```
+npm run build
+cp -R build/* /var/www/{name_of_site}.com/
+```
 ### Installing and configure Nginx
-
-
 ```
 sudo apt-get install nginx
 nginx start
 ```
-
-
-
 Config nginx
 ```
 vim /etc/nginx/sites-available/atomspace.od.ua
@@ -100,7 +95,7 @@ server  {
         ssl_certificate /home/ubuntu/ssl/atomspace-test.com.crt;
         ssl_certificate_key /home/ubuntu/ssl/atomspace-test.com-key.pem;
 
-        root /home/ubuntu/atomspace.od.ua/client/build;
+        root /var/www/atomspace.od.ua/;
 
         index index.html index.htm index.nginx-debian.html;
 
