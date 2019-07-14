@@ -38,19 +38,19 @@ Preinstall:
 ```
 mkdir /usr/local/share/postgresql
 cp ./server/.env.production.example ./server/.env.production
-cp ./server/createsuperuser.sh.example ./server/createsuperuser.sh
+cp ./server/.env.example ./server/.env
+cp ./server/configure.sh.example ./server/configure.sh
 
 mkdir ./server/logs
 touch ./server/logs/logs.txt
 ```
-Check file ```./server/.env.production``` and ```./server/createsuperuser.sh```
+Check file ```./server/.env.production``` and ```./server/configure.sh```
  to correct all config
 
 ##### Run
 ```
 sudo docker-compose -f docker-compose.prod.yml up -d --build
 ```
-If you cannot reach the website of admin panel - it might be that migrations started before DB was configured, try to stop and start docker-compose again, but before that remove folder ```./server/static/``` for using previous container.
 
 #### React (Client)
 
