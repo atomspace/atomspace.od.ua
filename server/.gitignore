@@ -8,6 +8,6 @@ media/news_photos/*
 .env.development.local
 .env.test.local
 .env.production.local
-createsuperuser.sh
+configure.sh
 static/
 logs/

@@ -1,1 +1,0 @@
-echo "from django.contrib.auth.models import User; User.objects.create_superuser('CHANGEME_USERNAME', 'CHANGEME_EMAIL_OR_LEAVE_BLANK', 'CHANGEME_PASSWORD')" | python manage.py shell
