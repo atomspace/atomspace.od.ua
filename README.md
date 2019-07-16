@@ -36,7 +36,7 @@ Preinstall:
 #### Django (Server)
 ##### Prebuild
 ```
-mkdir /usr/local/share/postgresql
+sudo mkdir /usr/local/share/postgresql
 cp ./server/.env.production.example ./server/.env.production
 cp ./server/.env.example ./server/.env
 cp ./server/configure.sh.example ./server/configure.sh
