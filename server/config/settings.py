@@ -47,8 +47,6 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-# Application definition
-
 INSTALLED_APPS = [
     'app',
     'django.contrib.admin',
@@ -66,11 +64,9 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'app.middleware.AutoLogout'
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -92,12 +88,9 @@ TEMPLATES = [
 ]
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-# AUTO_LOGOUT_DELAY = 0.5
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
-# -------------------- COMMENT FOR DEVELOPMENT -------------------------
-
-LOGGING = {
+LOGGING = False if DEBUG else {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
@@ -121,23 +114,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+DATABASE = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': 'db.sqlite3'
+} if DEBUG else {
+    'ENGINE': config('DB_ENGINE'),
+    'NAME': config('DB_NAME'),
+    'HOST': config('DB_HOST'),
+    'USER': config('DB_USER'),
+    'PASSWORD': config('DB_PASSWORD'),
+    'PORT': config('DB_PORT')
+}
 
 DATABASES = {
-    'default': {
-        # ------------------- FOR PROD --------------------
-
-        'ENGINE': config('DB_ENGINE'),
-        'NAME': config('DB_NAME'),
-        'HOST': config('DB_HOST'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'PORT': config('DB_PORT')
-
-        # ------------------- FOR DEV --------------------
-
-      #  'ENGINE': 'django.db.backends.sqlite3',
-      #  'NAME': 'db.sqlite3'
-    }
+    'default': DATABASE
 }
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
@@ -180,10 +170,3 @@ LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = 'merch'
 
 CORS_ORIGIN_ALLOW_ALL = True
-
-# CORS_ORIGIN_WHITELIST = [
-#     'atomspace-test.com',
-#     'admin.atomspace-test.com',
-#     'atomspace.od.ua',
-#     'admin.atomspace.od.ua'
-# ]
