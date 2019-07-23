@@ -36,7 +36,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'admin.atomspace.od.ua', '0.0.0.0', 'admin.atomspace-test.com', 'atomspace-test.com', 'atomspace.od.ua']
 
@@ -97,24 +97,24 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # -------------------- COMMENT FOR DEVELOPMENT -------------------------
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'file': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': 'logs/logs.txt',
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['file'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#     },
-# }
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/logs.txt',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -126,17 +126,17 @@ DATABASES = {
     'default': {
         # ------------------- FOR PROD --------------------
 
-        # 'ENGINE': config('DB_ENGINE'),
-        # 'NAME': config('DB_NAME'),
-        # 'HOST': config('DB_HOST'),
-        # 'USER': config('DB_USER'),
-        # 'PASSWORD': config('DB_PASSWORD'),
-        # 'PORT': config('DB_PORT')
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'HOST': config('DB_HOST'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'PORT': config('DB_PORT')
 
         # ------------------- FOR DEV --------------------
 
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': 'db.sqlite3'
+      #  'ENGINE': 'django.db.backends.sqlite3',
+      #  'NAME': 'db.sqlite3'
     }
 }
 
