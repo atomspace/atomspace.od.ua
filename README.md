@@ -37,14 +37,13 @@ Preinstall:
 ##### Prebuild
 ```
 mkdir /usr/local/share/postgresql
-cp ./server/.env.production.example ./server/.env.production
 cp ./server/.env.example ./server/.env
 cp ./server/configure.sh.example ./server/configure.sh
 
 mkdir ./server/logs
 touch ./server/logs/logs.txt
 ```
-Check file ```./server/.env.production``` and ```./server/configure.sh```
+Check file ```./server/.env``` and ```./server/configure.sh```
  to correct all config
 
 ##### Run

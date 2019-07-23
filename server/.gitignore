@@ -3,11 +3,6 @@
 media/merch_photos/*
 media/news_photos/*
 .env
-.env.production
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 configure.sh
 static/
 logs/

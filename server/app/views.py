@@ -257,6 +257,7 @@ def login(request):
         try:
             user = authenticate(username=request.POST['username'], password=request.POST['password'])
             django_login(request, user)
+            request.session.set_expiry(60*60*3)
         except AttributeError:
             messages.warning(request, 'Incorrect credentials')
             return HttpResponseRedirect('#')
