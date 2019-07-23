@@ -97,6 +97,7 @@ class App extends Component {
         <ReactFullpage
           anchors={urls}
           onLeave={this.pageOnChange}
+          responsiveHeight={"720px"}
           licenseKey="OPEN-SOURCE-GPLV3-LICENSE"
           render={() => {
             return (
@@ -129,5 +130,9 @@ class App extends Component {
     );
   }
 }
+
+// var myFullpage = new fullpage('#fullpage', {
+//   responsiveHeight: '720px',
+// });
 
 export default App;
