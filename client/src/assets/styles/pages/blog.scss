@@ -76,3 +76,12 @@
     }
   }
 }
+
+@media only screen and (min-width: 1024px) and (min-height: 768px) {
+  .main-text-mobile {
+    font-size: 5vw !important;
+  }
+  .blog-skill-blocks-mobile {
+    width: 67% !important;
+  }
+}

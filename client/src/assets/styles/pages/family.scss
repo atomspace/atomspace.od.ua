@@ -189,3 +189,22 @@
     background-position: center !important;
   }
 }
+
+@media only screen and (min-width: 1024px) and (min-height: 768px) {
+  .slick-list {
+    height: 50vw !important;
+    width: 50vw !important;
+    margin-left: 12% !important;
+  }
+  .photo-logo {
+    width: 50vw !important;
+    height: 50vw !important;
+  }
+  .carousel-info__desc {
+    font-size: 3.895vw !important;
+  }
+  .icon {
+    width: 7vw !important;
+    height: 7vw !important;
+  }
+}

@@ -60,3 +60,14 @@
     }
   }
 }
+
+@media only screen and (min-width: 1024px) and (min-height: 768px) {
+  .main-block__information {
+    width: 65% !important;
+  }
+  .btn-donate {
+    height: 8.135vw !important;
+    width: 60% !important;
+    font-size: 2.541vw !important;
+  }
+}

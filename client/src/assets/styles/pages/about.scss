@@ -25,3 +25,27 @@
     }
   }
 }
+
+@media only screen and (min-width: 1024px) and (min-height: 768px) {
+  .about-maintext-block__text:nth-child(2) {
+    font-size: 2.635vw !important;
+    line-height: 5.392vw !important;
+  }
+  .about-maintext-block__atomspace {
+    width: 270px !important;
+    height: 54.97px !important;
+  }
+  .about-maintext-block {
+    width: 78% !important;
+    height: 37% !important;
+    margin-top: 112px !important;
+  }
+  .bubble-image {
+    width: 40vw !important;
+    height: 40vw !important;
+  }
+  .bubble, .interactive {
+    width: 40vw !important;
+    height: 40vw !important;
+  }
+}
