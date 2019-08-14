@@ -1,7 +1,5 @@
 .form-container {
-
   .main-form-container {
-
     .atom-logo,
     .close-dialog-btn,
     .form-request,
@@ -37,19 +35,19 @@
             line-height: 24px;
             padding: 0 43px;
             margin-bottom: 80px;
-            .bold{
+            .bold {
               font-weight: bold;
             }
           }
         }
       }
-      .form-main{
+      .form-main {
         width: 80%;
         position: fixed;
         top: 170px;
-        .form-registration{
-          .form-block{
-            > input{
+        .form-registration {
+          .form-block {
+            > input {
               outline: none;
               font-weight: bold;
               font-size: 15px;
@@ -59,15 +57,15 @@
               width: 100%;
               border-bottom: 1px solid black;
               padding-left: 8px;
-              padding-bottom: 5px;   
+              padding-bottom: 5px;
             }
-            > input.error{
+            > input.error {
               border-color: $red-color;
               border-width: 3px;
             }
-            margin-bottom: 30px; 
+            margin-bottom: 30px;
           }
-          .form-block:nth-child(4){
+          .form-block:nth-child(4) {
             position: fixed;
             width: 80%;
             bottom: 100px;
@@ -90,7 +88,7 @@
         position: fixed;
         outline: none;
         border: 0;
-        &.disabled{
+        &.disabled {
           opacity: 0.5;
         }
       }

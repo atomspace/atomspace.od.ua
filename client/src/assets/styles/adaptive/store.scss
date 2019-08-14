@@ -4,8 +4,9 @@
     line-height: 30px;
     text-align: center;
 
-    @media only screen and (max-width: 380px){
-      .store-main-text-mobile, .store-additional-text-mobile{
+    @media only screen and (max-width: 380px) {
+      .store-main-text-mobile,
+      .store-additional-text-mobile {
         font-size: medium;
       }
     }
@@ -121,8 +122,8 @@
     display: flex;
     width: 250px;
     position: relative;
+    padding-left: 70px;
     left: -40px;
-
     .main-header {
       position: relative;
       left: 72px;
@@ -208,7 +209,6 @@
           }
         }
       }
-
       .order-request {
         display: flex;
         justify-content: space-between;
@@ -255,9 +255,6 @@
       &__choice {
         font-family: OpenSans-SemiBold, sans-serif;
         margin-bottom: 12px;
-      }
-
-      &__name {
       }
 
       &__size {

@@ -1,8 +1,8 @@
-import React from "react";
-import AnimatePlanet from "./AnimatePlanet";
-import MainLogo from "../../assets/images/icons/logos/AtomSpace-logo-vertical.svg";
+import React from 'react';
+import AnimatePlanet from './AnimatePlanet';
+import MainLogo from '../../assets/images/icons/logos/AtomSpace-logo-vertical.svg';
 
-const mainText = `образовательное  Tech-пространство для подростков`;
+const mainText = `образовательное  тех-пространство для подростков`;
 class Main extends React.Component {
   render() {
     const { handleDialog } = this.props;
@@ -12,7 +12,7 @@ class Main extends React.Component {
           <div className="center-wrapper">
             <div className="header-stars">{mainText}</div>
             <AnimatePlanet />
-            <img alt="Main Logo" className="main-logo" src={MainLogo}/>
+            <img alt="Main Logo" className="main-logo" src={MainLogo} />
             <div className="donate-block">
               <a
                 className="btn btn-support btn-donate"
@@ -23,16 +23,8 @@ class Main extends React.Component {
             </div>
             <div className="bottom-quastion">{`Кем ты хочешь стать?`}</div>
             <div className="support-container">
-              <a
-                className="support resident-support"
-                href={"#residentForm"}
-                onClick={handleDialog}
-              >{`Резидентом`}</a>
-              <a
-                className="support mentor-support"
-                href={"#mentorForm"}
-                onClick={handleDialog}
-              >{`Ментором`}</a>
+              <a className="support resident-support" href={'#residentForm'} onClick={handleDialog}>{`Резидентом`}</a>
+              <a className="support mentor-support" href={'#mentorForm'} onClick={handleDialog}>{`Ментором`}</a>
             </div>
           </div>
         </div>

@@ -1,9 +1,5 @@
 .bubble {
-  background: linear-gradient(
-    45deg,
-    $left-gradient-color,
-    $right-gradient-color
-  );
+  background: linear-gradient(45deg, $left-gradient-color, $right-gradient-color);
   opacity: 0.4;
   margin-left: $f55;
   border-radius: 50%;
@@ -11,6 +7,7 @@
   z-index: -10;
   .image-block {
     position: relative;
+    transition: 1s;
     .arrow {
       display: none;
       width: 26px;
@@ -18,8 +15,8 @@
       position: absolute;
       background-position: center;
       background-size: cover;
-      background-repeat: no-repeat;      
-      &:hover{
+      background-repeat: no-repeat;
+      &:hover {
         opacity: 0.5;
       }
     }
@@ -29,12 +26,12 @@
       left: -40px;
     }
     .right-arrow {
-      background-image: url(#{$path-to-images}/icons/arrow-next-dark.svg);  
+      background-image: url(#{$path-to-images}/icons/arrow-next-dark.svg);
       top: 50%;
-      right: -40px; 
+      right: -40px;
     }
     .bubble-image {
-      content: " ";
+      content: ' ';
       position: relative;
       height: $f400 + $f178;
       border-radius: 50%;
@@ -77,6 +74,7 @@
     }
   }
 }
+
 @keyframes bubble-animation {
   0% {
     transform: translate(0, 0);

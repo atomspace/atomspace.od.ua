@@ -1,28 +1,27 @@
-import React from "react";
-import classname from "classnames";
+import React from 'react';
+import classname from 'classnames';
 
 export default class MerchSize extends React.Component {
   state = {
-    size: "M"
+    size: 'M',
   };
-  sizes = ["S", "M", "L", "XL"];
+  sizes = ['S', 'M', 'L', 'XL'];
 
   componentDidMount() {
-    const cachedMerch = JSON.parse(window.localStorage.getItem("currentMerch"));
+    const cachedMerch = JSON.parse(window.localStorage.getItem('currentMerch'));
     let size = {};
     if (cachedMerch) {
-      size = {size: cachedMerch.size}
+      size = { size: cachedMerch.size };
     } else {
-      size = {size: this.state.size};
+      size = { size: this.state.size };
     }
     this.setState(size);
     this.props.changeMerchAttr(size);
-
   }
 
-  changeMerchAttr = size => {
-    this.setState({size});
-    this.props.changeMerchAttr({size});
+  changeMerchAttr = (size) => {
+    this.setState({ size });
+    this.props.changeMerchAttr({ size });
   };
 
   render() {
@@ -34,8 +33,9 @@ export default class MerchSize extends React.Component {
             return (
               <span
                 key={index}
-                className={classname({'size-item': true, selected: size === this.state.size})}
-                onClick={this.changeMerchAttr.bind(this, size)}>
+                className={classname('size-item', { selected: size === this.state.size })}
+                onClick={this.changeMerchAttr.bind(this, size)}
+              >
                 {size}
               </span>
             );

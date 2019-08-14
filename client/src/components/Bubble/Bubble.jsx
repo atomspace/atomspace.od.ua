@@ -1,67 +1,66 @@
-import React from "react";
-import * as classnames from "classnames";
+import React from 'react';
+import * as classnames from 'classnames';
 
 export default class Bubble extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ...this.getDefaultState()
+      ...this.getDefaultState(),
     };
+  }
+  componentDidMount() {
+    setInterval(() => {
+      this.nextImage();
+    }, 5000);
   }
   getDefaultState() {
     return {
-      indexPicture: 0
+      indexPicture: 0,
     };
   }
   prevImage = () => {
     const { image = [] } = this.props;
     if (!image.length) return false;
     if (this.state.indexPicture) {
-      this.setState(state => ({
+      this.setState((state) => ({
         ...state,
-        indexPicture: this.state.indexPicture - 1
+        indexPicture: this.state.indexPicture - 1,
       }));
     } else {
-      this.setState(state => ({indexPicture: image.length - 1}));
+      this.setState((state) => ({ indexPicture: image.length - 1 }));
     }
   };
   nextImage = () => {
     const { image = [] } = this.props;
+    const { indexPicture } = this.state;
     if (!image.length) return false;
-    if (this.state.indexPicture !== image.length - 1) {
-      this.setState(state => ({
+    if (indexPicture !== image.length - 1) {
+      this.setState((state) => ({
         ...state,
-        indexPicture: this.state.indexPicture + 1
+        indexPicture: indexPicture + 1,
       }));
     } else {
-      this.setState(state => this.getDefaultState());
+      this.setState((state) => this.getDefaultState());
     }
   };
   render() {
-    const {
-      image,
-      animate,
-      big,
-      small,
-      semiMiddle,
-      middle,
-      interactive
-    } = this.props;
-    let classes = classnames("bubble", {
+    const { image, animate, big, small, semiMiddle, middle, interactive } = this.props;
+    let classes = classnames('bubble', {
       middle,
       small,
       semiMiddle,
       big,
       animate,
-      interactive
+      interactive,
     });
     const style = {
-      ...this.props.style
+      ...this.props.style,
     };
+
     if (this.props.style.position) {
       style.position = this.props.style.position;
     } else {
-      style.position = "absolute";
+      style.position = 'absolute';
     }
     return (
       <div className={classes} style={style}>
@@ -71,7 +70,7 @@ export default class Bubble extends React.Component {
             <img
               src={this.props.image[this.state.indexPicture]}
               className="bubble-image"
-              alt={"bubble"}
+              alt={'bubble'}
               onClick={this.nextImage}
             />
             <div className="arrow right-arrow" onClick={this.nextImage} />

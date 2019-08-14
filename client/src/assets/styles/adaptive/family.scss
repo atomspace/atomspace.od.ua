@@ -2,8 +2,10 @@
   background-size: cover;
 
   .family-wrapper {
-    height: 75%;
-
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .main-text-mobile {
       color: white;
       font-size: 50px;
@@ -29,7 +31,6 @@
           border-radius: 50%;
           height: $photo-size;
           width: $photo-size;
-
         }
       }
 
@@ -43,19 +44,17 @@
 
         &__photo {
           .photo-logo {
-            margin: 0 auto;
-            width: $photo-size;
-            height: $photo-size;
+            width: 100%;
+            height: -webkit-fill-available;
+            object-fit: cover;
           }
         }
 
         &__desc {
           font-size: $f89 + $f5;
-          letter-spacing: -0.03em;
 
           .info-name {
             text-align: right;
-            letter-spacing: -0.03em;
             margin-bottom: 0;
           }
 
@@ -87,13 +86,11 @@
   }
 
   .tap-swipe-logo {
-    background-image: url(../../assets/images/icons/adaptive/tap-swipe.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    display: block;
     width: 10%;
-    height: 6%;
     position: absolute;
     bottom: 30%;
     right: 5%;
+    height: 6%;
   }
 }
