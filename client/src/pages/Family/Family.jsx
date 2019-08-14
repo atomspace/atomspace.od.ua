@@ -72,8 +72,7 @@ export default class Family extends React.Component {
               {people.map((emp, index) => (
                 <div key={index} className="carousel-block">
                   <div className="carousel-info__photo">
-                    <img src={emp.imageLink} className={`photo-logo ${emp.avatar}`} />
-                    {/* <div className={`photo-logo ${emp.avatar}`} alt={emp.avatar} /> */}
+                    <img alt="empPhoto" src={emp.imageLink} className={`photo-logo ${emp.avatar}`} />
                   </div>
                 </div>
               ))}

@@ -7,17 +7,14 @@
     .request-button-block {
       display: none;
     }
-
     .nav_toggle {
       display: block;
     }
-
     .mobile-form-request {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-
       .header-text {
         font-family: OpenSans-SemiBold, sans-serif;
         font-size: 26px;
@@ -27,7 +24,6 @@
         margin-bottom: 34px;
         margin-top: 70px;
       }
-
       .form-blocks {
         .form-maintext-block {
           &__text {
@@ -72,7 +68,6 @@
           }
         }
       }
-
       .button-next-preview {
         background: url(#{$path-to-images}/icons/support-button-mobile.svg);
         width: 100%;

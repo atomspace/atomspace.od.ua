@@ -7,7 +7,7 @@ Landing
 .DS_Store
 
 ssl
-
+node_modules
 atomspace-env/
 server/backend/static
 server/logs/

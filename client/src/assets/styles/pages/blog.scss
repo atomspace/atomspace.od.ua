@@ -12,9 +12,6 @@
     width: $f610 + $f610 + $f89;
     position: relative;
     margin-left: $f233;
-    .main-text {
-      // margin-bottom: 0;
-    }
     .blog-skill-blocks-mobile,
     .blog-skill-blocks {
       display: flex;
@@ -62,12 +59,3 @@
     }
   }
 }
-
-// @media only screen and (min-width: 1024px) and (min-height: 768px) and (max-width: 1024px) and (max-height: 768px) {
-//   .main-text-mobile {
-//     font-size: 100px !important;
-//   }
-//   .blog-skill-blocks-mobile {
-//     width: 67% !important;
-//   }
-// }

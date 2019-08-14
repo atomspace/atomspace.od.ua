@@ -7,7 +7,7 @@ export default class SmallSidebar extends React.Component {
     this.state = {
       isNavOpened: true
     };
-  };
+  }
 
   toggleNav = (status) => {
     this.setState(state => ({

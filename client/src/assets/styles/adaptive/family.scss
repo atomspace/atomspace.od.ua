@@ -1,6 +1,5 @@
 .family-container {
   background-size: cover;
-
   .family-wrapper {
     height: 100%;
     display: flex;
@@ -11,20 +10,16 @@
       font-size: 50px;
       opacity: 0.1;
     }
-
     .carousel-container {
       position: relative;
       margin-right: 28px;
       $photo-size: $f400 + $f400 + $f400 + $f400;
-
       .slick-slider {
         margin: 0;
         width: initial;
         top: 80px;
         left: -50px;
-
         @include noArrows;
-
         .slick-list {
           border: 1px solid transparent;
           padding: 0;
@@ -33,7 +28,6 @@
           width: $photo-size;
         }
       }
-
       .carousel-info {
         left: auto;
         right: 0;
@@ -41,7 +35,6 @@
         &__header {
           display: none;
         }
-
         &__photo {
           .photo-logo {
             width: 100%;
@@ -49,7 +42,6 @@
             object-fit: cover;
           }
         }
-
         &__desc {
           font-size: $f89 + $f5;
 
@@ -62,7 +54,6 @@
             text-align: right;
           }
         }
-
         &__soc {
           .soc-icons {
             height: initial;
@@ -77,14 +68,12 @@
             }
           }
         }
-
         &__quote-block {
           display: none;
         }
       }
     }
   }
-
   .tap-swipe-logo {
     display: block;
     width: 10%;
