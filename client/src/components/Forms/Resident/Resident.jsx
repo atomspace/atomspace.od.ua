@@ -16,11 +16,13 @@ const inputData = [
   {
     id: 'name',
     placeholder: 'Имя:',
+    autocomplete: 'off',
     type: 'text',
   },
   {
     id: 'number',
     placeholder: 'Телефон: (ex. 380635522111)',
+    autocomplete: 'off',
     type: 'number',
     validate: val => val.match(/^[0-9]{12}$/),
   },
@@ -34,6 +36,7 @@ const inputData = [
   {
     id: 'information',
     placeholder: 'Почему хочешь стать резидентом?',
+    autocomplete: 'off',
     type: 'text',
   },
 ];

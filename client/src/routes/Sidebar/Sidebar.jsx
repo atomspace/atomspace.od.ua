@@ -27,7 +27,7 @@ class Sidebar extends Component {
       },
       {
         href: "#family",
-        text: `ATOM FAMILY`
+        text: `ATOM TEAM`
       },
       {
         href: "#store",

@@ -14,22 +14,26 @@ export default function Mentor(props){
       id: 'name',
       placeholder: 'Имя:',
       type: 'text',
+      autocomplete: 'off',
     },
     {
       id: 'number',
       placeholder: 'Телефон: (ex. 380635522111)',
+      autocomplete: 'off',
       type: 'number',
       validate: (val) => val.match(/^[0-9]{12}$/),
     },
     {
       id: 'email',
       placeholder: 'Email:',
+      autocomplete: 'off',
       type: 'email',
       validate: (val) => val.match(/^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+).([a-zA-Z]{2,5})$/),
     },
     {
       id: 'information',
       placeholder: 'Могу поделиться знаниями в сфере:',
+      autocomplete: 'off',
       type: 'text',
     },
   ];

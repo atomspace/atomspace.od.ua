@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export function useUser() {
-  const [user, setUser] = useState({
+  const [user] = useState({
     name: { value: '', error: false },
     number: { value: '', error: false },
     email: { value: '', error: false },

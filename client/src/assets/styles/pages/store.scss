@@ -250,6 +250,12 @@
           &::-ms-input-placeholder {
             color: $white-color;
           }
+          
+          &#phone::-webkit-inner-spin-button,
+          &#phone::-webkit-outer-spin-button{
+            margin: 0;
+            -webkit-appearance: none;
+          }
         }
       }
 

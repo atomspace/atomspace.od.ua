@@ -2,10 +2,10 @@ import React from "react";
 
 const info = [
   {
-    title: "+380 73 139 57 87"
+    title: "+380 99 554 27 10"
   },
   {
-    title: "info@atomspace.od.ua"
+    title: "atomspace.info@gmail.com"
   },
   {
     title: "г. Одесса, Обсерваторный переулок, 2/6"
