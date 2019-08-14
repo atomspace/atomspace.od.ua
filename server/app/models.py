@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 class Mentor(models.Model):
     name = models.CharField(max_length=60)
@@ -13,6 +14,7 @@ class Mentor(models.Model):
 
 class Resident(models.Model):
     name = models.CharField(max_length=60)
+    birthday = models.CharField(max_length=10, default=datetime.datetime.now().date())
     email = models.EmailField(max_length=30)
     number = models.CharField(max_length=30)
     information = models.CharField(max_length=100)

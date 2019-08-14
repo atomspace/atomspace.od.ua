@@ -48,3 +48,15 @@ select option{
 #mentors{
     display: none;
 }
+
+tbody{
+    background-color: white;
+}
+
+#residents td, #residents th{
+    width: 1%;
+}
+
+#mentors td, #mentors th{
+    width: 1%;
+}

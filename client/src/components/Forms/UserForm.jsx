@@ -14,7 +14,6 @@ export default class UserForm extends React.Component {
         birth: { value: '', error: false },
         number: { value: '', error: false },
         email: { value: '', error: false },
-        calendar: { value: '', error: false },
         information: { value: '', error: false },
       },
       isDisabled: true,
@@ -24,7 +23,12 @@ export default class UserForm extends React.Component {
   createOrder = async () => {
     const { user } = this.state;
     const { inputData } = this.props;
-    const { isDisabled, stateUser } = validateUser(user, inputData);
+    let { isDisabled, stateUser } = validateUser(user, inputData);
+
+    if (stateUser.birth.value === ''){
+      stateUser.birth.value = 'mentor don`t have birthday';
+      isDisabled = false;
+    }
 
     this.setState({
       ...this.state,
