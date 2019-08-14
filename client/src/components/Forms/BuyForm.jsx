@@ -2,6 +2,7 @@ import React from 'react';
 import classname from 'classnames';
 import { MEDIA_URL } from '../../utils/config';
 import { validateUser } from './validation';
+import validators from '../../utils/validators';
 
 const mainHeader = 'ДЕТАЛИ ЗАКАЗА';
 const additionalHeader = 'Чтоб мы могли вам отправить футболку, заполните поля ниже.';
@@ -14,9 +15,9 @@ const inputData = [
   },
   {
     id: 'phone',
-    placeholder: 'Телефон: (ex. 380635522111)',
+    placeholder: 'Телефон: (ex. 0635522111)',
     type: 'number',
-    validate: (val) => val.match(/^[0-9]{12}$/),
+    validate: validators.phone,
   },
   {
     id: 'npMail',
@@ -82,7 +83,7 @@ export default class BuyForm extends React.Component {
     });
   };
 
-  renderFormRegister = () => (
+  renderFormRegister = () =>
     inputData.map((data, index) => (
       <div className={`${data.id}-block`} key={index}>
         <input
@@ -95,8 +96,7 @@ export default class BuyForm extends React.Component {
           onBlur={(e) => this.handleInputUser(e, data.validate)}
         />
       </div>
-    ))
-  );
+    ));
 
   render() {
     return (
@@ -116,11 +116,7 @@ export default class BuyForm extends React.Component {
             </div>
           </div>
           <div className="merch-photo">
-            <img
-              alt="merch"
-              className="image"
-              src={`${MEDIA_URL}${this.props.order.avatar_url}`}
-            />
+            <img alt="merch" className="image" src={`${MEDIA_URL}${this.props.order.avatar_url}`} />
           </div>
         </div>
 
@@ -128,14 +124,9 @@ export default class BuyForm extends React.Component {
           <div className="order-items">
             <h1 className="order-items__header">{mainHeader}</h1>
             <h2 className="additional-header">{additionalHeader}</h2>
-            <div className="order-form">
-              {this.renderFormRegister()}
-            </div>
+            <div className="order-form">{this.renderFormRegister()}</div>
             <div className="order-request">
-              <button
-                className={classname('btn btn-support btn-request pay-button')}
-                onClick={this.createOrder}
-              >
+              <button className={classname('btn btn-support btn-request pay-button')} onClick={this.createOrder}>
                 {'Оплатить'}
               </button>
               <h3 className="price-info">{`₴ ${this.props.order.price}`}</h3>

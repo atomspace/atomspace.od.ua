@@ -14,12 +14,7 @@ class RightSidebar extends Component {
             {this.props.links.map((link, index) => {
               const isSelected = link.href === `#${pageName}`;
               return (
-                <div
-                  className={
-                  classname({ list: true, selected: isSelected })
-                }
-                  key={index}
-                >
+                <div className={classname({ list: true, selected: isSelected })} key={index}>
                   <div className="dot" />
                   <a className="list-item" href={link.href}>
                     {link.text}

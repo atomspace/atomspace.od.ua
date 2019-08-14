@@ -97,7 +97,9 @@ export default class Family extends React.Component {
               <div className="carousel-info__quote-block">
                 <div className="quotes">
                   <p className="quote-text">
-                    {'Мы создаем возможности для талантливых подростков, которые мечтают строить будущее с помощью инновационных технологий.'}
+                    {
+                      'Мы создаем возможности для талантливых подростков, которые мечтают строить будущее с помощью инновационных технологий.'
+                    }
                   </p>
                 </div>
               </div>

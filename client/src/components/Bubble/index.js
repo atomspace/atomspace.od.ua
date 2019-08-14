@@ -1,2 +1,2 @@
-import Bubble from "./Bubble";
-export {Bubble};
+import Bubble from './Bubble';
+export { Bubble };

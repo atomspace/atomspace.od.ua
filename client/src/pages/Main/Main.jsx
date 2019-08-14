@@ -25,8 +25,12 @@ class Main extends React.Component {
             </div>
             <div className="bottom-quastion">Кем ты хочешь стать?</div>
             <div className="support-container">
-              <a className="support resident-support" href="#residentForm" onClick={handleDialog}>Резидентом</a>
-              <a className="support mentor-support" href="#mentorForm" onClick={handleDialog}>Ментором</a>
+              <a className="support resident-support" href="#residentForm" onClick={handleDialog}>
+                Резидентом
+              </a>
+              <a className="support mentor-support" href="#mentorForm" onClick={handleDialog}>
+                Ментором
+              </a>
             </div>
           </div>
         </div>

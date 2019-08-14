@@ -66,9 +66,7 @@ export default class UserForm extends React.Component {
   renderFormBlocks = () => (
     <div className="form-blocks flex flex-cen">
       <div className="form-maintext-block">
-        <div className="form-maintext-block__header">
-          {this.props.headerText}
-        </div>
+        <div className="form-maintext-block__header">{this.props.headerText}</div>
         <div className="form-maintext-block__text">{this.props.mainText}</div>
       </div>
     </div>
@@ -91,10 +89,7 @@ export default class UserForm extends React.Component {
           </div>
         ))}
         <div className="request-button-block">
-          <button
-            className="btn btn-support btn-request"
-            onClick={this.createOrder}
-          >
+          <button className="btn btn-support btn-request" onClick={this.createOrder}>
             {this.props.buttonText}
           </button>
         </div>

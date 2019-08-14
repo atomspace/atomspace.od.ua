@@ -21,20 +21,12 @@ class Contacts extends Component {
                 <p className="header-answer">Давайте развивать Atom Space вместе!</p>
                 <div className="request-button-container flex">
                   <div className="request-button-block">
-                    <a
-                      className="btn btn-support btn-request"
-                      href="#mentorForm"
-                      onClick={this.props.handleDialog}
-                    >
-Стать ментором
+                    <a className="btn btn-support btn-request" href="#mentorForm" onClick={this.props.handleDialog}>
+                      Стать ментором
                     </a>
                   </div>
                   <div className="request-button-block">
-                    <a
-                      className="btn btn-support btn-request"
-                      href="#residentForm"
-                      onClick={this.props.handleDialog}
-                    >
+                    <a className="btn btn-support btn-request" href="#residentForm" onClick={this.props.handleDialog}>
                       {'Стать резидентом'}
                     </a>
                   </div>

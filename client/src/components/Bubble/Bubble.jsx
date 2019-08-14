@@ -49,9 +49,7 @@ export default class Bubble extends React.Component {
   };
 
   render() {
-    const {
-      image, animate, big, small, semiMiddle, middle, interactive,
-    } = this.props;
+    const { image, animate, big, small, semiMiddle, middle, interactive } = this.props;
     const classes = classnames('bubble', {
       middle,
       small,

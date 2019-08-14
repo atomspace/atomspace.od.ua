@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['airbnb', 'plugin:react/recommended'],
+  extends: ['standard', 'plugin:react/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -16,5 +16,10 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
-  rules: {},
+  rules: {
+    'react/prop-types': 0,
+    semi: 0,
+    'space-before-function-paren': 0,
+    'comma-dangle': 0,
+  },
 };

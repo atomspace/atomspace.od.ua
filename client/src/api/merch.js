@@ -1,12 +1,9 @@
-import {
-  createApiRequest
-} from "./base";
-
+import { createApiRequest } from './base';
 
 export const getAllMerches = () => {
-  return createApiRequest("/merches", "GET");
+  return createApiRequest('/merches', 'GET');
 };
 
 export const sendRequestForMerch = () => {
-  return createApiRequest("/orders", "GET");
+  return createApiRequest('/orders', 'GET');
 };

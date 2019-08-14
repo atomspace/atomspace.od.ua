@@ -13,6 +13,7 @@ class LeftSidebar extends React.Component {
       case urls[0]:
         return [
           <Link
+            key={1}
             handleDialog={this.props.handleDialog}
             row={{
               title: 'Стать ментором',
@@ -20,6 +21,7 @@ class LeftSidebar extends React.Component {
             }}
           />,
           <Link
+            key={2}
             handleDialog={this.props.handleDialog}
             row={{
               title: 'Стать резидентом',
@@ -29,16 +31,11 @@ class LeftSidebar extends React.Component {
         ];
       case urls[5]:
         return [
-          <MerchSize
-            changeMerchAttr={this.props.changeMerchAttr}
-          />,
-          <MerchBuy
-            handleDialog={this.props.handleDialog}
-            order={this.props.order}
-          />,
+          <MerchSize key={1} changeMerchAttr={this.props.changeMerchAttr} />,
+          <MerchBuy key={2} handleDialog={this.props.handleDialog} order={this.props.order} />,
         ];
       case urls[6]:
-        return [<ContactInfo />];
+        return [<ContactInfo key={1} />];
       default:
         return [];
     }

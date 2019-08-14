@@ -50,15 +50,9 @@ export default class SmallSidebar extends React.Component {
         </ul>
         <div>
           {this.state.isNavOpened ? (
-            <div
-              className="nav_toggle"
-              onClick={this.toggleNav.bind(this, false)}
-            />
+            <div className="nav_toggle" onClick={this.toggleNav.bind(this, false)} />
           ) : (
-            <div
-              className="nav_toggle cross light "
-              onClick={this.toggleNav.bind(this, true)}
-            />
+            <div className="nav_toggle cross light " onClick={this.toggleNav.bind(this, true)} />
           )}
         </div>
       </nav>

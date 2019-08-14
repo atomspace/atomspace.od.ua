@@ -1,7 +1,4 @@
-import {
-  createApiRequest
-} from "./base";
-
+import { createApiRequest } from './base';
 
 /**
  * "name":"",
@@ -9,10 +6,10 @@ import {
  * "number":"1122",
  * "information": "1122"
  */
-export const createMentor = data => {
-  return createApiRequest("/mentors", "POST", data);
+export const createMentor = (data) => {
+  return createApiRequest('/mentors', 'POST', data);
 };
 
 export const getAllMentors = () => {
-  return createApiRequest("/mentors", "GET");
+  return createApiRequest('/mentors', 'GET');
 };

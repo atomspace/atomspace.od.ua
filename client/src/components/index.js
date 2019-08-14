@@ -1,4 +1,4 @@
-import {Forms} from './Forms';
-import {Soc} from './Soc';
+import { Forms } from './Forms';
+import { Soc } from './Soc';
 
-export {Forms, Soc};
+export { Forms, Soc };

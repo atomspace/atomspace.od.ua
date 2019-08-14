@@ -29,8 +29,9 @@ const info = [
     ),
   },
 ];
-export default () => info.map((val, index) => (
-  <span className="list-item" key={index}>
-    {val.title}
-  </span>
-));
+export default () =>
+  info.map((val, index) => (
+    <span className="list-item" key={index}>
+      {val.title}
+    </span>
+  ));

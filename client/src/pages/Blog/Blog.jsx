@@ -43,7 +43,7 @@ const skillsData = [
 class Blog extends Component {
   state = {
     index: 0,
-  }
+  };
 
   render() {
     const settings = {
