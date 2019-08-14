@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 
-export default function RequestForm(props) {
+export default function MobileRequestForm(props) {
   const [isMobile, setIsMobile] = useState(true);
   const toggleMobileRequest = () => setIsMobile(!isMobile);
 
@@ -23,7 +23,7 @@ export default function RequestForm(props) {
   );
 }
 
-RequestForm.propTypes = {
+MobileRequestForm.propTypes = {
   formBlocks: PropTypes.object,
   formRegister: PropTypes.object,
 };

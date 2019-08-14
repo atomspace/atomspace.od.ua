@@ -24,7 +24,8 @@ const inputData = [
   {
     id: 'birth',
     placeholder: 'Дата рождения: ',
-    type: 'text',
+    type: 'date',
+    defaultValue: '2000-01-01',
     autocomplete: 'off',
   },
   {

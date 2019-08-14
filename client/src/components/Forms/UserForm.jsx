@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 import LeftSidebar from '../../routes/Sidebar/Left';
-import { validateUser } from './validation';
-import RequestForm from './RequestForm';
+import { validateUser } from './utils/validation';
+import MobileRequestForm from './MobileRequestForm';
+import { Button } from '../Button/Button';
 
 export default class UserForm extends React.Component {
   constructor(props) {
@@ -14,41 +15,45 @@ export default class UserForm extends React.Component {
         birth: { value: '', error: false },
         number: { value: '', error: false },
         email: { value: '', error: false },
-        calendar: { value: '', error: false },
         information: { value: '', error: false },
       },
       isDisabled: true,
+      isLoading: false,
     };
   }
 
   createOrder = async () => {
     const { user } = this.state;
-    const { inputData } = this.props;
+    const { inputData, createOrder, getBack } = this.props;
     const { isDisabled, stateUser } = validateUser(user, inputData);
-
     this.setState({
       ...this.state,
       ...stateUser,
     });
 
     if (!isDisabled) {
+      const data = {
+        name: user.name.value,
+        birth: user.birth.value,
+        email: user.email.value,
+        number: +user.number.value,
+        information: user.information.value,
+      };
       try {
-        const data = {
-          name: user.name.value,
-          birth: user.birth.value,
-          email: user.email.value,
-          number: +user.number.value,
-          information: user.information.value,
-        };
-        await this.props.createOrder(data);
-        this.props.getBack();
+        this.setState({ isLoading: true });
+        // await createOrder(data);
+        setTimeout(() => {
+          this.setState({ isLoading: false });
+          console.log(this.state.isLoading);
+          // getBack();
+        }, 3000);
       } catch (e) {
-        this.props.getBack();
+        getBack();
       }
     }
   };
 
-  handleInputUser = (event, validate) => {
+  handleInputUser = (validate, event) => {
     const name = event.target.id;
     const { value } = event.target;
     const error = !value.length || (validate && !validate(value));
@@ -76,8 +81,8 @@ export default class UserForm extends React.Component {
   );
 
   handleBirth = (e) => {
-    e.target.type === 'text' ? e.target.type = 'date' : e.target.type = 'text'
-  }
+    e.target.type === 'text' ? (e.target.type = 'date') : (e.target.type = 'text');
+  };
 
   renderFormRegister = () => (
     <div className="form-main">
@@ -89,17 +94,20 @@ export default class UserForm extends React.Component {
               id={data.id}
               type={data.type}
               placeholder={data.placeholder}
-              value={this.state.user[data.id].value}
-              onChange={(e) => this.handleInputUser(e, data.validate)}
-              onFocus={data.id === 'birth' ? (e) => this.handleBirth(e) : () => ''}
-              onBlur={data.id === 'birth' ? (e) => this.handleBirth(e) : (e) => this.handleInputUser(e, data.validate)}
+              value={this.state.user[data.id].value || data.defaultValue}
+              onChange={this.handleInputUser.bind(this, data.validate)}
+              onFocus={this.handleInputUser.bind(this, data.validate)}
             />
           </div>
         ))}
         <div className="request-button-block">
-          <button className="btn btn-support btn-request" onClick={this.createOrder}>
+          <Button
+            className="btn btn-support btn-request"
+            loading={this.state.isLoading.toString()}
+            onClick={this.createOrder}
+          >
             {this.props.buttonText}
-          </button>
+          </Button>
         </div>
       </div>
     </div>
@@ -119,7 +127,7 @@ export default class UserForm extends React.Component {
         <div className="atom-logo" />
         <div className="close-dialog-btn" onClick={this.props.getBack} />
         <div className="nav_toggle cross" onClick={this.props.getBack} />
-        <RequestForm
+        <MobileRequestForm
           formBlocks={this.renderFormBlocks()}
           formRegister={this.renderFormRegister()}
           headerText={this.props.headerText}

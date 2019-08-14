@@ -1,7 +1,7 @@
 import React from 'react';
 import classname from 'classnames';
 import { MEDIA_URL } from '../../utils/config';
-import { validateUser } from './validation';
+import { validateUser } from './utils/validation';
 import validators from '../../utils/validators';
 
 const mainHeader = 'ДЕТАЛИ ЗАКАЗА';
