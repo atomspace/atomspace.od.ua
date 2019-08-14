@@ -1,7 +1,7 @@
 {
   "name": "atomspace.od.ua",
   "version": "1.0.0",
-  "description": "## Development",
+  "description": "Development",
   "main": "index.js",
   "husky": {
     "hooks": {
@@ -44,7 +44,7 @@
   "homepage": "https://github.com/atomspace/atomspace.od.ua#readme",
   "lint-staged": {
     "client/*.js": [
-      "eslint client/**/*.jsx --fix",
+      "eslint client/**/*.jsx --fix  --cache",
       "git add"
     ]
   }
