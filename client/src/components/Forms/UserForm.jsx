@@ -14,6 +14,7 @@ export default class UserForm extends React.Component {
         birth: { value: '', error: false },
         number: { value: '', error: false },
         email: { value: '', error: false },
+        calendar: { value: '', error: false },
         information: { value: '', error: false },
       },
       isDisabled: true,

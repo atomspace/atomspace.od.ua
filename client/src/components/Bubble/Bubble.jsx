@@ -12,7 +12,7 @@ export default class Bubble extends React.Component {
   componentDidMount() {
     setInterval(() => {
       this.nextImage();
-    }, 5000);
+    }, 3000);
   }
 
   getDefaultState() {
