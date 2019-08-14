@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 
 import Arrow from '../../components/Arrow';
-import MerchSize from '../../pages/Store/MerchSize';
-import MerchBuy from '../../pages/Store/MerchBuy';
+import MerchSize from './MerchSize';
+import MerchBuy from './MerchBuy';
 import { getAllMerches } from '../../api/merch';
 import { MEDIA_URL } from '../../utils/config';
 
-const mainText = `хочешь содействовать развитию проекта?`;
-const mainTextMobile = `Желаешь поддержать нас?`;
-const additionalText = `Выбирай и носи стильную Атомную футболку!`;
-const additionalTextMobile = `Покупай футболку!`;
+const mainText = 'хочешь содействовать развитию проекта?';
+const mainTextMobile = 'Желаешь поддержать нас?';
+const additionalText = 'Выбирай и носи стильную Атомную футболку!';
+const additionalTextMobile = 'Покупай футболку!';
 class Store extends Component {
   constructor(prop) {
     super(prop);

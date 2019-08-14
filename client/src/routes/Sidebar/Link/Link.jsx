@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-export default props => (
+export default (props) => (
   <div>
-    <div className={"dot"} />
+    <div className="dot" />
     <a
       className="list-item form"
       href={props.row.link}

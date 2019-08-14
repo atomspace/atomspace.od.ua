@@ -59,13 +59,13 @@ export default class Family extends React.Component {
       swipeToSlide: true,
       centerMode: true,
       afterChange: (index) => {
-        this.setState({ index: index });
+        this.setState({ index });
       },
     };
     return (
       <div className="section family-container">
         <div className="family-wrapper">
-          <div className="main-text-mobile">{`КОМАНДА`}</div>
+          <div className="main-text-mobile">КОМАНДА</div>
           <img alt="tapSwipeImage" src={TapSwipe} className="tap-swipe-logo" />
           <div className="carousel-container">
             <Slider {...settings}>
@@ -79,7 +79,7 @@ export default class Family extends React.Component {
             </Slider>
             <div className="carousel-info">
               <div className="carousel-info__header">
-                <p className="info-header-name">{`КОМАНДА`}</p>
+                <p className="info-header-name">КОМАНДА</p>
               </div>
               <div className="carousel-info__desc">
                 <p className="info-name">{people[this.state.index] && people[this.state.index].name}</p>
@@ -91,13 +91,13 @@ export default class Family extends React.Component {
                     facebook: people[this.state.index] && people[this.state.index].facebook,
                     linkedin: people[this.state.index] && people[this.state.index].linkedin,
                   }}
-                  classes={'flex soc-icons'}
+                  classes="flex soc-icons"
                 />
               </div>
               <div className="carousel-info__quote-block">
                 <div className="quotes">
                   <p className="quote-text">
-                    {`Мы создаем возможности для талантливых подростков, которые мечтают строить будущее с помощью инновационных технологий.`}
+                    {'Мы создаем возможности для талантливых подростков, которые мечтают строить будущее с помощью инновационных технологий.'}
                   </p>
                 </div>
               </div>

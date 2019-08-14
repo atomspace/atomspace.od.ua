@@ -5,6 +5,7 @@ export default class MerchSize extends React.Component {
   state = {
     size: 'M',
   };
+
   sizes = ['S', 'M', 'L', 'XL'];
 
   componentDidMount() {
@@ -27,19 +28,17 @@ export default class MerchSize extends React.Component {
   render() {
     return (
       <div className="list-item size-container flex flex-acen">
-        <span className="main-header flex flex-acen">{`SIZE:`}</span>
+        <span className="main-header flex flex-acen">SIZE:</span>
         <div className="size-list flex flex-acen">
-          {this.sizes.map((size, index) => {
-            return (
-              <span
-                key={index}
-                className={classname('size-item', { selected: size === this.state.size })}
-                onClick={this.changeMerchAttr.bind(this, size)}
-              >
-                {size}
-              </span>
-            );
-          })}
+          {this.sizes.map((size, index) => (
+            <span
+              key={index}
+              className={classname('size-item', { selected: size === this.state.size })}
+              onClick={this.changeMerchAttr.bind(this, size)}
+            >
+              {size}
+            </span>
+          ))}
         </div>
       </div>
     );

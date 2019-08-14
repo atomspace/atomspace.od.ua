@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './assets/styles/_index.scss';
-import { About, Blog, Contacts, Edu, Family, Main, Store } from './pages';
+import ReactFullpage from '@fullpage/react-fullpage';
+import {
+  About, Blog, Contacts, Edu, Family, Main, Store,
+} from './pages';
 import Mentor from './components/Forms/Mentor';
 import Sidebar from './routes/Sidebar/Sidebar.jsx';
-import ReactFullpage from '@fullpage/react-fullpage';
 import BuyForm from './components/Forms/BuyForm';
 import Resident from './components/Forms/Resident/Resident';
 
@@ -26,7 +28,7 @@ class App extends Component {
     this.setState((state) => ({ ...state, form: null }));
     const preLastUserHash = this.state.userHash[this.state.userHash.length - 2];
     const lastUserHash = this.state.userHash[this.state.userHash.length - 1];
-    window.location.hash = preLastUserHash ? preLastUserHash : lastUserHash;
+    window.location.hash = preLastUserHash || lastUserHash;
   };
 
   handleBack = () => {
@@ -86,27 +88,25 @@ class App extends Component {
         <ReactFullpage
           anchors={urls}
           onLeave={this.pageOnChange}
-          responsiveHeight={'720px'}
+          responsiveHeight="720px"
           licenseKey="OPEN-SOURCE-GPLV3-LICENSE"
-          render={() => {
-            return (
-              <ReactFullpage.Wrapper>
-                <Main handleDialog={this.handleDialog} />
-                <About />
-                <Blog />
-                <Edu />
-                <Family />
-                <Store
-                  order={this.state.order}
-                  size={this.state.size}
-                  changeMerchAttr={this.changeMerchAttr}
-                  handleDialog={this.handleDialog}
-                  getCachedMerch={this.getCachedMerch}
-                />
-                <Contacts handleDialog={this.handleDialog} />
-              </ReactFullpage.Wrapper>
-            );
-          }}
+          render={() => (
+            <ReactFullpage.Wrapper>
+              <Main handleDialog={this.handleDialog} />
+              <About />
+              <Blog />
+              <Edu />
+              <Family />
+              <Store
+                order={this.state.order}
+                size={this.state.size}
+                changeMerchAttr={this.changeMerchAttr}
+                handleDialog={this.handleDialog}
+                getCachedMerch={this.getCachedMerch}
+              />
+              <Contacts handleDialog={this.handleDialog} />
+            </ReactFullpage.Wrapper>
+          )}
         />
         {this.state.form === '#residentForm' && <Resident getBack={this.getBack} />}
         {this.state.form === '#mentorForm' && <Mentor getBack={this.getBack} />}

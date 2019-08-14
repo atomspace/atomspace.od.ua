@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import Slider from 'react-slick'
-import Arrow from '../../components/Arrow'
-import MindLogo from '../../assets/images/icons/blog/mind-logo.svg'
-import TeamLogo from '../../assets/images/icons/blog/team-logo.svg'
-import TrustLogo from '../../assets/images/icons/blog/trust-logo.svg'
-import PuzzleLogo from '../../assets/images/icons/blog/puzzle-logo.svg'
-const mainText = 'Ценности ATOM SPACE'
-const mainTextMobile = 'Ценности'
+import React, { Component } from 'react';
+import Slider from 'react-slick';
+import Arrow from '../../components/Arrow';
+import MindLogo from '../../assets/images/icons/blog/mind-logo.svg';
+import TeamLogo from '../../assets/images/icons/blog/team-logo.svg';
+import TrustLogo from '../../assets/images/icons/blog/trust-logo.svg';
+import PuzzleLogo from '../../assets/images/icons/blog/puzzle-logo.svg';
+
+const mainText = 'Ценности ATOM SPACE';
+const mainTextMobile = 'Ценности';
 
 const skillsData = [
   {
@@ -37,12 +38,13 @@ const skillsData = [
       'В общении со всеми участниками проекта мы стремимся к взаимопониманию, искренности и доверию через диалог, неформальные встречи и совместный отдых.',
     image: TrustLogo,
   },
-]
+];
 
 class Blog extends Component {
   state = {
     index: 0,
   }
+
   render() {
     const settings = {
       speed: 500,
@@ -55,11 +57,11 @@ class Blog extends Component {
 
       variableWidth: true,
       afterChange: (index) => {
-        this.setState({ index: index })
+        this.setState({ index });
       },
 
       dots: true,
-    }
+    };
     return (
       <div className="section blog-container">
         <div className="blog-wrapper flex flex-acent flex-jcent">
@@ -69,9 +71,9 @@ class Blog extends Component {
             {skillsData.map((skill, index) => (
               <div key={index} className="blog-skill-item">
                 <img alt="blogImage" src={skill.image} className={`blog-skill-item__${skill.logo}-logo`} />
-                <div className={`blog-skill-item-information`}>
-                  <div className={`blog-skill-item-information__header`}>{skill.header}</div>
-                  <div className={`blog-skill-item-information__description`}>{skill.description}</div>
+                <div className="blog-skill-item-information">
+                  <div className="blog-skill-item-information__header">{skill.header}</div>
+                  <div className="blog-skill-item-information__description">{skill.description}</div>
                 </div>
               </div>
             ))}
@@ -81,9 +83,9 @@ class Blog extends Component {
               {skillsData.map((skill, index) => (
                 <div key={index} className="blog-skill-item">
                   <img alt="blogImage" src={skill.image} className={`blog-skill-item__${skill.logo}-logo`} />
-                  <div className={`blog-skill-item-information`}>
-                    <div className={`blog-skill-item-information__header`}>{skill.header}</div>
-                    <div className={`blog-skill-item-information__description`}>{skill.description}</div>
+                  <div className="blog-skill-item-information">
+                    <div className="blog-skill-item-information__header">{skill.header}</div>
+                    <div className="blog-skill-item-information__description">{skill.description}</div>
                   </div>
                 </div>
               ))}
@@ -91,8 +93,8 @@ class Blog extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Blog
+export default Blog;

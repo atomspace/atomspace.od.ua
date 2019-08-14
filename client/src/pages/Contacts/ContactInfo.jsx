@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const info = [
   {
@@ -28,10 +28,9 @@ const info = [
       </a>
     ),
   },
-]
-export default () =>
-  info.map((val, index) => (
-    <span className="list-item" key={index}>
-      {val.title}
-    </span>
-  ))
+];
+export default () => info.map((val, index) => (
+  <span className="list-item" key={index}>
+    {val.title}
+  </span>
+));

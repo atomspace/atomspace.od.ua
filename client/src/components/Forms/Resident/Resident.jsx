@@ -22,13 +22,13 @@ const inputData = [
     id: 'number',
     placeholder: 'Телефон: (ex. 380635522111)',
     type: 'number',
-    validate: val => val.match(/^[0-9]{12}$/),
+    validate: (val) => val.match(/^[0-9]{12}$/),
   },
   {
     id: 'email',
     placeholder: 'Email:',
     type: 'email',
-    validate: val => val
+    validate: (val) => val
       .match(/^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+).([a-zA-Z]{2,5})$/),
   },
   {
@@ -55,4 +55,4 @@ export default function Resident(props) {
 }
 Resident.propTypes = {
 
-}
+};

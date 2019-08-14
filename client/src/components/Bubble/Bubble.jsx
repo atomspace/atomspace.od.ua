@@ -8,16 +8,19 @@ export default class Bubble extends React.Component {
       ...this.getDefaultState(),
     };
   }
+
   componentDidMount() {
     setInterval(() => {
       this.nextImage();
     }, 5000);
   }
+
   getDefaultState() {
     return {
       indexPicture: 0,
     };
   }
+
   prevImage = () => {
     const { image = [] } = this.props;
     if (!image.length) return false;
@@ -30,6 +33,7 @@ export default class Bubble extends React.Component {
       this.setState((state) => ({ indexPicture: image.length - 1 }));
     }
   };
+
   nextImage = () => {
     const { image = [] } = this.props;
     const { indexPicture } = this.state;
@@ -43,9 +47,12 @@ export default class Bubble extends React.Component {
       this.setState((state) => this.getDefaultState());
     }
   };
+
   render() {
-    const { image, animate, big, small, semiMiddle, middle, interactive } = this.props;
-    let classes = classnames('bubble', {
+    const {
+      image, animate, big, small, semiMiddle, middle, interactive,
+    } = this.props;
+    const classes = classnames('bubble', {
       middle,
       small,
       semiMiddle,
@@ -70,7 +77,7 @@ export default class Bubble extends React.Component {
             <img
               src={this.props.image[this.state.indexPicture]}
               className="bubble-image"
-              alt={'bubble'}
+              alt="bubble"
               onClick={this.nextImage}
             />
             <div className="arrow right-arrow" onClick={this.nextImage} />

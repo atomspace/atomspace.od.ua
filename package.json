@@ -44,7 +44,7 @@
   "homepage": "https://github.com/atomspace/atomspace.od.ua#readme",
   "lint-staged": {
     "client/*.js": [
-      "eslint client/**/*.jsx --fix  --cache",
+      "eslint client/**/*.jsx --fix --cache",
       "git add"
     ]
   }

@@ -1,8 +1,9 @@
-import React from "react";
-export default props => (
+import React from 'react';
+
+export default (props) => (
   <div className={props.classes}>
     {props.src.facebook ? (
-      <a className="icon facebook" rel="noopener noreferrer"  target="_blank" href={props.src.facebook}>
+      <a className="icon facebook" rel="noopener noreferrer" target="_blank" href={props.src.facebook}>
         &nbsp;
       </a>
     ) : null}

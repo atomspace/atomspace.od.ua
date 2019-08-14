@@ -9,11 +9,12 @@ import BookLogo from '../../assets/images/icons/edu/book-logo.svg';
 import PythonLogo from '../../assets/images/icons/edu/python-logo.svg';
 import WordPressLogo from '../../assets/images/icons/edu/wordpress-logo.svg';
 
-const mainText = `Программы Atom Space`;
-const mainTextMobile = `Программы`;
+const mainText = 'Программы Atom Space';
+const mainTextMobile = 'Программы';
 
 export default class Edu extends React.Component {
   state = { index: 0 };
+
   eduItems = [
     {
       logo: 'rocket-logo',
@@ -64,9 +65,11 @@ export default class Edu extends React.Component {
       image: WordPressLogo,
     },
   ];
+
   changeEduItem = (e) => {
     this.setState({ index: Number(e.target.id) });
   };
+
   render() {
     return (
       <div className="section edu-container">

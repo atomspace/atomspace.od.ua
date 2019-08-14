@@ -2,7 +2,7 @@ import React from 'react';
 import AnimatePlanet from './AnimatePlanet';
 import MainLogo from '../../assets/images/icons/logos/AtomSpace-logo-vertical.svg';
 
-const mainText = `образовательное  тех-пространство для подростков`;
+const mainText = 'образовательное  тех-пространство для подростков';
 class Main extends React.Component {
   render() {
     const { handleDialog } = this.props;
@@ -19,12 +19,14 @@ class Main extends React.Component {
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://secure.wayforpay.com/button/b4a090420eb14"
-              >{`Поддержать проект`}</a>
+              >
+                {'Поддержать проект'}
+              </a>
             </div>
-            <div className="bottom-quastion">{`Кем ты хочешь стать?`}</div>
+            <div className="bottom-quastion">Кем ты хочешь стать?</div>
             <div className="support-container">
-              <a className="support resident-support" href={'#residentForm'} onClick={handleDialog}>{`Резидентом`}</a>
-              <a className="support mentor-support" href={'#mentorForm'} onClick={handleDialog}>{`Ментором`}</a>
+              <a className="support resident-support" href="#residentForm" onClick={handleDialog}>Резидентом</a>
+              <a className="support mentor-support" href="#mentorForm" onClick={handleDialog}>Ментором</a>
             </div>
           </div>
         </div>
