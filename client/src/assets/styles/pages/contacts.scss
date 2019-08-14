@@ -2,6 +2,7 @@
   background: url(#{$path-to-images}/backgrounds/background-contacts-bottom.svg);
   background-repeat: no-repeat;
   background-position: bottom;
+  background-size: auto;
   @media only screen and (max-height: 800px) and (max-width: 1400px) and (min-width: 1150px) {
     background-position: 71% -241%;
   }
