@@ -3,15 +3,15 @@ import React from 'react';
 const info = [
   {
     title: (
-      <a className="atomspace-link" target="_blank" rel="noopener noreferrer" href="tel:+380 73 139 57 87">
-        +380 73 139 57 87
+      <a className="atomspace-link" target="_blank" rel="noopener noreferrer" href="tel:+380 99 554 27 10">
+        +380 99 554 27 10
       </a>
     ),
   },
   {
     title: (
       <a className="atomspace-link" target="_blank" rel="noopener noreferrer" href="mailto:info@atomspace.od.ua">
-        info@atomspace.od.ua
+        atomspace.info@gmail.com
       </a>
     ),
   },

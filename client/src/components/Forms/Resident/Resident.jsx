@@ -7,7 +7,7 @@ const headerText = 'Стать резидентом';
 const mainText = (
   <div>
     <span>Резидентом Atom Space может стать каждый мотивированный подросток</span>
-    <span className="bold">{' от 14 до 19 лет '}</span>
+    <span className="bold">{' от 16 до 20 лет '}</span>
     <span>
       , который хочет связать свое будущее с миром IT, и готов изучать, исследовать, интересоваться, спрашивать,
       пробовать, экспериментировать, создавать, проверять, ошибаться и начинать сначала.
@@ -25,6 +25,11 @@ const inputData = [
     placeholder: 'Телефон: (ex. 0635522111)',
     type: 'number',
     validate: validators.phone,
+  },
+  {
+    id: 'birthday',
+    placeholder: 'Дата рождения:',
+    type: 'calendar',
   },
   {
     id: 'email',
