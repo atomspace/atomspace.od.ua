@@ -1,15 +1,17 @@
 import React from 'react';
 import { createResident } from '../../../api/resident';
 import UserForm from '../UserForm';
+import validators from '../../../utils/validators';
 
 const headerText = 'Стать резидентом';
 const mainText = (
   <div>
     <span>Резидентом Atom Space может стать каждый мотивированный подросток</span>
-    <span className="bold">
-      { ' от 14 до 19 лет '}
+    <span className="bold">{' от 14 до 19 лет '}</span>
+    <span>
+      , который хочет связать свое будущее с миром IT, и готов изучать, исследовать, интересоваться, спрашивать,
+      пробовать, экспериментировать, создавать, проверять, ошибаться и начинать сначала.
     </span>
-    <span>, который хочет связать свое будущее с миром IT, и готов изучать, исследовать, интересоваться, спрашивать, пробовать, экспериментировать, создавать, проверять, ошибаться и начинать сначала.</span>
   </div>
 );
 const inputData = [
@@ -20,18 +22,23 @@ const inputData = [
     type: 'text',
   },
   {
+    id: 'birth',
+    placeholder: 'Дата рождения: ',
+    type: 'text',
+    autocomplete: 'off',
+  },
+  {
     id: 'number',
-    placeholder: 'Телефон: (ex. 380635522111)',
+    placeholder: 'Телефон: (ex. 0635522111)',
     autocomplete: 'off',
     type: 'number',
-    validate: val => val.match(/^[0-9]{12}$/),
+    validate: validators.phone,
   },
   {
     id: 'email',
     placeholder: 'Email:',
     type: 'email',
-    validate: val => val
-      .match(/^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+).([a-zA-Z]{2,5})$/),
+    validate: validators.email,
   },
   {
     id: 'information',
@@ -56,6 +63,4 @@ export default function Resident(props) {
     </section>
   );
 }
-Resident.propTypes = {
-
-}
+Resident.propTypes = {};

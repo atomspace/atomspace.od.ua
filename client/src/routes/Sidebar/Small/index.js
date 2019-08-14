@@ -1,3 +1,3 @@
-import SmallSidebar from "./SmallSidebar";
+import SmallSidebar from './SmallSidebar';
 
 export default SmallSidebar;

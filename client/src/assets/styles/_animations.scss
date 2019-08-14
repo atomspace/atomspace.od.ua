@@ -1,5 +1,5 @@
-@import "~compass-mixins/lib/compass/css3";
-@import "~compass-mixins/lib/_animate.scss";
+@import '~compass-mixins/lib/compass/css3';
+@import '~compass-mixins/lib/_animate.scss';
 
 $purple1: #181743;
 $purple2: #730f8e;
@@ -39,9 +39,7 @@ $meteor-yellow: #fedc01;
   height: $f178;
   padding: $f21;
   @include border-radius($f178);
-  @include background(
-    linear-gradient(150deg, $fuscia, transparent, transparent)
-  );
+  @include background(linear-gradient(150deg, $fuscia, transparent, transparent));
   position: absolute;
   @include animation(planet-moving 2s ease infinite);
   @include transition(all 0.2s ease);
@@ -58,7 +56,7 @@ $meteor-yellow: #fedc01;
     top: $f42;
     left: $f34;
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       @include background(linear-gradient(190deg, #c90779, #770e8d, #35145a));
       height: $f144;
@@ -80,7 +78,7 @@ $meteor-yellow: #fedc01;
     @include transform(rotate(-55deg));
     &::after {
       @extend .shine-2;
-      content: "";
+      content: '';
       top: $f10;
       left: $f42;
       transform: rotate(206deg);
@@ -89,7 +87,7 @@ $meteor-yellow: #fedc01;
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       height: $f10;
       width: $f13;
@@ -125,9 +123,7 @@ $meteor-yellow: #fedc01;
   .planet {
     width: $f178;
     height: $f178;
-    @include background(
-      linear-gradient(150deg, $fuscia, $purple2, transparent)
-    );
+    @include background(linear-gradient(150deg, $fuscia, $purple2, transparent));
     @include border-radius($f110 - $f10);
   } //end of planet
 } //end of planet-container
@@ -165,7 +161,7 @@ $meteor-yellow: #fedc01;
 
     div:nth-child(3) {
       background: #fff;
-      content: "";
+      content: '';
       position: absolute;
       width: $f10;
       height: $f10;

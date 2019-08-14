@@ -10,16 +10,11 @@ $list-item-atom-space-color-right: rgba(135, 50, 184, 1);
 $list-item-atom-space-color-left-o: rgba(220, 173, 58, 0.7);
 $list-item-atom-space-color-right-o: rgba(135, 50, 184, 0.7);
 
+$line-heights: 30px;
 @mixin linear-gradient-bubble {
-  background: linear-gradient(
-    45deg,
-    $left-gradient-color,
-    $right-gradient-color
-  );
+  background: linear-gradient(45deg, $left-gradient-color, $right-gradient-color);
 }
-
 $link-font-size: 12px;
-
 $border-color: rgba(77, 73, 108, 0.6);
 
 $border-color-orange: #dcad3a;
@@ -31,9 +26,8 @@ $box-shadow-photo: #251445;
 $gray-dark: gray;
 $red-color: red;
 
-$selected-edu-item: #F3AF32;
-$path-to-images: "../images";
-
+$selected-edu-item: #f3af32;
+$path-to-images: '../images';
 
 $f3: 0.14625vw;
 $f5: 0.26vw;
@@ -58,3 +52,26 @@ $f288: 15vw;
 $f377: 19.635vw;
 $f400: 20.833vw;
 $f610: 31.777vw;
+
+$h3: 0.14625vh;
+$h5: 0.26vh;
+$h8: 0.416vh;
+$h10: 0.52vh;
+$h13: 0.677vh;
+$h16: 0.833vh;
+$h18: 0.933vh;
+$h21: 1.083vh;
+$h26: 1.354vh;
+$h34: 1.77vh;
+$h42: 2.187vh;
+$h55: 2.864vh;
+$h68: 3.541vh;
+$h89: 4.635vh;
+$h110: 5.528vh;
+$h144: 7.5vh;
+$h178: 9.27vh;
+$h233: 12.135vh;
+$h288: 15vh;
+$h377: 19.635vh;
+$h400: 20.833vh;
+$h610: 31.777vh;

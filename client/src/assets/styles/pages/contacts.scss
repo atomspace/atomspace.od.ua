@@ -2,10 +2,11 @@
   background: url(#{$path-to-images}/backgrounds/background-contacts-bottom.svg);
   background-repeat: no-repeat;
   background-position: bottom;
-  @media only screen and (max-height: 800px) and (max-width: 1400px) and (min-width: 1150px) {
-    background-position: 71% -241%;
-  }
+  background-size: contain;
   .contacts-wrapper {
+    .contact-info-mobile {
+      display: none;
+    }
     .center-container {
       width: $f610 + $f400;
       margin: 0 auto;
@@ -14,11 +15,11 @@
         position: relative;
         margin-bottom: $f144 + $f13;
         .header-answer {
-          height: $f21;
           color: $black-color;
           font-size: $f21 + $f3;
           font-weight: 700;
           margin-bottom: $f68;
+          height: $f21;
         }
         &__information {
           display: flex;
@@ -50,24 +51,6 @@
           }
         }
       }
-      .donate-block {
-        .donate-container-button {
-        }
-      }
     }
-    .contact-info-mobile{
-      display: none;
-    }
-  }
-}
-
-@media only screen and (min-width: 1024px) and (min-height: 768px) and (max-width: 1024px) and (max-height: 768px) {
-  .main-block__information {
-    width: 65% !important;
-  }
-  .btn-donate {
-    height: 8.135vw !important;
-    width: 60% !important;
-    font-size: 2.541vw !important;
   }
 }

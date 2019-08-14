@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import Rocket from "../../assets/images/icons/contacts/rocket-donate.svg";
-import ContactInfo from "./ContactInfo";
+import React, { Component } from 'react';
+import Rocket from '../../assets/images/icons/contacts/rocket-donate.svg';
+import ContactInfo from './ContactInfo';
+
 class Contacts extends Component {
   state = {};
+
   render() {
     return (
       <div className="section contacts-container">
@@ -10,27 +12,23 @@ class Contacts extends Component {
           <div className="center-container">
             <div className="main-block">
               <div className="main-block__information">
-                <p className="header-ask">{`Вам нравится, что мы делаем?`}</p>
+                <p className="header-ask">Вам нравится, что мы делаем?</p>
                 <div className="logo-wrapper">
                   <img className="rocket-image" src={Rocket} alt="" />
                 </div>
               </div>
               <div className="main-block__requests flex flex-col">
-                <p className="header-answer">{`Давайте развивать Atom Space вместе!`}</p>
+                <p className="header-answer">Давайте развивать Atom Space вместе!</p>
                 <div className="request-button-container flex">
                   <div className="request-button-block">
-                    <a
-                      className="btn btn-support btn-request"
-                      href={"#mentorForm"}
-                      onClick={this.props.handleDialog}
-                    >{`Стать ментором`}</a>
+                    <a className="btn btn-support btn-request" href="#mentorForm" onClick={this.props.handleDialog}>
+                      Стать ментором
+                    </a>
                   </div>
                   <div className="request-button-block">
-                    <a
-                      className="btn btn-support btn-request"
-                      href={"#residentForm"}
-                      onClick={this.props.handleDialog}
-                    >{`Стать резидентом`}</a>
+                    <a className="btn btn-support btn-request" href="#residentForm" onClick={this.props.handleDialog}>
+                      {'Стать резидентом'}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -41,7 +39,9 @@ class Contacts extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://secure.wayforpay.com/button/b4a090420eb14"
-              >{`Поддержать проект`}</a>
+              >
+                {'Поддержать проект'}
+              </a>
             </div>
           </div>
           <div className="contact-info-mobile">

@@ -1,11 +1,11 @@
-import React from "react";
-import Soc from "../../../components/Soc";
-import {urls} from "../../../App";
-import MerchSize from "../../../pages/Store/MerchSize";
-import MerchBuy from "../../../pages/Store/MerchBuy";
-import ContactInfo from "../../../pages/Contacts/ContactInfo";
-import Link from "../Link";
-import classname from "classnames";
+import React from 'react';
+import classname from 'classnames';
+import Soc from '../../../components/Soc';
+import { urls } from '../../../App';
+import MerchSize from '../../../pages/Store/MerchSize';
+import MerchBuy from '../../../pages/Store/MerchBuy';
+import ContactInfo from '../../../pages/Contacts/ContactInfo';
+import Link from '../Link';
 
 class LeftSidebar extends React.Component {
   getLeftSidebarData() {
@@ -13,49 +13,46 @@ class LeftSidebar extends React.Component {
       case urls[0]:
         return [
           <Link
+            key={1}
             handleDialog={this.props.handleDialog}
             row={{
-              title: "Стать ментором",
-              link: "#mentorForm"
+              title: 'Стать ментором',
+              link: '#mentorForm',
             }}
           />,
           <Link
+            key={2}
             handleDialog={this.props.handleDialog}
             row={{
-              title: "Стать резидентом",
-              link: "#residentForm"
+              title: 'Стать резидентом',
+              link: '#residentForm',
             }}
-          />
+          />,
         ];
       case urls[5]:
         return [
-          <MerchSize
-            changeMerchAttr={this.props.changeMerchAttr}
-          />,
-          <MerchBuy
-            handleDialog={this.props.handleDialog}
-            order={this.props.order}
-          />
+          <MerchSize key={1} changeMerchAttr={this.props.changeMerchAttr} />,
+          <MerchBuy key={2} handleDialog={this.props.handleDialog} order={this.props.order} />,
         ];
       case urls[6]:
-        return [<ContactInfo/>];
+        return [<ContactInfo key={1} />];
       default:
         return [];
     }
   }
 
   render() {
-    const {pageName} = this.props;
+    const { pageName } = this.props;
     const sidebarRows = this.getLeftSidebarData();
 
-    const sidebarClasses = classname("vertical-line left", {
-      "border-none": !sidebarRows.length
+    const sidebarClasses = classname('vertical-line left', {
+      'border-none': !sidebarRows.length,
     });
-    const lightPages = ["about", "edu", "blog", "store", "resident", "mentor"];
+    const lightPages = ['about', 'edu', 'blog', 'store', 'resident', 'mentor'];
 
     return (
       <div className={sidebarClasses}>
-        <nav className={classname({sidebar__left: true, light_theme: lightPages.includes(pageName)})}>
+        <nav className={classname({ sidebar__left: true, light_theme: lightPages.includes(pageName) })}>
           <div className="flex flex-col">
             {sidebarRows.map((el, index) => (
               <div className="list" key={index}>
@@ -65,10 +62,10 @@ class LeftSidebar extends React.Component {
           </div>
           <Soc
             src={{
-              facebook: "https://www.facebook.com/atomspace.od.ua/",
-              instagram: "https://www.instagram.com/atomspace.od/"
+              facebook: 'https://www.facebook.com/atomspace.od.ua/',
+              instagram: 'https://www.instagram.com/atomspace.od/',
             }}
-            classes={"flex soc-icons"}
+            classes="flex soc-icons"
           />
         </nav>
       </div>

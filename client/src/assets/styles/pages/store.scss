@@ -23,7 +23,6 @@
       line-height: $f42;
       text-align: center;
       margin-bottom: $f110;
-      text-transform: capitalize;
     }
 
     .carousel-container {
@@ -104,20 +103,17 @@
   font-weight: bold;
 
   .size-list {
-    .main-header {
-    }
-
     .size-item {
       cursor: pointer;
       padding: 1px;
       width: $f18;
       height: $f18;
       margin: 0 $f5;
-			line-height: $f16;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			
+      line-height: $f16;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: $f8;
       &:hover {
         border: 1px solid $black-color;
         border-radius: 50%;
@@ -147,10 +143,10 @@
   }
 
   .merch-buy-link {
+    color: $gray-dark;
+    font-size: $link-font-size;
     font-family: OpenSans-Bold, sans-serif;
-    color: $black-color !important;
     cursor: pointer;
-
     &:hover {
       color: $black-color !important;
     }

@@ -1,6 +1,6 @@
 .contacts-container {
+  background-size: cover;
   .contacts-wrapper {
-
     .center-container {
       width: 100%;
 
@@ -12,13 +12,12 @@
 
           .header-answer {
             height: initial;
-            font-size: 22px;
+            font-size: 21px;
             font-family: OpenSans-Regular, sans-serif;
             font-weight: 100;
             width: 235px;
             text-align: center;
           }
-
         }
 
         .request-button-container {
@@ -43,13 +42,10 @@
           }
         }
       }
-
       .donate-block {
-        margin-top: 40px;
-
-        .btn-donate {
-          height: $f233;
-          width: 100%;
+        .btn-support {
+          font-size: 21px;
+          padding: 10px 20px;
         }
       }
     }
@@ -69,7 +65,7 @@
       position: relative;
       .list-item {
         &::before {
-          content: " ";
+          content: ' ';
           $size: $f13;
           width: $size;
           background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
