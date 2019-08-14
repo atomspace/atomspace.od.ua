@@ -1,3 +1,3 @@
 // import ToggleImage from "../../assets/images/"
-// export default () => 
+// export default () =>
 // <img src={} alt=""/>

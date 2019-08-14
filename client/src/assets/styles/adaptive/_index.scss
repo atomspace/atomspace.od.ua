@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1152px) {
+@media only screen and (max-width: 1023px) {
   * {
     box-sizing: border-box;
   }
@@ -9,15 +9,6 @@
 
   .small-nav {
     display: block;
-  }
-
-  .donate-block {
-    width: $f400 + $f610;
-
-    .btn-support {
-      height: $f144;
-      font-size: $f68;
-    }
   }
 
   @import 'main.scss';

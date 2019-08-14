@@ -34,8 +34,7 @@
   }
 
   .facebook {
-    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat
-      center/contain;
+    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat center/contain;
     opacity: 0.8;
     display: block;
 
@@ -45,8 +44,7 @@
   }
 
   .instagram {
-    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat
-      center/contain;
+    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat center/contain;
     display: block;
     opacity: 0.8;
 
@@ -56,8 +54,7 @@
   }
 
   .linkedin {
-    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat
-      center/contain;
+    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat center/contain;
     display: block;
     opacity: 0.8;
 
@@ -91,12 +88,12 @@ li {
 
   &.form {
     &:after {
-      content: "";
+      content: '';
       opacity: 0;
     }
 
     &:before {
-      content: "";
+      content: '';
       opacity: 0;
     }
   }
@@ -114,7 +111,7 @@ li {
     opacity: 1;
 
     &:after {
-      content: " ";
+      content: ' ';
       opacity: 0.3;
       cursor: pointer;
       position: absolute;
@@ -125,16 +122,12 @@ li {
       transition: all 0.3s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(
-        0.4turn,
-        $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right
-      );
+      background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
       top: 0;
     }
 
     &:before {
-      content: " ";
+      content: ' ';
       opacity: 0.3;
       cursor: pointer;
       position: absolute;
@@ -145,11 +138,7 @@ li {
       transition: all 0.3s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(
-        0.4turn,
-        $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right
-      );
+      background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
       top: 0;
     }
   }
@@ -201,8 +190,7 @@ li {
         height: 14px;
         position: relative;
         left: 7px;
-        background: url(#{$path-to-images}/icons/circle.svg) no-repeat
-          center/contain;
+        background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
       }
 
       .list {
@@ -228,13 +216,11 @@ li {
 
       &.light_theme {
         .instagram {
-          background: url(#{$path-to-images}/icons/soc/instagram-dark.svg)
-            no-repeat;
+          background: url(#{$path-to-images}/icons/soc/instagram-dark.svg) no-repeat;
         }
 
         .facebook {
-          background: url(#{$path-to-images}/icons/soc/facebook-dark.svg)
-            no-repeat;
+          background: url(#{$path-to-images}/icons/soc/facebook-dark.svg) no-repeat;
         }
 
         .list-item {
@@ -243,8 +229,7 @@ li {
           }
 
           &:before {
-            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
-              center/contain;
+            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
             color: $black-color;
           }
         }
@@ -269,8 +254,7 @@ li {
           position: absolute;
           //right: -$f8 / 2;
           right: -7px;
-          background: url(#{$path-to-images}/icons/circle.svg) no-repeat
-            center/contain;
+          background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
         }
 
         .list-item {
@@ -287,8 +271,7 @@ li {
           }
 
           .dot {
-            background: url(#{$path-to-images}/icons/circle-sidebar.svg)
-              no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-sidebar.svg) no-repeat center/contain;
             opacity: 1;
           }
         }
@@ -310,8 +293,7 @@ li {
             height: 14px;
             position: absolute;
             //right: -$f8 / 2;
-            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
-              center/contain;
+            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
           }
 
           .list-item {
@@ -326,8 +308,7 @@ li {
             }
 
             .dot {
-              background: url(#{$path-to-images}/icons/circle-sidebar-light.svg)
-                no-repeat center/contain;
+              background: url(#{$path-to-images}/icons/circle-sidebar-light.svg) no-repeat center/contain;
               opacity: 1;
             }
           }
@@ -352,8 +333,7 @@ li {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg)
-      center/cover no-repeat;
+    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg) center/cover no-repeat;
 
     &.hide {
       display: none;
@@ -371,8 +351,7 @@ li {
   }
 
   &.light_theme .nav_toggle {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg)
-      center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg) center/contain no-repeat;
   }
 }
 
@@ -386,16 +365,21 @@ li {
 }
 
 .nav_toggle {
-  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-dark.svg)
-    center/contain no-repeat;
+  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-dark.svg) center/contain no-repeat;
 
   &.cross {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg)
-      center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg) center/contain no-repeat;
   }
 
   &.cross.light {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg)
-      center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg) center/contain no-repeat;
+  }
+}
+
+.atomspace-link {
+  color: white;
+  transition: all 0.5s;
+  &:hover {
+    color: #e4e4e4;
   }
 }

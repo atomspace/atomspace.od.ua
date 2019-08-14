@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export function useUser() {
-  const [user, setUser] = useState({
+  const [user] = useState({
     name: { value: '', error: false },
     number: { value: '', error: false },
     email: { value: '', error: false },
@@ -17,8 +17,8 @@ export const validateUser = (user, inputData) => {
   Object.keys(user).forEach((key) => {
     const { value } = user[key];
     const validated = () => {
-      const isExist = inputData.find(val => val.id === key);
-      return (isExist.validate && !isExist.validate(value));
+      const isExist = inputData.find((val) => val.id === key);
+      return isExist.validate && !isExist.validate(value);
     };
     stateUser[key].error = !value.length || validated();
     if (!value.length || validated()) {

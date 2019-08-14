@@ -1,26 +1,24 @@
-@import "./normalize/normalize.scss";
+@import './normalize/normalize.scss';
 
 //Slick carousel
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 
-@import "fonts.scss";
+@import 'fonts.scss';
 
-@import "variables.scss";
-@import "mixins.scss";
-@import "flex.scss";
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'flex.scss';
 
+@import 'main.scss';
+@import 'sidebar.scss';
+@import 'buttons.scss';
+@import 'header.scss';
+@import 'carousel.scss';
 
-@import "main.scss";
-@import "sidebar.scss";
-@import "buttons.scss";
-@import "header.scss";
-@import "carousel.scss";
+@import './pages/index.scss';
+@import './adaptive/index.scss';
 
-@import "./pages/index.scss";
-@import "./adaptive/index.scss";
+@import 'animations.scss';
 
-@import "animations.scss";
-
-@import "bubble.scss";
-
+@import 'bubble.scss';

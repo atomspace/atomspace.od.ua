@@ -2,112 +2,74 @@
   .blog-wrapper {
     margin: 0;
     width: 100%;
-
     .main-text {
       display: none;
     }
-
     .main-text-mobile {
       display: block;
+      margin-bottom: $h68;
     }
-
     .blog-main-text {
       display: none;
     }
-
     .blog-skill-blocks-mobile {
       display: block;
-
       .slick-slider {
-        height: 100%;
-        width: 100%;
-
         @include noArrows;
-
         .slick-dots {
           li {
             border: 0;
           }
         }
-
         .slick-list {
           display: flex;
           align-items: center;
           height: 100% !important;
-
           .slick-slide {
-            -webkit-transition: all 0.3s ease-out;
-            transition: all 0.3s ease-out;
+            width: 70vw;
             opacity: 0.2;
-            padding: 0 20px;
-            // >div {
-            //   width: 110%;
-            // }
+            padding: 0 10px;
           }
-
-          .slick-active {
-            opacity: 0.4;
-          }
-
           .slick-center {
             opacity: 1;
           }
-
           .slick-track {
             display: flex;
             align-items: center;
           }
         }
-
         .blog-skill-item {
           outline: none;
-          // width: 110%;
-
-          // margin: 0 30px;
           > div {
-            margin: 0 auto
+            margin: 0 auto;
+            width: 100%;
           }
-
           &-information {
-            > div {
-              margin: 0 auto;
-              font-size: small;
-            }
-
             &__header {
               font-family: OpenSans-SemiBold, sans-serif;
-              margin-bottom: 10px !important;
-              font-size: 1.5em;
+              margin-top: $h42;
+              margin-bottom: $h42;
+              font-size: $f89;
               line-height: inherit;
             }
-
             &__description {
               font-family: OpenSans-Regular, sans-serif;
-              font-size: 1.5em;
-              line-height: inherit;
+              font-size: $f68;
+              line-height: $h68;
               width: 100%;
             }
           }
-
-          $size-logo: $f610+$f400;
-
-          @each $logo in mind,
-          team,
-          trust,
-          puzzle {
+          $size-logo: $f610 + $f400;
+          @each $logo in mind, team, trust, puzzle {
             &__#{$logo}-logo {
-
-              background: url(#{$path-to-images}/icons/blog/#{$logo}-logo.svg) no-repeat center/contain;
-              height: 180px;
-              width: 180px;
-              margin-bottom: $f5;
+              margin-bottom: 15px;
+              width: 100%;
               position: relative;
             }
           }
         }
       }
     }
-
     .blog-skill-blocks {
       display: none;
     }

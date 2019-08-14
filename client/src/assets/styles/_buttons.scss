@@ -9,14 +9,12 @@
   margin: $f16 0;
   color: white !important;
   outline: none;
-  background: linear-gradient(
-    0.4turn,
-    $list-item-atom-space-color-left,
-    $list-item-atom-space-color-right
-  );
+  background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
+
   font-size: $f16;
   font-weight: 500;
   text-transform: uppercase;
+
   a {
     font-size: 12pt;
     color: $white-color;
@@ -26,13 +24,10 @@
   }
   &.btn-donate {
     transition: all 1s;
-    display: block;
+    display: inline-block;
     z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     &:before {
-      content: " ";
+      content: ' ';
       opacity: 0.3;
       cursor: pointer;
       position: absolute;
@@ -41,16 +36,12 @@
       transition: all 1s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(
-        0.4turn,
-        $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right
-      );
+      background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
       top: 0;
       right: $f26;
     }
     &:after {
-      content: " ";
+      content: ' ';
       opacity: 0.3;
       cursor: pointer;
       position: absolute;
@@ -60,11 +51,7 @@
       border-radius: 3em;
       z-index: -10;
       left: $f26;
-      background: linear-gradient(
-        0.4turn,
-        $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right
-      );
+      background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
       top: 0;
     }
     &:hover {
@@ -86,7 +73,7 @@
   &[disabled] {
     opacity: 0.6;
   }
-  &.disabled{
+  &.disabled {
     opacity: 0.6;
   }
 }
@@ -94,6 +81,6 @@
 .donate-block {
   position: relative;
   z-index: 10;
-  width: $f233;
+  width: 100%;
   margin: 0 auto;
 }

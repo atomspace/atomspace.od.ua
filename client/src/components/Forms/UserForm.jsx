@@ -1,37 +1,37 @@
-import React from "react";
-import PropTypes from "prop-types"
-import LeftSidebar from "../../routes/Sidebar/Left";
-import classname from "classnames";
-import {validateUser} from "./validation";
-import RequestForm from "./RequestForm";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classname from 'classnames';
+import LeftSidebar from '../../routes/Sidebar/Left';
+import { validateUser } from './validation';
+import RequestForm from './RequestForm';
 
 export default class UserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       user: {
-        name: { value: "", error: false },
-        number: { value: "", error: false },
-        email: { value: "", error: false },
-        information: { value: "", error: false }
+        name: { value: '', error: false },
+        number: { value: '', error: false },
+        email: { value: '', error: false },
+        information: { value: '', error: false },
       },
       isDisabled: true,
     };
   }
 
   createOrder = async () => {
-    let user = this.state.user;
-    let {inputData} = this.props;
-    const {isDisabled, stateUser} = validateUser(user, inputData);
+    const { user } = this.state;
+    const { inputData } = this.props;
+    const { isDisabled, stateUser } = validateUser(user, inputData);
 
     this.setState({
       ...this.state,
       ...stateUser,
     });
 
-    if(!isDisabled){
+    if (!isDisabled) {
       try {
-        let data = {
+        const data = {
           name: user.name.value,
           email: user.email.value,
           number: +user.number.value,
@@ -47,7 +47,7 @@ export default class UserForm extends React.Component {
 
   handleInputUser = (event, validate) => {
     const name = event.target.id;
-    const {value} = event.target;
+    const { value } = event.target;
     const error = !value.length || (validate && !validate(value));
     this.setState({
       ...this.state,
@@ -56,20 +56,20 @@ export default class UserForm extends React.Component {
         [name]: {
           ...this.state.user[name],
           error,
-          value
-        }
+          value,
+        },
       },
-      isDisabled: error
+      isDisabled: error,
     });
   };
 
   renderFormBlocks = () => (
     <div className="form-blocks flex flex-cen">
       <div className="form-maintext-block">
-        <div className={"form-maintext-block__header"}>
+        <div className="form-maintext-block__header">
           {this.props.headerText}
         </div>
-        <div className={"form-maintext-block__text"}>{this.props.mainText}</div>
+        <div className="form-maintext-block__text">{this.props.mainText}</div>
       </div>
     </div>
   );
@@ -101,10 +101,11 @@ export default class UserForm extends React.Component {
       </div>
     </div>
   );
+
   render() {
     return (
-      <div className={"main-form-container"}>
-        <div className={"navigation"}>
+      <div className="main-form-container">
+        <div className="navigation">
           <LeftSidebar {...this.props} />
         </div>
 
@@ -116,10 +117,11 @@ export default class UserForm extends React.Component {
         <div className="close-dialog-btn" onClick={this.props.getBack} />
         <div className="nav_toggle cross" onClick={this.props.getBack} />
         <RequestForm
-            formBlocks={this.renderFormBlocks()}
-            formRegister={this.renderFormRegister()}
-            headerText={this.props.headerText}
-            createOrder={this.createOrder}/>
+          formBlocks={this.renderFormBlocks()}
+          formRegister={this.renderFormRegister()}
+          headerText={this.props.headerText}
+          createOrder={this.createOrder}
+        />
       </div>
     );
   }
@@ -131,4 +133,4 @@ UserForm.propTypes = {
   mainText: PropTypes.any,
   getBack: PropTypes.func.isRequired,
   inputData: PropTypes.any,
-}
+};
