@@ -35,11 +35,6 @@ const inputData = [
     validate: validators.phone,
   },
   {
-    id: 'birthday',
-    placeholder: 'Дата рождения:',
-    type: 'calendar',
-  },
-  {
     id: 'email',
     placeholder: 'Email:',
     type: 'email',
