@@ -23,7 +23,7 @@ class Sidebar extends Component {
       },
       {
         href: '#edu',
-        text: 'ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ',
+        text: 'ПРОГРАММЫ',
       },
       {
         href: '#family',

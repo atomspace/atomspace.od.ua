@@ -21,7 +21,6 @@ export const validateUser = (user, inputData) => {
       return Boolean(isExist.validate && !isExist.validate(value));
     };
     stateUser[key].error = !value.length || validated();
-    console.log(stateUser[key].error);
     if (!value.length || validated()) {
       isDisabled = true;
     }

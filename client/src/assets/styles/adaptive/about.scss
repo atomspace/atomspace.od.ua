@@ -18,7 +18,7 @@
           height: 30px;
           position: relative;
           @media only screen and (max-height: 1367px) and (min-height: 851px) {
-            width: 310px;
+            width: 410px;
             height: 85px;
           }
         }
@@ -27,7 +27,7 @@
         .about-text-1 {
           display: block;
           display: block;
-          font-size: $f68;
+          font-size: $f68 !important;
           line-height: $h55 + $h5;
         }
         .about-text-2,

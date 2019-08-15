@@ -22,6 +22,7 @@ export default function Mentor(props) {
       autocomplete: 'off',
       type: 'number',
       validate: validators.phone,
+      modify: (value) => +value,
     },
     {
       id: 'email',

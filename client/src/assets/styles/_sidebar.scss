@@ -6,10 +6,10 @@
 
 .atom-logo {
   position: relative;
-  background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo.svg);
-  left: -$f5;
+  left: -$f26;
+  width: $f233;
+  margin-bottom: $h42;
   display: block;
-  height: 110px;
   background-size: $f178;
   background-position: center center;
   background-repeat: no-repeat;
@@ -237,10 +237,6 @@ li {
     }
 
     &__right {
-      .atom-logo {
-        background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo.svg);
-      }
-
       .list {
         display: flex;
         justify-content: flex-end;
@@ -282,24 +278,13 @@ li {
       }
 
       &.light_theme {
-        .atom-logo {
-          background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo-dark.svg);
-        }
-
         .list {
           .dot {
             opacity: 0;
             width: 14px;
             height: 14px;
             position: absolute;
-            //right: -$f8 / 2;
             background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
-          }
-
-          .list-item {
-            // &:hover {
-            //   color: $black-color;
-            // }
           }
 
           &.selected {
