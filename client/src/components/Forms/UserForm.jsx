@@ -4,6 +4,7 @@ import classname from 'classnames';
 import LeftSidebar from '../../routes/Sidebar/Left';
 import { validateUser } from './validation';
 import RequestForm from './RequestForm';
+import { Loader } from '../Loader';
 
 export default class UserForm extends React.Component {
   constructor(props) {
@@ -16,16 +17,18 @@ export default class UserForm extends React.Component {
         email: { value: '', error: false },
         information: { value: '', error: false },
       },
+      loading: false,
       isDisabled: true,
     };
   }
 
   createOrder = async () => {
+    this.setState({loading: true});
     const { user } = this.state;
     const { inputData } = this.props;
     let { isDisabled, stateUser } = validateUser(user, inputData);
 
-    if (stateUser.birth.value === ''){
+    if (stateUser.birth.value === '' && stateUser.name.value !== ''){
       stateUser.birth.value = 'mentor don`t have birthday';
       isDisabled = false;
     }
@@ -44,9 +47,13 @@ export default class UserForm extends React.Component {
           number: +user.number.value,
           information: user.information.value,
         };
-        await this.props.createOrder(data);
-        this.props.getBack();
+        let res = await this.props.createOrder(data);
+        if (res.length !== 0){
+          this.setState({loading: false});
+          this.props.getBack();
+        }
       } catch (e) {
+        this.setState({loading: false});
         this.props.getBack();
       }
     }
@@ -102,7 +109,7 @@ export default class UserForm extends React.Component {
         ))}
         <div className="request-button-block">
           <button className="btn btn-support btn-request" onClick={this.createOrder}>
-            {this.props.buttonText}
+            {this.state.loading ? <Loader /> : this.props.buttonText}
           </button>
         </div>
       </div>
