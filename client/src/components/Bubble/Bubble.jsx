@@ -1,5 +1,6 @@
 import React from 'react';
 import * as classnames from 'classnames';
+import { ImageLoader } from '../ImageLoader';
 
 export default class Bubble extends React.Component {
   constructor(props) {
@@ -72,7 +73,7 @@ export default class Bubble extends React.Component {
         {image && (
           <div className="image-block">
             <div className="arrow left-arrow" onClick={this.prevImage} />
-            <img
+            <ImageLoader
               src={this.props.image[this.state.indexPicture]}
               className="bubble-image"
               alt="bubble"

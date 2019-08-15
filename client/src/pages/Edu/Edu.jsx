@@ -8,6 +8,7 @@ import ScriptsLogo from '../../assets/images/icons/edu/scripts-logo.svg';
 import BookLogo from '../../assets/images/icons/edu/book-logo.svg';
 import PythonLogo from '../../assets/images/icons/edu/python-logo.svg';
 import WordPressLogo from '../../assets/images/icons/edu/wordpress-logo.svg';
+import { ImageLoader } from '../../components/ImageLoader';
 
 const mainText = 'Программы Atom Space';
 const mainTextMobile = 'Программы';
@@ -80,7 +81,7 @@ export default class Edu extends React.Component {
             {this.eduItems.map((item, index) => (
               <div key={index} className="edu-item">
                 <div className="edu-item__layout flex flex-col flex-acen flex-jcen">
-                  <img alt="eduImage" src={item.image} className={`edu-item__${item.logo}`} />
+                  <ImageLoader alt="eduImage" src={item.image} className={`edu-item__${item.logo}`} />
                   <div className="edu-item__text">{item.text}</div>
                 </div>
               </div>
@@ -99,7 +100,7 @@ export default class Edu extends React.Component {
                     {item.mobileText}
                   </div>
                   {this.state.index === index && (
-                    <img alt="eduImageSelected" src={item.image} className={`edu-item__${item.logo}`} />
+                    <ImageLoader alt="eduImageSelected" src={item.image} className={`edu-item__${item.logo}`} />
                   )}
                 </div>
               ))}

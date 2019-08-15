@@ -5,6 +5,7 @@ import MindLogo from '../../assets/images/icons/blog/mind-logo.svg';
 import TeamLogo from '../../assets/images/icons/blog/team-logo.svg';
 import TrustLogo from '../../assets/images/icons/blog/trust-logo.svg';
 import PuzzleLogo from '../../assets/images/icons/blog/puzzle-logo.svg';
+import { ImageLoader } from '../../components/ImageLoader';
 
 const mainText = 'Ценности ATOM SPACE';
 const mainTextMobile = 'Ценности';

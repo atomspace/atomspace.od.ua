@@ -5,6 +5,8 @@ import AboutPhoto2 from '../../assets/images/photos/about_photo_2.png';
 import AboutPhoto3 from '../../assets/images/photos/about_photo_3.png';
 import AboutPhoto4 from '../../assets/images/photos/about_photo_4.png';
 import AtomspaceText from '../../assets/images/icons/logos/AtomSpace-about-maintext.svg';
+import LazyLoad from 'react-lazy-load';
+import { ImageLoader } from '../../components/ImageLoader';
 
 const mainText =
   'Социальный образовательный проект, основанный Provectus и IT2School с целью создать возможность для талантливых подростков расти и развиваться в сфере IT. ';
@@ -21,7 +23,12 @@ export default function About() {
       <div className="about-blocks flex flex-cen">
         <div className="about-main-block">
           <div className="about-main-block-image">
-            <img alt="AtomSpaceText" src={AtomspaceText} className="about-main-block-image__atomspace" />
+            <LazyLoad
+            debounce={false}
+            offsetVertical={500}
+            >
+              <ImageLoader alt="AtomSpaceText" src={AtomspaceText} className="about-main-block-image__atomspace" />
+            </LazyLoad>
           </div>
           <div className="about-main-block-text">
             <div className="about-text-1">
