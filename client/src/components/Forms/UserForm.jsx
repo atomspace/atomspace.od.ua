@@ -5,6 +5,7 @@ import LeftSidebar from '../../routes/Sidebar/Left';
 import { validateUser } from './utils/validation';
 import MobileRequestForm from './MobileRequestForm';
 import { Button } from '../Button/Button';
+import { Loader } from '../Loader';
 
 export default class UserForm extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export default class UserForm extends React.Component {
         email: { value: '', error: false },
         information: { value: '', error: false },
       },
+      loading: false,
       isDisabled: true,
       isLoading: false,
     };
@@ -41,14 +43,14 @@ export default class UserForm extends React.Component {
       };
       try {
         this.setState({ isLoading: true });
-        // await createOrder(data);
+        await createOrder(data);
         setTimeout(() => {
           this.setState({ isLoading: false });
-          console.log(this.state.isLoading);
-          // getBack();
+          this.props.getBack();
         }, 3000);
       } catch (e) {
-        getBack();
+        this.setState({ isLoading: false });
+        this.props.getBack();
       }
     }
   };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Rocket from '../../assets/images/icons/contacts/rocket-donate.svg';
 import ContactInfo from './ContactInfo';
+import { ImageLoader } from '../../components/ImageLoader';
 
 class Contacts extends Component {
   state = {};
@@ -14,7 +15,7 @@ class Contacts extends Component {
               <div className="main-block__information">
                 <p className="header-ask">Вам нравится, что мы делаем?</p>
                 <div className="logo-wrapper">
-                  <img className="rocket-image" src={Rocket} alt="" />
+                  <ImageLoader className="rocket-image" src={Rocket} alt="" />
                 </div>
               </div>
               <div className="main-block__requests flex flex-col">

@@ -1,6 +1,7 @@
 import React from 'react';
 import AnimatePlanet from './AnimatePlanet';
 import MainLogo from '../../assets/images/icons/logos/AtomSpace-logo-vertical.svg';
+import { ImageLoader } from '../../components/ImageLoader';
 
 const mainText = 'образовательное  тех-пространство для подростков';
 class Main extends React.Component {
@@ -12,7 +13,7 @@ class Main extends React.Component {
           <div className="center-wrapper">
             <div className="header-stars">{mainText}</div>
             <AnimatePlanet />
-            <img alt="Main Logo" className="main-logo" src={MainLogo} />
+            <ImageLoader alt="Main Logo" className="main-logo" src={MainLogo} />
             <div className="donate-block">
               <a
                 className="btn btn-support btn-donate"

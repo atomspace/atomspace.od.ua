@@ -6,6 +6,7 @@ import MerchSize from './MerchSize';
 import MerchBuy from './MerchBuy';
 import { getAllMerches } from '../../api/merch';
 import { MEDIA_URL } from '../../utils/config';
+import { ImageLoader } from '../../components/ImageLoader';
 
 const mainText = 'хочешь содействовать развитию проекта?';
 const mainTextMobile = 'Желаешь поддержать нас?';
@@ -78,7 +79,7 @@ class Store extends Component {
                   <div className="carousel-info__merch">
                     <div className="wrapper">
                       <div className="ellipse" />
-                      <img className="merch-logo" src={`${MEDIA_URL}/${merch.avatar_url}`} alt="merch" />
+                      <ImageLoader className="merch-logo" src={`${MEDIA_URL}/${merch.avatar_url}`} alt="merch" />
                     </div>
                   </div>
                 </div>

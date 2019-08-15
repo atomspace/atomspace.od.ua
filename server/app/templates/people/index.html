@@ -10,48 +10,60 @@
         {% if mentors or residents %}
             <span>
                 <select id="select" onchange="change()">
-                    {% if residents %}
+                    {% if mentors_len == 0 %}
+                        <option value="Residents" selected>Residents</option>
+                        <option value="Mentors">Mentors</option>
+                    {% elif residents_len == 0 %}
+                        <option value="Residents">Residents</option>
+                        <option value="Mentors" selected>Mentors</option>
+                    {% else %}
                         <option value="Residents" selected>Residents</option>
                         <option value="Mentors">Mentors</option>
                     {% endif %}
-                    {% if mentors %}
-                        <option value="Residents">Residents</option>
-                        <option value="Mentors" selected>Mentors</option>
-                    {% endif %}
                 </select>
             </span>
-            <ul id="residents">
-            <li class="list-group-item orders-item">
-                <div>Name</div>
-                <div>Email</div>
-                <div>Phone</div>
-                <div>Info</div>
-            </li>
-            {% for i in residents %}
-                <li class="list-group-item orders-item">
-                    <div>{{ i }}</div>
-                    <div>{{ i.email }}</div>
-                    <div>{{ i.number }}</div>
-                    <div>{{ i.information }}</div>
-                </li>
-            {% endfor %}
-            </ul>
-            <ul id="mentors">
-            <li class="list-group-item orders-item">
-                <div>Name</div>
-                <div>Email</div>
-                <div>Phone</div>
-                <div>Info</div>
-            </li>
-            {% for i in mentors %}
-                <li class="list-group-item orders-item">
-                    <div>{{ i }}</div>
-                    <div>{{ i.email }}</div>
-                    <div>{{ i.number }}</div>
-                    <div>{{ i.information }}</div>
-                </li>
-            {% endfor %}
-            </ul>
+            <table class="table" id="residents">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in residents %}
+                        <tr>
+                            <td scope="col">{{ i }}</td>
+                            <td scope="col">{{ i.birthday }}</td>
+                            <td scope="col">{{ i.email }}</td>
+                            <td scope="col">{{ i.number }}</td>
+                            <td scope="col">{{ i.information }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>    
+            </table>
+            <table class="table" id="mentors">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in mentors %}
+                        <tr>
+                            <td>{{ i }}</td>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.number }}</td>
+                            <td>{{ i.information }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
         {% else %}
             <h2 class="orders-h2">No requests found</h2>
         {% endif %}

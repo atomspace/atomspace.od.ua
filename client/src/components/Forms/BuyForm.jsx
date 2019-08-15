@@ -3,6 +3,7 @@ import classname from 'classnames';
 import { MEDIA_URL } from '../../utils/config';
 import { validateUser } from './utils/validation';
 import validators from '../../utils/validators';
+import { ImageLoader } from '../ImageLoader';
 
 const mainHeader = 'ДЕТАЛИ ЗАКАЗА';
 const additionalHeader = 'Чтоб мы могли вам отправить футболку, заполните поля ниже.';
@@ -116,7 +117,7 @@ export default class BuyForm extends React.Component {
             </div>
           </div>
           <div className="merch-photo">
-            <img alt="merch" className="image" src={`${MEDIA_URL}${this.props.order.avatar_url}`} />
+            <ImageLoader alt="merch" className="image" src={`${MEDIA_URL}${this.props.order.avatar_url}`} />
           </div>
         </div>
 

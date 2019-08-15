@@ -6,6 +6,7 @@ import TapSwipe from '../../assets/images/icons/adaptive/tap-swipe.svg';
 import AnnaPhoto from '../../assets/images/photos/anna-derevyanko.png';
 import KseniyaPhoto from '../../assets/images/photos/kseniya-yarmolovich.png';
 import VeronikaPhoto from '../../assets/images/photos/veronika-ilnitckaya.png';
+import { ImageLoader } from '../../components/ImageLoader';
 
 const people = [
   {
@@ -66,13 +67,13 @@ export default class Family extends React.Component {
       <div className="section family-container">
         <div className="family-wrapper">
           <div className="main-text-mobile">КОМАНДА</div>
-          <img alt="tapSwipeImage" src={TapSwipe} className="tap-swipe-logo" />
+          <ImageLoader alt="tapSwipeImage" src={TapSwipe} className="tap-swipe-logo" />
           <div className="carousel-container">
             <Slider {...settings}>
               {people.map((emp, index) => (
                 <div key={index} className="carousel-block">
                   <div className="carousel-info__photo">
-                    <img alt="empPhoto" src={emp.imageLink} className={`photo-logo ${emp.avatar}`} />
+                    <ImageLoader alt="empPhoto" src={emp.imageLink} className={`photo-logo ${emp.avatar}`} />
                   </div>
                 </div>
               ))}
