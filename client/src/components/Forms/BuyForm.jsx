@@ -4,6 +4,8 @@ import { MEDIA_URL } from '../../utils/config';
 import { validateUser } from './validation';
 import validators from '../../utils/validators';
 import { ImageLoader } from '../ImageLoader';
+import { Loader } from '../Loader';
+
 
 const mainHeader = 'ДЕТАЛИ ЗАКАЗА';
 const additionalHeader = 'Чтоб мы могли вам отправить футболку, заполните поля ниже.';
@@ -36,10 +38,12 @@ export default class BuyForm extends React.Component {
         npMail: { value: '', error: false },
       },
       isDisabled: true,
+      loading: false
     };
   }
 
   createOrder = async () => {
+    this.setState({loading: true});
     const { user } = this.state;
     const { inputData } = this.props;
     const { isDisabled, stateUser } = validateUser(user, inputData);
@@ -57,10 +61,14 @@ export default class BuyForm extends React.Component {
           number: +user.number.value,
           information: user.information.value,
         };
-        await this.props.createOrder(data);
-        window.location = way4payLink;
-        this.props.getBack();
+        let res = await this.props.createOrder(data);
+        if (res.length !== 0){
+          this.setState({loading: false});
+          window.location = way4payLink;
+          this.props.getBack();
+        }
       } catch (e) {
+        this.setState({loading: false});
         this.props.getBack();
       }
     }
@@ -128,7 +136,7 @@ export default class BuyForm extends React.Component {
             <div className="order-form">{this.renderFormRegister()}</div>
             <div className="order-request">
               <button className={classname('btn btn-support btn-request pay-button')} onClick={this.createOrder}>
-                {'Оплатить'}
+                {this.state.loading ? <Loader /> : 'Оплатить'}
               </button>
               <h3 className="price-info">{`₴ ${this.props.order.price}`}</h3>
             </div>
