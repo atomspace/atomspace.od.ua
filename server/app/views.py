@@ -191,7 +191,9 @@ def orders(request):
 def people(request):
     context = {
         'mentors': Mentor.objects.all(),
-        'residents': Resident.objects.all()
+        'mentors_len': Mentor.objects.count(),
+        'residents': Resident.objects.all(),
+        'residents_len': Resident.objects.count()
     }
     return render(request, 'people/index.html', context)
 

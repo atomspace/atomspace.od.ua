@@ -10,13 +10,15 @@
         {% if mentors or residents %}
             <span>
                 <select id="select" onchange="change()">
-                    {% if residents %}
+                    {% if mentors_len == 0 %}
                         <option value="Residents" selected>Residents</option>
                         <option value="Mentors">Mentors</option>
-                    {% endif %}
-                    {% if mentors %}
+                    {% elif residents_len == 0 %}
                         <option value="Residents">Residents</option>
                         <option value="Mentors" selected>Mentors</option>
+                    {% else %}
+                        <option value="Residents" selected>Residents</option>
+                        <option value="Mentors">Mentors</option>
                     {% endif %}
                 </select>
             </span>
