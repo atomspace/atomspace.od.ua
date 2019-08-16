@@ -4,6 +4,8 @@ import { MEDIA_URL } from '../../utils/config';
 import { validateUser } from './utils/validation';
 import validators from '../../utils/validators';
 import { ImageLoader } from '../ImageLoader';
+import { Button } from '../Button/Button';
+import { createRequestForMerch } from '../../api/merch';
 
 const mainHeader = 'ДЕТАЛИ ЗАКАЗА';
 const additionalHeader = 'Чтоб мы могли вам отправить футболку, заполните поля ниже.';
@@ -21,6 +23,11 @@ const inputData = [
     validate: validators.phone,
   },
   {
+    id: 'city',
+    placeholder: 'Город:',
+    type: 'text',
+  },
+  {
     id: 'npMail',
     placeholder: 'Отделение новой почты:',
     type: 'text',
@@ -30,43 +37,42 @@ export default class BuyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        fullName: { value: '', error: false },
-        phone: { value: '', error: false },
-        npMail: { value: '', error: false },
-      },
+      user: this.getUserByProps(inputData),
       isDisabled: true,
+      isLoading: false,
     };
   }
 
+  getUserByProps(data) {
+    return data.reduce((acc, data) => ({ ...acc, [data.id]: { value: '', error: false } }), {});
+  }
+  prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {});
+
   createOrder = async () => {
     const { user } = this.state;
-    const { inputData } = this.props;
-    const { isDisabled, stateUser } = validateUser(user, inputData);
-
+    const { getBack, createOrder } = this.props;
+    const { stateUser, isDisabled } = validateUser(user, inputData);
     this.setState({
       ...this.state,
       ...stateUser,
     });
-
+    const data = this.prepareData(user);
     if (!isDisabled) {
       try {
-        const data = {
-          name: user.name.value,
-          email: user.email.value,
-          number: +user.number.value,
-          information: user.information.value,
-        };
-        await this.props.createOrder(data);
+        this.setState({ isLoading: true });
+
+        await createRequestForMerch(data);
         window.location = way4payLink;
-        this.props.getBack();
+        // this.setState({ isLoading: false });
+        // this.props.getBack();
       } catch (e) {
-        this.props.getBack();
+        this.setState({ isLoading: false });
+        // this.props.getBack();
       }
     }
   };
 
-  handleInputUser = (event, validate) => {
+  handleInputUser = (validate, event) => {
     const name = event.target.id;
     const { value } = event.target;
     const error = !value.length || (validate && !validate(value));
@@ -93,8 +99,8 @@ export default class BuyForm extends React.Component {
           type={data.type}
           placeholder={data.placeholder}
           value={this.state.user[data.id].value}
-          onChange={(e) => this.handleInputUser(e, data.validate)}
-          onBlur={(e) => this.handleInputUser(e, data.validate)}
+          onChange={this.handleInputUser.bind(this, data.validate)}
+          onBlur={this.handleInputUser.bind(this, data.validate)}
         />
       </div>
     ));
@@ -108,6 +114,9 @@ export default class BuyForm extends React.Component {
         <div className="close-dialog-btn" onClick={this.props.getBack} />
         <div className="nav_toggle cross" onClick={this.props.getBack} />
         <div className="show-block">
+          <div className="merch-photo">
+            <ImageLoader alt="merch" className="image" src={`${MEDIA_URL}${this.props.order.avatar_url}`} />
+          </div>
           <div className="text-info">
             <div className="text-info__choice">Ваш выбор:</div>
             <div className="text-info__name">{this.props.order.name}</div>
@@ -115,9 +124,6 @@ export default class BuyForm extends React.Component {
               <span className="bold">Размер: </span>
               {this.props.order.size}
             </div>
-          </div>
-          <div className="merch-photo">
-            <ImageLoader alt="merch" className="image" src={`${MEDIA_URL}${this.props.order.avatar_url}`} />
           </div>
         </div>
 
@@ -127,10 +133,14 @@ export default class BuyForm extends React.Component {
             <h2 className="additional-header">{additionalHeader}</h2>
             <div className="order-form">{this.renderFormRegister()}</div>
             <div className="order-request">
-              <button className={classname('btn btn-support btn-request pay-button')} onClick={this.createOrder}>
-                {'Оплатить'}
-              </button>
               <h3 className="price-info">{`₴ ${this.props.order.price}`}</h3>
+              <Button
+                className="btn btn-support btn-request pay-button"
+                loading={this.state.isLoading}
+                onClick={this.createOrder}
+              >
+                {'Оплатить'}
+              </Button>
             </div>
           </div>
         </div>

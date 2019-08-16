@@ -143,7 +143,6 @@
   }
 
   .merch-buy-link {
-    color: $gray-dark;
     font-size: $link-font-size;
     font-family: OpenSans-Bold, sans-serif;
     cursor: pointer;
@@ -190,11 +189,13 @@
 
   .order-block {
     background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
+    background-image: url(/static/media/background-full-fixed.0c62d45d.svg);
     background-repeat: no-repeat;
     bottom: 0;
     width: 375px;
-    height: 375px;
-    background-size: contain;
+    border: 0;
+    background-size: cover;
+    border-radius: 40px;
     .order-items {
       color: $white-color;
       padding: 35px;
@@ -246,9 +247,9 @@
           &::-ms-input-placeholder {
             color: $white-color;
           }
-          
+
           &#phone::-webkit-inner-spin-button,
-          &#phone::-webkit-outer-spin-button{
+          &#phone::-webkit-outer-spin-button {
             margin: 0;
             -webkit-appearance: none;
           }
@@ -286,18 +287,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row-reverse;
     margin-right: 85px;
-    width: 30%;
-    height: 44%;
+    width: 40%;
     .text-info {
       font-size: 16px;
       line-height: 22px;
       text-align: left;
-      margin-right: 13px;
       margin-left: 50px;
-      width: 300px;
-
+      width: 50%;
       &__choice {
         font-family: OpenSans-SemiBold, sans-serif;
         margin-bottom: 12px;
@@ -314,7 +311,7 @@
     }
 
     .merch-photo {
-      width: 100%;
+      width: 50%;
       .image {
         background-repeat: no-repeat;
         background-size: contain;

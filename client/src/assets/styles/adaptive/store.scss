@@ -138,8 +138,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: fixed;
-    bottom: -50px;
     width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     .order-items {
       color: $white-color;
       padding: 35px;

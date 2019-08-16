@@ -11,20 +11,18 @@ export default class UserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        name: { value: '', error: false },
-        birth: { value: '', error: false },
-        number: { value: '', error: false },
-        email: { value: '', error: false },
-        information: { value: '', error: false },
-      },
-      loading: false,
+      user: this.getUserByProps(props.inputData),
       isDisabled: true,
       isLoading: false,
     };
   }
 
-  createOrder = async () => {
+  getUserByProps(data) {
+    return data.reduce((acc, data) => ({ ...acc, [data.id]: { value: '', error: false } }), {});
+  }
+  prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {});
+
+  submitForm = async () => {
     const { user } = this.state;
     const { inputData, createOrder, getBack } = this.props;
     const { isDisabled, stateUser } = validateUser(user, inputData);
@@ -32,22 +30,13 @@ export default class UserForm extends React.Component {
       ...this.state,
       ...stateUser,
     });
-
     if (!isDisabled) {
-      const data = {
-        name: user.name.value,
-        birth: user.birth.value,
-        email: user.email.value,
-        number: +user.number.value,
-        information: user.information.value,
-      };
+      const data = this.prepareData(user);
       try {
         this.setState({ isLoading: true });
         await createOrder(data);
-        setTimeout(() => {
-          this.setState({ isLoading: false });
-          this.props.getBack();
-        }, 3000);
+        this.setState({ isLoading: false });
+        this.props.getBack();
       } catch (e) {
         this.setState({ isLoading: false });
         this.props.getBack();
@@ -55,16 +44,18 @@ export default class UserForm extends React.Component {
     }
   };
 
-  handleInputUser = (validate, event) => {
-    const name = event.target.id;
-    const { value } = event.target;
-    const error = !value.length || (validate && !validate(value));
+  handleInputUser = (data, event) => {
+    const { id, value } = event.target;
+    if (id === 'birth') {
+      event.target.type = 'date';
+    }
+    const error = !value.length || (data.validate && !data.validate(value));
     this.setState({
       ...this.state,
       user: {
         ...this.state.user,
-        [name]: {
-          ...this.state.user[name],
+        [id]: {
+          ...this.state.user[id],
           error,
           value,
         },
@@ -82,10 +73,6 @@ export default class UserForm extends React.Component {
     </div>
   );
 
-  handleBirth = (e) => {
-    e.target.type === 'text' ? (e.target.type = 'date') : (e.target.type = 'text');
-  };
-
   renderFormRegister = () => (
     <div className="form-main">
       <div className="form-registration">
@@ -94,20 +81,16 @@ export default class UserForm extends React.Component {
             <input
               className={classname({ error: this.state.user[data.id].error })}
               id={data.id}
-              type={data.type}
+              type={data.id === 'birth' ? 'text' : data.type}
               placeholder={data.placeholder}
               value={this.state.user[data.id].value || data.defaultValue}
-              onChange={this.handleInputUser.bind(this, data.validate)}
-              onFocus={this.handleInputUser.bind(this, data.validate)}
+              onChange={this.handleInputUser.bind(this, data)}
+              onFocus={this.handleInputUser.bind(this, data)}
             />
           </div>
         ))}
         <div className="request-button-block">
-          <Button
-            className="btn btn-support btn-request"
-            loading={this.state.isLoading.toString()}
-            onClick={this.createOrder}
-          >
+          <Button className="btn btn-support btn-request" loading={this.state.isLoading} onClick={this.submitForm}>
             {this.props.buttonText}
           </Button>
         </div>
@@ -133,7 +116,8 @@ export default class UserForm extends React.Component {
           formBlocks={this.renderFormBlocks()}
           formRegister={this.renderFormRegister()}
           headerText={this.props.headerText}
-          createOrder={this.createOrder}
+          submitForm={this.submitForm}
+          isLoading={this.state.isLoading}
         />
       </div>
     );

@@ -7,6 +7,7 @@ import MerchBuy from './MerchBuy';
 import { getAllMerches } from '../../api/merch';
 import { MEDIA_URL } from '../../utils/config';
 import { ImageLoader } from '../../components/ImageLoader';
+import LocalStorage from '../../localStorage';
 
 const mainText = 'хочешь содействовать развитию проекта?';
 const mainTextMobile = 'Желаешь поддержать нас?';
@@ -33,13 +34,14 @@ class Store extends Component {
     let merches = await getAllMerches();
     if (merches.length) {
       merches = this.increaseCountOfMerch(merches);
-      const merch = { ...merches[0].fields, ...this.props.getCachedMerch() };
+      const merch = { ...merches[0].fields, ...LocalStorage.getMerch() };
       this.props.changeMerchAttr(merch);
       this.setState({ merches: merches.map((merch) => merch.fields) });
     }
   }
 
   render() {
+    const { order, handleOrder, changeMerchAttr, handleDialog } = this.props;
     let settings = {};
     if (this.state.merches.length) {
       settings = {
@@ -87,8 +89,8 @@ class Store extends Component {
             </Slider>
           </div>
           <div className="store-buttons-mobile">
-            <MerchSize changeMerchAttr={this.props.changeMerchAttr} />
-            <MerchBuy order={this.props.order} handleDialog={this.props.handleDialog} />
+            <MerchSize changeMerchAttr={changeMerchAttr} size={order.size} />
+            <MerchBuy handleDialog={handleDialog} price={order.price} />
           </div>
         </div>
       </div>

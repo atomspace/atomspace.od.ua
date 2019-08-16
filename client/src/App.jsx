@@ -6,27 +6,38 @@ import Mentor from './components/Forms/Mentor';
 import Sidebar from './routes/Sidebar/Sidebar.jsx';
 import BuyForm from './components/Forms/BuyForm';
 import Resident from './components/Forms/Resident/Resident';
-
+import LocalStorage from './localStorage';
 export const urls = ['main', 'about', 'blog', 'edu', 'family', 'store', 'contacts'];
 
 class App extends Component {
-  state = {
-    currentPage: 'main',
-    userHash: ['#'],
-    form: null,
-    order: this.getCachedMerch(),
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: 'main',
+      userHash: ['#'],
+      form: null,
+      order: LocalStorage.getMerch(),
+    };
+  }
 
   componentDidMount() {
-    this.changeDialog(window.location.hash);
+    this.changeDialog(this.getHash());
     this.handleBack();
   }
 
+  getHash() {
+    return window.location.hash;
+  }
+
+  setHash(data) {
+    window.location.hash = data;
+  }
+
   getBack = () => {
-    this.setState((state) => ({ ...state, form: null }));
+    this.changeDialog(null);
     const preLastUserHash = this.state.userHash[this.state.userHash.length - 2];
     const lastUserHash = this.state.userHash[this.state.userHash.length - 1];
-    window.location.hash = preLastUserHash || lastUserHash;
+    this.setHash(preLastUserHash || lastUserHash);
   };
 
   handleBack = () => {
@@ -41,10 +52,6 @@ class App extends Component {
     };
   };
 
-  getCachedMerch() {
-    return JSON.parse(window.localStorage.getItem('currentMerch'));
-  }
-
   changeDialog(hash) {
     this.setState((state) => ({
       ...state,
@@ -56,17 +63,13 @@ class App extends Component {
     this.changeDialog(e.target.hash);
   };
 
-  saveToCache = (prop) => {
-    window.localStorage.setItem('currentMerch', JSON.stringify({ ...this.state.order, ...prop }));
-  };
-
   changeMerchAttr = (prop) => {
-    this.saveToCache(prop);
+    console.log('changeMerchAttr', prop);
+    LocalStorage.setMerch({ ...this.state.order, ...prop });
     this.setState({
       order: { ...this.state.order, ...prop },
     });
   };
-
   pageOnChange = (origin, destination) => {
     this.setState((state) => ({
       ...state,
@@ -100,7 +103,6 @@ class App extends Component {
                 size={this.state.size}
                 changeMerchAttr={this.changeMerchAttr}
                 handleDialog={this.handleDialog}
-                getCachedMerch={this.getCachedMerch}
               />
               <Contacts handleDialog={this.handleDialog} />
             </ReactFullpage.Wrapper>
