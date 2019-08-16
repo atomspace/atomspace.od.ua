@@ -49,6 +49,7 @@ export default class BuyForm extends React.Component {
   prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {});
 
   createOrder = async () => {
+    this.setState({ loading: true });
     const { user } = this.state;
     const { getBack, createOrder } = this.props;
     const { stateUser, isDisabled } = validateUser(user, inputData);
