@@ -1,10 +1,12 @@
 .about-container {
   background-position: top;
   background-size: contain;
+
   .about-blocks {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
     .about-main-block {
       width: 78%;
       height: initial;
@@ -13,43 +15,49 @@
       &-image {
         margin-bottom: $h10;
         margin-top: $h68;
+
         &__atomspace {
           width: 235px;
           height: 30px;
           position: relative;
+
           @media only screen and (max-height: 1367px) and (min-height: 851px) {
             width: 410px;
             height: 85px;
           }
         }
       }
+
       &-text {
         .about-text-1 {
-          display: block;
           display: block;
           font-size: $f68 !important;
           line-height: $h55 + $h5;
         }
+
         .about-text-2,
         .about-text-3 {
           display: none;
         }
       }
     }
+
     .bubble {
       display: none;
-    }
-    .bubble {
       margin: 0;
+
       &.interactive {
         display: block;
         width: calc((50% + 50vh) / 2);
         height: initial;
+
         .image-block {
           height: 100%;
+
           .arrow {
             display: block;
           }
+
           .bubble-image {
             width: 100%;
             height: inherit;

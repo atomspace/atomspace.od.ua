@@ -1,5 +1,6 @@
 .main-container .logo-container .center-wrapper {
   position: inherit;
+
   .header-stars {
     font-weight: 300;
     font-size: $f68;
@@ -10,26 +11,31 @@
     position: inherit;
     margin: 0 auto;
   }
+
   .scale {
-    margin-top: 51px;
     opacity: 0.4;
     transform: scale(2.5);
     width: 100%;
     position: inherit;
     top: 10px;
     margin: 10vh 0;
+    margin-top: 51px;
   }
+
   .main-logo {
     width: $f610 + $f400 + $f89;
     background-size: $f400 + $f610 $f233;
     margin: 0 auto;
     margin-bottom: $f110;
   }
+
   .donate-block {
     display: none;
   }
+
   .support-container {
     display: block;
+
     .support {
       border: 0;
       padding: 0;
@@ -44,6 +50,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       &.resident-support {
         background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg) center/contain no-repeat;
         position: absolute;
@@ -51,6 +58,7 @@
         padding-right: $f110;
         color: white;
       }
+
       &.mentor-support {
         background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg) center/contain no-repeat;
         position: absolute;
@@ -59,6 +67,7 @@
       }
     }
   }
+
   .bottom-quastion {
     display: block;
     font-style: normal;

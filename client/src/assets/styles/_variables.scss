@@ -11,6 +11,7 @@ $list-item-atom-space-color-left-o: rgba(220, 173, 58, 0.7);
 $list-item-atom-space-color-right-o: rgba(135, 50, 184, 0.7);
 
 $line-heights: 30px;
+
 @mixin linear-gradient-bubble {
   background: linear-gradient(45deg, $left-gradient-color, $right-gradient-color);
 }

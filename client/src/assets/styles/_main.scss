@@ -25,18 +25,22 @@ code {
 li {
   list-style: none;
 }
+
 a {
   text-decoration: none;
   outline: none;
   cursor: pointer;
   font-size: $link-font-size;
   color: black;
+
   &.bold {
     font-weight: bold;
   }
+
   &:active {
     color: $black-color;
   }
+
   &:hover {
     transition: 0.3s color;
     color: $gray-color;

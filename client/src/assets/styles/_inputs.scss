@@ -3,14 +3,12 @@
   padding: $f13 $f26;
   position: relative;
   border: transparent;
-  background: green;
   border-radius: 3em;
   text-align: center;
   margin: $f16 0;
   color: white !important;
   outline: none;
   background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
-
   font-size: $f16;
   font-weight: 500;
   text-transform: uppercase;
@@ -19,14 +17,17 @@
     font-size: 12pt;
     color: $white-color;
   }
+
   &.btn-support {
     display: inline-flex;
   }
+
   &.btn-donate {
     transition: all 1s;
     display: inline-block;
     z-index: 10;
-    &:before {
+
+    &::before {
       content: ' ';
       opacity: 0.3;
       cursor: pointer;
@@ -40,7 +41,8 @@
       top: 0;
       right: $f26;
     }
-    &:after {
+
+    &::after {
       content: ' ';
       opacity: 0.3;
       cursor: pointer;
@@ -54,25 +56,32 @@
       background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
       top: 0;
     }
+
     &:hover {
       transform: scale(1.1);
-      &:before {
+
+      &::before {
         transform: translateX($f26);
       }
-      &:after {
+
+      &::after {
         transform: translateX(-$f26);
       }
     }
   }
+
   &.btn-request {
     transition: all 1s;
+
     &:hover {
       transform: scale(1.1);
     }
   }
+
   &[disabled] {
     opacity: 0.6;
   }
+
   &.disabled {
     opacity: 0.6;
   }
@@ -90,6 +99,7 @@ input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 .loader-icon {
   height: 16px;
   width: 40px;

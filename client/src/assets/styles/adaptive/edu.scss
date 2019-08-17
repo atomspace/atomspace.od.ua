@@ -3,14 +3,18 @@
     .main-text {
       display: none;
     }
+
     .edu-items {
       display: none;
     }
+
     .main-text-mobile {
       display: block;
     }
+
     .edu-items-mobile {
       display: block;
+
       .edu-items-list {
         .edu-item {
           &__text {
@@ -21,10 +25,12 @@
             text-transform: uppercase;
             margin-bottom: 20px;
           }
+
           &.selected {
             .edu-item__text {
               color: $selected-edu-item;
             }
+
             @each $logo in wordpress, book, checklist, computer-rocket, layout, python, rocket, scripts {
               .edu-item__#{$logo}-logo {
                 background: url(#{$path-to-images}/icons/edu/#{$logo}-logo.svg);

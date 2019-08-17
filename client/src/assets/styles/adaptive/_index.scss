@@ -10,9 +10,11 @@
   .small-nav {
     display: block;
   }
+
   a {
     font-size: $link-font-size-adaptive;
   }
+
   @import 'main.scss';
   @import 'about.scss';
   @import 'blog.scss';
