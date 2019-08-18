@@ -7,6 +7,7 @@ import Sidebar from './routes/Sidebar/Sidebar.jsx';
 import BuyForm from './components/Forms/BuyForm';
 import Resident from './components/Forms/Resident/Resident';
 import LocalStorage from './localStorage';
+
 export const urls = ['main', 'about', 'blog', 'edu', 'family', 'store', 'contacts'];
 
 class App extends Component {
@@ -20,9 +21,17 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.changeDialog(this.getHash());
     this.handleBack();
+  }
+
+  increaseCountOfMerch(merches) {
+    let tempMerch = [];
+    while (tempMerch.length <= 3) {
+      tempMerch = tempMerch.concat(merches);
+    }
+    return tempMerch;
   }
 
   getHash() {
@@ -64,7 +73,7 @@ class App extends Component {
   };
 
   changeMerchAttr = (prop) => {
-    console.log('changeMerchAttr', prop);
+    console.log(this.state.order);
     LocalStorage.setMerch({ ...this.state.order, ...prop });
     this.setState({
       order: { ...this.state.order, ...prop },
@@ -99,6 +108,7 @@ class App extends Component {
               <Edu />
               <Family />
               <Store
+                merches={this.state.merches}
                 order={this.state.order}
                 size={this.state.size}
                 changeMerchAttr={this.changeMerchAttr}

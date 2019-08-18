@@ -1,15 +1,15 @@
-import React from 'react'
-import classname from 'classnames'
-import { MEDIA_URL } from '../../utils/config'
-import { validateUser } from './utils/validation'
-import validators from '../../utils/validators'
-import { ImageLoader } from '../ImageLoader'
-import { Button } from '../Button/Button'
-import { createRequestForMerch } from '../../api/merch'
+import React from 'react';
+import classname from 'classnames';
+import { MEDIA_URL } from '../../utils/config';
+import { validateUser } from './utils/validation';
+import validators from '../../utils/validators';
+import { ImageLoader } from '../ImageLoader';
+import { Button } from '../Button/Button';
+import { createRequestForMerch } from '../../api/merch';
 
-const mainHeader = 'ДЕТАЛИ ЗАКАЗА'
-const additionalHeader = 'Чтоб мы могли вам отправить футболку, заполните поля ниже.'
-const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14'
+const mainHeader = 'ДЕТАЛИ ЗАКАЗА';
+const additionalHeader = 'Чтоб мы могли вам отправить футболку, заполните поля ниже.';
+const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14';
 const inputData = [
   {
     id: 'fullName',
@@ -32,51 +32,59 @@ const inputData = [
     placeholder: 'Отделение новой почты:',
     type: 'text',
   },
-]
+];
 export default class BuyForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       user: this.getUserByProps(inputData),
       isDisabled: true,
       isLoading: false,
-    }
+    };
   }
 
   getUserByProps(data) {
-    return data.reduce((acc, data) => ({ ...acc, [data.id]: { value: '', error: false } }), {})
+    return data.reduce((acc, data) => ({ ...acc, [data.id]: { value: '', error: false } }), {});
   }
-  prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {})
+  prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {});
 
   createOrder = async () => {
-    this.setState({ loading: true })
-    const { user } = this.state
-    const { getBack, createOrder } = this.props
-    const { stateUser, isDisabled } = validateUser(user, inputData)
+    this.setState({ loading: true });
+    const { user } = this.state;
+    const {
+      getBack,
+      createOrder,
+      order: { size, id },
+    } = this.props;
+    const { stateUser, isDisabled } = validateUser(user, inputData);
     this.setState({
       ...this.state,
       ...stateUser,
-    })
-    const data = this.prepareData(user)
+    });
+    const data = {
+      ...this.prepareData(user),
+      merchSize: size,
+      merchId: id,
+      isGetFromAtom: true,
+    };
+    console.log(data);
     if (!isDisabled) {
       try {
-        this.setState({ isLoading: true })
-
-        await createRequestForMerch(data)
-        window.location = way4payLink
-        // this.setState({ isLoading: false });
-        // this.props.getBack();
+        this.setState({ isLoading: true });
+        await createRequestForMerch(data);
+        window.location = way4payLink;
+        this.setState({ isLoading: false });
       } catch (e) {
-        this.setState({ isLoading: false })
-        // this.props.getBack();
+        this.setState({ isLoading: false });
+        this.props.getBack();
       }
     }
-  }
+  };
 
   handleInputUser = (validate, event) => {
-    const name = event.target.id
-    const { value } = event.target
-    const error = !value.length || (validate && !validate(value))
+    const name = event.target.id;
+    const { value } = event.target;
+    const error = !value.length || (validate && !validate(value));
     this.setState({
       ...this.state,
       user: {
@@ -88,8 +96,8 @@ export default class BuyForm extends React.Component {
         },
       },
       isDisabled: error,
-    })
-  }
+    });
+  };
 
   renderFormRegister = () =>
     inputData.map((data, index) => (
@@ -104,9 +112,11 @@ export default class BuyForm extends React.Component {
           onBlur={this.handleInputUser.bind(this, data.validate)}
         />
       </div>
-    ))
+    ));
 
   render() {
+    console.log(this.props);
+
     return (
       <div className="buy-form-container">
         <div className="main-header">
@@ -146,6 +156,6 @@ export default class BuyForm extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

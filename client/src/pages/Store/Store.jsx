@@ -34,16 +34,17 @@ class Store extends Component {
     let merches = await getAllMerches();
     if (merches.length) {
       merches = this.increaseCountOfMerch(merches);
-      const merch = { ...merches[0].fields, ...LocalStorage.getMerch() };
+      const merch = { ...{ ...merches[0].fields, id: merches[0].pk }, ...LocalStorage.getMerch() };
       this.props.changeMerchAttr(merch);
-      this.setState({ merches: merches.map((merch) => merch.fields) });
+      this.setState({ merches: merches.map((merch) => ({ id: merch.pk, ...merch.fields })) });
     }
   }
 
   render() {
     const { order, handleOrder, changeMerchAttr, handleDialog } = this.props;
+    const { merches } = this.state;
     let settings = {};
-    if (this.state.merches.length) {
+    if (merches.length) {
       settings = {
         infinite: true,
         speed: 500,
@@ -61,8 +62,8 @@ class Store extends Component {
         centerMode: true,
         afterChange: (index) => {
           this.setState({ index });
-          const merch = this.state.merches[index] || this.state.merches[0];
-          this.props.changeMerchAttr(merch);
+          const merch = merches[index] || merches[0];
+          changeMerchAttr(merch);
         },
       };
     }
@@ -76,7 +77,7 @@ class Store extends Component {
           <div className="store-additional-text-mobile">{additionalTextMobile}</div>
           <div className="carousel-container">
             <Slider {...settings}>
-              {this.state.merches.map((merch, index) => (
+              {merches.map((merch, index) => (
                 <div key={index} className="carousel-block">
                   <div className="carousel-info__merch">
                     <div className="wrapper">
@@ -89,7 +90,7 @@ class Store extends Component {
             </Slider>
           </div>
           <div className="store-buttons-mobile">
-            <MerchSize changeMerchAttr={changeMerchAttr} size={order.size} />
+            <MerchSize changeMerchAttr={changeMerchAttr} size={order.size} merches={merches} />
             <MerchBuy handleDialog={handleDialog} price={order.price} />
           </div>
         </div>

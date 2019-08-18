@@ -1,88 +1,89 @@
-{% extends 'base.html' %}
-{% block content %}
-
-{% load staticfiles %}
-<link rel="stylesheet" media="all" href="{% static 'css/news.css' %}" type="text/css">
-<link rel="stylesheet" media="all" href="{% static 'css/orders.css' %}" type="text/css">
+{% extends 'base.html' %} {% block content %} {% load staticfiles %}
+<link rel="stylesheet" media="all" href="{% static 'css/news.css' %}" type="text/css" />
+<link rel="stylesheet" media="all" href="{% static 'css/orders.css' %}" type="text/css" />
 
 <div style="display: flex; height: 91vh;">
-    <div class="content">
-        {% if mentors or residents %}
-            <span>
-                <select id="select" onchange="change()">
-                    {% if mentors_len == 0 %}
-                        <option value="Residents" selected>Residents</option>
-                        <option value="Mentors">Mentors</option>
-                    {% elif residents_len == 0 %}
-                        <option value="Residents">Residents</option>
-                        <option value="Mentors" selected>Mentors</option>
-                    {% else %}
-                        <option value="Residents" selected>Residents</option>
-                        <option value="Mentors">Mentors</option>
-                    {% endif %}
-                </select>
-            </span>
-            <table class="table" id="residents">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Birthday</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Info</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for i in residents %}
-                        <tr>
-                            <td scope="col">{{ i }}</td>
-                            <td scope="col">{{ i.birthday }}</td>
-                            <td scope="col">{{ i.email }}</td>
-                            <td scope="col">{{ i.number }}</td>
-                            <td scope="col">{{ i.information }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>    
-            </table>
-            <table class="table" id="mentors">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Info</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for i in mentors %}
-                        <tr>
-                            <td>{{ i }}</td>
-                            <td>{{ i.email }}</td>
-                            <td>{{ i.number }}</td>
-                            <td>{{ i.information }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-                </table>
+  <div class="content">
+    {% if mentors or residents %}
+    <span>
+      <select id="select" onchange="change()">
+        {% if mentors_len == 0 %}
+        <option value="Residents" selected>Residents</option>
+        <option value="Mentors">Mentors</option>
+        {% elif residents_len == 0 %}
+        <option value="Residents">Residents</option>
+        <option value="Mentors" selected>Mentors</option>
         {% else %}
-            <h2 class="orders-h2">No requests found</h2>
+        <option value="Residents" selected>Residents</option>
+        <option value="Mentors">Mentors</option>
         {% endif %}
-    </div>
+      </select>
+    </span>
+    <table class="table" id="residents">
+      <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>Birthday</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Info</th>
+          <th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in residents %}
+        <tr>
+          <td>{{ i }}</td>
+          <td>{{ i.birthday }}</td>
+          <td>{{ i.email }}</td>
+          <td>{{ i.number }}</td>
+          <td>{{ i.information }}</td>
+          <td>{{ i.created_time }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <table class="table" id="mentors">
+      <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Info</th>
+          <th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in mentors %}
+        <tr>
+          <td>{{ i.name }}</td>
+          <td>{{ i.email }}</td>
+          <td>{{ i.number }}</td>
+          <td>{{ i.information }}</td>
+          <td>{{ i.created_time }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <h2 class="orders-h2">No requests found</h2>
+    {% endif %}
+  </div>
 </div>
 
 <script>
-    var change = (e) => {
-        var select = document.getElementById('select').value;
-        if (select === 'Mentors'){
-            $('#residents').css('display', 'none');
-            $('#mentors').css('display', 'block');
-        } else {
-            $('#residents').css('display', 'block');
-            $('#mentors').css('display', 'none');
-        }
+  var change = (e) => {
+    var select = document.getElementById('select').value;
+    if (select === 'Mentors') {
+      $('#residents').css('display', 'none');
+      $('#mentors').css('display', 'table');
+    } else {
+      $('#residents').css('display', 'table');
+      $('#mentors').css('display', 'none');
     }
+  };
 
-    $().ready(() => change())
+  $().ready(() => change());
 </script>
 
 {% endblock %}
