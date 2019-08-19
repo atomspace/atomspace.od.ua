@@ -2,7 +2,7 @@ $white-color: rgb(255, 255, 255);
 $white-color-opacity: rgba(255, 255, 255, 80);
 $black-color: rgb(0, 0, 0);
 $black-color-opacity: rgba(0, 0, 0, 80);
-
+$gray-color: #838383;
 $vertical-line-color: rgba(77, 73, 108, 0.6);
 
 $list-item-atom-space-color-left: rgba(220, 173, 58, 1);
@@ -11,10 +11,10 @@ $list-item-atom-space-color-left-o: rgba(220, 173, 58, 0.7);
 $list-item-atom-space-color-right-o: rgba(135, 50, 184, 0.7);
 
 $line-heights: 30px;
+
 @mixin linear-gradient-bubble {
   background: linear-gradient(45deg, $left-gradient-color, $right-gradient-color);
 }
-$link-font-size: 12px;
 $border-color: rgba(77, 73, 108, 0.6);
 
 $border-color-orange: #dcad3a;
@@ -75,3 +75,6 @@ $h288: 15vh;
 $h377: 19.635vh;
 $h400: 20.833vh;
 $h610: 31.777vh;
+
+$link-font-size: $f18;
+$link-font-size-adaptive: $f68;

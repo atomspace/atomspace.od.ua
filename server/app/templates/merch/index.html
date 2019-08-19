@@ -1,73 +1,78 @@
-{% extends 'base.html' %}
-{% block content %}
-
-{% load staticfiles %}
-<link rel="stylesheet" media="all" href="{% static 'css/merch.css' %}" type="text/css">
+{% extends 'base.html' %} {% block content %} {% load staticfiles %}
+<link rel="stylesheet" media="all" href="{% static 'css/merch.css' %}" type="text/css" />
 
 <div style="display:flex;height:91vh;">
-    <div class="content">
-        {% if merch %}
-            <ul class="list-group">
-                    <li class="li-add" id="dialog"><img style="width: 35px;margin:auto;padding:5px;" src="{% static 'img/plus.svg' %}" /></li>
-                    <div style="display: none;" class="add-merch-block popup-form">
-                        <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
-                            {{ form }}
-                            <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
-                        </form>
-                    </div>
-                <div class="merch-card">
-                    {% for item in merch %}
-                    <li>
-                        <div class="content-merch">
-                            <div class="card">
-                                <div style="display:flex;">
-                                    <div class="img-square-wrapper">
-                                        <img style="margin:15px;" src="http://{{ request.get_host }}/media/{{ item.avatar_url }}" alt="Card image cap">
-                                    </div>
-                                    <div class="card-body">
-                                        <h3 class="card-title">Name: {{ item.name }}</h3>
-                                        <p class="card-text">Price: {{ item.price }}₴</p>
-                                        <div class="merch-item-btns">
-                                            <a href='/merch/{{item.id}}/edit'><img src="{% static 'img/edit.svg' %}"/></a>
-                                            <a href='/merch/{{item.id}}/delete'><img src="{% static 'img/remove.svg' %}"/></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    {% endfor %}
+  <div class="content">
+    {% if merch %}
+    <ul class="list-group">
+      <li class="li-add" id="dialog">
+        <img style="width: 35px;margin:auto;padding:5px;" src="{% static 'img/plus.svg' %}" />
+      </li>
+      <div style="display: none;" class="add-merch-block popup-form">
+        <form style="display:grid;" enctype="multipart/form-data" action="" method="post">
+          {{ form }}
+          <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary" />
+        </form>
+      </div>
+      <div class="merch-card">
+        {% for item in merch %}
+        <li>
+          <div class="content-merch">
+            <div class="card">
+              <div style="display:flex;">
+                <div class="img-square-wrapper">
+                  <img
+                    style="margin:15px;"
+                    src="http://{{ request.get_host }}/media/{{ item.avatar_url }}"
+                    alt="Card image cap"
+                  />
                 </div>
-            </ul>
-        {% else %}
-            <div class="col-sm"></div>
-            <div class="col-sm form">
-                <h3 class="header-article">Create new merch item</h3>
-                <form class="merch-form" enctype="multipart/form-data" action="" method="post">
-                    {{ form }}
-                    <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary">
-                </form>
+                <div class="card-body">
+                  <h3 class="card-title">Name: {{ item.name }}</h3>
+                  <p class="card-text">Price: {{ item.cost }}₴</p>
+                  <div class="merch-item-btns">
+                    <a href="/merch/{{ item.id }}/edit"><img src="{% static 'img/edit.svg' %}"/></a>
+                    <a href="/merch/{{ item.id }}/delete"><img src="{% static 'img/remove.svg' %}"/></a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-sm"></div>
-        {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </div>
+    </ul>
+    {% else %}
+    <div class="col-sm"></div>
+    <div class="col-sm form">
+      <h3 class="header-article">Create new merch item</h3>
+      <form class="merch-form" enctype="multipart/form-data" action="" method="post">
+        {{ form }}
+        <input style="width: 29%;margin-top: 1em;" type="submit" value="Add" class="btn btn-primary" />
+      </form>
     </div>
+    <div class="col-sm"></div>
+    {% endif %}
+  </div>
 </div>
 
 <script>
-    var doc = ''
-    $('#dialog').click(() => {
-        if(new RegExp('cancel').test(document.getElementById('dialog').innerHTML)){
-            $('.popup-form').css('display', 'none');
-            document.getElementById('dialog').innerHTML = "<img style='width: 35px;margin:auto;padding:5px;' src={% static 'img/plus.svg' %} />"
-        } else{
-            $('.popup-form').css('display', 'block');
-            document.getElementById('dialog').innerHTML = "<img style='width: 35px;margin:auto;padding:5px;' src={% static 'img/cancel.svg' %} />"
-        }
-    });
-    $('.form-on').click(() => {
-        $('.popup-form').css('display', 'none');
-        $('#dialog').removeClass('form-on');
-    });
+  var doc = '';
+  $('#dialog').click(() => {
+    if (new RegExp('cancel').test(document.getElementById('dialog').innerHTML)) {
+      $('.popup-form').css('display', 'none');
+      document.getElementById('dialog').innerHTML =
+        "<img style='width: 35px;margin:auto;padding:5px;' src={% static 'img/plus.svg' %} />";
+    } else {
+      $('.popup-form').css('display', 'block');
+      document.getElementById('dialog').innerHTML =
+        "<img style='width: 35px;margin:auto;padding:5px;' src={% static 'img/cancel.svg' %} />";
+    }
+  });
+  $('.form-on').click(() => {
+    $('.popup-form').css('display', 'none');
+    $('#dialog').removeClass('form-on');
+  });
 </script>
 <!-- </div> -->
 

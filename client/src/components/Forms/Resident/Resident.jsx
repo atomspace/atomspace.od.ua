@@ -24,7 +24,7 @@ const inputData = [
   {
     id: 'birth',
     placeholder: 'Дата рождения: ',
-    type: 'text',
+    type: 'date',
     autocomplete: 'off',
   },
   {

@@ -5,9 +5,11 @@
   border-radius: 50%;
   height: $f400 + $f178;
   z-index: -10;
+
   .image-block {
     position: relative;
     transition: 1s;
+
     .arrow {
       display: none;
       width: 26px;
@@ -16,20 +18,24 @@
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
+
       &:hover {
         opacity: 0.5;
       }
     }
+
     .left-arrow {
       background-image: url(#{$path-to-images}/icons/arrow-prev-dark.svg);
       top: 50%;
       left: -40px;
     }
+
     .right-arrow {
       background-image: url(#{$path-to-images}/icons/arrow-next-dark.svg);
       top: 50%;
       right: -40px;
     }
+
     .bubble-image {
       content: ' ';
       position: relative;
@@ -37,37 +43,46 @@
       border-radius: 50%;
     }
   }
+
   &.animate {
     animation-duration: 5s;
     animation-iteration-count: infinite;
   }
+
   &.small {
     width: $f55;
     height: $f55;
+
     &.animate {
       animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
     }
   }
+
   &.semi-middle {
     width: $f144;
     height: $f144;
+
     &.animate {
       animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
     }
   }
+
   &.middle {
     width: $f233;
     height: $f233;
+
     &.animate {
       animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
     }
   }
+
   &.big {
     width: $f377;
     height: $f377;
+
     &.animate {
       animation-name: bubble-animation;
       animation-delay: random($limit: 5) + s;
@@ -79,9 +94,11 @@
   0% {
     transform: translate(0, 0);
   }
+
   50% {
     transform: translate(-$f10, $f21);
   }
+
   100% {
     transform: translate(0, 0);
   }

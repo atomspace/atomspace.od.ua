@@ -15,6 +15,7 @@
       display: flex;
       align-items: center;
       width: 100%;
+
       .form-blocks {
         height: 100%;
         margin-left: 10%;
@@ -40,6 +41,7 @@
             font-weight: 400;
             line-height: $f26;
             margin: $f68 0 0 auto;
+
             .bold {
               font-weight: bold;
             }
@@ -50,11 +52,13 @@
       .form-registration {
         .form-block {
           margin-bottom: 30px;
+
           .error {
             border-color: $red-color;
             border-width: 3px;
           }
         }
+
         input {
           width: $f400 + $f144;
           font-size: $f21;

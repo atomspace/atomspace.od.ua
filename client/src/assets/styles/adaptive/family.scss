@@ -1,25 +1,31 @@
 .family-container {
   background-size: cover;
+
   .family-wrapper {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
     .main-text-mobile {
       color: white;
       font-size: 50px;
       opacity: 0.1;
     }
+
     .carousel-container {
       position: relative;
       margin-right: 28px;
       $photo-size: $f400 + $f400 + $f400 + $f400;
+
       .slick-slider {
         margin: 0;
         width: initial;
         top: 80px;
         left: -50px;
+
         @include noArrows;
+
         .slick-list {
           border: 1px solid transparent;
           padding: 0;
@@ -28,6 +34,7 @@
           width: $photo-size;
         }
       }
+
       .carousel-info {
         left: auto;
         right: 0;
@@ -35,6 +42,7 @@
         &__header {
           display: none;
         }
+
         &__photo {
           .photo-logo {
             width: 100%;
@@ -42,6 +50,7 @@
             object-fit: cover;
           }
         }
+
         &__desc {
           font-size: $f89 + $f5;
 
@@ -54,6 +63,7 @@
             text-align: right;
           }
         }
+
         &__soc {
           .soc-icons {
             height: initial;
@@ -63,17 +73,20 @@
             .icon {
               margin: 0 0 0 auto;
               $size: $f178;
+
               width: $size;
               height: $size;
             }
           }
         }
+
         &__quote-block {
           display: none;
         }
       }
     }
   }
+
   .tap-swipe-logo {
     display: block;
     width: 10%;

@@ -9,12 +9,13 @@ import Link from '../Link';
 
 class LeftSidebar extends React.Component {
   getLeftSidebarData() {
-    switch (this.props.pageName) {
+    const { pageName, handleDialog, changeMerchAttr, order } = this.props;
+    switch (pageName) {
       case urls[0]:
         return [
           <Link
             key={1}
-            handleDialog={this.props.handleDialog}
+            handleDialog={handleDialog}
             row={{
               title: 'Стать ментором',
               link: '#mentorForm',
@@ -22,7 +23,7 @@ class LeftSidebar extends React.Component {
           />,
           <Link
             key={2}
-            handleDialog={this.props.handleDialog}
+            handleDialog={handleDialog}
             row={{
               title: 'Стать резидентом',
               link: '#residentForm',
@@ -31,8 +32,8 @@ class LeftSidebar extends React.Component {
         ];
       case urls[5]:
         return [
-          <MerchSize key={1} changeMerchAttr={this.props.changeMerchAttr} />,
-          <MerchBuy key={2} handleDialog={this.props.handleDialog} order={this.props.order} />,
+          <MerchSize key={1} changeMerchAttr={changeMerchAttr} size={order.size} />,
+          <MerchBuy key={2} handleDialog={handleDialog} price={order.price} />,
         ];
       case urls[6]:
         return [<ContactInfo key={1} />];

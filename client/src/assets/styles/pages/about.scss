@@ -1,11 +1,12 @@
 .about-container {
   background-image: url(#{$path-to-images}/backgrounds/background-about-top.svg);
   background-position: top;
-  background-size: contain;
   background-repeat: no-repeat;
-  background-size: 101%;
+  background-size: 100%;
+
   .about-blocks {
     height: 100%;
+
     .about-main-block {
       position: relative;
       width: $f400 + $f144;
@@ -15,6 +16,7 @@
 
       &-image {
         margin-bottom: 10px;
+
         &__atomspace {
           background-position: center;
           background-size: contain;
@@ -23,6 +25,7 @@
           // margin-bottom: 10px;
         }
       }
+
       &-text {
         font-size: $f18;
         color: #1e1341;

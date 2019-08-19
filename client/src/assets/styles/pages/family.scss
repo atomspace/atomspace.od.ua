@@ -8,6 +8,7 @@
     .main-text-mobile {
       display: none;
     }
+
     .carousel-container {
       position: relative;
 
@@ -95,8 +96,8 @@
             height: 100%;
             justify-content: center;
 
-            &:before,
-            &:after {
+            &::before,
+            &::after {
               content: '';
               position: absolute;
               background: url(../../assets/images/icons/quotes-family.svg) no-repeat center/cover;
@@ -104,12 +105,12 @@
               height: $f55;
             }
 
-            &:before {
+            &::before {
               left: 0;
               top: 0;
             }
 
-            &:after {
+            &::after {
               bottom: 0;
               right: 0;
               transform: rotate(180deg);
@@ -127,6 +128,7 @@
       }
     }
   }
+
   .tap-swipe-logo {
     display: none;
   }
@@ -168,7 +170,7 @@
     }
   }
 
-  &:before {
+  &::before {
     content: '';
   }
 

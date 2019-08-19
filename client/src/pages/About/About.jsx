@@ -8,8 +8,18 @@ import AtomspaceText from '../../assets/images/icons/logos/AtomSpace-about-maint
 import LazyLoad from 'react-lazy-load';
 import { ImageLoader } from '../../components/ImageLoader';
 
-const mainText =
-  'Социальный образовательный проект, основанный Provectus и IT2School с целью создать возможность для талантливых подростков расти и развиваться в сфере IT. ';
+const BoldLink = (props) => (
+  <a className="bold" href="">
+    {props.children}
+  </a>
+);
+const mainText = (
+  <>
+    Социальный образовательный проект, основанный <BoldLink>Provectus</BoldLink> и <BoldLink>IT2School</BoldLink> с
+    целью создать возможность для талантливых подростков расти и развиваться в сфере IT.
+  </>
+);
+
 const mainText1 = `Это креативное пространство, в котором подростки под руководством практикующих cпециалистов бесплатно обучаются IT, получают навыки командной работы и реализовывают собственные идеи.
 Глобальная миссия Atom Space - изменить формат и подход к IT-образованию`;
 const mainText2 =

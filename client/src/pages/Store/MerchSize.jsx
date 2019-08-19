@@ -1,23 +1,23 @@
 import React from 'react';
 import classname from 'classnames';
+import LocalStorage from '../../localStorage';
 
 export default class MerchSize extends React.Component {
-  state = {
-    size: 'M',
-  };
-
+  constructor(props) {
+    super(props);
+    console.log(props.size);
+    console.log(LocalStorage.getMerch());
+    this.state = {
+      size: props.size ? props.size : 'M',
+    };
+  }
   sizes = ['S', 'M', 'L', 'XL'];
 
   componentDidMount() {
-    const cachedMerch = JSON.parse(window.localStorage.getItem('currentMerch'));
-    let size = {};
-    if (cachedMerch) {
-      size = { size: cachedMerch.size };
-    } else {
-      size = { size: this.state.size };
-    }
-    this.setState(size);
-    this.props.changeMerchAttr(size);
+    const { size } = this.props;
+    const sizeObj = { size: this.state.size };
+    this.setState(sizeObj);
+    this.props.changeMerchAttr(sizeObj);
   }
 
   changeMerchAttr = (size) => {

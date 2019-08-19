@@ -73,7 +73,6 @@
 
                     .ellipse {
                       background-image: url(#{$path-to-images}/icons/ellipse.svg);
-                      background-repeat: no-repeat;
                       position: absolute;
                       background-repeat: no-repeat;
                       background-size: contain;
@@ -105,7 +104,6 @@
   .size-list {
     .size-item {
       cursor: pointer;
-      padding: 1px;
       width: $f18;
       height: $f18;
       margin: 0 $f5;
@@ -114,6 +112,7 @@
       align-items: center;
       justify-content: center;
       padding: $f8;
+
       &:hover {
         border: 1px solid $black-color;
         border-radius: 50%;
@@ -143,10 +142,10 @@
   }
 
   .merch-buy-link {
-    color: $gray-dark;
     font-size: $link-font-size;
     font-family: OpenSans-Bold, sans-serif;
     cursor: pointer;
+
     &:hover {
       color: $black-color !important;
     }
@@ -172,6 +171,7 @@
   > .main-header {
     position: absolute;
     top: 90px;
+
     p {
       font-style: normal;
       font-size: 42px;
@@ -179,6 +179,7 @@
       text-transform: uppercase;
     }
   }
+
   .nav_toggle {
     cursor: pointer;
     transform: rotate(180deg);
@@ -190,18 +191,21 @@
 
   .order-block {
     background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
+    background-image: url(/static/media/background-full-fixed.0c62d45d.svg);
     background-repeat: no-repeat;
     bottom: 0;
     width: 375px;
-    height: 375px;
-    background-size: contain;
+    border: 0;
+    background-size: cover;
+    border-radius: 40px;
+
     .order-items {
       color: $white-color;
       padding: 35px;
 
       &__header {
         margin: 0 0 12px 0;
-        font-family: OpenSans-SemiBold;
+        font-family: OpenSans-SemiBold, sans-serif;
         font-size: 16px;
         line-height: 20px;
         text-transform: capitalize;
@@ -230,10 +234,12 @@
           border-bottom: 1px solid white;
           padding: 0 0 5px 0;
           color: white !important;
+
           &.error {
             border-color: $red-color;
             border-width: 3px;
           }
+
           &::placeholder {
             color: $white-color;
             opacity: 0.5;
@@ -246,9 +252,9 @@
           &::-ms-input-placeholder {
             color: $white-color;
           }
-          
+
           &#phone::-webkit-inner-spin-button,
-          &#phone::-webkit-outer-spin-button{
+          &#phone::-webkit-outer-spin-button {
             margin: 0;
             -webkit-appearance: none;
           }
@@ -286,24 +292,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row-reverse;
     margin-right: 85px;
-    width: 30%;
-    height: 44%;
+    width: 40%;
+
     .text-info {
       font-size: 16px;
       line-height: 22px;
       text-align: left;
-      margin-right: 13px;
       margin-left: 50px;
-      width: 300px;
+      width: 50%;
 
       &__choice {
         font-family: OpenSans-SemiBold, sans-serif;
         margin-bottom: 12px;
-      }
-
-      &__name {
       }
 
       &__size {
@@ -314,7 +315,8 @@
     }
 
     .merch-photo {
-      width: 100%;
+      width: 50%;
+
       .image {
         background-repeat: no-repeat;
         background-size: contain;

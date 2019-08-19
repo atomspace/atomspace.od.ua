@@ -1,21 +1,21 @@
 {% load staticfiles %}
 <title>Admin Panel</title>
-<link rel="icon" href="{% static 'img/favicon.ico' %}">
-<link rel="stylesheet" media="all" href="{% static 'css/login.css' %}" type="text/css">
+<link rel="icon" href="{% static 'img/favicon.ico' %}" />
+<link rel="stylesheet" media="all" href="{% static 'css/login.css' %}" type="text/css" />
 
 <div class="container">
-    <div class="col">
-        <form action="" method="post">
-            <h1 class="login-text">Atom Space Admin Panel</h1>
-            <div class="messages">
-                {% for message in messages %}
-                    <h4>{{ message }}</h4>
-                {% endfor %}
-            </div>
-            <div class="form-auth">
-                {{ form.as_p }}
-                <input class="submit-input" type="submit" onclick="" value="Log in">
-            </div>
-        </form>
-    </div>
+  <div class="col">
+    <form action="" method="post">
+      <h1 class="login-text">Atom Space Admin Panel</h1>
+      <div class="messages">
+        {% for message in messages %}
+        <h4>{{ message }}</h4>
+        {% endfor %}
+      </div>
+      <div class="form-auth">
+        {{ form.as_p }}
+        <input class="submit-input" type="submit" onclick="" value="Log in" />
+      </div>
+    </form>
+  </div>
 </div>

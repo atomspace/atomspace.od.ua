@@ -6,17 +6,43 @@
 
 .atom-logo {
   position: relative;
-  background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo.svg);
-  left: -$f5;
+  left: -$f26;
+  width: $f233;
+  margin-bottom: $h42;
   display: block;
-  height: 110px;
   background-size: $f178;
   background-position: center center;
   background-repeat: no-repeat;
 }
 
-.small-nav {
-  display: none;
+.atomspace-link {
+  color: white;
+  transition: all 0.5s;
+
+  &:hover {
+    color: #e4e4e4;
+  }
+}
+
+.nav_toggle,
+.nav_toggle.cross {
+  width: $f178;
+  height: $f144;
+  position: fixed;
+  right: 7%;
+  top: 4%;
+}
+
+.nav_toggle {
+  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-dark.svg) center/contain no-repeat;
+
+  &.cross {
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg) center/contain no-repeat;
+  }
+
+  &.cross.light {
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg) center/contain no-repeat;
+  }
 }
 
 .soc-icons {
@@ -73,7 +99,6 @@ li {
 }
 
 .list-item {
-  padding: $f16;
   border: transparent;
   background: transparent;
   border-radius: 3em;
@@ -81,18 +106,17 @@ li {
   line-height: $f16;
   padding: $f8 $f10;
   margin: $f3 0;
-  color: $white-color;
   font-size: $f13;
   transition: all 0.3s;
   color: $white-color-opacity;
 
   &.form {
-    &:after {
+    &::after {
       content: '';
       opacity: 0;
     }
 
-    &:before {
+    &::before {
       content: '';
       opacity: 0;
     }
@@ -110,7 +134,7 @@ li {
     z-index: 10;
     opacity: 1;
 
-    &:after {
+    &::after {
       content: ' ';
       opacity: 0.3;
       cursor: pointer;
@@ -126,7 +150,7 @@ li {
       top: 0;
     }
 
-    &:before {
+    &::before {
       content: ' ';
       opacity: 0.3;
       cursor: pointer;
@@ -228,7 +252,7 @@ li {
             color: $black-color;
           }
 
-          &:before {
+          &::before {
             background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
             color: $black-color;
           }
@@ -237,10 +261,6 @@ li {
     }
 
     &__right {
-      .atom-logo {
-        background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo.svg);
-      }
-
       .list {
         display: flex;
         justify-content: flex-end;
@@ -252,7 +272,6 @@ li {
           width: 14px;
           height: 14px;
           position: absolute;
-          //right: -$f8 / 2;
           right: -7px;
           background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
         }
@@ -282,24 +301,13 @@ li {
       }
 
       &.light_theme {
-        .atom-logo {
-          background-image: url(#{$path-to-images}/icons/logos/AtomSpace-logo-dark.svg);
-        }
-
         .list {
           .dot {
             opacity: 0;
             width: 14px;
             height: 14px;
             position: absolute;
-            //right: -$f8 / 2;
             background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
-          }
-
-          .list-item {
-            // &:hover {
-            //   color: $black-color;
-            // }
           }
 
           &.selected {
@@ -323,6 +331,8 @@ li {
 }
 
 .small-nav {
+  display: none;
+
   .nav-list {
     position: absolute;
     justify-content: center;
@@ -352,34 +362,5 @@ li {
 
   &.light_theme .nav_toggle {
     background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg) center/contain no-repeat;
-  }
-}
-
-.nav_toggle,
-.nav_toggle.cross {
-  width: $f178;
-  height: $f144;
-  position: fixed;
-  right: 7%;
-  top: 4%;
-}
-
-.nav_toggle {
-  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-dark.svg) center/contain no-repeat;
-
-  &.cross {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg) center/contain no-repeat;
-  }
-
-  &.cross.light {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg) center/contain no-repeat;
-  }
-}
-
-.atomspace-link {
-  color: white;
-  transition: all 0.5s;
-  &:hover {
-    color: #e4e4e4;
   }
 }

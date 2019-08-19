@@ -2,48 +2,61 @@
   .blog-wrapper {
     margin: 0;
     width: 100%;
+
     .main-text {
       display: none;
     }
+
     .main-text-mobile {
       display: block;
       margin-bottom: $h68;
     }
+
     .blog-main-text {
       display: none;
     }
+
     .blog-skill-blocks-mobile {
       display: block;
+
       .slick-slider {
         @include noArrows;
+
         .slick-dots {
           li {
             border: 0;
           }
         }
+
         .slick-list {
           display: flex;
           align-items: center;
           height: 100% !important;
+
           .slick-slide {
             width: 70vw;
             opacity: 0.2;
             padding: 0 10px;
           }
+
           .slick-center {
             opacity: 1;
           }
+
           .slick-track {
             display: flex;
             align-items: center;
           }
         }
+
         .blog-skill-item {
           outline: none;
+
           > div {
             margin: 0 auto;
             width: 100%;
           }
+
           &-information {
             &__header {
               font-family: OpenSans-SemiBold, sans-serif;
@@ -52,6 +65,7 @@
               font-size: $f89;
               line-height: inherit;
             }
+
             &__description {
               font-family: OpenSans-Regular, sans-serif;
               font-size: $f68;
@@ -60,6 +74,7 @@
             }
           }
           $size-logo: $f610 + $f400;
+
           @each $logo in mind, team, trust, puzzle {
             &__#{$logo}-logo {
               margin-bottom: 15px;
@@ -70,6 +85,7 @@
         }
       }
     }
+
     .blog-skill-blocks {
       display: none;
     }

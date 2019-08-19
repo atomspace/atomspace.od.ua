@@ -3,31 +3,39 @@
     font-size: 19px;
     line-height: 30px;
     text-align: center;
+
     @media only screen and (max-width: 380px) {
       .store-main-text-mobile,
       .store-additional-text-mobile {
         font-size: medium;
       }
     }
+
     .store-main-text-mobile {
       display: block;
       font-family: OpenSans-SemiBold, sans-serif;
     }
+
     .store-additional-text-mobile {
       display: block;
       font-family: OpenSans-Light, sans-serif;
       margin-bottom: 10%;
     }
+
     .store-main-text {
       display: none;
     }
+
     .store-additional-text {
       display: none;
     }
+
     .carousel-container {
       height: 300px;
+
       .slick-slider {
         width: 100%;
+
         .slick-list {
           .slick-track {
             .carousel-block {
@@ -37,6 +45,7 @@
                     width: 139px;
                     height: 156px;
                   }
+
                   .merch-logo {
                     width: 100%;
                   }
@@ -55,10 +64,12 @@
   height: 17px;
   display: block;
   bottom: 40px;
+
   &.slick-prev {
     background-image: url(#{$path-to-images}/icons/store/arrow-left-store-mobile.svg) !important;
     left: 30px;
   }
+
   &.slick-next {
     background-image: url(#{$path-to-images}/icons/store/arrow-right-store-mobile.svg) !important;
     right: 30px;
@@ -66,9 +77,146 @@
   }
 }
 
+.buy-form-container {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: -5px;
+  height: 102%;
+  background-image: url(#{$path-to-images}/backgrounds/background-fixed.svg);
+  background-color: white;
+
+  .main-header {
+    display: none;
+  }
+
+  .nav_toggle {
+    left: 20px;
+    top: 20px;
+    transform: rotate(180deg);
+  }
+
+  .order-block {
+    background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    .order-items {
+      color: $white-color;
+      padding: 35px;
+
+      &__header {
+        margin: 0 0 12px 0;
+        font-family: OpenSans-SemiBold, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        text-transform: capitalize;
+      }
+
+      .additional-header {
+        margin: 0 0 20px 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      .order-form {
+        > div {
+          margin-bottom: 20px;
+        }
+
+        input {
+          width: 100%;
+          background: transparent;
+          border: 0;
+          font-family: OpenSans-SemiBold, sans-serif;
+          font-size: 15px;
+          outline: none;
+          border-bottom: 1px solid white;
+          padding: 0 0 5px 0;
+          color: white !important;
+
+          &::placeholder {
+            color: $white-color;
+            opacity: 1;
+          }
+        }
+      }
+
+      .order-request {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .pay-button {
+          display: flex;
+          justify-content: center;
+          width: 180px;
+          height: 36px;
+          font-size: 14px;
+          line-height: 16px;
+        }
+
+        .price-info {
+          margin: 0;
+          padding: 0 10px;
+          font-family: OpenSans-SemiBold, sans-serif;
+          font-size: 24px;
+          line-height: 28px;
+          text-align: center;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  .show-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    top: 0;
+    position: absolute;
+    width: 80%;
+
+    .text-info {
+      font-size: 16px;
+      line-height: 22px;
+      text-align: right;
+      margin-right: 13px;
+      margin-left: 0;
+
+      &__choice {
+        font-family: OpenSans-SemiBold, sans-serif;
+        margin-bottom: 12px;
+      }
+
+      &__size {
+        .bold {
+          font-family: OpenSans-SemiBold, sans-serif;
+        }
+      }
+    }
+
+    .merch-photo {
+      .image {
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 150px;
+      }
+    }
+  }
+}
+
 .store-buttons-mobile {
   display: block;
   margin-top: 10%;
+
   .size-container {
     font-size: 14px;
     line-height: 14px;
@@ -82,10 +230,12 @@
     justify-content: space-around;
     left: -40px;
     position: relative;
+
     .main-header {
       position: relative;
       left: 40px;
     }
+
     .size-list {
       .size-item {
         width: 20px;
@@ -95,6 +245,7 @@
       }
     }
   }
+
   .merch-buy-link {
     font-size: 14px;
     line-height: 14px;
@@ -109,134 +260,11 @@
     position: relative;
     padding-left: 70px;
     left: -40px;
+
     .main-header {
       position: relative;
       left: 72px;
       font-size: 14px;
-    }
-  }
-}
-
-.buy-form-container {
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  top: -5px;
-  height: 102%;
-  background-image: url(#{$path-to-images}/backgrounds/background-fixed.svg);
-  background-color: white;
-  .main-header {
-    display: none;
-  }
-  .nav_toggle {
-    left: 20px;
-    top: 20px;
-    transform: rotate(180deg);
-  }
-  .order-block {
-    background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed;
-    bottom: -50px;
-    width: 100%;
-    .order-items {
-      color: $white-color;
-      padding: 35px;
-      &__header {
-        margin: 0 0 12px 0;
-        font-family: OpenSans-SemiBold, sans-serif;
-        font-size: 16px;
-        line-height: 20px;
-        text-transform: capitalize;
-      }
-      .additional-header {
-        margin: 0 0 20px 0;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 22px;
-      }
-      .order-form {
-        > div {
-          margin-bottom: 20px;
-        }
-        input {
-          width: 100%;
-          background: transparent;
-          border: 0;
-          font-family: OpenSans-SemiBold, sans-serif;
-          font-size: 15px;
-          outline: none;
-          border-bottom: 1px solid white;
-          padding: 0 0 5px 0;
-          color: white !important;
-          &::placeholder {
-            color: $white-color;
-            opacity: 1;
-          }
-          &:-ms-input-placeholder {
-            color: $white-color;
-          }
-          &::-ms-input-placeholder {
-            color: $white-color;
-          }
-        }
-      }
-      .order-request {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .pay-button {
-          display: flex;
-          justify-content: center;
-          width: 180px;
-          height: 36px;
-          font-size: 14px;
-          line-height: 16px;
-        }
-        .price-info {
-          margin: 0;
-          padding: 0 10px;
-          font-family: OpenSans-SemiBold, sans-serif;
-          font-size: 24px;
-          line-height: 28px;
-          text-align: center;
-          text-transform: capitalize;
-        }
-      }
-    }
-  }
-  .show-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60%;
-    top: 0;
-    position: absolute;
-    width: 80%;
-    .text-info {
-      font-size: 16px;
-      line-height: 22px;
-      text-align: right;
-      margin-right: 13px;
-      margin-left: 0;
-      &__choice {
-        font-family: OpenSans-SemiBold, sans-serif;
-        margin-bottom: 12px;
-      }
-      &__size {
-        .bold {
-          font-family: OpenSans-SemiBold, sans-serif;
-        }
-      }
-    }
-    .merch-photo {
-      .image {
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 150px;
-      }
     }
   }
 }

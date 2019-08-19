@@ -34,7 +34,6 @@ $left-gradient-color: rgb(212, 163, 74);
       .edu-item {
         width: $f233;
         height: $f233;
-        background: black;
         border-radius: 50%;
         margin: $f21;
         background: linear-gradient(45deg, $left-gradient-color, $right-gradient-color);
@@ -43,6 +42,7 @@ $left-gradient-color: rgb(212, 163, 74);
         align-items: center;
         justify-content: center;
         position: relative;
+
         @each $logo in wordpress, book, checklist, computer-rocket, layout, python, rocket, scripts {
           &__#{$logo}-logo {
             background-image: url(#{$path-to-images}/icons/edu/#{$logo}-logo.svg);

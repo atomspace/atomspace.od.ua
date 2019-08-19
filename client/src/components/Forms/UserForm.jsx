@@ -2,73 +2,60 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 import LeftSidebar from '../../routes/Sidebar/Left';
-import { validateUser } from './validation';
-import RequestForm from './RequestForm';
+import { validateUser } from './utils/validation';
+import MobileRequestForm from './MobileRequestForm';
+import { Button } from '../Button/Button';
 import { Loader } from '../Loader';
 
 export default class UserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        name: { value: '', error: false },
-        birth: { value: '', error: false },
-        number: { value: '', error: false },
-        email: { value: '', error: false },
-        information: { value: '', error: false },
-      },
-      loading: false,
+      user: this.getUserByProps(props.inputData),
       isDisabled: true,
+      isLoading: false,
     };
   }
 
-  createOrder = async () => {
-    this.setState({loading: true});
+  getUserByProps(data) {
+    return data.reduce((acc, data) => ({ ...acc, [data.id]: { value: '', error: false } }), {});
+  }
+  prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {});
+
+  submitForm = async () => {
     const { user } = this.state;
-    const { inputData } = this.props;
-    let { isDisabled, stateUser } = validateUser(user, inputData);
-
-    if (stateUser.birth.value === '' && stateUser.name.value !== ''){
-      stateUser.birth.value = 'mentor don`t have birthday';
-      isDisabled = false;
-    }
-
+    const { inputData, createOrder, getBack } = this.props;
+    const { isDisabled, stateUser } = validateUser(user, inputData);
     this.setState({
       ...this.state,
       ...stateUser,
     });
-
     if (!isDisabled) {
+      const data = this.prepareData(user);
       try {
-        const data = {
-          name: user.name.value,
-          birth: user.birth.value,
-          email: user.email.value,
-          number: +user.number.value,
-          information: user.information.value,
-        };
-        let res = await this.props.createOrder(data);
-        if (res.length !== 0){
-          this.setState({loading: false});
-          this.props.getBack();
-        }
+        this.setState({ isLoading: true });
+        await createOrder(data);
+        this.setState({ isLoading: false });
+        this.props.getBack();
       } catch (e) {
-        this.setState({loading: false});
+        this.setState({ isLoading: false });
         this.props.getBack();
       }
     }
   };
 
-  handleInputUser = (event, validate) => {
-    const name = event.target.id;
-    const { value } = event.target;
-    const error = !value.length || (validate && !validate(value));
+  handleInputUser = (data, event) => {
+    const { id, value } = event.target;
+    if (id === 'birth') {
+      event.target.type = 'date';
+    }
+    const error = !value.length || (data.validate && !data.validate(value));
     this.setState({
       ...this.state,
       user: {
         ...this.state.user,
-        [name]: {
-          ...this.state.user[name],
+        [id]: {
+          ...this.state.user[id],
           error,
           value,
         },
@@ -86,10 +73,6 @@ export default class UserForm extends React.Component {
     </div>
   );
 
-  handleBirth = (e) => {
-    e.target.type === 'text' ? e.target.type = 'date' : e.target.type = 'text'
-  }
-
   renderFormRegister = () => (
     <div className="form-main">
       <div className="form-registration">
@@ -98,19 +81,18 @@ export default class UserForm extends React.Component {
             <input
               className={classname({ error: this.state.user[data.id].error })}
               id={data.id}
-              type={data.type}
+              type={data.id === 'birth' ? 'text' : data.type}
               placeholder={data.placeholder}
-              value={this.state.user[data.id].value}
-              onChange={(e) => this.handleInputUser(e, data.validate)}
-              onFocus={data.id === 'birth' ? (e) => this.handleBirth(e) : () => ''}
-              onBlur={data.id === 'birth' ? (e) => this.handleBirth(e) : (e) => this.handleInputUser(e, data.validate)}
+              value={this.state.user[data.id].value || data.defaultValue}
+              onChange={this.handleInputUser.bind(this, data)}
+              onFocus={this.handleInputUser.bind(this, data)}
             />
           </div>
         ))}
         <div className="request-button-block">
-          <button className="btn btn-support btn-request" onClick={this.createOrder}>
-            {this.state.loading ? <Loader /> : this.props.buttonText}
-          </button>
+          <Button className="btn btn-support btn-request" loading={this.state.isLoading} onClick={this.submitForm}>
+            {this.props.buttonText}
+          </Button>
         </div>
       </div>
     </div>
@@ -130,11 +112,12 @@ export default class UserForm extends React.Component {
         <div className="atom-logo" />
         <div className="close-dialog-btn" onClick={this.props.getBack} />
         <div className="nav_toggle cross" onClick={this.props.getBack} />
-        <RequestForm
+        <MobileRequestForm
           formBlocks={this.renderFormBlocks()}
           formRegister={this.renderFormRegister()}
           headerText={this.props.headerText}
-          createOrder={this.createOrder}
+          submitForm={this.submitForm}
+          isLoading={this.state.isLoading}
         />
       </div>
     );

@@ -2,19 +2,22 @@
   background: url(#{$path-to-images}/backgrounds/background-main.svg);
   background-size: cover;
   background-position: center;
+
   .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     flex-direction: column;
+
     .center-wrapper {
       position: relative;
       top: -$f55;
       text-align: center;
+
       .header-stars {
         opacity: 0.31;
-        color: #ffffff;
+        color: #fff;
         font-size: $f13;
         font-weight: 300;
         position: absolute;
@@ -25,10 +28,12 @@
         transition: all 0.5s;
         z-index: 100;
         cursor: default;
+
         &:hover {
           opacity: 1;
         }
       }
+
       .scale {
         opacity: 0.4;
         transform: scale(1);
@@ -38,14 +43,17 @@
         left: -$f55;
         top: -$f34;
       }
+
       .main-logo {
         width: $f400 + $f110;
         background-size: $f400 + $f110 $f110;
         margin-bottom: $f89;
       }
+
       .support-container {
         display: none;
       }
+
       .bottom-quastion {
         display: none;
       }
