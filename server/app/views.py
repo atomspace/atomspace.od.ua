@@ -164,13 +164,14 @@ def api_orders(request):
     if request.method == 'POST': # Create new order
         data = json.loads(request.body.decode('utf-8'))
         order = Order()
-        order.first_name = data['name']
-        order.last_name = data['surname']
+        order.full_name = data['full_name']
         order.phone = data['phone']
-        order.email = data['email']
+        order.city = data['city']
+        order.np_mail = data['np_mail']
         order.merch_name = data['merch_name']
         order.merch_size = data['merch_size']
         order.merch_cost = data['merch_cost']
+        order.get_from_atom = data['get_from_atom']
         order.save()
 
         return JsonResponse({'ok': 'true'})

@@ -4,7 +4,7 @@ import datetime
 class Mentor(models.Model):
     name = models.CharField(max_length=60)
     email = models.EmailField(max_length=30)
-    number = models.CharField(max_length=30)
+    phone = models.CharField(max_length=30)
     information = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     
@@ -16,7 +16,7 @@ class Resident(models.Model):
     name = models.CharField(max_length=60)
     birthday = models.CharField(max_length=10, default=datetime.datetime.now().date())
     email = models.EmailField(max_length=30)
-    number = models.CharField(max_length=30)
+    phone = models.CharField(max_length=30)
     information = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -25,7 +25,7 @@ class Resident(models.Model):
 
 class Merch(models.Model):
     name = models.CharField(max_length=70, unique=True)
-    price = models.IntegerField()
+    cost = models.IntegerField()
     avatar_url = models.ImageField(upload_to='merch_photos')
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(null=True, auto_now=True)
@@ -44,11 +44,15 @@ class News(models.Model):
         return self.header
     
 class Order(models.Model):
-    first_name = models.CharField(max_length=40)
-    last_name = models.CharField(max_length=40)
-    phone = models.CharField(max_length=13)
-    email = models.EmailField(max_length=50)
-    merch = models.ForeignKey(Merch, on_delete=models.DO_NOTHING, related_name='orders', null=True)
+    full_name = models.CharField(max_length=40)
+    phone = models.CharField(max_length=10)
+    city = models.CharField(max_length=30)
+    np_mail = models.CharField(max_length=4)
+    merch_name = models.CharField(max_length=30)
+    merch_cost = models.IntegerField()
+    merch_size = models.CharField(max_length=4)
+    getFromAtom = models.BooleanField()
+    created_time = models.DateTimeField(default=None)
 
     def __str__(self):
-        return '{} {}'.format(self.first_name, self.last_name)
+        return self.full_name
