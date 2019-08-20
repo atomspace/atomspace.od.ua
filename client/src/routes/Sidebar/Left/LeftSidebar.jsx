@@ -10,6 +10,7 @@ import Link from '../Link';
 class LeftSidebar extends React.Component {
   getLeftSidebarData() {
     const { pageName, handleDialog, changeMerchAttr, order } = this.props;
+    console.log(this.props);
     switch (pageName) {
       case urls[0]:
         return [
@@ -33,7 +34,7 @@ class LeftSidebar extends React.Component {
       case urls[5]:
         return [
           <MerchSize key={1} changeMerchAttr={changeMerchAttr} size={order.size} />,
-          <MerchBuy key={2} handleDialog={handleDialog} price={order.price} />,
+          <MerchBuy key={2} handleDialog={handleDialog} cost={order.cost} />,
         ];
       case urls[6]:
         return [<ContactInfo key={1} />];

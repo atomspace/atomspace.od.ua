@@ -67,7 +67,6 @@ export default class BuyForm extends React.Component {
       merchId: id,
       isGetFromAtom: true,
     };
-    console.log(data);
     if (!isDisabled) {
       try {
         this.setState({ isLoading: true });
@@ -115,8 +114,6 @@ export default class BuyForm extends React.Component {
     ));
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="buy-form-container">
         <div className="main-header">

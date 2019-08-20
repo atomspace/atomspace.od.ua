@@ -5,8 +5,6 @@ import LocalStorage from '../../localStorage';
 export default class MerchSize extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.size);
-    console.log(LocalStorage.getMerch());
     this.state = {
       size: props.size ? props.size : 'M',
     };
