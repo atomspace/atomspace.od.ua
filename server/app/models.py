@@ -5,7 +5,7 @@ import datetime
 class Mentor(models.Model):
     name = models.CharField(max_length=60)
     email = models.EmailField(max_length=30)
-    number = models.CharField(max_length=30)
+    phone = models.CharField(max_length=30)
     information = models.CharField(max_length=100)
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(null=True, auto_now=True)
@@ -19,7 +19,7 @@ class Resident(models.Model):
     birthday = models.CharField(
         max_length=10, default=datetime.datetime.now().date())
     email = models.EmailField(max_length=30)
-    number = models.CharField(max_length=30)
+    phone = models.CharField(max_length=30)
     information = models.CharField(max_length=100)
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(null=True, auto_now=True)
@@ -30,7 +30,7 @@ class Resident(models.Model):
 
 class Merch(models.Model):
     name = models.CharField(max_length=70, unique=True)
-    price = models.IntegerField()
+    cost = models.IntegerField()
     avatar_url = models.ImageField(upload_to='merch_photos')
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(null=True, auto_now=True)

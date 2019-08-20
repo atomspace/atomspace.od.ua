@@ -120,7 +120,7 @@ def merch(request):
         if f.is_valid():
             merch = Merch()
             merch.name = request.POST['name']
-            merch.price = request.POST['price']
+            merch.cost = request.POST['price']
             merch.avatar_url = request.FILES['photo']
             merch.save()
             return HttpResponseRedirect('#')

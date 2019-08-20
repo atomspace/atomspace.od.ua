@@ -29,7 +29,7 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">Name: {{ item.name }}</h3>
-                  <p class="card-text">Price: {{ item.price }}₴</p>
+                  <p class="card-text">Price: {{ item.cost }}₴</p>
                   <div class="merch-item-btns">
                     <a href="/merch/{{ item.id }}/edit"><img src="{% static 'img/edit.svg' %}"/></a>
                     <a href="/merch/{{ item.id }}/delete"><img src="{% static 'img/remove.svg' %}"/></a>
