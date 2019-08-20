@@ -141,7 +141,7 @@ export default class BuyForm extends React.Component {
             <h2 className="additional-header">{additionalHeader}</h2>
             <div className="order-form">{this.renderFormRegister()}</div>
             <div className="order-request">
-              <h3 className="price-info">{`₴ ${this.props.order.price}`}</h3>
+              <h3 className="price-info">{`₴ ${this.props.order.cost}`}</h3>
               <Button
                 className="btn btn-support btn-request pay-button"
                 loading={this.state.isLoading}

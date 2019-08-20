@@ -1,3 +1,21 @@
+.slick {
+  width: 37px;
+  height: 17px;
+  display: block;
+  bottom: 40px;
+
+  &.slick-prev {
+    background-image: url(#{$path-to-images}/icons/store/arrow-left-store-mobile.svg) !important;
+    left: 30px;
+  }
+
+  &.slick-next {
+    background-image: url(#{$path-to-images}/icons/store/arrow-right-store-mobile.svg) !important;
+    right: 30px;
+    left: auto;
+  }
+}
+
 .store-container {
   .store-wrapper {
     font-size: 19px;
@@ -36,44 +54,20 @@
       .slick-slider {
         width: 100%;
 
-        .slick-list {
-          .slick-track {
-            .carousel-block {
-              .carousel-info {
-                &__merch {
-                  .ellipse {
-                    width: 139px;
-                    height: 156px;
-                  }
+        .slick-list .slick-track .carousel-block .carousel-info {
+          &__merch {
+            .ellipse {
+              width: 139px;
+              height: 156px;
+            }
 
-                  .merch-logo {
-                    width: 100%;
-                  }
-                }
-              }
+            .merch-logo {
+              width: 100%;
             }
           }
         }
       }
     }
-  }
-}
-
-.slick {
-  width: 37px;
-  height: 17px;
-  display: block;
-  bottom: 40px;
-
-  &.slick-prev {
-    background-image: url(#{$path-to-images}/icons/store/arrow-left-store-mobile.svg) !important;
-    left: 30px;
-  }
-
-  &.slick-next {
-    background-image: url(#{$path-to-images}/icons/store/arrow-right-store-mobile.svg) !important;
-    right: 30px;
-    left: auto;
   }
 }
 
@@ -97,37 +91,42 @@
   }
 
   .order-block {
+    display: flex;
     background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
     background-repeat: no-repeat;
     background-size: cover;
     position: fixed;
     width: 100%;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 0;
+    height: $h610 + $h288;
 
     .order-items {
       color: $white-color;
-      padding: 35px;
+      padding: 0;
+      padding: $f110 $f178 $f110 $f178;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
 
       &__header {
-        margin: 0 0 12px 0;
+        margin-bottom: $h16;
         font-family: OpenSans-SemiBold, sans-serif;
-        font-size: 16px;
-        line-height: 20px;
+        font-size: $f89;
         text-transform: capitalize;
+        line-height: initial;
       }
 
       .additional-header {
-        margin: 0 0 20px 0;
+        margin-bottom: $h16;
         font-style: normal;
         font-weight: normal;
-        font-size: 16px;
-        line-height: 22px;
+        font-size: $f68;
+        line-height: initial;
       }
 
       .order-form {
         > div {
-          margin-bottom: 20px;
+          margin-bottom: $h16;
         }
 
         input {
@@ -135,10 +134,10 @@
           background: transparent;
           border: 0;
           font-family: OpenSans-SemiBold, sans-serif;
-          font-size: 15px;
+          font-size: $f55;
           outline: none;
           border-bottom: 1px solid white;
-          padding: 0 0 5px 0;
+          padding-bottom: $h21;
           color: white !important;
 
           &::placeholder {
@@ -152,22 +151,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        .pay-button {
-          display: flex;
-          justify-content: center;
-          width: 180px;
-          height: 36px;
-          font-size: 14px;
-          line-height: 16px;
-        }
+        font-size: $f68;
 
         .price-info {
           margin: 0;
           padding: 0 10px;
+          font-size: inherit;
           font-family: OpenSans-SemiBold, sans-serif;
-          font-size: 24px;
-          line-height: 28px;
+          line-height: initial;
           text-align: center;
           text-transform: capitalize;
         }
@@ -185,12 +176,11 @@
     width: 80%;
 
     .text-info {
-      font-size: 16px;
-      line-height: 22px;
+      font-size: $f68;
+      line-height: $f110;
       text-align: right;
       margin-right: 13px;
       margin-left: 0;
-
       &__choice {
         font-family: OpenSans-SemiBold, sans-serif;
         margin-bottom: 12px;
