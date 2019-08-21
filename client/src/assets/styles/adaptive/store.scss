@@ -6,12 +6,10 @@
 
   &.slick-prev {
     background-image: url(#{$path-to-images}/icons/store/arrow-left-store-mobile.svg) !important;
-    left: 30px;
   }
 
   &.slick-next {
     background-image: url(#{$path-to-images}/icons/store/arrow-right-store-mobile.svg) !important;
-    right: 30px;
     left: auto;
   }
 }
