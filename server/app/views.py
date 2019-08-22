@@ -40,10 +40,14 @@ def mentors(request):
         # Sending callback email
         subject = 'Request to become a mentor'
         from_email = settings.EMAIL_HOST_USER
-        to_email = [data['email'], 'atomspace.info@gmail.com']
-        contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
-            data['name'], data["number"], data["email"], data["information"])
-        EmailThread(subject, contact_message, to_email, from_email).start()
+        to_email = [data['email']]  # 'atomspace.info@gmail.com'
+        contact_message = '''\
+        Name: {}
+        Phone number: {}
+        E-mail: {}
+        Info: {}
+        '''.format(data['name'], data["number"], data["email"], data["information"])
+        EmailThread(subject, contact_message, from_email, to_email).start()
 
         return JsonResponse({
             "errors": [],
@@ -79,7 +83,8 @@ def residents(request):
         post = Resident()
         post.name = data['name']
 
-        post.birthday = data['birth'][::-1]
+        birth = data['birth']
+        post.birthday = birth
         post.email = data['email']
         post.number = data['number']
         post.information = data['information']
@@ -88,10 +93,15 @@ def residents(request):
         # Sending callback email
         subject = 'Request to become a resident'
         from_email = settings.EMAIL_HOST_USER
-        to_email = [data['email'], 'atomspace.info@gmail.com']
-        contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
-            data['name'], data["number"], data["email"], data["information"])
-        EmailThread(subject, contact_message, to_email, from_email).start()
+        to_email = [data['email']]  # 'atomspace.info@gmail.com'
+        contact_message = '''\
+        Name: {}\n
+        Birthday: {}\n
+        Phone number: {}\n
+        E-mail: {}\n
+        Info: {}\n
+        '''.format(data['name'], birth, data["number"], data["email"], data["information"])
+        EmailThread(subject, contact_message, from_email, to_email).start()
 
         return JsonResponse([{
             "errors": [],
