@@ -40,10 +40,10 @@ def mentors(request):
         # Sending callback email
         subject = 'Request to become a mentor'
         from_email = settings.EMAIL_HOST_USER
-        to_email = [data['email'], 'atomspace.info@gmail.com']
+        to_email = [data['email'], settings.EMAIL_TO]
         contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
             data['name'], data["number"], data["email"], data["information"])
-        EmailThread(subject, contact_message, to_email, from_email).start()
+        EmailThread(subject, contact_message, from_email, to_email).start()
 
         return JsonResponse({
             "errors": [],
@@ -88,10 +88,10 @@ def residents(request):
         # Sending callback email
         subject = 'Request to become a resident'
         from_email = settings.EMAIL_HOST_USER
-        to_email = [data['email'], 'atomspace.info@gmail.com']
+        to_email = [data['email'], settings.EMAIL_TO]
         contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
             data['name'], data["number"], data["email"], data["information"])
-        EmailThread(subject, contact_message, to_email, from_email).start()
+        EmailThread(subject, contact_message, from_email, to_email).start()
 
         return JsonResponse([{
             "errors": [],

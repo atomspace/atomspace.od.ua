@@ -1,7 +1,7 @@
 {
   "extends": "stylelint-config-standard",
   "plugins": ["stylelint-scss"],
-  "ignoreFiles": ["src/assets/styles/_animations.scss", "src/assets/styles/normalize/normalize.scss"],
+  "ignoreFiles": ["client/src/assets/styles/_animations.scss", "client/src/assets/styles/normalize/normalize.scss"],
   "rules": {
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
