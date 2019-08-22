@@ -2,7 +2,7 @@
 <path d="M0 20C0 8.9543 8.95431 0 20 0H355C366.046 0 375 8.9543 375 20V349C375 360.046 366.046 369 355 369H20C8.95431 369 0 360.046 0 349V20Z" fill="url(#paint0_linear)"/>
 <defs>
 <linearGradient id="paint0_linear" x1="0" y1="0" x2="251.178" y2="439.729" gradientUnits="userSpaceOnUse">
-<stop stop-color="#D11585"/>
+<stop stop-color="#AD116E"/>
 <stop offset="1" stop-color="#591A8A"/>
 </linearGradient>
 </defs>

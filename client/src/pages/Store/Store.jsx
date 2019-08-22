@@ -91,7 +91,7 @@ class Store extends Component {
           </div>
           <div className="store-buttons-mobile">
             <MerchSize changeMerchAttr={changeMerchAttr} size={order.size} merches={merches} />
-            <MerchBuy handleDialog={handleDialog} price={order.price} />
+            <MerchBuy handleDialog={handleDialog} cost={order.cost} />
           </div>
         </div>
       </div>

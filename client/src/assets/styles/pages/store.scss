@@ -28,7 +28,7 @@
     .carousel-container {
       display: flex;
       justify-content: center;
-      height: 500px;
+      height: 40vh;
 
       .slick-slider {
         width: $f610 + $f89;
@@ -191,7 +191,6 @@
 
   .order-block {
     background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
-    background-image: url(/static/media/background-full-fixed.0c62d45d.svg);
     background-repeat: no-repeat;
     bottom: 0;
     width: 375px;
@@ -234,6 +233,7 @@
           border-bottom: 1px solid white;
           padding: 0 0 5px 0;
           color: white !important;
+          opacity: 0.7;
 
           &.error {
             border-color: $red-color;
@@ -268,11 +268,12 @@
 
         .pay-button {
           display: flex;
+          -webkit-box-pack: center;
           justify-content: center;
-          width: 180px;
-          height: 36px;
           font-size: 14px;
           line-height: 16px;
+          margin: 0;
+          padding: 8px 24px;
         }
 
         .price-info {

@@ -8,9 +8,12 @@
     align-items: center;
 
     .main-text-mobile {
+      display: block;
       color: white;
-      font-size: 50px;
-      opacity: 0.1;
+      font-size: $f144;
+      position: absolute;
+      opacity: 0.2;
+      top: $h377;
     }
 
     .carousel-container {

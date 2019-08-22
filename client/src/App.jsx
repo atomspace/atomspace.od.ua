@@ -73,7 +73,6 @@ class App extends Component {
   };
 
   changeMerchAttr = (prop) => {
-    console.log(this.state.order);
     LocalStorage.setMerch({ ...this.state.order, ...prop });
     this.setState({
       order: { ...this.state.order, ...prop },
