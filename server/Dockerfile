@@ -7,7 +7,7 @@ WORKDIR /app
 COPY ./ /app
 
 RUN apk add --virtual .build-deps build-base bash postgresql-dev \
-    linux-headers jpeg-dev zlib-dev
+  linux-headers jpeg-dev zlib-dev vim
 
 RUN pip install --upgrade pip
 
