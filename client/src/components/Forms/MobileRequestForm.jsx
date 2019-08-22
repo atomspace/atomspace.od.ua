@@ -4,7 +4,7 @@ import classname from 'classnames';
 import { Button } from '../Button/Button';
 
 export default function MobileRequestForm(props) {
-  const { headerText, formBlocks, formRegister, submitForm, isLoading } = props;
+  const { headerText, formBlocks, formRegister, submitForm, isLoading, stepButtons, showButton } = props;
   const [isMobile, setIsMobile] = useState(true);
   return (
     <div className="mobile-form-request">
@@ -19,9 +19,8 @@ export default function MobileRequestForm(props) {
       ) : (
         <>
           {formRegister}
-          <Button className={classname('button-next-preview')} loading={isLoading} onClick={submitForm}>
-            {headerText}
-          </Button>
+          {stepButtons}
+          {showButton ? <Button className={classname('button-step-change', 'right')} loading={isLoading} onClick={submitForm}>{'Cтать резидентом'}</Button> : null}
         </>
       )}
     </div>
@@ -31,4 +30,5 @@ export default function MobileRequestForm(props) {
 MobileRequestForm.propTypes = {
   formBlocks: PropTypes.object,
   formRegister: PropTypes.object,
+  stepButtons: PropTypes.object,
 };

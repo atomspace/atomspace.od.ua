@@ -8,6 +8,35 @@
       display: none;
     }
 
+    .button-step-change {
+      border: 0;
+      padding: 0;
+      width: $f400 + $f233 + $f110;
+      height: $f233;
+      font-size: $f68 + $f5;
+      line-height: $f89;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      color: white;
+      outline: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: 45px;
+    }
+    .right{
+      background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg) center/contain no-repeat;
+      position: absolute;
+      right: 0;
+      padding-left: $f110;
+    }
+    .left{
+      background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg) center/contain no-repeat;
+      position: absolute;
+      left: 0;
+      padding-right: $f110;
+    }
+
     .nav_toggle {
       display: block;
       transform: rotate(180deg);

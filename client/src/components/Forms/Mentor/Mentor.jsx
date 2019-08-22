@@ -41,7 +41,7 @@ export default function Mentor(props) {
   return (
     <section className="form-container">
       <Bubble big animate style={{ bottom: 453, left: 451 }} />
-      <Bubble middle animate style={{ bottom: 240, left: '34vw', opacity: 1 }} />
+      {getComputedStyle(document.querySelector('.vertical-line.left')).display === 'none' ? null : <Bubble middle animate style={{ bottom: 240, left: '34vw', opacity: 1 }} />}
       <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2 }} />
       <UserForm
         inputData={inputData}
