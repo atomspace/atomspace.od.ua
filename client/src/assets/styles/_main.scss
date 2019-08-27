@@ -7,7 +7,7 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: OpenSans-Regular, sans-serif;
+  font-family: $OpenSans-Regular;
   background-image: url(#{$path-to-images}/backgrounds/background-fixed.svg);
   background-position: center;
   background-size: 80% auto;

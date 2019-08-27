@@ -59,7 +59,7 @@
 
           &-information {
             &__header {
-              font-family: OpenSans-SemiBold, sans-serif;
+              font-family: $OpenSans-SemiBold;
               margin-top: $h42;
               margin-bottom: $h42;
               font-size: $f89;
@@ -67,7 +67,7 @@
             }
 
             &__description {
-              font-family: OpenSans-Regular, sans-serif;
+              font-family: $OpenSans-Regular;
               font-size: $f68;
               line-height: $h68;
               width: 100%;

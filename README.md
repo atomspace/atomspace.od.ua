@@ -48,7 +48,7 @@ Check file ```./server/.env``` and ```./server/configure.sh```
 
 ##### Run
 ```
-sudo docker-compose -f docker-compose.prod.yml up -d --build
+sudo docker-compose -f docker-compose.yml up -d --build
 ```
 
 #### React (Client)

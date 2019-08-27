@@ -3,17 +3,16 @@ import React, { Component } from 'react';
 const _loaded = {};
 
 class ImageLoader extends Component {
-  
-  //initial state: image loaded stage 
+  //initial state: image loaded stage
   state = {
-    loaded: _loaded[this.props.src]
+    loaded: _loaded[this.props.src],
   };
 
   //define our loading and loaded image classes
   static defaultProps = {
     className: '',
     loadingClassName: 'img-loading',
-    loadedClassName: 'img-loaded'
+    loadedClassName: 'img-loaded',
   };
 
   //image onLoad handler to update state to loaded
@@ -22,23 +21,16 @@ class ImageLoader extends Component {
     this.setState(() => ({ loaded: true }));
   };
 
-
   render() {
-  
     let { className, loadedClassName, loadingClassName, ...props } = this.props;
 
-    className = `${className} ${this.state.loaded
-      ? loadedClassName
-      : loadingClassName}`;
+    className = `${className} ${this.state.loaded ? loadedClassName : loadingClassName}`;
 
     return (
-    <div>
-      <img
-      src={this.props.src} 
-      onClick={this.props.onClick} 
-      className={className} 
-      onLoad={this.onLoad} />
-    </div> );
+      <>
+        <img src={this.props.src} onClick={this.props.onClick} className={className} onLoad={this.onLoad} />
+      </>
+    );
   }
 }
 

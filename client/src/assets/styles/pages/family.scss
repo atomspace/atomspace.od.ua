@@ -69,12 +69,12 @@
           width: 100%;
 
           .info-name {
-            font-family: OpenSans-SemiBold, sans-serif;
+            font-family: $OpenSans-SemiBold;
             margin-bottom: $f8;
           }
 
           .info-position {
-            font-family: OpenSans-Light, sans-serif;
+            font-family: $OpenSans-Light;
           }
         }
 
@@ -117,7 +117,7 @@
             }
 
             .quote-text {
-              font-family: OpenSans-LightItalic, sans-serif;
+              font-family: $OpenSans-LightItalic;
               font-style: italic;
               width: 88%;
               font-size: $f21 + $f3;
