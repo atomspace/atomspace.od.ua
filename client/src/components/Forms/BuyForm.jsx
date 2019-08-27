@@ -118,7 +118,7 @@ export default class BuyForm extends React.Component {
           />
         </div>
       ))}
-      <Toggle onChange={this.handleInputUser.bind(this, () => {})} value={'Забрать из AtomSpace?'} />
+      <Toggle value={'Забрать из AtomSpace?'} />
     </>
   );
 
