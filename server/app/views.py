@@ -32,7 +32,7 @@ def mentors(request):
         data = json.loads(request.body.decode('utf-8'))
         post = Mentor()
         post.name = data['name']
-        post.number = data['number']
+        post.phone = data['phone']
         post.email = data['email']
         post.information = data['information']
         post.save()
@@ -42,7 +42,7 @@ def mentors(request):
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email'], settings.EMAIL_TO]
         contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
-            data['name'], data["number"], data["email"], data["information"])
+            data['name'], data["phone"], data["email"], data["information"])
         EmailThread(subject, contact_message, from_email, to_email).start()
 
         return JsonResponse({
@@ -82,7 +82,7 @@ def residents(request):
         birth = data['birth']
         post.birthday = birth
         post.email = data['email']
-        post.number = data['number']
+        post.phone = data['phone']
         post.information = data['information']
         post.save()
 
@@ -91,7 +91,7 @@ def residents(request):
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email'], settings.EMAIL_TO]
         contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
-            data['name'], data["number"], data["email"], data["information"])
+            data['name'], data["phone"], data["email"], data["information"])
         EmailThread(subject, contact_message, from_email, to_email).start()
 
         return JsonResponse([{
