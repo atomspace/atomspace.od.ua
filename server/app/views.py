@@ -196,7 +196,7 @@ def api_orders(request):
 @login_required
 def orders(request):
     context = {
-        'orders': Order.objects.all()
+        'orders': Order.objects.all()[::-1]
     }
     return render(request, 'orders/index.html', context)
 
@@ -204,9 +204,9 @@ def orders(request):
 @login_required
 def people(request):
     context = {
-        'mentors': Mentor.objects.all().reverse(),
+        'mentors': Mentor.objects.all()[::-1],
         'mentors_len': Mentor.objects.count(),
-        'residents': Resident.objects.all().reverse(),
+        'residents': Resident.objects.all()[::-1],
         'residents_len': Resident.objects.count()
     }
     return render(request, 'people/index.html', context)

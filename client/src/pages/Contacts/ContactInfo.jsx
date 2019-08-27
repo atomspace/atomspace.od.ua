@@ -24,7 +24,7 @@ const info = [
         rel="noopener noreferrer"
         href="https://goo.gl/maps/zD9kSpLVmMgGhC958"
       >
-        Г. ОДЕССА, ОБСЕРВАТОРНЫЙ ПЕРЕУЛОК, 2/6
+        г. Одесса, Обсерваторный переулок, 2/6
       </a>
     ),
   },

@@ -6,6 +6,7 @@ import validators from '../../utils/validators';
 import { ImageLoader } from '../ImageLoader';
 import { Button } from '../Button/Button';
 import { createRequestForMerch } from '../../api/merch';
+import Toggle from '../Toggle/index';
 
 const mainHeader = 'ДЕТАЛИ ЗАКАЗА';
 const additionalHeader = 'Чтоб мы могли вам отправить футболку, заполните поля ниже.';
@@ -65,7 +66,7 @@ export default class BuyForm extends React.Component {
       ...this.prepareData(user),
       merchSize: size,
       merchId: id,
-      isGetFromAtom: true,
+      isGetFromAtom: false,
     };
     if (!isDisabled) {
       try {
@@ -82,8 +83,9 @@ export default class BuyForm extends React.Component {
 
   handleInputUser = (validate, event) => {
     const name = event.target.id;
-    const { value } = event.target;
-    const error = !value.length || (validate && !validate(value));
+    const type = event.target.type;
+    const value = type === 'checkbox' ? event.target.checked : event.target.value;
+    const error = type === 'checkbox' ? false : !value.length || (validate && !validate(value));
     this.setState({
       ...this.state,
       user: {
@@ -98,20 +100,27 @@ export default class BuyForm extends React.Component {
     });
   };
 
-  renderFormRegister = () =>
-    inputData.map((data, index) => (
-      <div className={`${data.id}-block`} key={index}>
-        <input
-          className={classname({ error: this.state.user[data.id].error })}
-          id={data.id}
-          type={data.type}
-          placeholder={data.placeholder}
-          value={this.state.user[data.id].value}
-          onChange={this.handleInputUser.bind(this, data.validate)}
-          onBlur={this.handleInputUser.bind(this, data.validate)}
-        />
-      </div>
-    ));
+  renderFormRegister = () => (
+    <>
+      {inputData.map((data, index) => (
+        <div className={`${data.id}-block`} key={index}>
+          <input
+            className={classname({
+              error: this.state.user[data.id].error,
+              'atom-toggle__hide': data.type === 'checkbox',
+            })}
+            id={data.id}
+            type={data.type}
+            placeholder={data.placeholder}
+            value={this.state.user[data.id].value}
+            onChange={this.handleInputUser.bind(this, data.validate)}
+            onBlur={this.handleInputUser.bind(this, data.validate)}
+          />
+        </div>
+      ))}
+      <Toggle onChange={this.handleInputUser.bind(this, () => {})} value={'Забрать из AtomSpace?'} />
+    </>
+  );
 
   render() {
     return (
