@@ -48,6 +48,7 @@
   "lint-staged": {
     "client/*.js": [
       "eslint client/**/*.jsx --fix --cache",
+      "stylelint 'client/**/*.scss' --fix",
       "git add"
     ]
   }

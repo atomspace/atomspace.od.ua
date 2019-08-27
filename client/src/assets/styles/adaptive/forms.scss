@@ -24,12 +24,14 @@
       align-items: center;
       bottom: 45px;
     }
+
     .right {
       background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg) center/contain no-repeat;
       position: absolute;
       right: 0;
       padding-left: $f110;
     }
+
     .left {
       background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg) center/contain no-repeat;
       position: absolute;
