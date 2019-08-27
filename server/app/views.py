@@ -79,7 +79,8 @@ def residents(request):
         post = Resident()
         post.name = data['name']
 
-        post.birthday = data['birth'][::-1]
+        birth = data['birth']
+        post.birthday = birth
         post.email = data['email']
         post.number = data['number']
         post.information = data['information']
