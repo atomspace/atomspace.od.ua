@@ -24,13 +24,15 @@
       align-items: center;
       bottom: 45px;
     }
-    .right{
+
+    .right {
       background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg) center/contain no-repeat;
       position: absolute;
       right: 0;
       padding-left: $f110;
     }
-    .left{
+
+    .left {
       background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg) center/contain no-repeat;
       position: absolute;
       left: 0;
@@ -51,7 +53,7 @@
       align-items: center;
 
       .header-text {
-        font-family: OpenSans-SemiBold, sans-serif;
+        font-family: $OpenSans-SemiBold;
         font-size: $f89;
         line-height: 32px;
         text-align: center;

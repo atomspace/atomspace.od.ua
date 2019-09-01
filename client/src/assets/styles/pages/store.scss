@@ -1,6 +1,6 @@
 .store-container {
   .store-wrapper {
-    font-family: OpenSans-Light, sans-serif;
+    font-family: $OpenSans-Light;
 
     .store-main-text-mobile {
       display: none;
@@ -133,7 +133,7 @@
 
 .list {
   .size-container {
-    font-family: OpenSans-Bold, sans-serif;
+    font-family: $OpenSans-Bold;
     color: $black-color !important;
 
     &:hover {
@@ -143,7 +143,7 @@
 
   .merch-buy-link {
     font-size: $link-font-size;
-    font-family: OpenSans-Bold, sans-serif;
+    font-family: $OpenSans-Bold;
     cursor: pointer;
 
     &:hover {
@@ -204,7 +204,7 @@
 
       &__header {
         margin: 0 0 12px 0;
-        font-family: OpenSans-SemiBold, sans-serif;
+        font-family: $OpenSans-SemiBold;
         font-size: 16px;
         line-height: 20px;
         text-transform: capitalize;
@@ -227,7 +227,7 @@
           width: 100%;
           background: transparent;
           border: 0;
-          font-family: OpenSans-SemiBold, sans-serif;
+          font-family: $OpenSans-SemiBold;
           font-size: 15px;
           outline: none;
           border-bottom: 1px solid white;
@@ -279,7 +279,7 @@
         .price-info {
           margin: 0;
           padding: 0 10px;
-          font-family: OpenSans-SemiBold, sans-serif;
+          font-family: $OpenSans-SemiBold;
           font-size: 24px;
           line-height: 28px;
           text-align: center;
@@ -304,13 +304,13 @@
       width: 50%;
 
       &__choice {
-        font-family: OpenSans-SemiBold, sans-serif;
+        font-family: $OpenSans-SemiBold;
         margin-bottom: 12px;
       }
 
       &__size {
         .bold {
-          font-family: OpenSans-SemiBold, sans-serif;
+          font-family: $OpenSans-SemiBold;
         }
       }
     }

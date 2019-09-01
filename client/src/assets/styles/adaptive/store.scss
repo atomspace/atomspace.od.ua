@@ -29,12 +29,12 @@
 
     .store-main-text-mobile {
       display: block;
-      font-family: OpenSans-SemiBold, sans-serif;
+      font-family: $OpenSans-SemiBold;
     }
 
     .store-additional-text-mobile {
       display: block;
-      font-family: OpenSans-Light, sans-serif;
+      font-family: $OpenSans-Light;
       margin-bottom: 10%;
     }
 
@@ -106,7 +106,7 @@
 
       &__header {
         margin-bottom: $h16;
-        font-family: OpenSans-SemiBold, sans-serif;
+        font-family: $OpenSans-SemiBold;
         font-size: $f89;
         text-transform: capitalize;
         line-height: initial;
@@ -129,7 +129,7 @@
           width: 100%;
           background: transparent;
           border: 0;
-          font-family: OpenSans-SemiBold, sans-serif;
+          font-family: $OpenSans-SemiBold;
           font-size: $f55;
           outline: none;
           border-bottom: 1px solid white;
@@ -153,7 +153,7 @@
           margin: 0;
           padding: 0 10px;
           font-size: inherit;
-          font-family: OpenSans-SemiBold, sans-serif;
+          font-family: $OpenSans-SemiBold;
           line-height: initial;
           text-align: center;
           text-transform: capitalize;
@@ -177,14 +177,15 @@
       text-align: right;
       margin-right: 13px;
       margin-left: 0;
+
       &__choice {
-        font-family: OpenSans-SemiBold, sans-serif;
+        font-family: $OpenSans-SemiBold;
         margin-bottom: 12px;
       }
 
       &__size {
         .bold {
-          font-family: OpenSans-SemiBold, sans-serif;
+          font-family: $OpenSans-SemiBold;
         }
       }
     }
@@ -206,7 +207,7 @@
   .size-container {
     font-size: 14px;
     line-height: 14px;
-    font-family: OpenSans-SemiBold, sans-serif;
+    font-family: $OpenSans-SemiBold;
     background-image: url(#{$path-to-images}/icons/store/size-button-background.svg) !important;
     background-repeat: no-repeat;
     height: 40px;
@@ -235,7 +236,7 @@
   .merch-buy-link {
     font-size: 14px;
     line-height: 14px;
-    font-family: OpenSans-SemiBold, sans-serif;
+    font-family: $OpenSans-SemiBold;
     background-image: url(#{$path-to-images}/icons/store/buy-button-background.svg) !important;
     background-repeat: no-repeat;
     height: 40px;

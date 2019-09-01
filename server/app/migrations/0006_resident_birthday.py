@@ -14,6 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='resident',
             name='birthday',
-            field=models.CharField(default=datetime.date(2019, 8, 14), max_length=10),
+            field=models.CharField(
+                default=datetime.date(2019, 8, 14), max_length=10),
         ),
     ]

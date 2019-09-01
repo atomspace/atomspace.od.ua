@@ -1,5 +1,5 @@
-from django.db import models
 import datetime
+from django.db import models
 
 
 class Mentor(models.Model):
@@ -36,7 +36,7 @@ class Merch(models.Model):
     updated_time = models.DateTimeField(null=True, auto_now=True)
 
     def __str__(self):
-        return '{} Size: {}'.format(self.name, self.price)
+        return '{} Size: {}'.format(self.name, self.cost)
 
 
 class News(models.Model):

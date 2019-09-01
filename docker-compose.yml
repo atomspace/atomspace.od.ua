@@ -1,3 +1,4 @@
+version: '2.0'
 services:
   server:
     container_name: atomspace_server
@@ -9,8 +10,10 @@ services:
       - ./server/media:/app/media
     ports:
       - 8000:8000
-    command: gunicorn -w 4 config.wsgi -b 0.0.0.0:8000
+    command: bash configure.sh
     depends_on:
+      - postgres
+    links:
       - postgres
   postgres:
     container_name: atomspace_postgres

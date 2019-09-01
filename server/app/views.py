@@ -32,19 +32,27 @@ def mentors(request):
         data = json.loads(request.body.decode('utf-8'))
         post = Mentor()
         post.name = data['name']
-        post.number = data['number']
+        post.phone = data['phone']
         post.email = data['email']
         post.information = data['information']
         post.save()
 
         # Sending callback email
-        subject = 'Request to become a mentor'
+        subject = 'Request to become a mentor!'
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email'], settings.EMAIL_TO]
-        contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
-            data['name'], data["number"], data["email"], data["information"])
-        EmailThread(subject, contact_message, from_email, to_email).start()
 
+        fileEmail = './app/templates/email/request_mentor.html'
+
+        f = open(fileEmail, 'r')
+        textEmail = f.read().format(subject,
+                                    post.name,
+                                    post.phone,
+                                    post.email,
+                                    post.information)
+
+        EmailThread(subject, textEmail,
+                    from_email, to_email).start()
         return JsonResponse({
             "errors": [],
             "success": True,
@@ -54,15 +62,14 @@ def mentors(request):
                 "fields": '[form.cleaned_data]'
             }]
         })
-    else:
-        return JsonResponse({
-            "success": False,
-            "errors": [{
-                "statusCode": 500,
-                "message": "Values is not valid",
-                "fields": '[form.errors]'
-            }]
-        })
+    return JsonResponse({
+        "success": False,
+        "errors": [{
+            "statusCode": 500,
+            "message": "Values is not valid",
+            "fields": '[form.errors]'
+        }]
+    })
 
 
 @csrf_exempt
@@ -82,17 +89,27 @@ def residents(request):
         birth = '-'.join(data['birth'].split('-')[::-1])
         post.birthday = birth
         post.email = data['email']
-        post.number = data['number']
+        post.phone = data['phone']
         post.information = data['information']
         post.save()
 
         # Sending callback email
-        subject = 'Request to become a resident'
+        subject = 'Request to become a resident!'
         from_email = settings.EMAIL_HOST_USER
-        to_email = [data['email'], settings.EMAIL_TO]
-        contact_message = 'Name: {}\nBirthday: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
-            data['name'], birth, data["number"], data["email"], data["information"])
-        EmailThread(subject, contact_message, from_email, to_email).start()
+        to_email = [data['email']]
+
+        fileEmail = './app/templates/email/request_resident.html'
+
+        f = open(fileEmail, 'r')
+        textEmail = f.read().format(subject,
+                                    post.name,
+                                    post.phone,
+                                    post.email,
+                                    post.information,
+                                    post.birthday)
+
+        EmailThread(subject, textEmail,
+                    from_email, to_email).start()
 
         return JsonResponse([{
             "errors": [],
@@ -103,15 +120,15 @@ def residents(request):
                 "fields": '[form.cleaned_data]'
             }]
         }], safe=False)
-    else:
-        return JsonResponse({
-            "success": False,
-            "errors": [{
-                "statusCode": 500,
-                "message": "Values is not valid",
-                "fields": '[form.errors]'
-            }]
-        })
+
+    return JsonResponse({
+        "success": False,
+        "errors": [{
+            "statusCode": 500,
+            "message": "Values is not valid",
+            "fields": '[form.errors]'
+        }]
+    })
 
 
 @login_required
@@ -119,18 +136,17 @@ def merch(request):
     if request.method == 'POST':
         f = MerchForm(request.POST, request.FILES)
         if f.is_valid():
-            merch = Merch()
-            merch.name = request.POST['name']
-            merch.cost = request.POST['price']
-            merch.avatar_url = request.FILES['photo']
-            merch.save()
+            merch_model = Merch()
+            merch_model.name = request.POST['name']
+            merch_model.cost = request.POST['price']
+            merch_model.avatar_url = request.FILES['photo']
+            merch_model.save()
             return HttpResponseRedirect('#')
-    else:
-        context = {
-            'form': MerchForm(),
-            'merch': Merch.objects.all()
-        }
-        return render(request, 'merch/index.html', context)
+    context = {
+        'form': MerchForm(),
+        'merch': Merch.objects.all()
+    }
+    return render(request, 'merch/index.html', context)
 
 
 @login_required
@@ -185,6 +201,25 @@ def api_orders(request):
         order.is_get_from_atom = data['isGetFromAtom']
         order.save()
 
+        # Sending callback email
+        subject = 'Request to buy new merch!'
+        from_email = settings.EMAIL_HOST_USER
+        to_email = [settings.EMAIL_TO]
+
+        fileEmail = './app/templates/email/order.html'
+
+        f = open(fileEmail, 'r')
+        textEmail = f.read().format(subject,
+                                    order.full_name,
+                                    order.phone,
+                                    order.city,
+                                    order.npMail,
+                                    order.merch.name, order.merch_size, order.merch.cost,
+                                    "Yes." if order.is_get_from_atom else "No.")
+
+        EmailThread(subject, textEmail,
+                    from_email, to_email).start()
+
         return JsonResponse({'ok': 'true'})
     else:  # Get all orders
         orders_list = json.loads(
@@ -197,7 +232,7 @@ def api_orders(request):
 @login_required
 def orders(request):
     context = {
-        'orders': Order.objects.all()
+        'orders': Order.objects.all()[::-1]
     }
     return render(request, 'orders/index.html', context)
 
@@ -205,9 +240,9 @@ def orders(request):
 @login_required
 def people(request):
     context = {
-        'mentors': Mentor.objects.all().reverse(),
+        'mentors': Mentor.objects.all()[::-1],
         'mentors_len': Mentor.objects.count(),
-        'residents': Resident.objects.all().reverse(),
+        'residents': Resident.objects.all()[::-1],
         'residents_len': Resident.objects.count()
     }
     return render(request, 'people/index.html', context)

@@ -28,7 +28,7 @@ const inputData = [
     autocomplete: 'off',
   },
   {
-    id: 'number',
+    id: 'phone',
     placeholder: 'Телефон: (ex. 0635522111)',
     autocomplete: 'off',
     type: 'number',

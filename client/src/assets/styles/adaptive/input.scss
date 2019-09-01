@@ -1,0 +1,15 @@
+.atom-toggle {
+  .label-text {
+    font-size: $f68;
+  }
+
+  .toggle {
+    height: $h68;
+    width: $f233 - $f21;
+  }
+
+  .toggle-inner {
+    height: 90%;
+    width: 95%;
+  }
+}

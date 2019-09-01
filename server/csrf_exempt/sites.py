@@ -77,7 +77,8 @@ class AdminSite:
         app_configs = set(app_configs)  # Speed up lookups below
 
         errors = []
-        modeladmins = (o for o in self._registry.values() if o.__class__ is not ModelAdmin)
+        modeladmins = (o for o in self._registry.values()
+                       if o.__class__ is not ModelAdmin)
         for modeladmin in modeladmins:
             if modeladmin.model._meta.app_config in app_configs:
                 errors.extend(modeladmin.check())
@@ -103,11 +104,15 @@ class AdminSite:
         for model in model_or_iterable:
             if model._meta.abstract:
                 raise ImproperlyConfigured(
-                    'The model %s is abstract, so it cannot be registered with admin.' % model.__name__
+                    """The model %s is 
+                    abstract, so it cannot be 
+                    registered with admin."""
+                    % model.__name__
                 )
 
             if model in self._registry:
-                raise AlreadyRegistered('The model %s is already registered' % model.__name__)
+                raise AlreadyRegistered(
+                    'The model %s is already registered' % model.__name__)
 
             # Ignore the registration if the model has been
             # swapped out.
@@ -119,7 +124,8 @@ class AdminSite:
                     # the created class appears to "live" in the wrong place,
                     # which causes issues later on.
                     options['__module__'] = __name__
-                    admin_class = type("%sAdmin" % model.__name__, (admin_class,), options)
+                    admin_class = type("%sAdmin" %
+                                       model.__name__, (admin_class,), options)
 
                 # Instantiate the admin class to save in the registry
                 self._registry[model] = admin_class(model, self)
@@ -134,7 +140,8 @@ class AdminSite:
             model_or_iterable = [model_or_iterable]
         for model in model_or_iterable:
             if model not in self._registry:
-                raise NotRegistered('The model %s is not registered' % model.__name__)
+                raise NotRegistered(
+                    'The model %s is not registered' % model.__name__)
             del self._registry[model]
 
     def is_registered(self, model):
@@ -248,13 +255,15 @@ class AdminSite:
             path('', wrap(self.index), name='index'),
             path('login/', self.login, name='login'),
             path('logout/', wrap(self.logout), name='logout'),
-            path('password_change/', wrap(self.password_change, cacheable=True), name='password_change'),
+            path('password_change/', wrap(self.password_change,
+                                          cacheable=True), name='password_change'),
             path(
                 'password_change/done/',
                 wrap(self.password_change_done, cacheable=True),
                 name='password_change_done',
             ),
-            path('jsi18n/', wrap(self.i18n_javascript, cacheable=True), name='jsi18n'),
+            path('jsi18n/', wrap(self.i18n_javascript,
+                                 cacheable=True), name='jsi18n'),
             path(
                 'r/<int:content_type_id>/<path:object_id>/',
                 wrap(contenttype_views.shortcut),
@@ -267,7 +276,8 @@ class AdminSite:
         valid_app_labels = []
         for model, model_admin in self._registry.items():
             urlpatterns += [
-                path('%s/%s/' % (model._meta.app_label, model._meta.model_name), include(model_admin.urls)),
+                path('%s/%s/' % (model._meta.app_label,
+                                 model._meta.model_name), include(model_admin.urls)),
             ]
             if model._meta.app_label not in valid_app_labels:
                 valid_app_labels.append(model._meta.app_label)
@@ -388,7 +398,8 @@ class AdminSite:
         }
         if (REDIRECT_FIELD_NAME not in request.GET and
                 REDIRECT_FIELD_NAME not in request.POST):
-            context[REDIRECT_FIELD_NAME] = reverse('admin:index', current_app=self.name)
+            context[REDIRECT_FIELD_NAME] = reverse(
+                'admin:index', current_app=self.name)
         context.update(extra_context or {})
 
         defaults = {
@@ -437,12 +448,14 @@ class AdminSite:
             if perms.get('change') or perms.get('view'):
                 model_dict['view_only'] = not perms.get('change')
                 try:
-                    model_dict['admin_url'] = reverse('admin:%s_%s_changelist' % info, current_app=self.name)
+                    model_dict['admin_url'] = reverse(
+                        'admin:%s_%s_changelist' % info, current_app=self.name)
                 except NoReverseMatch:
                     pass
             if perms.get('add'):
                 try:
-                    model_dict['add_url'] = reverse('admin:%s_%s_add' % info, current_app=self.name)
+                    model_dict['add_url'] = reverse(
+                        'admin:%s_%s_add' % info, current_app=self.name)
                 except NoReverseMatch:
                     pass
 
@@ -525,7 +538,8 @@ class AdminSite:
 
 class DefaultAdminSite(LazyObject):
     def _setup(self):
-        AdminSiteClass = import_string(apps.get_app_config('admin').default_site)
+        AdminSiteClass = import_string(
+            apps.get_app_config('admin').default_site)
         self._wrapped = AdminSiteClass()
 
 

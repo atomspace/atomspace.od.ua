@@ -72,6 +72,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='resident',
             name='birthday',
-            field=models.CharField(default=datetime.date(2019, 8, 16), max_length=10),
+            field=models.CharField(
+                default=datetime.date(2019, 8, 16), max_length=10),
         ),
     ]

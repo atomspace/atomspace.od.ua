@@ -26,7 +26,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='order',
             name='merch',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='orders', to='app.Merch'),
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.DO_NOTHING, related_name='orders',
+                to='app.Merch'),
         ),
         migrations.AlterField(
             model_name='merch',

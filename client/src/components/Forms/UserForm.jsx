@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classname from 'classnames';
+import cn from 'classnames';
 import LeftSidebar from '../../routes/Sidebar/Left';
 import { validateUser } from './utils/validation';
 import MobileRequestForm from './MobileRequestForm';
@@ -74,18 +74,24 @@ export default class UserForm extends React.Component {
     </div>
   );
 
-  changeStep = (e) => e.target.innerHTML === 'Назад' ? this.setState({ step: this.state.step - 1 }) : this.setState({ step: this.state.step + 1 })
+  changeStep = (e) =>
+    e.target.innerHTML === 'Назад'
+      ? this.setState({ step: this.state.step - 1 })
+      : this.setState({ step: this.state.step + 1 });
 
   renderStepButtons = () => {
-    const backButton = <Button className={classname('button-step-change', 'left')} onClick={this.changeStep}>{'Назад'}</Button>
-    const nextButton = <Button className={classname('button-step-change', 'right')} onClick={this.changeStep}>{'Далее'}</Button>
+    const NavButton = ({ title, isBack }) => (
+      <Button className={cn('button-step-change', isBack ? 'left' : 'right')} onClick={this.changeStep}>
+        {title}
+      </Button>
+    );
     return (
       <div>
-        {this.state.step > 0 ? backButton : null}
-        {this.state.step < this.props.inputData.length - 1 ? nextButton : null}
+        {this.state.step > 0 ? <NavButton isBack={true} title="Назад" /> : null}
+        {this.state.step < this.props.inputData.length - 1 ? <NavButton isBack={false} title="Вперед" /> : null}
       </div>
     );
-  }
+  };
 
   renderFormRegister = () => (
     <div className="form-main">
@@ -93,7 +99,7 @@ export default class UserForm extends React.Component {
         {this.props.inputData.map((data, index) => (
           <div className="form-block" key={index}>
             <input
-              className={classname({ error: this.state.user[data.id].error })}
+              className={cn({ error: this.state.user[data.id].error })}
               id={data.id}
               type={data.id === 'birth' ? 'text' : data.type}
               placeholder={data.placeholder}
@@ -110,16 +116,17 @@ export default class UserForm extends React.Component {
         </div>
       </div>
     </div>
-  )
+  );
 
   renderFormRegisterMobile = (step = 0) => {
-    let data = this.props.inputData[step], index = this.props.inputData.indexOf(data);
+    let data = this.props.inputData[step],
+      index = this.props.inputData.indexOf(data);
     return (
       <div className="form-main">
         <div className="form-registration">
           <div className="form-block" key={index}>
             <input
-              className={classname({ error: this.state.user[data.id].error })}
+              className={cn({ error: this.state.user[data.id].error })}
               id={data.id}
               type={data.id === 'birth' ? 'text' : data.type}
               placeholder={data.placeholder}
@@ -139,26 +146,6 @@ export default class UserForm extends React.Component {
   };
 
   render() {
-    // switch (this.state.step) {
-    //   case 0:
-    //     this.renderFormBlocks();
-    //     break;
-    //   case 1:
-    //     this.renderFormRegister();
-    //     break;
-    //   case 2:
-    //     this.renderFormRegister();
-    //     break;
-    //   case 3:
-    //     this.renderFormRegister();
-    //     break;
-    //   case 4:
-    //     this.renderFormRegister();
-    //     break;
-    //   default:
-    //     this.renderFormBlocks();
-    //     break;
-    // }
     return (
       <div className="main-form-container">
         <div className="navigation">
@@ -180,7 +167,7 @@ export default class UserForm extends React.Component {
           submitForm={this.submitForm}
           isLoading={this.state.isLoading}
           changeStep={this.changeStep}
-          showButton={this.state.step === this.props.inputData.length-1}
+          showButton={this.state.step === this.props.inputData.length - 1}
         />
       </div>
     );
