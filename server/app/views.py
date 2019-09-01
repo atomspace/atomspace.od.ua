@@ -79,7 +79,7 @@ def residents(request):
         post = Resident()
         post.name = data['name']
 
-        birth = data['birth']
+        birth = '-'.join(data['birth'].split('-')[::-1])
         post.birthday = birth
         post.email = data['email']
         post.number = data['number']
@@ -90,8 +90,8 @@ def residents(request):
         subject = 'Request to become a resident'
         from_email = settings.EMAIL_HOST_USER
         to_email = [data['email'], settings.EMAIL_TO]
-        contact_message = 'Name: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
-            data['name'], data["number"], data["email"], data["information"])
+        contact_message = 'Name: {}\nBirthday: {}\nPhone number: {}\nE-mail: {}\nInfo: {}'.format(
+            data['name'], birth, data["number"], data["email"], data["information"])
         EmailThread(subject, contact_message, from_email, to_email).start()
 
         return JsonResponse([{
