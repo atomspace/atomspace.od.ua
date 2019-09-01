@@ -16,7 +16,7 @@ from django.contrib import messages
 
 from .forms import MerchForm, NewsForm, EditMerch, EditNews, LoginForm
 from .models import Merch, News, Mentor, Resident, Order
-from .utils import EmailThread
+from .utils import EmailThread, ExcelExport
 
 
 @csrf_exempt
@@ -53,6 +53,7 @@ def mentors(request):
 
         EmailThread(subject, textEmail,
                     from_email, to_email).start()
+        ExcelExport(data).start()
         return JsonResponse({
             "errors": [],
             "success": True,
@@ -110,7 +111,7 @@ def residents(request):
 
         EmailThread(subject, textEmail,
                     from_email, to_email).start()
-
+        ExcelExport(data).start()        
         return JsonResponse([{
             "errors": [],
             "success": True,

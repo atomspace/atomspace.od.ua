@@ -6,3 +6,4 @@ media/news_photos/*
 configure.sh
 static/
 logs/
+/**/credentials.json
