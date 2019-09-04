@@ -5,7 +5,8 @@ import LeftSidebar from '../../routes/Sidebar/Left';
 import { validateUser } from './utils/validation';
 import MobileRequestForm from './MobileRequestForm';
 import { Button } from '../Button/Button';
-import { Loader } from '../Loader';
+import { ImageLoader } from '../ImageLoader';
+import Confirm from './Confirm';
 
 export default class UserForm extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class UserForm extends React.Component {
       isDisabled: true,
       isLoading: false,
       step: 0,
+      sended: false,
     };
   }
 
@@ -36,8 +38,8 @@ export default class UserForm extends React.Component {
       try {
         this.setState({ isLoading: true });
         await createOrder(data);
-        this.setState({ isLoading: false });
-        this.props.getBack();
+        this.setState({ isLoading: false, sended: true });
+        // this.props.getBack();
       } catch (e) {
         this.setState({ isLoading: false });
         this.props.getBack();
@@ -93,7 +95,7 @@ export default class UserForm extends React.Component {
     );
   };
 
-  renderFormRegister = () => (
+  renderFormRegister = () => !this.state.sended ? (
     <div className="form-main">
       <div className="form-registration">
         {this.props.inputData.map((data, index) => (
@@ -116,7 +118,9 @@ export default class UserForm extends React.Component {
         </div>
       </div>
     </div>
-  );
+  )
+  :
+  (null);
 
   renderFormRegisterMobile = (step = 0) => {
     let data = this.props.inputData[step],
@@ -155,14 +159,16 @@ export default class UserForm extends React.Component {
         <div className="form-request">
           {this.renderFormBlocks()}
           {this.renderFormRegister()}
+          {this.state.sended ? <Confirm confirmMessage={this.props.confirmMessage} /> : null}
         </div>
         <div className="atom-logo" />
         <div className="close-dialog-btn" onClick={this.props.getBack} />
         <div className="nav_toggle cross" onClick={this.props.getBack} />
         <MobileRequestForm
           formBlocks={this.renderFormBlocks()}
-          formRegister={this.renderFormRegisterMobile(this.state.step)}
+          formRegister={!this.state.sended ? this.renderFormRegisterMobile(this.state.step) : null}
           stepButtons={this.renderStepButtons()}
+          confirmMessage={this.state.sended ? <Confirm confirmMessage={this.props.confirmMessage} /> : null}
           headerText={this.props.headerText}
           submitForm={this.submitForm}
           isLoading={this.state.isLoading}

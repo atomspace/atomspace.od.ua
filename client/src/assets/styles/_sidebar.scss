@@ -324,6 +324,19 @@ li {
           &:hover .dot {
             opacity: 1;
           }
+
+          &:last-child {
+            bottom: -10vh;
+          }
+
+          &:last-child .list-item {
+            font-size: $f13;
+            font-family: OpenSans-Bold;
+          }
+
+          &:hover:last-child .dot {
+            opacity: 0;
+          }
         }
       }
     }

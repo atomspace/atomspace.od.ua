@@ -9,7 +9,8 @@ export default function Mentor(props) {
   const headerText = 'Стать ментором';
   const mainText =
     'Ментор Atom Space работает с резидентами индивидуально или в группе. Тебе будет предоставлена дорожная карта развития резидентов, чтобы ты точно знал, какие темы необходимо освещать. Мы стремимся к тому, чтобы резиденты самостоятельно осваивали учебный материал, а ментор направлял и показывал, как можно решить задачу эффективнее.';
-  const inputData = [
+  const confirmMessage = ['Спасибо что оставили заявку!', 'Мы с вами свяжемся в ближайшее', 'время!'];
+    const inputData = [
     {
       id: 'name',
       placeholder: 'Имя:',
@@ -50,6 +51,7 @@ export default function Mentor(props) {
         createOrder={createMentor}
         headerText={headerText}
         mainText={mainText}
+        confirmMessage={confirmMessage}
         buttonText={buttonText}
         {...props}
       />

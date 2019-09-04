@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classname from 'classnames';
 import AtomLogoLight from '../../../assets/images/icons/logos/AtomSpace-logo.svg';
 import AtomLogoDark from '../../../assets/images/icons/logos/AtomSpace-logo-dark.svg';
+import { ImageLoader } from '../../../components/ImageLoader';
 
 class RightSidebar extends Component {
   render() {
@@ -11,7 +12,7 @@ class RightSidebar extends Component {
     return (
       <div className="vertical-line right">
         <nav className={classname('sidebar__right', { light_theme: isLight })}>
-          <img src={isLight ? AtomLogoDark : AtomLogoLight} className="atom-logo" />
+          <ImageLoader src={isLight ? AtomLogoDark : AtomLogoLight} className="atom-logo" />
           <div className="flex flex-col">
             {this.props.links.map((link, index) => {
               const isSelected = link.href === `#${pageName}`;

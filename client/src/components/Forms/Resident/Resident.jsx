@@ -14,6 +14,7 @@ const mainText = (
     </span>
   </div>
 );
+const confirmMessage = ['Спасибо что оставили заявку!', 'Мы с вами свяжемся перед', 'набором в резиденты!'];
 const inputData = [
   {
     id: 'name',
@@ -59,6 +60,7 @@ export default function Resident(props) {
         headerText={headerText}
         mainText={mainText}
         buttonText={buttonText}
+        confirmMessage={confirmMessage}
       />
     </section>
   );

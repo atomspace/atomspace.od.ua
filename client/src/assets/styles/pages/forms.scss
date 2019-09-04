@@ -87,6 +87,23 @@
           text-align: right;
         }
       }
+
+      .confirm-tick {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1vh;
+        & p{
+          font-family: OpenSans-Bold;
+          text-align: center;
+          margin: $h10 0 $h10 0;
+        }
+        
+        & img{
+          width: 10vh;
+          margin-bottom: $h13;
+        }
+      }
     }
 
     .nav_toggle,
