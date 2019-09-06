@@ -28,6 +28,7 @@
           <th>Phone</th>
           <th>Info</th>
           <th>Created</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -39,6 +40,7 @@
           <td>{{ i.phone }}</td>
           <td>{{ i.information }}</td>
           <td>{{ i.created_time }}</td>
+          <td><a href="/resident/{{ i.id }}/delete"><img src="{% static 'img/remove-b.svg' %}"/></a></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -51,6 +53,7 @@
           <th>Phone</th>
           <th>Info</th>
           <th>Created</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -61,6 +64,7 @@
           <td>{{ i.phone }}</td>
           <td>{{ i.information }}</td>
           <td>{{ i.created_time }}</td>
+          <td><a href="/mentor/{{ i.id }}/delete"><img src="{% static 'img/remove-b.svg' %}"/></a></td>
         </tr>
         {% endfor %}
       </tbody>

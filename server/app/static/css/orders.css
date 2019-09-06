@@ -62,3 +62,12 @@ td {
 td:last-child {
   border-right: 0;
 }
+
+td a img{
+  width: 35px;
+}
+
+tr td:last-child{
+  display: flex;
+  justify-content: center;
+}
