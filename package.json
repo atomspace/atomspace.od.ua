@@ -9,31 +9,33 @@
     }
   },
   "dependencies": {
-    "eslint-config-react-app": "3.0.8",
-    "eslint-loader": "2.1.1",
-    "eslint-plugin-flowtype": "2.50.1"
+    "eslint-config-react-app": "5.0.1",
+    "eslint-loader": "3.0.0",
+    "eslint-plugin-flowtype": "4.3.0"
   },
   "devDependencies": {
-    "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0",
-    "stylelint-scss": "^3.9.3",
-    "eslint": "^6.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-google": "^0.13.0",
-    "eslint-config-standard": "^13.0.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "eslint-plugin-standard": "^4.0.0",
-    "gh-pages": "^2.0.1",
-    "husky": "^3.0.3",
-    "lint-staged": "^9.2.1"
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "gh-pages": "^2.1.1",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-scss": "^3.10.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eslint:fix": "eslint 'client/**/*.jsx' --fix",
+    "stylelint:fix": "stylelint 'client/**/*.scss' --fix"
   },
   "repository": {
     "type": "git",
@@ -47,8 +49,8 @@
   "homepage": "https://github.com/atomspace/atomspace.od.ua#readme",
   "lint-staged": {
     "client/*.js": [
-      "eslint client/**/*.jsx --fix --cache",
-      "stylelint 'client/**/*.scss' --fix",
+      "npm run eslint:fix",
+      "npm run stylelint:fix",
       "git add"
     ]
   }

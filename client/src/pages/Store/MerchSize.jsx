@@ -1,40 +1,46 @@
 import React from 'react';
-import classname from 'classnames';
-import LocalStorage from '../../localStorage';
+import cl from 'classnames';
+import { withTranslation } from 'react-i18next';
 
-export default class MerchSize extends React.Component {
+class MerchSize extends React.Component {
+  sizes = [{ id: 1, size: 'S' }, { id: 2, size: 'M' }, { id: 3, size: 'L' }, { id: 4, size: 'XL' }];
+
   constructor(props) {
     super(props);
     this.state = {
       size: props.size ? props.size : 'M',
     };
   }
-  sizes = ['S', 'M', 'L', 'XL'];
 
   componentDidMount() {
-    const { size } = this.props;
-    const sizeObj = { size: this.state.size };
+    const { changeMerchAttr } = this.props;
+    const { size } = this.state;
+    const sizeObj = { size };
     this.setState(sizeObj);
-    this.props.changeMerchAttr(sizeObj);
+    changeMerchAttr(sizeObj);
   }
 
   changeMerchAttr = (size) => {
+    const { changeMerchAttr } = this.props;
     this.setState({ size });
-    this.props.changeMerchAttr({ size });
+    changeMerchAttr({ size });
   };
 
   render() {
+    const { size } = this.state;
+    const { t } = this.props;
     return (
-      <div className="list-item size-container flex flex-acen">
-        <span className="main-header flex flex-acen">SIZE:</span>
+      <div className="list-item size-container">
+        <span className="main-header flex flex-acen">{t('size')}</span>
         <div className="size-list flex flex-acen">
-          {this.sizes.map((size, index) => (
+          {this.sizes.map((val) => (
             <span
-              key={index}
-              className={classname('size-item', { selected: size === this.state.size })}
-              onClick={this.changeMerchAttr.bind(this, size)}
+              role="presentation"
+              key={val.id}
+              className={cl('size-item', { selected: val.size === size })}
+              onClick={this.changeMerchAttr.bind(this, val.size)}
             >
-              {size}
+              {val.size}
             </span>
           ))}
         </div>
@@ -42,3 +48,5 @@ export default class MerchSize extends React.Component {
     );
   }
 }
+
+export default withTranslation('')(MerchSize);

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { withTranslation } from 'react-i18next';
 import LeftSidebar from '../../routes/Sidebar/Left';
 import { validateUser } from './utils/validation';
 import MobileRequestForm from './MobileRequestForm';
 import { Button } from '../Button/Button';
-import { Loader } from '../Loader';
 
-export default class UserForm extends React.Component {
+class UserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,28 +19,29 @@ export default class UserForm extends React.Component {
   }
 
   getUserByProps(data) {
-    return data.reduce((acc, data) => ({ ...acc, [data.id]: { value: '', error: false } }), {});
+    return data.reduce((acc, val) => ({ ...acc, [val.id]: { value: '', error: false } }), {});
   }
+
   prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {});
 
   submitForm = async () => {
     const { user } = this.state;
     const { inputData, createOrder, getBack } = this.props;
     const { isDisabled, stateUser } = validateUser(user, inputData);
-    this.setState({
-      ...this.state,
+    this.setState((state) => ({
+      ...state,
       ...stateUser,
-    });
+    }));
     if (!isDisabled) {
       const data = this.prepareData(user);
       try {
         this.setState({ isLoading: true });
         await createOrder(data);
         this.setState({ isLoading: false });
-        this.props.getBack();
+        getBack();
       } catch (e) {
         this.setState({ isLoading: false });
-        this.props.getBack();
+        getBack();
       }
     }
   };
@@ -51,35 +52,42 @@ export default class UserForm extends React.Component {
       event.target.type = 'date';
     }
     const error = !value.length || (data.validate && !data.validate(value));
-    this.setState({
-      ...this.state,
+    this.setState((state) => ({
+      ...state,
       user: {
-        ...this.state.user,
+        ...state.user,
         [id]: {
-          ...this.state.user[id],
+          ...state.user[id],
           error,
           value,
         },
       },
       isDisabled: error,
-    });
+    }));
   };
 
-  renderFormBlocks = () => (
-    <div className="form-blocks flex flex-cen">
-      <div className="form-maintext-block">
-        <div className="form-maintext-block__header">{this.props.headerText}</div>
-        <div className="form-maintext-block__text">{this.props.mainText}</div>
+  renderFormBlocks = () => {
+    const { headerText, mainText } = this.props;
+    return (
+      <div className="form-blocks flex flex-cen">
+        <div className="form-maintext-block">
+          <div className="form-maintext-block__header">{headerText}</div>
+          <div className="form-maintext-block__text">{mainText}</div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
-  changeStep = (e) =>
-    e.target.innerHTML === 'Назад'
-      ? this.setState({ step: this.state.step - 1 })
-      : this.setState({ step: this.state.step + 1 });
+  changeStep = ({ target: { innerHTML } }) => {
+    const { t } = this.props;
+    return innerHTML === t('back')
+      ? this.setState((state) => ({ step: state.step - 1 }))
+      : this.setState((state) => ({ step: state.step + 1 }));
+  };
 
   renderStepButtons = () => {
+    const { step } = this.state;
+    const { inputData, t } = this.props;
     const NavButton = ({ title, isBack }) => (
       <Button className={cn('button-step-change', isBack ? 'left' : 'right')} onClick={this.changeStep}>
         {title}
@@ -87,57 +95,63 @@ export default class UserForm extends React.Component {
     );
     return (
       <div>
-        {this.state.step > 0 ? <NavButton isBack={true} title="Назад" /> : null}
-        {this.state.step < this.props.inputData.length - 1 ? <NavButton isBack={false} title="Вперед" /> : null}
+        {step > 0 ? <NavButton isBack title={t('back')} /> : null}
+        {step < inputData.length - 1 ? <NavButton isBack={false} title={t('forward')} /> : null}
       </div>
     );
   };
 
-  renderFormRegister = () => (
-    <div className="form-main">
-      <div className="form-registration">
-        {this.props.inputData.map((data, index) => (
-          <div className="form-block" key={index}>
-            <input
-              className={cn({ error: this.state.user[data.id].error })}
-              id={data.id}
-              type={data.id === 'birth' ? 'text' : data.type}
-              placeholder={data.placeholder}
-              value={this.state.user[data.id].value || data.defaultValue}
-              onChange={this.handleInputUser.bind(this, data)}
-              onFocus={this.handleInputUser.bind(this, data)}
-            />
+  renderFormRegister = () => {
+    const { inputData, buttonText } = this.props;
+    const { user, isLoading } = this.state;
+    return (
+      <div className="form-main">
+        <div className="form-registration">
+          {inputData.map((data) => (
+            <div className="form-block" key={data.id}>
+              <input
+                className={cn({ error: user[data.id].error })}
+                id={data.id}
+                type={data.id === 'birth' ? 'text' : data.type}
+                placeholder={data.placeholder}
+                value={user[data.id].value || data.defaultValue}
+                onChange={this.handleInputUser.bind(this, data)}
+                onFocus={this.handleInputUser.bind(this, data)}
+              />
+            </div>
+          ))}
+          <div className="request-button-block">
+            <Button className="btn btn-support btn-request" loading={isLoading} onClick={this.submitForm}>
+              {buttonText}
+            </Button>
           </div>
-        ))}
-        <div className="request-button-block">
-          <Button className="btn btn-support btn-request" loading={this.state.isLoading} onClick={this.submitForm}>
-            {this.props.buttonText}
-          </Button>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   renderFormRegisterMobile = (step = 0) => {
-    let data = this.props.inputData[step],
-      index = this.props.inputData.indexOf(data);
+    const { inputData, buttonText } = this.props;
+    const { user, isLoading } = this.state;
+    const data = inputData[step];
+    const index = inputData.indexOf(data);
     return (
       <div className="form-main">
         <div className="form-registration">
           <div className="form-block" key={index}>
             <input
-              className={cn({ error: this.state.user[data.id].error })}
+              className={cn({ error: user[data.id].error })}
               id={data.id}
               type={data.id === 'birth' ? 'text' : data.type}
               placeholder={data.placeholder}
-              value={this.state.user[data.id].value || data.defaultValue}
+              value={user[data.id].value || data.defaultValue}
               onChange={this.handleInputUser.bind(this, data)}
               onFocus={this.handleInputUser.bind(this, data)}
             />
           </div>
           <div className="request-button-block">
-            <Button className="btn btn-support btn-request" loading={this.state.isLoading} onClick={this.submitForm}>
-              {this.props.buttonText}
+            <Button className="btn btn-support btn-request" loading={isLoading} onClick={this.submitForm}>
+              {buttonText}
             </Button>
           </div>
         </div>
@@ -146,6 +160,8 @@ export default class UserForm extends React.Component {
   };
 
   render() {
+    const { getBack, headerText, inputData } = this.props;
+    const { step, isLoading } = this.state;
     return (
       <div className="main-form-container">
         <div className="navigation">
@@ -157,17 +173,17 @@ export default class UserForm extends React.Component {
           {this.renderFormRegister()}
         </div>
         <div className="atom-logo" />
-        <div className="close-dialog-btn" onClick={this.props.getBack} />
-        <div className="nav_toggle cross" onClick={this.props.getBack} />
+        <div className="close-dialog-btn" onClick={getBack} />
+        <div className="nav_toggle cross" onClick={getBack} />
         <MobileRequestForm
           formBlocks={this.renderFormBlocks()}
-          formRegister={this.renderFormRegisterMobile(this.state.step)}
+          formRegister={this.renderFormRegisterMobile(step)}
           stepButtons={this.renderStepButtons()}
-          headerText={this.props.headerText}
+          headerText={headerText}
           submitForm={this.submitForm}
-          isLoading={this.state.isLoading}
+          isLoading={isLoading}
           changeStep={this.changeStep}
-          showButton={this.state.step === this.props.inputData.length - 1}
+          showButton={step === inputData.length - 1}
         />
       </div>
     );
@@ -177,7 +193,15 @@ export default class UserForm extends React.Component {
 UserForm.propTypes = {
   headerText: PropTypes.string,
   buttonText: PropTypes.string,
-  mainText: PropTypes.any,
+  mainText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   getBack: PropTypes.func.isRequired,
-  inputData: PropTypes.any,
+  inputData: PropTypes.arrayOf(PropTypes.object),
 };
+
+UserForm.defaultProps = {
+  headerText: '',
+  buttonText: '',
+  inputData: [],
+};
+
+export default withTranslation('')(UserForm);

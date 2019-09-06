@@ -1,11 +1,8 @@
 import React from 'react';
-import classname from 'classnames';
+import cl from 'classnames';
 
-export default function Arrow(props) {
-  return (
-    <div
-      onClick={props.onClick}
-      className={classname({ slick: true, 'slick-prev': props.rotate, 'slick-next': !props.rotate })}
-    />
-  );
-}
+const Arrow = ({ onClick, rotate }) => (
+  <div onClick={onClick} className={cl({ slick: true, 'slick-prev': rotate, 'slick-next': !rotate })} />
+);
+
+export default Arrow;

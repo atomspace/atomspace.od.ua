@@ -192,11 +192,12 @@
   .order-block {
     background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
     background-repeat: no-repeat;
-    bottom: 0;
-    width: 375px;
-    border: 0;
     background-size: cover;
+    bottom: 0;
+    border: 0;
+    width: 375px;
     border-radius: 40px;
+    z-index: 1100;
 
     .order-items {
       color: $white-color;

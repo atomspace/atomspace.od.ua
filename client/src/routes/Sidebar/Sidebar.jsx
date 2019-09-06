@@ -1,55 +1,62 @@
-import React, { Component } from 'react';
-import * as classnames from 'classnames';
+import React from 'react';
+import cl from 'classnames';
+import { useTranslation } from 'react-i18next';
 import LeftSidebar from './Left';
 import RightSidebar from './Right';
 import SmallSidebar from './Small';
 
-class Sidebar extends Component {
-  render() {
-    const { pageName } = this.props;
-    const classes = classnames('navigation', pageName);
-    const links = [
-      {
-        href: '#main',
-        text: 'ГЛАВНАЯ',
-      },
-      {
-        href: '#about',
-        text: 'О ПРОЕКТЕ',
-      },
-      {
-        href: '#blog',
-        text: 'БЛОГ',
-      },
-      {
-        href: '#edu',
-        text: 'ПРОГРАММЫ',
-      },
-      {
-        href: '#family',
-        text: 'ATOM TEAM',
-      },
-      {
-        href: '#store',
-        text: 'ATOM STORE',
-      },
-      {
-        href: '#contacts',
-        text: 'КОНТАКТЫ',
-      },
-      {
-        href: 'https://www.it2school.od.ua/',
-        text: 'IT2SCHOOL',
-      },
-    ];
-    return (
-      <div className={classes}>
-        <LeftSidebar {...this.props} />
-        <RightSidebar {...this.props} links={links} />
-        <SmallSidebar {...this.props} links={links} />
-      </div>
-    );
-  }
-}
+const Sidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
+  const { t } = useTranslation();
+  const classes = cl('navigation', pageName);
+  const links = [
+    {
+      id: 1,
+      href: '#main',
+      text: t('nav.main'),
+    },
+    {
+      id: 2,
+      href: '#about',
+      text: t('nav.about'),
+    },
+    {
+      id: 3,
+      href: '#blog',
+      text: t('nav.blog'),
+    },
+    {
+      id: 4,
+      href: '#edu',
+      text: t('nav.edu'),
+    },
+    {
+      id: 5,
+      href: '#family',
+      text: t('nav.family'),
+    },
+    {
+      id: 6,
+      href: '#store',
+      text: t('nav.store'),
+    },
+    {
+      id: 7,
+      href: '#contacts',
+      text: t('nav.contacts'),
+    },
+    {
+      id: 8,
+      href: 'https://www.it2school.od.ua/',
+      text: 'IT2SCHOOL',
+    },
+  ];
+  return (
+    <div className={classes}>
+      <LeftSidebar pageName={pageName} handleDialog={handleDialog} changeMerchAttr={changeMerchAttr} order={order} />
+      <RightSidebar pageName={pageName} links={links} />
+      <SmallSidebar pageName={pageName} links={links} />
+    </div>
+  );
+};
 
 export default Sidebar;

@@ -1,42 +1,45 @@
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
+import { useTranslation, Trans } from 'react-i18next';
 import { Bubble } from '../../components/Bubble';
 import AboutPhoto1 from '../../assets/images/photos/about_photo_1.png';
 import AboutPhoto2 from '../../assets/images/photos/about_photo_2.png';
 import AboutPhoto3 from '../../assets/images/photos/about_photo_3.png';
 import AboutPhoto4 from '../../assets/images/photos/about_photo_4.png';
 import AtomspaceText from '../../assets/images/icons/logos/AtomSpace-about-maintext.svg';
-import LazyLoad from 'react-lazy-load';
 import { ImageLoader } from '../../components/ImageLoader';
 
-const BoldLink = (props) => (
-  <a className="bold" href="">
-    {props.children}
+const BoldLink = ({ children, href }) => (
+  <a className="bold" target="_blank" rel="noopener noreferrer" href={href}>
+    {children}
   </a>
 );
-const mainText = (
-  <>
-    Социальный образовательный проект, основанный <BoldLink>Provectus</BoldLink> и <BoldLink>IT2School</BoldLink> с
-    целью создать возможность для талантливых подростков расти и развиваться в сфере IT.
-  </>
-);
 
-const mainText1 = `Это креативное пространство, в котором подростки под руководством практикующих cпециалистов бесплатно обучаются IT, получают навыки командной работы и реализовывают собственные идеи.
-Глобальная миссия Atom Space - изменить формат и подход к IT-образованию`;
-const mainText2 =
-  'Мы верим в то, что образование не ограничивается стенами школы, колледжа, университета. Поэтому мы создаем возможности для талантливых подростков, которые хотят получать знания в сфере высоких технологий, развивая навыки командной работы под руководством менторов.';
-const mainText3 =
-  'Мы стремимся к созданию сообщества выпускников-резидентов, готовых осваивать новые технологии и способных адаптироваться к условиям динамично развивающегося мира; они генерируют нестандартные решения, которые меняют мир к лучшему, и популяризируют идею менторства, обучая других.';
+const About = () => {
+  const { t } = useTranslation();
 
-export default function About() {
+  const mainText = (
+    <Trans i18nKey="aboutMainText">
+      {'Социальный образовательный проект, основанный'}
+      <BoldLink href="https://provectus.com/">Provectus</BoldLink>
+      {'и'}
+      <BoldLink href="https://www.it2school.od.ua/">IT2School</BoldLink>
+      {'с целью создать возможность для талантливых подростков расти и развиваться в сфере IT.'}
+    </Trans>
+  );
+
+  const mainText1 = t('aboutMainText1');
+
+  const mainText2 = t('aboutMainText2');
+
+  const mainText3 = t('aboutMainText3');
+
   return (
     <div className="section about-container">
       <div className="about-blocks flex flex-cen">
         <div className="about-main-block">
           <div className="about-main-block-image">
-            <LazyLoad
-            debounce={false}
-            offsetVertical={500}
-            >
+            <LazyLoad debounce={false} offsetVertical={500}>
               <ImageLoader alt="AtomSpaceText" src={AtomspaceText} className="about-main-block-image__atomspace" />
             </LazyLoad>
           </div>
@@ -59,4 +62,6 @@ export default function About() {
       </div>
     </div>
   );
-}
+};
+
+export default About;

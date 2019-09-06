@@ -1,24 +1,26 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { createMentor } from '../../../api/mentor';
 import UserForm from '../UserForm';
 import { Bubble } from '../../Bubble';
 import validators from '../../../utils/validators';
 
-const buttonText = 'Cтать ментором';
-export default function Mentor(props) {
-  const headerText = 'Стать ментором';
-  const mainText =
-    'Ментор Atom Space работает с резидентами индивидуально или в группе. Тебе будет предоставлена дорожная карта развития резидентов, чтобы ты точно знал, какие темы необходимо освещать. Мы стремимся к тому, чтобы резиденты самостоятельно осваивали учебный материал, а ментор направлял и показывал, как можно решить задачу эффективнее.';
+const Mentor = (props) => {
+  const { t } = useTranslation();
+
+  const buttonText = t('form.beMentor');
+  const headerText = t('form.beMentor');
+  const mainText = t('form.mentorText');
   const inputData = [
     {
       id: 'name',
-      placeholder: 'Имя:',
+      placeholder: t('form.placeholders.fullName'),
       type: 'text',
       autocomplete: 'off',
     },
     {
       id: 'phone',
-      placeholder: 'Телефон: (ex. 0635522111)',
+      placeholder: t('form.placeholders.phone'),
       autocomplete: 'off',
       type: 'number',
       validate: validators.phone,
@@ -26,25 +28,25 @@ export default function Mentor(props) {
     },
     {
       id: 'email',
-      placeholder: 'Email:',
+      placeholder: t('form.placeholders.email'),
       autocomplete: 'off',
       type: 'email',
       validate: validators.email,
     },
     {
       id: 'information',
-      placeholder: 'Могу поделиться знаниями в сфере:',
+      placeholder: t('form.placeholders.informationMentor'),
       autocomplete: 'off',
       type: 'text',
     },
   ];
   return (
     <section className="form-container">
-      <Bubble big animate style={{ bottom: 453, left: 451 }} />
+      <Bubble big animate style={{ bottom: 453, left: 451, position: 'absolute' }} />
       {getComputedStyle(document.querySelector('.vertical-line.left')).display === 'none' ? null : (
-        <Bubble middle animate style={{ bottom: 240, left: '34vw', opacity: 1 }} />
+        <Bubble middle animate style={{ bottom: 240, left: '34vw', opacity: 1, position: 'absolute' }} />
       )}
-      <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2 }} />
+      <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2, position: 'absolute' }} />
       <UserForm
         inputData={inputData}
         createOrder={createMentor}
@@ -55,4 +57,6 @@ export default function Mentor(props) {
       />
     </section>
   );
-}
+};
+
+export default Mentor;

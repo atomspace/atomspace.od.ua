@@ -88,13 +88,10 @@
 
   .order-block {
     display: flex;
-    background-image: url(#{$path-to-images}/icons/store/background-full-fixed.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
     position: fixed;
     width: 100%;
     border-radius: 0;
-    height: $h610 + $h288;
+    // height: $h610 + $h288;
 
     .order-items {
       color: $white-color;
@@ -205,6 +202,8 @@
   margin-top: 10%;
 
   .size-container {
+    display: flex;
+    justify-content: flex-start;
     font-size: 14px;
     line-height: 14px;
     font-family: $OpenSans-SemiBold;
@@ -214,19 +213,17 @@
     width: 250px;
     margin-bottom: 24px;
     color: $black-color;
-    justify-content: space-around;
-    left: -40px;
     position: relative;
+    left: -40px;
 
     .main-header {
-      position: relative;
-      left: 40px;
+      padding-left: 70px;
     }
 
     .size-list {
       .size-item {
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         margin: 0 0.26vw;
         line-height: 15px;
       }
