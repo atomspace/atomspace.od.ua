@@ -4,9 +4,20 @@
 
 ### Client
 
+**Requirenments**
+```
+NODE_ENV=development //Set 'production' if its production
+
+#Main urls to 'media' and 'api'
+REACT_APP_MEDIA_URL=https://admin.atomspace-test.com/media/
+REACT_APP_API_URL=https://admin.atomspace-test.com/api/v1
+```
+
 ``` 
+npm install 
 npm run start
 ```
+
 
 ### Server
 
@@ -46,6 +57,40 @@ touch ./server/logs/logs.txt
 Check file ```./server/.env``` and ```./server/configure.sh```
  to correct all config
 
+**Env file descirption**
+```
+SECRET_KEY=SECRET_KEY // Secret key for hash user passwords
+
+#Main mailbox from where messages will be sent
+EMAIL_HOST_USER=atomspace.info@gmail.com // Mail user
+EMAIL_HOST_PASSWORD=askmefromadministration // Mail password
+
+EMAIL_TO=test@test.com // Additional email where all mails will dublicates
+
+#Database config
+DB_NAME=atomspace.od.ua // Name of database
+DB_USER=admin // database user
+DB_PASSWORD=changeme // database user password
+DB_PORT=5432 // database port
+DB_HOST=postgres // database main host
+DB_ENGINE=django.db.backends.postgresql_psycopg2 // dont touch
+
+#Dublicating info for postgres docker container
+POSTGRES_USER=$DB_USER
+POSTGRES_PASSWORD=$DB_PASSWORD
+POSTGRES_DB=$DB_NAME
+
+#User admin credentials
+INITIAL_USER_NAME=atomspace 
+INITIAL_USER_EMAIL=atomspace.info@gmail.com
+INITIAL_USER_PASSWORD=ineedmorespace
+
+#Google docs configuration (Real time saving in google sheets while order merch, mentor or resident request and smth)
+EXPORT_SCOPE=https://www.googleapis.com/auth/drive //Place of save
+EXPORT_KEY=CHANGEME //Google secret key of access
+EXPORT_CREDS=CHANGEME //Google creds of access
+
+```
 ##### Run
 ```
 sudo docker-compose -f docker-compose.yml up -d --build
