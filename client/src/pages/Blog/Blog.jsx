@@ -6,6 +6,7 @@ import MindLogo from '../../assets/images/icons/blog/mind-logo.svg';
 import TeamLogo from '../../assets/images/icons/blog/team-logo.svg';
 import TrustLogo from '../../assets/images/icons/blog/trust-logo.svg';
 import PuzzleLogo from '../../assets/images/icons/blog/puzzle-logo.svg';
+import { ImageLoader } from '../../components/ImageLoader';
 
 const Blog = () => {
   const { t } = useTranslation();
@@ -61,7 +62,7 @@ const Blog = () => {
         <div className="blog-skill-blocks">
           {skillsData.map((skill) => (
             <div key={skill.id} className="blog-skill-item">
-              <img alt="blogImage" src={skill.image} className={`blog-skill-item__${skill.logo}-logo`} />
+              <ImageLoader alt="blogImage" src={skill.image} className={`blog-skill-item__${skill.logo}-logo`} />
               <div className="blog-skill-item-information">
                 <div className="blog-skill-item-information__header">{skill.header}</div>
                 <div className="blog-skill-item-information__description">{skill.description}</div>
@@ -73,7 +74,7 @@ const Blog = () => {
           <Slider {...settings}>
             {skillsData.map((skill) => (
               <div key={skill.id} className="blog-skill-item">
-                <img alt="blogImage" src={skill.image} className={`blog-skill-item__${skill.logo}-logo`} />
+                <ImageLoader alt="blogImage" src={skill.image} className={`blog-skill-item__${skill.logo}-logo`} />
                 <div className="blog-skill-item-information">
                   <div className="blog-skill-item-information__header">{skill.header}</div>
                   <div className="blog-skill-item-information__description">{skill.description}</div>

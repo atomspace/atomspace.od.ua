@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { createMentor } from '../../../api/mentor';
 import UserForm from '../UserForm';
 import { Bubble } from '../../Bubble';
@@ -11,6 +11,14 @@ const Mentor = (props) => {
   const buttonText = t('form.beMentor');
   const headerText = t('form.beMentor');
   const mainText = t('form.mentorText');
+  const confirmMessage = (
+    <Trans i18nKey="form.mentorConfirmText">
+      <p>Спасибо что оставили заявку!</p>
+      <p>Мы с вами свяжемся в ближайшее</p>
+      <p>время!</p>
+    </Trans>
+  );
+
   const inputData = [
     {
       id: 'name',
@@ -52,6 +60,7 @@ const Mentor = (props) => {
         createOrder={createMentor}
         headerText={headerText}
         mainText={mainText}
+        confirmMessage={confirmMessage}
         buttonText={buttonText}
         {...props}
       />

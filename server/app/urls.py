@@ -12,11 +12,11 @@ urlpatterns = [
     path('api/v1/news', views.get_news, name='get_news'),
     path('api/v1/orders', views.api_orders, name='api_orders'),
 
-    path('', views.index, name='index'),
     path('merch', views.merch, name='merch'),
     path('news', views.news, name='news'),
     path('orders', views.orders, name='orders'),
     path('people', views.people, name='people'),
+    path('', views.index, name='index'),
     path('logout', views.logout, name='logout'),
     url(r'^login', views.login, name='login'),
     url(r'^news/(?P<pk>\d+)/delete$', views.delete_article, name='delete_article'),

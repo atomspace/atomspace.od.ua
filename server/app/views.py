@@ -16,7 +16,7 @@ from django.contrib import messages
 
 from .forms import MerchForm, NewsForm, EditMerch, EditNews, LoginForm
 from .models import Merch, News, Mentor, Resident, Order
-from .utils import EmailThread
+from .utils import EmailThread, ExcelExport
 
 
 @csrf_exempt
@@ -53,6 +53,7 @@ def mentors(request):
 
         EmailThread(subject, textEmail,
                     from_email, to_email).start()
+        ExcelExport(data).start()
         return JsonResponse({
             "errors": [],
             "success": True,
@@ -85,7 +86,9 @@ def residents(request):
         data = json.loads(request.body.decode('utf-8'))
         post = Resident()
         post.name = data['name']
-        post.birthday = data['birth']
+
+        birth = '-'.join(data['birth'].split('-')[::-1])
+        post.birthday = birth
         post.email = data['email']
         post.phone = data['phone']
         post.information = data['information']
@@ -94,7 +97,7 @@ def residents(request):
         # Sending callback email
         subject = 'Request to become a resident!'
         from_email = settings.EMAIL_HOST_USER
-        to_email = [data['email'], settings.EMAIL_TO]
+        to_email = [data['email']]
 
         fileEmail = './app/templates/email/request_resident.html'
 
@@ -108,7 +111,7 @@ def residents(request):
 
         EmailThread(subject, textEmail,
                     from_email, to_email).start()
-
+        ExcelExport(data).start()        
         return JsonResponse([{
             "errors": [],
             "success": True,

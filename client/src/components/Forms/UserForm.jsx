@@ -6,6 +6,7 @@ import LeftSidebar from '../../routes/Sidebar/Left';
 import { validateUser } from './utils/validation';
 import MobileRequestForm from './MobileRequestForm';
 import { Button } from '../Button/Button';
+import Confirm from './Confirm';
 
 class UserForm extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class UserForm extends React.Component {
       isDisabled: true,
       isLoading: false,
       step: 0,
+      sended: false,
     };
   }
 
@@ -37,7 +39,7 @@ class UserForm extends React.Component {
       try {
         this.setState({ isLoading: true });
         await createOrder(data);
-        this.setState({ isLoading: false });
+        this.setState({ isLoading: false, sended: true });
         getBack();
       } catch (e) {
         this.setState({ isLoading: false });
@@ -103,8 +105,8 @@ class UserForm extends React.Component {
 
   renderFormRegister = () => {
     const { inputData, buttonText } = this.props;
-    const { user, isLoading } = this.state;
-    return (
+    const { user, isLoading, sended } = this.state;
+    return !sended ? (
       <div className="form-main">
         <div className="form-registration">
           {inputData.map((data) => (
@@ -127,7 +129,7 @@ class UserForm extends React.Component {
           </div>
         </div>
       </div>
-    );
+    ) : null;
   };
 
   renderFormRegisterMobile = (step = 0) => {
@@ -160,8 +162,8 @@ class UserForm extends React.Component {
   };
 
   render() {
-    const { getBack, headerText, inputData } = this.props;
-    const { step, isLoading } = this.state;
+    const { getBack, headerText, inputData, confirmMessage } = this.props;
+    const { step, isLoading, sended } = this.state;
     return (
       <div className="main-form-container">
         <div className="navigation">
@@ -171,14 +173,16 @@ class UserForm extends React.Component {
         <div className="form-request">
           {this.renderFormBlocks()}
           {this.renderFormRegister()}
+          {sended ? <Confirm confirmMessage={confirmMessage} /> : null}
         </div>
         <div className="atom-logo" />
         <div className="close-dialog-btn" onClick={getBack} />
         <div className="nav_toggle cross" onClick={getBack} />
         <MobileRequestForm
           formBlocks={this.renderFormBlocks()}
-          formRegister={this.renderFormRegisterMobile(step)}
+          formRegister={!sended ? this.renderFormRegisterMobile(step) : null}
           stepButtons={this.renderStepButtons()}
+          confirmMessage={sended ? <Confirm confirmMessage={confirmMessage} /> : null}
           headerText={headerText}
           submitForm={this.submitForm}
           isLoading={isLoading}

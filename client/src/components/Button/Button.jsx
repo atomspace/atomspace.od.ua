@@ -1,5 +1,6 @@
 import React from 'react';
 import Loader from '../../assets/images/icons/loader.svg';
+import { ImageLoader } from '../ImageLoader';
 
 export const Button = ({ loading = false, children, ...rest }) => {
   let child = children;
@@ -7,7 +8,7 @@ export const Button = ({ loading = false, children, ...rest }) => {
     child = (
       <>
         {children}
-        <img className="loader-icon" src={Loader} alt="loaderIcon" />
+        <ImageLoader className="loader-icon" src={Loader} />
       </>
     );
   }

@@ -5,7 +5,16 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '../Button/Button';
 
 function MobileRequestForm(props) {
-  const { headerText, formBlocks, formRegister, submitForm, isLoading, stepButtons, showButton } = props;
+  const {
+    headerText,
+    formBlocks,
+    formRegister,
+    submitForm,
+    isLoading,
+    stepButtons,
+    showButton,
+    confirmMessage,
+  } = props;
   const [isMobile, setIsMobile] = useState(true);
   const { t } = useTranslation();
   return (
@@ -27,6 +36,7 @@ function MobileRequestForm(props) {
               {t('contacts.beResident')}
             </Button>
           ) : null}
+          {confirmMessage}
         </>
       )}
     </div>

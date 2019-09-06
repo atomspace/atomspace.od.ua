@@ -18,6 +18,14 @@ export default function Resident(props) {
       {'сначала.'}
     </Trans>
   );
+
+  const confirmMessage = (
+    <Trans i18nKey="form.residentConfirmText">
+      <p>Спасибо что оставили заявку!</p>
+      <p>Мы с вами свяжемся перед</p>
+      <p>набором в резиденты!</p>
+    </Trans>
+  );
   const inputData = [
     {
       id: 'name',
@@ -62,6 +70,7 @@ export default function Resident(props) {
         headerText={headerText}
         mainText={mainText}
         buttonText={buttonText}
+        confirmMessage={confirmMessage}
       />
     </section>
   );

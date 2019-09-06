@@ -3,6 +3,7 @@ import cl from 'classnames';
 import AtomLogoLight from '../../../assets/images/icons/logos/AtomSpace-logo.svg';
 import AtomLogoDark from '../../../assets/images/icons/logos/AtomSpace-logo-dark.svg';
 import Language from '../../../components/Language/Language';
+import { ImageLoader } from '../../../components/ImageLoader';
 
 export const RightSidebar = ({ pageName, links }) => {
   const lightPages = ['about', 'blog', 'edu', 'store', 'contacts'];
@@ -10,7 +11,7 @@ export const RightSidebar = ({ pageName, links }) => {
   return (
     <div className="vertical-line right">
       <nav className={cl('sidebar__right', { light_theme: isLight })}>
-        <img src={isLight ? AtomLogoDark : AtomLogoLight} className="atom-logo" alt="atomLogo" />
+        <ImageLoader src={isLight ? AtomLogoDark : AtomLogoLight} className="atom-logo" />
         <div className="flex flex-col">
           {links.map((link) => {
             const isSelected = link.href === `#${pageName}`;
