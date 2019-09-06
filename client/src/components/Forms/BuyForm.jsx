@@ -1,5 +1,6 @@
 import React from 'react';
-import classname from 'classnames';
+import cl from 'classnames';
+import { withTranslation } from 'react-i18next';
 import { MEDIA_URL } from '../../utils/config';
 import { validateUser } from './utils/validation';
 import validators from '../../utils/validators';
@@ -8,45 +9,47 @@ import { Button } from '../Button/Button';
 import { createRequestForMerch } from '../../api/merch';
 import Toggle from '../Toggle/index';
 
-const mainHeader = 'ДЕТАЛИ ЗАКАЗА';
-const additionalHeader = 'Чтоб мы могли вам отправить футболку, заполните поля ниже.';
 const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14';
-const inputData = [
-  {
-    id: 'fullName',
-    placeholder: 'Имя:',
-    type: 'text',
-  },
-  {
-    id: 'phone',
-    placeholder: 'Телефон: (ex. 0635522111)',
-    type: 'number',
-    validate: validators.phone,
-  },
-  {
-    id: 'city',
-    placeholder: 'Город:',
-    type: 'text',
-  },
-  {
-    id: 'npMail',
-    placeholder: 'Отделение новой почты:',
-    type: 'text',
-  },
-];
-export default class BuyForm extends React.Component {
+
+class BuyForm extends React.Component {
   constructor(props) {
     super(props);
+
+    const { t } = props;
+    this.inputData = [
+      {
+        id: 'fullName',
+        placeholder: t('form.placeholders.fullName'),
+        type: 'text',
+      },
+      {
+        id: 'phone',
+        placeholder: t('form.placeholders.phone'),
+        type: 'number',
+        validate: validators.phone,
+      },
+      {
+        id: 'city',
+        placeholder: t('form.placeholders.city'),
+        type: 'text',
+      },
+      {
+        id: 'npMail',
+        placeholder: t('form.placeholders.npMail'),
+        type: 'text',
+      },
+    ];
     this.state = {
-      user: this.getUserByProps(inputData),
+      user: this.getUserByProps(),
       isDisabled: true,
       isLoading: false,
     };
   }
 
-  getUserByProps(data) {
-    return data.reduce((acc, data) => ({ ...acc, [data.id]: { value: '', error: false } }), {});
+  getUserByProps() {
+    return this.inputData.reduce((acc, val) => ({ ...acc, [val.id]: { value: '', error: false } }), {});
   }
+
   prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {});
 
   createOrder = async () => {
@@ -54,14 +57,13 @@ export default class BuyForm extends React.Component {
     const { user } = this.state;
     const {
       getBack,
-      createOrder,
       order: { size, id },
     } = this.props;
-    const { stateUser, isDisabled } = validateUser(user, inputData);
-    this.setState({
-      ...this.state,
+    const { stateUser, isDisabled } = validateUser(user, this.inputData);
+    this.setState((state) => ({
+      ...state,
       ...stateUser,
-    });
+    }));
     const data = {
       ...this.prepareData(user),
       merchSize: size,
@@ -76,70 +78,80 @@ export default class BuyForm extends React.Component {
         this.setState({ isLoading: false });
       } catch (e) {
         this.setState({ isLoading: false });
-        this.props.getBack();
+        getBack();
       }
     }
   };
 
   handleInputUser = (validate, event) => {
-    const name = event.target.id;
-    const type = event.target.type;
+    const {
+      target: { id, type },
+    } = event;
     const value = type === 'checkbox' ? event.target.checked : event.target.value;
     const error = type === 'checkbox' ? false : !value.length || (validate && !validate(value));
-    this.setState({
-      ...this.state,
+    this.setState((state) => ({
+      ...state,
       user: {
-        ...this.state.user,
-        [name]: {
-          ...this.state.user[name],
+        ...state.user,
+        [id]: {
+          ...state.user[id],
           error,
           value,
         },
       },
       isDisabled: error,
-    });
+    }));
   };
 
-  renderFormRegister = () => (
-    <>
-      {inputData.map((data, index) => (
-        <div className={`${data.id}-block`} key={index}>
-          <input
-            className={classname({
-              error: this.state.user[data.id].error,
-              'atom-toggle__hide': data.type === 'checkbox',
-            })}
-            id={data.id}
-            type={data.type}
-            placeholder={data.placeholder}
-            value={this.state.user[data.id].value}
-            onChange={this.handleInputUser.bind(this, data.validate)}
-            onBlur={this.handleInputUser.bind(this, data.validate)}
-          />
-        </div>
-      ))}
-      <Toggle value={'Забрать из AtomSpace?'} />
-    </>
-  );
+  renderFormRegister = () => {
+    const { user } = this.state;
+    const { t } = this.props;
+    return (
+      <>
+        {this.inputData.map((data) => (
+          <div className={`${data.id}-block`} key={data.id}>
+            <input
+              className={cl({
+                error: user[data.id].error,
+                'atom-toggle__hide': data.type === 'checkbox',
+              })}
+              id={data.id}
+              type={data.type}
+              placeholder={data.placeholder}
+              value={user[data.id].value}
+              onChange={this.handleInputUser.bind(this, data.validate)}
+              onBlur={this.handleInputUser.bind(this, data.validate)}
+            />
+          </div>
+        ))}
+        <Toggle value={t('form.toggle')} />
+      </>
+    );
+  };
 
   render() {
+    const { getBack, order, t } = this.props;
+    const { isLoading } = this.state;
+    const mainHeader = t('form.detailOrder');
+    const additionalHeader = t('form.detailOrder2');
+
     return (
       <div className="buy-form-container">
         <div className="main-header">
-          <p>Оформить покупку</p>
+          <p>{t('from.createOrder')}</p>
         </div>
-        <div className="close-dialog-btn" onClick={this.props.getBack} />
-        <div className="nav_toggle cross" onClick={this.props.getBack} />
+        <div className="close-dialog-btn" onClick={getBack} />
+        <div className="nav_toggle cross" onClick={getBack} />
         <div className="show-block">
           <div className="merch-photo">
-            <ImageLoader alt="merch" className="image" src={`${MEDIA_URL}${this.props.order.avatar_url}`} />
+            <ImageLoader alt="merch" className="image" src={`${MEDIA_URL}${order.avatar_url}`} />
           </div>
           <div className="text-info">
-            <div className="text-info__choice">Ваш выбор:</div>
-            <div className="text-info__name">{this.props.order.name}</div>
+            <div className="text-info__choice">{t('form.yourChoice')}</div>
+            <div className="text-info__name">{order.name}</div>
             <div className="text-info__size">
-              <span className="bold">Размер: </span>
-              {this.props.order.size}
+              <span className="bold">{`${t('form.size')}:`}</span>
+              {order.size}
             </div>
           </div>
         </div>
@@ -150,13 +162,9 @@ export default class BuyForm extends React.Component {
             <h2 className="additional-header">{additionalHeader}</h2>
             <div className="order-form">{this.renderFormRegister()}</div>
             <div className="order-request">
-              <h3 className="price-info">{`₴ ${this.props.order.cost}`}</h3>
-              <Button
-                className="btn btn-support btn-request pay-button"
-                loading={this.state.isLoading}
-                onClick={this.createOrder}
-              >
-                {'Оплатить'}
+              <h3 className="price-info">{`₴ ${order.cost}`}</h3>
+              <Button className="btn btn-support btn-request pay-button" loading={isLoading} onClick={this.createOrder}>
+                {t('form.buy')}
               </Button>
             </div>
           </div>
@@ -165,3 +173,5 @@ export default class BuyForm extends React.Component {
     );
   }
 }
+
+export default withTranslation('')(BuyForm);

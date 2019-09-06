@@ -7,4 +7,6 @@ import Main from './Main/Main';
 import Space from './Space';
 import Store from './Store';
 
-export { Main, About, Blog, Contacts, Edu, Family, Space, Store };
+export {
+  Main, About, Blog, Contacts, Edu, Family, Space, Store,
+};

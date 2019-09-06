@@ -78,8 +78,9 @@
           @each $logo in mind, team, trust, puzzle {
             &__#{$logo}-logo {
               margin-bottom: 15px;
-              width: 100%;
+              width: 80%;
               position: relative;
+              margin: 0 auto;
             }
           }
         }

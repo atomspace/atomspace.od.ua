@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
+import { useTranslation } from 'react-i18next';
 import Soc from '../../components/Soc';
 import Arrow from '../../components/Arrow';
 import TapSwipe from '../../assets/images/icons/adaptive/tap-swipe.svg';
@@ -8,106 +9,91 @@ import KseniyaPhoto from '../../assets/images/photos/kseniya-yarmolovich.png';
 import VeronikaPhoto from '../../assets/images/photos/veronika-ilnitckaya.png';
 import { ImageLoader } from '../../components/ImageLoader';
 
-const people = [
-  {
-    id: 0,
-    name: 'Анна Деревянко',
-    position: 'CEO',
-    avatar: 'anna',
-    imageLink: AnnaPhoto,
-    facebook: 'https://www.facebook.com/anna.derevyankoo',
-  },
-  {
-    id: 1,
-    name: 'Ксения Ярмолович',
-    position: 'Event Manager',
-    avatar: 'kseniya',
-    imageLink: KseniyaPhoto,
-    facebook: 'https://www.facebook.com/yarmolovi4',
-  },
-  {
-    id: 1,
-    name: 'Вероника Ильницкая',
-    position: 'PR Manager',
-    avatar: 'veronika',
-    imageLink: VeronikaPhoto,
-    facebook: 'https://www.facebook.com/verilnitskaya',
-  },
-];
-export default class Family extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      index: 0,
-      entity: {
-        id: 0,
-        name: '',
-        position: '',
-        photo: '',
-      },
-    };
-  }
-
-  render() {
-    const settings = {
-      // dots: true,
-      infinite: true,
-      speed: 500,
-      arrows: true,
-      prevArrow: <Arrow rotate />,
-      nextArrow: <Arrow />,
-      centerPadding: '0px',
-      swipeToSlide: true,
-      centerMode: true,
-      afterChange: (index) => {
-        this.setState({ index });
-      },
-    };
-    return (
-      <div className="section family-container">
-        <div className="family-wrapper">
-          <div className="main-text-mobile">КОМАНДА</div>
-          <ImageLoader alt="tapSwipeImage" src={TapSwipe} className="tap-swipe-logo" />
-          <div className="carousel-container">
-            <Slider {...settings}>
-              {people.map((emp, index) => (
-                <div key={index} className="carousel-block">
-                  <div className="carousel-info__photo">
-                    <ImageLoader alt="empPhoto" src={emp.imageLink} className={`photo-logo ${emp.avatar}`} />
-                  </div>
+const Family = () => {
+  const [index, setIndex] = useState(0);
+  const { t } = useTranslation();
+  const people = [
+    {
+      id: 1,
+      name: t('family.anna'),
+      position: 'CEO',
+      avatar: 'anna',
+      imageLink: AnnaPhoto,
+      facebook: 'https://www.facebook.com/anna.derevyankoo',
+    },
+    {
+      id: 2,
+      name: t('family.ksu'),
+      position: 'Event Manager',
+      avatar: 'kseniya',
+      imageLink: KseniyaPhoto,
+      facebook: 'https://www.facebook.com/yarmolovi4',
+    },
+    {
+      id: 3,
+      name: t('family.ver'),
+      position: 'PR Manager',
+      avatar: 'veronika',
+      imageLink: VeronikaPhoto,
+      facebook: 'https://www.facebook.com/verilnitskaya',
+    },
+  ];
+  const settings = {
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    arrows: true,
+    prevArrow: <Arrow rotate />,
+    nextArrow: <Arrow />,
+    centerPadding: '0px',
+    swipeToSlide: true,
+    centerMode: true,
+    afterChange: (i) => {
+      setIndex(i);
+    },
+  };
+  return (
+    <div className="section family-container">
+      <div className="family-wrapper">
+        <div className="main-text-mobile">{t('team')}</div>
+        <ImageLoader alt="tapSwipeImage" src={TapSwipe} className="tap-swipe-logo" />
+        <div className="carousel-container">
+          <Slider {...settings}>
+            {people.map((emp) => (
+              <div key={emp.id} className="carousel-block">
+                <div className="carousel-info__photo">
+                  <ImageLoader alt="empPhoto" src={emp.imageLink} className={`photo-logo ${emp.avatar}`} />
                 </div>
-              ))}
-            </Slider>
-            <div className="carousel-info">
-              <div className="carousel-info__header">
-                <p className="info-header-name">КОМАНДА</p>
               </div>
-              <div className="carousel-info__desc">
-                <p className="info-name">{people[this.state.index] && people[this.state.index].name}</p>
-                <p className="info-position">{people[this.state.index] && people[this.state.index].position}</p>
-              </div>
-              <div className="carousel-info__soc">
-                <Soc
-                  src={{
-                    facebook: people[this.state.index] && people[this.state.index].facebook,
-                    linkedin: people[this.state.index] && people[this.state.index].linkedin,
-                  }}
-                  classes="flex soc-icons"
-                />
-              </div>
-              <div className="carousel-info__quote-block">
-                <div className="quotes">
-                  <p className="quote-text">
-                    {
-                      'Мы создаем возможности для талантливых подростков, которые мечтают строить будущее с помощью инновационных технологий.'
-                    }
-                  </p>
-                </div>
+            ))}
+          </Slider>
+          <div className="carousel-info">
+            <div className="carousel-info__header">
+              <p className="info-header-name">{t('team')}</p>
+            </div>
+            <div className="carousel-info__desc">
+              <p className="info-name">{people[index] && people[index].name}</p>
+              <p className="info-position">{people[index] && people[index].position}</p>
+            </div>
+            <div className="carousel-info__soc">
+              <Soc
+                src={{
+                  facebook: people[index] && people[index].facebook,
+                  linkedin: people[index] && people[index].linkedin,
+                }}
+                classes="flex soc-icons"
+              />
+            </div>
+            <div className="carousel-info__quote-block">
+              <div className="quotes">
+                <p className="quote-text">{t('family.quote-text')}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default Family;
