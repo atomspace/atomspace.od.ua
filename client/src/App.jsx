@@ -7,15 +7,18 @@ import Sidebar from './routes/Sidebar/Sidebar.jsx';
 import BuyForm from './components/Forms/BuyForm';
 import Resident from './components/Forms/Resident/Resident';
 import LocalStorage from './localStorage';
+import Language from './components/Language/Language';
 
 export const urls = ['main', 'about', 'blog', 'edu', 'family', 'store', 'contacts'];
 
 class App extends Component {
+  defaultHashPage = '#main';
+
   constructor(props) {
     super(props);
     this.state = {
       currentPage: 'main',
-      userHash: ['#'],
+      userHash: [window.location.hash],
       form: null,
       order: LocalStorage.getMerch(),
     };
@@ -34,24 +37,29 @@ class App extends Component {
     window.location.hash = data;
   }
 
+  getLastUserLoc() {
+    const { userHash } = this.state;
+    return userHash[userHash.length - 1];
+  }
+
+  getPreLastUserLoc() {
+    const { userHash } = this.state;
+    return userHash[userHash.length - 2] || '#';
+  }
+
   getBack = () => {
     this.changeDialog(null);
-    const { userHash } = this.state;
-    const preLastUserHash = userHash[userHash.length - 2];
-    const lastUserHash = userHash[userHash.length - 1];
+    const preLastUserHash = this.getPreLastUserLoc();
+    const lastUserHash = this.getLastUserLoc();
     this.setHash(preLastUserHash || lastUserHash);
   };
 
   handleBack = () => {
     window.onpopstate = () => {
       const { userHash } = this.state;
-      const hash = window.location.hash ? window.location.hash : '#';
-      const forms = ['#mentorForm', '#residentForm'];
+      const hash = window.location.hash ? window.location.hash : this.defaultHashPage;
       const userHashNext = [...userHash, hash];
-      if (forms.includes(userHashNext[userHashNext.length - 2])) {
-        this.getBack();
-      }
-      this.setState({ userHashNext });
+      this.setState({ userHash: userHashNext });
     };
   };
 
@@ -97,7 +105,7 @@ class App extends Component {
   }
 
   render() {
-    const { form, order, merches, currentPage } = this.state;
+    const { form, order, merches, currentPage, userHash } = this.state;
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div>
@@ -107,6 +115,7 @@ class App extends Component {
             changeMerchAttr={this.changeMerchAttr}
             order={order}
           />
+          <Language userHash={userHash} />
           <ReactFullpage
             anchors={urls}
             onLeave={this.pageOnChange}

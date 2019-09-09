@@ -181,10 +181,29 @@ input[type='number']::-webkit-outer-spin-button {
   position: fixed;
   right: $f110 + $f21;
   top: 95vh;
+  z-index: 1050;
+  width: 40px;
   .language-btn {
     cursor: pointer;
     img {
-      width: $f34;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .language-btn-container {
+    top: 5%;
+    left: 8%;
+    right: 0;
+    width: $f178;
+    &.none {
+      display: none;
+    }
+    .language-btn {
+      img {
+        width: 100%;
+      }
     }
   }
 }

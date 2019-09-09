@@ -30,6 +30,7 @@ module.exports = {
     'import/extensions': 0,
     'import/prefer-default-export': 0,
     'import/no-cycle': 0,
+    'react/jsx-filename-extension': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'jsx-a11y/click-events-have-key-events': 0,
     'jsx-a11y/no-static-element-interactions': 0,

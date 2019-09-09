@@ -1,48 +1,30 @@
 import React, { useState } from 'react';
 import cl from 'classnames';
 
-const SmallSidebar = ({ pageName, links }) => {
-  const [isNavOpened, setIsNavOpened] = useState(true);
+const SmallSidebar = ({ links }) => {
+  const [isNavOpened, setIsNavOpened] = useState(false);
   const toggleNav = (status) => {
     setIsNavOpened(status);
   };
 
-  const isLightTheme = () => {
-    switch (pageName) {
-      case 'about':
-      case 'blog':
-      case 'edu':
-      case 'store':
-      case 'contacts':
-      case 'family':
-        return true;
-      default:
-        return false;
-    }
-  };
-
-  const ulClass = cl('nav-list', { hide: isNavOpened });
-  const navClass = cl('small-nav', {
-    light_theme: isLightTheme(),
-  });
-
+  const ulClass = cl('nav-list', { hide: !isNavOpened });
   return (
-    <nav className={navClass}>
+    <nav className="small-nav">
       <ul className={ulClass}>
         {links.map((link) => (
           <li key={link.id}>
-            <a href={link.href} onClick={toggleNav.bind(this, true)}>
+            <a href={link.href} onClick={toggleNav.bind(this, false)}>
               {link.text}
             </a>
           </li>
         ))}
       </ul>
       <div>
-        {isNavOpened ? (
-          <div className="nav_toggle" role="presentation" onClick={toggleNav.bind(this, false)} />
-        ) : (
-          <div className="nav_toggle cross light" role="presentation" onClick={toggleNav.bind(this, true)} />
-        )}
+        <div
+          className={cl('nav_toggle', { arrow: isNavOpened })}
+          role="presentation"
+          onClick={toggleNav.bind(this, !isNavOpened)}
+        />
       </div>
     </nav>
   );

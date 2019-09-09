@@ -10,8 +10,8 @@ import { ImageLoader } from '../../components/ImageLoader';
 
 const Blog = () => {
   const { t } = useTranslation();
-  const mainText = t('mainText');
-  const mainTextMobile = t('mainTextMobile');
+  const mainText = t('blog.mainText');
+  const mainTextMobile = t('blog.mainTextMobile');
 
   const skillsData = [
     {

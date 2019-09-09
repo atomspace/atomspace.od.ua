@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import cl from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { ImageLoader } from '../ImageLoader';
 import Ukraine from '../../assets/images/icons/countries/ukraine.svg';
@@ -9,10 +10,11 @@ const RU = 'ru';
 const EN = 'en';
 const UA = 'ua';
 
-const Language = () => {
+const Language = ({ userHash }) => {
   const [lang, setLang] = useState(RU);
   const { i18n } = useTranslation();
-
+  const nonDisplayPages = ['#residentForm', '#buyForm', '#mentorForm'];
+  const isDisplay = nonDisplayPages.includes(userHash[userHash.length - 1]);
   const getImage = (val) => {
     switch (val) {
       case RU:
@@ -33,7 +35,7 @@ const Language = () => {
   };
 
   return (
-    <div className="language-btn-container">
+    <div className={cl('language-btn-container', { none: isDisplay })}>
       <div className="language-btn" onClick={changeLanguage}>
         {lang === RU ? getImage(EN) : getImage(RU)}
       </div>
