@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^login', views.login, name='login'),
     url(r'^news/(?P<pk>\d+)/delete$', views.delete_article, name='delete_article'),
     url(r'^merch/(?P<pk>\d+)/delete$', views.delete_merch, name='delete_merch'),
+    url(r'^resident/(?P<pk>\d+)/delete', views.delete_resident, name='delete_resident'),
+    url(r'^mentor/(?P<pk>\d+)/delete', views.delete_mentor, name='delete_mentor'),
     url(r'^news/(?P<pk>\d+)/edit$', views.edit_article, name='edit_article'),
     url(r'^merch/(?P<pk>\d+)/edit$', views.edit_merch, name='edit_merch'),
 ]

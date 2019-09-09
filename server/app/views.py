@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
 from django.http import HttpResponse
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 from .forms import MerchForm, NewsForm, EditMerch, EditNews, LoginForm
 from .models import Merch, News, Mentor, Resident, Order
@@ -334,6 +335,23 @@ def login(request):
         }
         return render(request, "login/index.html", context)
 
+@login_required
+def delete_mentor(request, pk):
+    try:
+        p = Mentor.objects.get(id=pk)
+        p.delete()
+        return HttpResponseRedirect('/people')
+    except:
+        return HttpResponseRedirect('.people')
+
+@login_required
+def delete_resident(request, pk):
+    try:
+        p = Resident.objects.get(id=pk)
+        p.delete()
+        return HttpResponseRedirect('/people')
+    except:
+        return HttpResponseRedirect('/people')
 
 @login_required
 def logout(request):
