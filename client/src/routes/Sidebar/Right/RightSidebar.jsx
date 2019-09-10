@@ -18,7 +18,7 @@ export const RightSidebar = ({ pageName, links }) => {
             return (
               <div className={cl({ list: true, selected: isSelected })} key={link.id}>
                 <div className="dot" />
-                <a className="list-item" href={link.href}>
+                <a className="list-item" target={link.target} href={link.href}>
                   {link.text}
                 </a>
               </div>

@@ -31,7 +31,7 @@ const SmallSidebar = ({ pageName, links }) => {
       <ul className={ulClass}>
         {links.map((link) => (
           <li key={link.id}>
-            <a href={link.href} onClick={toggleNav.bind(this, true)}>
+            <a href={link.href} target={link.target} onClick={toggleNav.bind(this, true)}>
               {link.text}
             </a>
           </li>

@@ -36,10 +36,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'admin.atomspace.od.ua', '0.0.0.0',
-                 'admin.atomspace-test.com', 'atomspace-test.com', 'atomspace.od.ua']
+								 'admin.atomspace-test.com', 'atomspace-test.com', 'atomspace.od.ua']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -51,65 +51,65 @@ EMAIL_USE_TLS = True
 
 
 INSTALLED_APPS = [
-    'app',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'corsheaders',
-    'rest_framework'
+		'app',
+		'django.contrib.admin',
+		'django.contrib.auth',
+		'django.contrib.contenttypes',
+		'django.contrib.sessions',
+		'django.contrib.messages',
+		'django.contrib.staticfiles',
+		'corsheaders',
+		'rest_framework'
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+		'django.middleware.security.SecurityMiddleware',
+		'django.contrib.sessions.middleware.SessionMiddleware',
+		'corsheaders.middleware.CorsMiddleware',
+		'django.middleware.common.CommonMiddleware',
+		'django.contrib.auth.middleware.AuthenticationMiddleware',
+		'django.contrib.messages.middleware.MessageMiddleware',
+		'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+		{
+				'BACKEND': 'django.template.backends.django.DjangoTemplates',
+				'DIRS': [],
+				'APP_DIRS': True,
+				'OPTIONS': {
+						'context_processors': [
+								'django.template.context_processors.debug',
+								'django.template.context_processors.request',
+								'django.contrib.auth.context_processors.auth',
+								'django.contrib.messages.context_processors.messages',
+						],
+				},
+		},
 ]
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 LOGGING = False if DEBUG else {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'logs/logs.txt',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
+		'version': 1,
+		'disable_existing_loggers': False,
+		'handlers': {
+				'file': {
+						'level': 'DEBUG',
+						'class': 'logging.FileHandler',
+						'filename': 'logs/logs.txt',
+				},
+		},
+		'loggers': {
+				'django': {
+						'handlers': ['file'],
+						'level': 'DEBUG',
+						'propagate': True,
+				},
+		},
 }
 
 WSGI_APPLICATION = 'config.wsgi.application'
@@ -118,19 +118,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASE = {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': 'db.sqlite3'
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': 'db.sqlite3'
 } if DEBUG else {
-    'ENGINE': config('DB_ENGINE'),
-    'NAME': config('DB_NAME'),
-    'HOST': config('DB_HOST'),
-    'USER': config('DB_USER'),
-    'PASSWORD': config('DB_PASSWORD'),
-    'PORT': config('DB_PORT')
+		'ENGINE': config('DB_ENGINE'),
+		'NAME': config('DB_NAME'),
+		'HOST': config('DB_HOST'),
+		'USER': config('DB_USER'),
+		'PASSWORD': config('DB_PASSWORD'),
+		'PORT': config('DB_PORT')
 }
 
 DATABASES = {
-    'default': DATABASE
+		'default': DATABASE
 }
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
@@ -139,18 +139,18 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+		{
+				'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+		},
+		{
+				'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+		},
+		{
+				'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+		},
+		{
+				'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+		},
 ]
 
 # Internationalization

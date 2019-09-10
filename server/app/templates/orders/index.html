@@ -18,6 +18,7 @@
           <th scope="col">Post office (NP)</th>
           <th scope="col">Pickup</th>
           <th scope="col">Created</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -32,6 +33,7 @@
           <td scope="col">{{ i.npMail }}</td>
           <td scope="col">{{ i.is_get_from_atom }}</td>
           <td scope="col">{{ i.created_time }}</td>
+          <td><a href="/order/{{ i.id }}/delete"><img src="{% static 'img/remove-b.svg' %}"/></a></td>
         </tr>
         {% endfor %}
       </tbody>

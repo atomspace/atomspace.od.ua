@@ -13,16 +13,19 @@ const Sidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
       id: 1,
       href: '#main',
       text: t('nav.main'),
+      target: ''
     },
     {
       id: 2,
       href: '#about',
       text: t('nav.about'),
+      target: ''
     },
     {
       id: 3,
       href: '#blog',
       text: t('nav.blog'),
+      target: ''
     },
     {
       id: 4,
@@ -33,21 +36,25 @@ const Sidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
       id: 5,
       href: '#family',
       text: t('nav.family'),
+      target: ''
     },
     {
       id: 6,
       href: '#store',
       text: t('nav.store'),
+      target: ''
     },
     {
       id: 7,
       href: '#contacts',
       text: t('nav.contacts'),
+      target: ''
     },
     {
       id: 8,
       href: 'https://www.it2school.od.ua/',
       text: 'IT2SCHOOL',
+      target: '_blank'
     },
   ];
   return (
