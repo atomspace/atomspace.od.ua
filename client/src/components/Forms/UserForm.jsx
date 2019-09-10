@@ -177,7 +177,7 @@ class UserForm extends React.Component {
         </div>
         <div className="atom-logo" />
         <div className="close-dialog-btn" onClick={getBack} />
-        <div className="nav_toggle cross" onClick={getBack} />
+        <div className="nav_toggle arrow" onClick={getBack} />
         <MobileRequestForm
           formBlocks={this.renderFormBlocks()}
           formRegister={!sended ? this.renderFormRegisterMobile(step) : null}

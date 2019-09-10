@@ -2,7 +2,6 @@ import React from 'react';
 import cl from 'classnames';
 import AtomLogoLight from '../../../assets/images/icons/logos/AtomSpace-logo.svg';
 import AtomLogoDark from '../../../assets/images/icons/logos/AtomSpace-logo-dark.svg';
-import Language from '../../../components/Language/Language';
 import { ImageLoader } from '../../../components/ImageLoader';
 
 export const RightSidebar = ({ pageName, links }) => {
@@ -25,7 +24,6 @@ export const RightSidebar = ({ pageName, links }) => {
             );
           })}
         </div>
-        <Language />
       </nav>
     </div>
   );

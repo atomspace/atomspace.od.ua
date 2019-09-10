@@ -1,5 +1,129 @@
 {
-  "title": "Hello",
-  "whoYouAre": "Кем ты хочешь быть?",
-  "supportProject": "Support project"
+  "whoYouAre": "Who do you want to be?",
+  "resident": "Resident",
+  "team": "TEAM",
+  "mentor": "Mentor",
+  "back": "Back",
+  "forward": "Forward",
+  "supportProject": "Support the project",
+  "aboutMainText": "The Social educational project founded by <1>Provectus</1> and <1>IT2School</1> to create an opportunity for talented teens to grow and develop in IT.",
+  "aboutMainText1": "This is creative place where teenagers study IT for free, get teamwork skills and implement their own ideas under the guidance of experienced professionals. Atom Space's global mission is to change the format and approach to IT education.",
+  "aboutMainText2": "We believe that education is not limited to school, college or university walls. Therefore, we create opportunities for talented teens who want to learn high technology and develop teamwork skills under the guidance of mentors.",
+  "aboutMainText3": "We strive to create a community of graduated residents that are ready to absorb new technology and be able to adapt to the rapidly developing world. They generate creative solutions that change the world for the better and popularize the idea of mentoring by teaching others.",
+  "form": {
+    "toggle": "Pick up from AtomSpace?",
+    "toForm": "To Form",
+    "createOrder": "Checkout",
+    "size": "Size",
+    "buy": "Pay",
+    "detailOrder": "ORDER DETAILS",
+    "detailOrder2": "Please fill the following fields so we can send you a t-shirt .",
+    "yourChoice": "Your choice:",
+    "placeholders": {
+      "fullName": "Name:",
+      "phone": "Phone number: (ex. 0635522111)",
+      "city": "City:",
+      "email": "Email:",
+      "informationMentor": "I can share knowledge in:",
+      "informationResident": "Why do you want to become a resident?",
+      "npMail": "New Post Office:",
+      "birth": "Date of Birth:"
+    },
+    "beMentor": "Become a mentor",
+    "mentorText": "Atom Space mentor works with residents individually or in a group. You will be provided with a Resident Development Roadmap so that you know exactly what topics should be covered. We strive for residents to master the learning material on their own, and the mentor, in turn, will guide and show how the problem can be solved more efficiently.",
+    "beResident": "Become a resident",
+    "residentText": "Every motivated teen <1>from 16 to 20</1> who wants to connect his future with the IT world and is ready to study, research, be interested, ask, try, experiment, create, test, make mistakes and start over can become a resident of Atom Space.",
+    "mentorConfirmText": "<1>Thank you for the application!</1><1>We will contact you</1><1>soon!</1>",
+    "residentConfirmText": "<1>Thank you for the application!</1><1>We will contact you before/1><1>recruiting!</1>"
+  },
+  "size": "Size:",
+  "main": {
+    "mainText": "educational tech space for teens"
+  },
+  "family": {
+    "quote-text": "We create opportunities for talented teens who dream to build the future with innovative technologies.",
+    "anna": "Anna Derevyanko",
+    "ksu": "Kseniia Yarmolovich",
+    "ver": "Veronika Ilnitskaya"
+  },
+  "blog": {
+    "mainText": "ATOM SPACE values",
+    "mainTextMobile": "Values",
+    "mind": {
+      "header": "Lifelong Learning",
+      "description": "We share with residents not only relevant knowledge, but also learn to learn by combining various educational forms and methods: work with a mentor and project learning, self-education and online learning"
+    },
+    "team": {
+      "header": "Team synergy",
+      "description": "We are helping to create like-minded teams, where all participants are equally important and have the ability to be enthusiastic, suggest ideas, make mistakes without fear of judgment and grow with the team for the overall result."
+    },
+    "puzzle": {
+      "header": "Thinking outside the box",
+      "description": "We develop the ability to identify problems and needs of people and, most importantly, solve them using design thinking techniques"
+    },
+    "trust": {
+      "header": "Atmosphere of Trust",
+      "description": "In communication with all project participants we strive for mutual understanding, sincerity and trust through dialogue, informal meetings and time sharing."
+    }
+  },
+  "contacts": {
+    "headerAsk": "Do you like what we do?",
+    "headerAnswer": "Let's develop Atom Space together!",
+    "beMentor": "Become a mentor",
+    "beResident": "Become a resident"
+  },
+  "store": {
+    "mainText": "Do you want to contribute to the development of the project?",
+    "additionalText": "Choose and wear a stylish Atomic T-shirt!",
+    "mainTextMobile": "Would you like to support us?",
+    "additionalTextMobile": "Buy a t-shirt!"
+  },
+  "edu": {
+    "programs": "Atom Space Curriculum",
+    "programsMob": "Curriculum",
+    "rocket-logo": {
+      "text": "Space management - project management",
+      "mobileText": "Space management"
+    },
+    "layout-logo": {
+      "text": "HTML/CSS - the basics",
+      "mobileText": "HTML/CSS"
+    },
+    "checklist-logo": {
+      "text": "Web Application Testing Course",
+      "mobileText": "Quality assurance"
+    },
+    "computer-rocket-logo": {
+      "text": "Space Marketing",
+      "mobileText": "Space Marketing"
+    },
+    "scripts-logo": {
+      "text": "JavaScript",
+      "mobileText": "JavaScript"
+    },
+    "book-logo": {
+      "text": "English",
+      "mobileText": "English"
+    },
+    "python-logo": {
+      "text": "Python - the basics",
+      "mobileText": "Python"
+    },
+    "wordpress-logo": {
+      "text": "Working with WordPress",
+      "mobileText": "WordPress"
+    }
+  },
+  "atomspace": {
+    "address": "Odessa, Observatorny Lane, 2/6"
+  },
+  "nav": {
+    "main": "HOME",
+    "about": "ABOUT PROJECT",
+    "blog": "BLOG",
+    "edu": "CURRICULUM",
+    "family": "ATOM TEAM",
+    "store": "ATOM STORE",
+    "contacts": "CONTACTS"
+  }
 }

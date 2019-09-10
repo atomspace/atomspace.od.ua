@@ -141,7 +141,7 @@ class BuyForm extends React.Component {
           <p>{t('from.createOrder')}</p>
         </div>
         <div className="close-dialog-btn" onClick={getBack} />
-        <div className="nav_toggle cross" onClick={getBack} />
+        <div className="nav_toggle arrow" onClick={getBack} />
         <div className="show-block">
           <div className="merch-photo">
             <ImageLoader alt="merch" className="image" src={`${MEDIA_URL}${order.avatar_url}`} />

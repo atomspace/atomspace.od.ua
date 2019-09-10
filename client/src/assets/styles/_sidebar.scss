@@ -35,13 +35,13 @@
 }
 
 .nav_toggle {
-  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-dark.svg) center/contain no-repeat;
+  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg) center/contain no-repeat;
 
-  &.cross {
+  &.arrow {
     background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg) center/contain no-repeat;
   }
 
-  &.cross.light {
+  &.light_arrow {
     background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg) center/contain no-repeat;
   }
 }
@@ -372,9 +372,5 @@ li {
         color: white;
       }
     }
-  }
-
-  &.light_theme .nav_toggle {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg) center/contain no-repeat;
   }
 }
