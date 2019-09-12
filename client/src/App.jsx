@@ -4,7 +4,7 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import { About, Blog, Contacts, Edu, Family, Main, Store } from './pages';
 import Mentor from './components/Forms/Mentor';
 import Sidebar from './routes/Sidebar/Sidebar.jsx';
-import BuyForm from './components/Forms/BuyForm';
+import { BuyForm } from './components/Forms/BuyForm';
 import Resident from './components/Forms/Resident/Resident';
 import LocalStorage from './localStorage';
 import Language from './components/Language/Language';

@@ -180,9 +180,9 @@ input[type='number']::-webkit-outer-spin-button {
 .language-btn-container {
   position: fixed;
   right: $f110 + $f21;
-  top: 95vh;
+  bottom: $h89;
   z-index: 1050;
-  width: 40px;
+  width: $f42;
   .language-btn {
     cursor: pointer;
     img {

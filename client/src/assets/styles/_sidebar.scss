@@ -207,7 +207,7 @@ li {
       .soc-icons {
         position: absolute;
         left: $f34;
-        bottom: $f55;
+        bottom: $h89;
       }
 
       .dot {
@@ -299,6 +299,14 @@ li {
         &:hover .dot {
           opacity: 1;
         }
+
+        &:last-child {
+          bottom: -10vh;
+          .list-item {
+            font-size: $f13;
+            font-family: OpenSans-Bold;
+          }
+        }
       }
 
       &.light_theme {
@@ -326,20 +334,15 @@ li {
             opacity: 1;
           }
 
-          &:last-child {
-            bottom: -10vh;
-          }
+          
 
-          &:last-child .list-item {
-            font-size: $f13;
-            font-family: OpenSans-Bold;
-          }
-
+          
           &:hover:last-child .dot {
             opacity: 0;
           }
         }
       }
+      
     }
   }
 }
