@@ -55,10 +55,10 @@ const About = () => {
         <Bubble
           interactive
           image={[AboutPhoto1, AboutPhoto2, AboutPhoto3, AboutPhoto4]}
-          style={{ position: 'relative !important', zIndex: 100, opacity: 1 }}
+          style={{ position: 'absolute', zIndex: 100, opacity: 1 }}
         />
-        <Bubble middle animate style={{ bottom: 150, right: 230, zIndex: 100 }} />
-        <Bubble small animate style={{ bottom: 70, right: 110, zIndex: 100 }} />
+        <Bubble middle animate style={{ position: 'absolute',bottom: 150, right: 230, zIndex: 100 }} />
+        <Bubble small animate style={{ position: 'absolute',bottom: 70, right: 110, zIndex: 100 }} />
       </div>
     </div>
   );
