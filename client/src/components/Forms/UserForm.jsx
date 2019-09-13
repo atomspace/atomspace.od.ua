@@ -40,7 +40,7 @@ class UserForm extends React.Component {
         this.setState({ isLoading: true });
         await createOrder(data);
         this.setState({ isLoading: false, sended: true });
-        getBack();
+        // getBack();
       } catch (e) {
         this.setState({ isLoading: false });
         getBack();

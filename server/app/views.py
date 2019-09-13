@@ -363,6 +363,22 @@ def delete_order(request, pk):
 		return HttpResponseRedirect('/orders')
 
 @login_required
+def remove_person(request):
+	try:
+		data = json.loads(request.body.decode('utf-8'))
+		print(data)
+		person_id = data['id']
+		category = data['category']
+		if category == 'residents':
+			Resident.objects.get(id=person_id).delete()
+			return JsonResponse({'ok': 'true'}, safe=False)
+		if category == 'mentors':
+			Mentor.objects.get(id=person_id).delete()
+			return JsonResponse({'ok': 'true'}, safe=False)			
+	except:
+		return JsonResponse({'ok': 'false'}, safe=False)
+
+@login_required
 def logout(request):
 	django_logout(request)
 	return HttpResponseRedirect('/merch')

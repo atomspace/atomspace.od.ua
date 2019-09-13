@@ -33,14 +33,14 @@
       </thead>
       <tbody>
         {% for i in residents %}
-        <tr>
+        <tr id="{{ i.id }}">
           <td>{{ i }}</td>
           <td>{{ i.birthday }}</td>
           <td>{{ i.email }}</td>
           <td>{{ i.phone }}</td>
           <td>{{ i.information }}</td>
           <td>{{ i.created_time }}</td>
-          <td><a href="/resident/{{ i.id }}/delete"><img src="{% static 'img/remove-b.svg' %}"/></a></td>
+          <td><img class='last' src="{% static 'img/remove-b.svg' %}"/></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -58,13 +58,13 @@
       </thead>
       <tbody>
         {% for i in mentors %}
-        <tr>
+        <tr id="{{ i.id }}">
           <td>{{ i.name }}</td>
           <td>{{ i.email }}</td>
           <td>{{ i.phone }}</td>
           <td>{{ i.information }}</td>
           <td>{{ i.created_time }}</td>
-          <td><a href="/mentor/{{ i.id }}/delete"><img src="{% static 'img/remove-b.svg' %}"/></a></td>
+          <td><img class="last" src="{% static 'img/remove-b.svg' %}"/></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -88,6 +88,16 @@
   };
 
   $().ready(() => change());
+  $('.last').on('click', (e) => {
+    var conf = confirm('Are you sure?');
+    if (conf){
+      var id = e.target.parentElement.parentElement.id;
+      var category = e.target.parentElement.parentElement.parentElement.parentElement.id;
+      fetch('/remove-person', {method: 'POST', body: JSON.stringify({'id': id, 'category': category})})
+      .then((res) => window.location.reload())
+      .catch((err) => console.error(err))
+    }
+  })
 </script>
 
 {% endblock %}
