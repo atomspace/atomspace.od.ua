@@ -5,7 +5,6 @@ import Soc from '../../components/Soc';
 import Arrow from '../../components/Arrow';
 import TapSwipe from '../../assets/images/icons/adaptive/tap-swipe.svg';
 import AnnaPhoto from '../../assets/images/photos/anna-derevyanko.png';
-import KseniyaPhoto from '../../assets/images/photos/kseniya-yarmolovich.png';
 import VeronikaPhoto from '../../assets/images/photos/veronika-ilnitckaya.png';
 import { ImageLoader } from '../../components/ImageLoader';
 
@@ -23,14 +22,6 @@ const Family = () => {
     },
     {
       id: 2,
-      name: t('family.ksu'),
-      position: 'Event Manager',
-      avatar: 'kseniya',
-      imageLink: KseniyaPhoto,
-      facebook: 'https://www.facebook.com/yarmolovi4',
-    },
-    {
-      id: 3,
       name: t('family.ver'),
       position: 'PR Manager',
       avatar: 'veronika',
@@ -39,7 +30,6 @@ const Family = () => {
     },
   ];
   const settings = {
-    // dots: true,
     infinite: true,
     speed: 500,
     arrows: true,
@@ -48,7 +38,7 @@ const Family = () => {
     centerPadding: '0px',
     swipeToSlide: true,
     centerMode: true,
-    afterChange: (i) => {
+    afterChange: i => {
       setIndex(i);
     },
   };
@@ -56,13 +46,21 @@ const Family = () => {
     <div className="section family-container">
       <div className="family-wrapper">
         <div className="main-text-mobile">{t('team')}</div>
-        <ImageLoader alt="tapSwipeImage" src={TapSwipe} className="tap-swipe-logo" />
+        <ImageLoader
+          alt="tapSwipeImage"
+          src={TapSwipe}
+          className="tap-swipe-logo"
+        />
         <div className="carousel-container">
           <Slider {...settings}>
-            {people.map((emp) => (
+            {people.map(emp => (
               <div key={emp.id} className="carousel-block">
                 <div className="carousel-info__photo">
-                  <ImageLoader alt="empPhoto" src={emp.imageLink} className={`photo-logo ${emp.avatar}`} />
+                  <ImageLoader
+                    alt="empPhoto"
+                    src={emp.imageLink}
+                    className={`photo-logo ${emp.avatar}`}
+                  />
                 </div>
               </div>
             ))}
@@ -73,7 +71,9 @@ const Family = () => {
             </div>
             <div className="carousel-info__desc">
               <p className="info-name">{people[index] && people[index].name}</p>
-              <p className="info-position">{people[index] && people[index].position}</p>
+              <p className="info-position">
+                {people[index] && people[index].position}
+              </p>
             </div>
             <div className="carousel-info__soc">
               <Soc
