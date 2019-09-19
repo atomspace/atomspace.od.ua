@@ -54,7 +54,7 @@ def mentors(request):
 
 		EmailThread(subject, textEmail,
 					from_email, to_email).start()
-		ExcelExport(data).start()
+		# ExcelExport(data).start()
 		return JsonResponse({
 			"errors": [],
 			"success": True,
@@ -112,7 +112,7 @@ def residents(request):
 
 		EmailThread(subject, textEmail,
 					from_email, to_email).start()
-		ExcelExport(data).start()        
+		# ExcelExport(data).start()        
 		return JsonResponse([{
 			"errors": [],
 			"success": True,

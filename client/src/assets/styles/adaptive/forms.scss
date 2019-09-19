@@ -26,14 +26,16 @@
     }
 
     .right {
-      background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg) center/contain no-repeat;
+      background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg)
+        center/contain no-repeat;
       position: absolute;
       right: 0;
       padding-left: $f110;
     }
 
     .left {
-      background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg) center/contain no-repeat;
+      background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg)
+        center/contain no-repeat;
       position: absolute;
       left: 0;
       padding-right: $f110;
@@ -131,6 +133,18 @@
 
         &.disabled {
           opacity: 0.5;
+        }
+      }
+
+      .confirm-tick {
+        display: flex;
+        flex-direction: column;
+        > img {
+          width: 50%;
+          margin: 0 auto 20px;
+        }
+        > p {
+          text-align: center;
         }
       }
     }

@@ -77,10 +77,13 @@ class UserForm extends React.Component {
 
   renderFormBlocks = () => {
     const { headerText, mainText } = this.props;
+    const { sended } = this.state;
     return (
       <div className="form-blocks flex flex-cen">
         <div className="form-maintext-block">
-          <div className="form-maintext-block__header">{headerText}</div>
+          {sended && (
+            <div className="form-maintext-block__header">{headerText}</div>
+          )}
           <div className="form-maintext-block__text">{mainText}</div>
         </div>
       </div>
@@ -201,15 +204,15 @@ class UserForm extends React.Component {
         <MobileRequestForm
           formBlocks={this.renderFormBlocks()}
           formRegister={!sended ? this.renderFormRegisterMobile(step) : null}
-          stepButtons={this.renderStepButtons()}
+          stepButtons={!sended && this.renderStepButtons()}
           confirmMessage={
             sended ? <Confirm confirmMessage={confirmMessage} /> : null
           }
-          headerText={headerText}
+          headerText={!sended ? headerText : null}
           submitForm={this.submitForm}
           isLoading={isLoading}
           changeStep={this.changeStep}
-          showButton={step === inputData.length - 1}
+          showButton={!sended && step === inputData.length - 1}
         />
       </div>
     );

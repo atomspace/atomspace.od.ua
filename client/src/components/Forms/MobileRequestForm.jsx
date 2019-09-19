@@ -23,7 +23,11 @@ function MobileRequestForm(props) {
       {isMobile ? (
         <>
           {formBlocks}
-          <button type="button" className="button-next-preview" onClick={setIsMobile.bind(this, !isMobile)}>
+          <button
+            type="button"
+            className="button-next-preview"
+            onClick={setIsMobile.bind(this, !isMobile)}
+          >
             {t('form.toForm')}
           </button>
         </>
@@ -32,7 +36,11 @@ function MobileRequestForm(props) {
           {formRegister}
           {stepButtons}
           {showButton ? (
-            <Button className={cl('button-step-change', 'right')} loading={isLoading} onClick={submitForm}>
+            <Button
+              className={cl('button-step-change', 'right')}
+              loading={isLoading}
+              onClick={submitForm}
+            >
               {t('contacts.beResident')}
             </Button>
           ) : null}
