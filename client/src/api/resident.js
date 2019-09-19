@@ -6,6 +6,7 @@ import { createApiRequest } from './base';
  * "number":"1122",
  * "information": "1122"
  */
-export const createResident = (data) => createApiRequest('/residents', 'POST', data);
+export const createResident = data =>
+  createApiRequest('/residents', 'POST', data);
 
 export const getAllResidents = () => createApiRequest('/residents', 'GET');
