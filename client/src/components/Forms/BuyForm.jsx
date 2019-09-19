@@ -47,10 +47,17 @@ class BuyForm extends React.Component {
   }
 
   getUserByProps() {
-    return this.inputData.reduce((acc, val) => ({ ...acc, [val.id]: { value: '', error: false } }), {});
+    return this.inputData.reduce(
+      (acc, val) => ({ ...acc, [val.id]: { value: '', error: false } }),
+      {},
+    );
   }
 
-  prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {});
+  prepareData = user =>
+    Object.keys(user).reduce(
+      (acc, key) => ({ ...acc, [key]: user[key].value }),
+      {},
+    );
 
   createOrder = async () => {
     this.setState({ loading: true });
@@ -60,7 +67,7 @@ class BuyForm extends React.Component {
       order: { size, id },
     } = this.props;
     const { stateUser, isDisabled } = validateUser(user, this.inputData);
-    this.setState((state) => ({
+    this.setState(state => ({
       ...state,
       ...stateUser,
     }));
@@ -87,9 +94,13 @@ class BuyForm extends React.Component {
     const {
       target: { id, type },
     } = event;
-    const value = type === 'checkbox' ? event.target.checked : event.target.value;
-    const error = type === 'checkbox' ? false : !value.length || (validate && !validate(value));
-    this.setState((state) => ({
+    const value =
+      type === 'checkbox' ? event.target.checked : event.target.value;
+    const error =
+      type === 'checkbox'
+        ? false
+        : !value.length || (validate && !validate(value));
+    this.setState(state => ({
       ...state,
       user: {
         ...state.user,
@@ -108,7 +119,7 @@ class BuyForm extends React.Component {
     const { t } = this.props;
     return (
       <>
-        {this.inputData.map((data) => (
+        {this.inputData.map(data => (
           <div className={`${data.id}-block`} key={data.id}>
             <input
               className={cl({
@@ -138,13 +149,17 @@ class BuyForm extends React.Component {
     return (
       <div className="buy-form-container">
         <div className="main-header">
-          <p>{t('from.createOrder')}</p>
+          <p>{t('form.createOrder')}</p>
         </div>
         <div className="close-dialog-btn" onClick={getBack} />
         <div className="nav_toggle arrow" onClick={getBack} />
         <div className="show-block">
           <div className="merch-photo">
-            <ImageLoader alt="merch" className="image" src={`${MEDIA_URL}${order.avatar_url}`} />
+            <ImageLoader
+              alt="merch"
+              className="image"
+              src={`${MEDIA_URL}${order.avatar_url}`}
+            />
           </div>
           <div className="text-info">
             <div className="text-info__choice">{t('form.yourChoice')}</div>
@@ -155,7 +170,6 @@ class BuyForm extends React.Component {
             </div>
           </div>
         </div>
-
         <div className="order-block">
           <div className="order-items">
             <h1 className="order-items__header">{mainHeader}</h1>
@@ -163,7 +177,11 @@ class BuyForm extends React.Component {
             <div className="order-form">{this.renderFormRegister()}</div>
             <div className="order-request">
               <h3 className="price-info">{`₴ ${order.cost}`}</h3>
-              <Button className="btn btn-support btn-request pay-button" loading={isLoading} onClick={this.createOrder}>
+              <Button
+                className="btn btn-support btn-request pay-button"
+                loading={isLoading}
+                onClick={this.createOrder}
+              >
                 {t('form.buy')}
               </Button>
             </div>
@@ -174,4 +192,4 @@ class BuyForm extends React.Component {
   }
 }
 
-export default withTranslation('')(BuyForm);
+export default withTranslation()(BuyForm);
