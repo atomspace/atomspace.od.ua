@@ -21,6 +21,8 @@ module.exports = {
     'prettier/prettier': 'error',
     'no-undef': 0,
     'no-shadow': 0,
+    'global-require': 0,
+    'import/no-dynamic-require': 0,
     'no-console': 0,
     'class-methods-use-this': 0,
     'max-len': 0,
