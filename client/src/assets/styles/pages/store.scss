@@ -202,6 +202,27 @@
     .order-items {
       color: $white-color;
       padding: 35px;
+      height: 350px;
+
+      &.confirm {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .confirm-tick {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-content: center;
+          > img {
+            margin: 0 auto 25px auto;
+            width: 50%;
+          }
+          > p {
+            text-align: center;
+            font-family: $OpenSans-Bold;
+          }
+        }
+      }
 
       &__header {
         margin: 0 0 12px 0;
@@ -306,6 +327,10 @@
 
       &__choice {
         font-family: $OpenSans-SemiBold;
+        margin-bottom: 12px;
+      }
+
+      &__name {
         margin-bottom: 12px;
       }
 

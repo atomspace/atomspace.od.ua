@@ -91,8 +91,11 @@
     display: flex;
     position: fixed;
     width: 100%;
-    border-radius: 0;
-    // height: $h610 + $h288;
+    border: 1px solid transparent;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 
     .order-items {
       color: $white-color;
@@ -103,7 +106,7 @@
       justify-content: space-around;
 
       &__header {
-        margin-bottom: $h16;
+        margin-bottom: $h34;
         font-family: $OpenSans-SemiBold;
         font-size: $f89;
         text-transform: capitalize;

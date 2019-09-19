@@ -20,6 +20,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'no-undef': 0,
+    'no-shadow': 0,
     'no-console': 0,
     'class-methods-use-this': 0,
     'max-len': 0,

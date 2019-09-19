@@ -21,16 +21,23 @@ class UserForm extends React.Component {
   }
 
   getUserByProps(data) {
-    return data.reduce((acc, val) => ({ ...acc, [val.id]: { value: '', error: false } }), {});
+    return data.reduce(
+      (acc, val) => ({ ...acc, [val.id]: { value: '', error: false } }),
+      {},
+    );
   }
 
-  prepareData = (user) => Object.keys(user).reduce((acc, key) => ({ ...acc, [key]: user[key].value }), {});
+  prepareData = user =>
+    Object.keys(user).reduce(
+      (acc, key) => ({ ...acc, [key]: user[key].value }),
+      {},
+    );
 
   submitForm = async () => {
     const { user } = this.state;
     const { inputData, createOrder, getBack } = this.props;
     const { isDisabled, stateUser } = validateUser(user, inputData);
-    this.setState((state) => ({
+    this.setState(state => ({
       ...state,
       ...stateUser,
     }));
@@ -54,7 +61,7 @@ class UserForm extends React.Component {
       event.target.type = 'date';
     }
     const error = !value.length || (data.validate && !data.validate(value));
-    this.setState((state) => ({
+    this.setState(state => ({
       ...state,
       user: {
         ...state.user,
@@ -83,22 +90,27 @@ class UserForm extends React.Component {
   changeStep = ({ target: { innerHTML } }) => {
     const { t } = this.props;
     return innerHTML === t('back')
-      ? this.setState((state) => ({ step: state.step - 1 }))
-      : this.setState((state) => ({ step: state.step + 1 }));
+      ? this.setState(state => ({ step: state.step - 1 }))
+      : this.setState(state => ({ step: state.step + 1 }));
   };
 
   renderStepButtons = () => {
     const { step } = this.state;
     const { inputData, t } = this.props;
     const NavButton = ({ title, isBack }) => (
-      <Button className={cn('button-step-change', isBack ? 'left' : 'right')} onClick={this.changeStep}>
+      <Button
+        className={cn('button-step-change', isBack ? 'left' : 'right')}
+        onClick={this.changeStep}
+      >
         {title}
       </Button>
     );
     return (
       <div>
         {step > 0 ? <NavButton isBack title={t('back')} /> : null}
-        {step < inputData.length - 1 ? <NavButton isBack={false} title={t('forward')} /> : null}
+        {step < inputData.length - 1 ? (
+          <NavButton isBack={false} title={t('forward')} />
+        ) : null}
       </div>
     );
   };
@@ -109,7 +121,7 @@ class UserForm extends React.Component {
     return !sended ? (
       <div className="form-main">
         <div className="form-registration">
-          {inputData.map((data) => (
+          {inputData.map(data => (
             <div className="form-block" key={data.id}>
               <input
                 className={cn({ error: user[data.id].error })}
@@ -123,7 +135,11 @@ class UserForm extends React.Component {
             </div>
           ))}
           <div className="request-button-block">
-            <Button className="btn btn-support btn-request" loading={isLoading} onClick={this.submitForm}>
+            <Button
+              className="btn btn-support btn-request"
+              loading={isLoading}
+              onClick={this.submitForm}
+            >
               {buttonText}
             </Button>
           </div>
@@ -152,7 +168,11 @@ class UserForm extends React.Component {
             />
           </div>
           <div className="request-button-block">
-            <Button className="btn btn-support btn-request" loading={isLoading} onClick={this.submitForm}>
+            <Button
+              className="btn btn-support btn-request"
+              loading={isLoading}
+              onClick={this.submitForm}
+            >
               {buttonText}
             </Button>
           </div>
@@ -182,7 +202,9 @@ class UserForm extends React.Component {
           formBlocks={this.renderFormBlocks()}
           formRegister={!sended ? this.renderFormRegisterMobile(step) : null}
           stepButtons={this.renderStepButtons()}
-          confirmMessage={sended ? <Confirm confirmMessage={confirmMessage} /> : null}
+          confirmMessage={
+            sended ? <Confirm confirmMessage={confirmMessage} /> : null
+          }
           headerText={headerText}
           submitForm={this.submitForm}
           isLoading={isLoading}
@@ -197,7 +219,8 @@ class UserForm extends React.Component {
 UserForm.propTypes = {
   headerText: PropTypes.string,
   buttonText: PropTypes.string,
-  mainText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+  mainText: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+    .isRequired,
   getBack: PropTypes.func.isRequired,
   inputData: PropTypes.arrayOf(PropTypes.object),
 };
