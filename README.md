@@ -86,9 +86,9 @@ INITIAL_USER_EMAIL=atomspace.info@gmail.com
 INITIAL_USER_PASSWORD=ineedmorespace
 
 #Google docs configuration (Real time saving in google sheets while order merch, mentor or resident request and smth)
-EXPORT_SCOPE=https://www.googleapis.com/auth/drive //Place of save
-EXPORT_KEY=CHANGEME //Google secret key of access
-EXPORT_CREDS=CHANGEME //Google creds of access
+EXPORT_SCOPE=https://www.googleapis.com/auth/drive // URL where auth will be 
+EXPORT_KEY=https://docs.google.com/spreadsheets/{EXPORT_KEY} // Need to insert in EXPORT_KEY your id
+EXPORT_CREDS=CHANGEME // Path to your credentials.json
 
 ```
 ##### Run
