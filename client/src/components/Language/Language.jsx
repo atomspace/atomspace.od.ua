@@ -13,7 +13,7 @@ const UA = 'ua';
 const Language = ({ userHash }) => {
   const [lang, setLang] = useState(RU);
   const { i18n } = useTranslation();
-  const nonDisplayPages = ['#residentForm', '#buyForm', '#mentorForm'];
+  const nonDisplayPages = ['#main'];
   const isDisplay = nonDisplayPages.includes(userHash[userHash.length - 1]);
   const getImage = (val) => {
     switch (val) {
@@ -35,7 +35,7 @@ const Language = ({ userHash }) => {
   };
 
   return (
-    <div className={cl('language-btn-container', { none: isDisplay })}>
+    <div className={cl('language-btn-container', { none: !isDisplay })}>
       <div className="language-btn" onClick={changeLanguage}>
         {lang === RU ? getImage(EN) : getImage(RU)}
       </div>
