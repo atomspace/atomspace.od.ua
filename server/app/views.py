@@ -193,6 +193,7 @@ def get_news(request):
 def api_orders(request):
 	if request.method == 'POST':  # Create new order
 		data = json.loads(request.body.decode('utf-8'))
+		print(data)
 		order = Order()
 		order.full_name = data['fullName']
 		order.phone = data['phone']
@@ -358,7 +359,7 @@ def delete_order(request, pk):
 	try:
 		o = Order.objects.get(id=pk)
 		o.delete()
-		return HttpResponseRedirect('/order')
+		return HttpResponseRedirect('/orders')
 	except:
 		return HttpResponseRedirect('/orders')
 
