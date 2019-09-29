@@ -2,14 +2,20 @@ import React, { Component, Suspense } from 'react';
 import './assets/styles/_index.scss';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { About, Blog, Contacts, Edu, Family, Main, Store } from './pages';
-import Mentor from './components/Forms/Mentor';
 import Sidebar from './routes/Sidebar/Sidebar.jsx';
-import BuyForm from './components/Forms/BuyForm';
-import Resident from './components/Forms/Resident/Resident';
+import Form from './components/Forms/Form';
 import LocalStorage from './localStorage';
 import Language from './components/Language/Language';
 
-export const urls = ['main', 'about', 'blog', 'edu', 'family', 'store', 'contacts'];
+export const urls = [
+  'main',
+  'about',
+  'blog',
+  'edu',
+  'family',
+  'store',
+  'contacts',
+];
 
 class App extends Component {
   defaultHashPage = '#main';
@@ -19,7 +25,7 @@ class App extends Component {
     this.state = {
       currentPage: 'main',
       userHash: [window.location.hash],
-      form: null,
+      hashForm: null,
       order: LocalStorage.getMerch(),
     };
   }
@@ -57,17 +63,19 @@ class App extends Component {
   handleBack = () => {
     window.onpopstate = () => {
       const { userHash } = this.state;
-      const hash = window.location.hash ? window.location.hash : this.defaultHashPage;
+      const hash = window.location.hash
+        ? window.location.hash
+        : this.defaultHashPage;
       const userHashNext = [...userHash, hash];
       this.setState({ userHash: userHashNext });
     };
   };
 
-  handleDialog = (e) => {
+  handleDialog = e => {
     this.changeDialog(e.target.hash);
   };
 
-  changeMerchAttr = (prop) => {
+  changeMerchAttr = prop => {
     const { order } = this.state;
     LocalStorage.setMerch({ ...order, ...prop });
     this.setState({
@@ -76,7 +84,7 @@ class App extends Component {
   };
 
   pageOnChange = (origin, destination) => {
-    this.setState((state) => ({
+    this.setState(state => ({
       ...state,
       currentPage: destination.anchor,
     }));
@@ -89,10 +97,10 @@ class App extends Component {
     </div>
   );
 
-  changeDialog(form) {
-    this.setState((state) => ({
+  changeDialog(hashForm) {
+    this.setState(state => ({
       ...state,
-      form,
+      hashForm,
     }));
   }
 
@@ -105,7 +113,7 @@ class App extends Component {
   }
 
   render() {
-    const { form, order, merches, currentPage, userHash } = this.state;
+    const { hashForm, order, merches, currentPage, userHash } = this.state;
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div>
@@ -139,9 +147,7 @@ class App extends Component {
               </ReactFullpage.Wrapper>
             )}
           />
-          {form === '#residentForm' && <Resident getBack={this.getBack} />}
-          {form === '#mentorForm' && <Mentor getBack={this.getBack} />}
-          {form === '#buyForm' && <BuyForm getBack={this.getBack} order={order} />}
+          <Form hashForm={hashForm} getBack={this.getBack} order={order} />
         </div>
       </Suspense>
     );

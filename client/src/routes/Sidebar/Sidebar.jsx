@@ -13,19 +13,19 @@ const Sidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
       id: 1,
       href: '#main',
       text: t('nav.main'),
-      target: ''
+      target: '',
     },
     {
       id: 2,
       href: '#about',
       text: t('nav.about'),
-      target: ''
+      target: '',
     },
     {
       id: 3,
       href: '#blog',
       text: t('nav.blog'),
-      target: ''
+      target: '',
     },
     {
       id: 4,
@@ -36,30 +36,35 @@ const Sidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
       id: 5,
       href: '#family',
       text: t('nav.family'),
-      target: ''
+      target: '',
     },
     {
       id: 6,
       href: '#store',
       text: t('nav.store'),
-      target: ''
+      target: '',
     },
     {
       id: 7,
       href: '#contacts',
       text: t('nav.contacts'),
-      target: ''
+      target: '',
     },
     {
       id: 8,
       href: 'https://www.it2school.od.ua/',
       text: 'IT2SCHOOL',
-      target: '_blank'
+      target: '_blank',
     },
   ];
   return (
     <div className={classes}>
-      <LeftSidebar pageName={pageName} handleDialog={handleDialog} changeMerchAttr={changeMerchAttr} order={order} />
+      <LeftSidebar
+        pageName={pageName}
+        handleDialog={handleDialog}
+        changeMerchAttr={changeMerchAttr}
+        order={order}
+      />
       <RightSidebar pageName={pageName} links={links} />
       <SmallSidebar pageName={pageName} links={links} />
     </div>

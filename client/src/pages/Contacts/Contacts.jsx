@@ -21,12 +21,20 @@ const Contacts = ({ handleDialog }) => {
               <p className="header-answer">{t('contacts.headerAnswer')}</p>
               <div className="request-button-container flex">
                 <div className="request-button-block">
-                  <a className="btn btn-support btn-request" href="#mentorForm" onClick={handleDialog}>
+                  <a
+                    className="btn btn-support btn-request"
+                    href="#mentorForm"
+                    onClick={handleDialog}
+                  >
                     {t('contacts.beMentor')}
                   </a>
                 </div>
                 <div className="request-button-block">
-                  <a className="btn btn-support btn-request" href="#residentForm" onClick={handleDialog}>
+                  <a
+                    className="btn btn-support btn-request"
+                    href="#residentForm"
+                    onClick={handleDialog}
+                  >
                     {t('contacts.beResident')}
                   </a>
                 </div>

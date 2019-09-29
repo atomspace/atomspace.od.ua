@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
 const ImageLoader = ({
-  src, loadedClassName, loadingClassName, onClick, className,
+  src,
+  loadedClassName,
+  loadingClassName,
+  onClick,
+  className,
 }) => {
   const loadedCache = {};
 
@@ -12,9 +16,19 @@ const ImageLoader = ({
     setLoaded(true);
   };
 
-  const customClassName = `${className} ${loaded ? loadedClassName : loadingClassName}`;
+  const customClassName = `${className} ${
+    loaded ? loadedClassName : loadingClassName
+  }`;
 
-  return <img alt="imageLazy" src={src} onClick={onClick} className={customClassName} onLoad={onLoad} />;
+  return (
+    <img
+      alt="imageLazy"
+      src={src}
+      onClick={onClick}
+      className={customClassName}
+      onLoad={onLoad}
+    />
+  );
 };
 
 ImageLoader.defaultProps = {

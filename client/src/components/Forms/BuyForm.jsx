@@ -1,46 +1,26 @@
 import React, { useState } from 'react';
 import cl from 'classnames';
-import { withTranslation, Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { MEDIA_URL } from '../../utils/config';
 import { validateUser } from './utils/validation';
-import validators from '../../utils/validators';
 import { ImageLoader } from '../ImageLoader';
 import { Button } from '../Button/Button';
 import { createRequestForMerch } from '../../api/merch';
 import Toggle from '../Toggle/index';
-import Confirm from './Confirm';
+import Confirm from '../ConfirmMessage/Confirm';
+import withHandleUser from '../../hoc/withHandleUser';
 
 const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14';
 
 const BuyForm = props => {
-  const { t, getBack, order } = props;
+  const { getBack, order } = props;
   const {
     order: { size, id },
+    user,
+    inputData,
+    handleInputUser,
   } = props;
-
-  const inputData = [
-    {
-      id: 'fullName',
-      placeholder: t('form.placeholders.fullName'),
-      type: 'text',
-    },
-    {
-      id: 'phone',
-      placeholder: t('form.placeholders.phone'),
-      type: 'number',
-      validate: validators.phone,
-    },
-    {
-      id: 'city',
-      placeholder: t('form.placeholders.city'),
-      type: 'text',
-    },
-    {
-      id: 'npMail',
-      placeholder: t('form.placeholders.npMail'),
-      type: 'text',
-    },
-  ];
+  const { t } = useTranslation();
 
   const confirmMessage = (
     <Trans i18nKey="form.mentorConfirmText">
@@ -49,16 +29,7 @@ const BuyForm = props => {
     </Trans>
   );
 
-  const getUserByProps = () => {
-    return inputData.reduce(
-      (acc, val) => ({ ...acc, [val.id]: { value: '', error: false } }),
-      {},
-    );
-  };
-
   const [isLoading, setLoading] = useState(false);
-  const [, setDisabled] = useState(true);
-  const [user, setUser] = useState(getUserByProps());
   const [isConfirmMessage, setIsConfirmMessage] = useState(false);
 
   const prepareData = users =>
@@ -90,26 +61,6 @@ const BuyForm = props => {
     }
   };
 
-  const handleInputUser = (validate, event) => {
-    const {
-      target: { id, type, checked, value },
-    } = event;
-    const error =
-      type === 'checkbox'
-        ? false
-        : !value.length || (validate && !validate(value));
-
-    setUser({
-      ...user,
-      [id]: {
-        ...user[id],
-        error,
-        value: type === 'checkbox' ? checked : value,
-      },
-    });
-    setDisabled(error);
-  };
-
   const renderFormRegister = () => (
     <>
       {inputData.map(data => (
@@ -131,9 +82,6 @@ const BuyForm = props => {
       <Toggle value={t('form.toggle')} />
     </>
   );
-
-  const mainHeader = t('form.detailOrder');
-  const additionalHeader = t('form.detailOrder2');
 
   return (
     <div className="buy-form-container">
@@ -165,8 +113,8 @@ const BuyForm = props => {
             <Confirm confirmMessage={confirmMessage} />
           ) : (
             <>
-              <h1 className="order-items__header">{mainHeader}</h1>
-              <h2 className="additional-header">{additionalHeader}</h2>
+              <h1 className="order-items__header">{t('form.detailOrder')}</h1>
+              <h2 className="additional-header">{t('form.detailOrder2')}</h2>
               <div className="order-form">{renderFormRegister()}</div>
               <div className="order-request">
                 <h3 className="price-info">{`₴ ${order.cost}`}</h3>
@@ -186,4 +134,4 @@ const BuyForm = props => {
   );
 };
 
-export default withTranslation()(BuyForm);
+export default withHandleUser(BuyForm);

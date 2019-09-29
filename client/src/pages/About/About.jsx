@@ -24,7 +24,9 @@ const About = () => {
       <BoldLink href="https://provectus.com/">Provectus</BoldLink>
       {'и'}
       <BoldLink href="https://www.it2school.od.ua/">IT2School</BoldLink>
-      {'с целью создать возможность для талантливых подростков расти и развиваться в сфере IT.'}
+      {
+        'с целью создать возможность для талантливых подростков расти и развиваться в сфере IT.'
+      }
     </Trans>
   );
 
@@ -40,7 +42,11 @@ const About = () => {
         <div className="about-main-block">
           <div className="about-main-block-image">
             <LazyLoad debounce={false} offsetVertical={500}>
-              <ImageLoader alt="AtomSpaceText" src={AtomspaceText} className="about-main-block-image__atomspace" />
+              <ImageLoader
+                alt="AtomSpaceText"
+                src={AtomspaceText}
+                className="about-main-block-image__atomspace"
+              />
             </LazyLoad>
           </div>
           <div className="about-main-block-text">
@@ -57,8 +63,16 @@ const About = () => {
           image={[AboutPhoto1, AboutPhoto2, AboutPhoto3, AboutPhoto4]}
           style={{ zIndex: 100, opacity: 1 }}
         />
-        <Bubble middle animate style={{ position: 'absolute', bottom: 150, right: 230, zIndex: 100 }} />
-        <Bubble small animate style={{ position: 'absolute', bottom: 70, right: 110, zIndex: 100 }} />
+        <Bubble
+          middle
+          animate
+          style={{ position: 'absolute', bottom: 150, right: 230, zIndex: 100 }}
+        />
+        <Bubble
+          small
+          animate
+          style={{ position: 'absolute', bottom: 70, right: 110, zIndex: 100 }}
+        />
       </div>
     </div>
   );

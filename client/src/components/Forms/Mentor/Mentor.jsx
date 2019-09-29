@@ -5,7 +5,7 @@ import UserForm from '../UserForm';
 import { Bubble } from '../../Bubble';
 import validators from '../../../utils/validators';
 
-const Mentor = (props) => {
+const Mentor = props => {
   const { t } = useTranslation();
 
   const buttonText = t('form.beMentor');
@@ -32,7 +32,7 @@ const Mentor = (props) => {
       autocomplete: 'off',
       type: 'number',
       validate: validators.phone,
-      modify: (value) => +value,
+      modify: value => +value,
     },
     {
       id: 'email',
@@ -48,13 +48,25 @@ const Mentor = (props) => {
       type: 'text',
     },
   ];
+  const bubbleStyle = {
+    bottom: 240,
+    left: '34vw',
+    opacity: 1,
+    position: 'absolute',
+  };
   return (
     <section className="form-container">
-      <Bubble big animate style={{ bottom: 453, left: 451, position: 'absolute' }} />
-      {getComputedStyle(document.querySelector('.vertical-line.left')).display === 'none' ? null : (
-        <Bubble middle animate style={{ bottom: 240, left: '34vw', opacity: 1, position: 'absolute' }} />
-      )}
-      <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2, position: 'absolute' }} />
+      <Bubble
+        big
+        animate
+        style={{ bottom: 453, left: 451, position: 'absolute' }}
+      />
+      <Bubble middl animate style={bubbleStyle} />
+      <Bubble
+        small
+        animate
+        style={{ top: 50, left: 151, opacity: 0.2, position: 'absolute' }}
+      />
       <UserForm
         inputData={inputData}
         createOrder={createMentor}

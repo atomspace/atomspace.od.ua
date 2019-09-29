@@ -3,7 +3,7 @@ import cl from 'classnames';
 
 const SmallSidebar = ({ links }) => {
   const [isNavOpened, setIsNavOpened] = useState(false);
-  const toggleNav = (status) => {
+  const toggleNav = status => {
     setIsNavOpened(status);
   };
 
@@ -11,9 +11,13 @@ const SmallSidebar = ({ links }) => {
   return (
     <nav className="small-nav">
       <ul className={ulClass}>
-        {links.map((link) => (
+        {links.map(link => (
           <li key={link.id}>
-            <a href={link.href} target={link.target} onClick={toggleNav.bind(this, false)}>
+            <a
+              href={link.href}
+              target={link.target}
+              onClick={toggleNav.bind(this, false)}
+            >
               {link.text}
             </a>
           </li>

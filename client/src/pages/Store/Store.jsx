@@ -23,9 +23,14 @@ class Store extends Component {
     let merches = await getAllMerches();
     if (merches.length) {
       merches = this.increaseCountOfMerch(merches);
-      const merch = { ...{ ...merches[0].fields, id: merches[0].pk }, ...LocalStorage.getMerch() };
+      const merch = {
+        ...{ ...merches[0].fields, id: merches[0].pk },
+        ...LocalStorage.getMerch(),
+      };
       changeMerchAttr(merch);
-      this.setState({ merches: merches.map((val) => ({ id: val.pk, ...val.fields })) });
+      this.setState({
+        merches: merches.map(val => ({ id: val.pk, ...val.fields })),
+      });
     }
   }
 
@@ -57,7 +62,7 @@ class Store extends Component {
         adaptiveHeight: true,
         swipeToSlide: true,
         centerMode: true,
-        afterChange: (index) => {
+        afterChange: index => {
           const merch = merches[index] || merches[0];
           changeMerchAttr(merch);
         },
@@ -76,15 +81,21 @@ class Store extends Component {
           <div className="store-additional-text">{additionalText}</div>
 
           <div className="store-main-text-mobile">{mainTextMobile}</div>
-          <div className="store-additional-text-mobile">{additionalTextMobile}</div>
+          <div className="store-additional-text-mobile">
+            {additionalTextMobile}
+          </div>
           <div className="carousel-container">
             <Slider {...settings}>
-              {merches.map((merch) => (
+              {merches.map(merch => (
                 <div key={merch.id} className="carousel-block">
                   <div className="carousel-info__merch">
                     <div className="wrapper">
                       <div className="ellipse" />
-                      <ImageLoader className="merch-logo" src={`${MEDIA_URL}/${merch.avatar_url}`} alt="merch" />
+                      <ImageLoader
+                        className="merch-logo"
+                        src={`${MEDIA_URL}/${merch.avatar_url}`}
+                        alt="merch"
+                      />
                     </div>
                   </div>
                 </div>
@@ -92,7 +103,11 @@ class Store extends Component {
             </Slider>
           </div>
           <div className="store-buttons-mobile">
-            <MerchSize changeMerchAttr={changeMerchAttr} size={order.size} merches={merches} />
+            <MerchSize
+              changeMerchAttr={changeMerchAttr}
+              size={order.size}
+              merches={merches}
+            />
             <MerchBuy handleDialog={handleDialog} cost={order.cost} />
           </div>
         </div>

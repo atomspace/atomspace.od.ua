@@ -15,7 +15,7 @@ const Language = ({ userHash }) => {
   const { i18n } = useTranslation();
   const nonDisplayPages = ['#residentForm', '#buyForm', '#mentorForm'];
   const isDisplay = nonDisplayPages.includes(userHash[userHash.length - 1]);
-  const getImage = (val) => {
+  const getImage = val => {
     switch (val) {
       case RU:
         return <ImageLoader src={Russia} alt={val} />;

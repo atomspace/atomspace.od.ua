@@ -77,9 +77,13 @@ const LeftSidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
 
   return (
     <div className={sidebarClasses}>
-      <nav className={cl('sidebar__left', { light_theme: lightPages.includes(pageName) })}>
+      <nav
+        className={cl('sidebar__left', {
+          light_theme: lightPages.includes(pageName),
+        })}
+      >
         <div className="flex flex-col">
-          {sidebarRows.map((el) => (
+          {sidebarRows.map(el => (
             <div className="list" key={el.id}>
               <el.Component {...el.props} />
             </div>

@@ -26,10 +26,18 @@ const Main = ({ handleDialog }) => {
           </div>
           <div className="bottom-quastion">{t('whoYouAre')}</div>
           <div className="support-container">
-            <a className="support resident-support" href="#residentForm" onClick={handleDialog}>
+            <a
+              className="support resident-support"
+              href="#residentForm"
+              onClick={handleDialog}
+            >
               {t('resident')}
             </a>
-            <a className="support mentor-support" href="#mentorForm" onClick={handleDialog}>
+            <a
+              className="support mentor-support"
+              href="#mentorForm"
+              onClick={handleDialog}
+            >
               {t('mentor')}
             </a>
           </div>
