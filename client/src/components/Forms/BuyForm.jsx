@@ -52,7 +52,9 @@ const BuyForm = props => {
         setLoading(true);
         await createRequestForMerch(data);
         setIsConfirmMessage(true);
-        setTimeout(window.location = way4payLink, 2000);
+        setTimeout(() => {
+          window.location = way4payLink;
+        }, 2000);
         setLoading(false);
       } catch (e) {
         setLoading(false);
