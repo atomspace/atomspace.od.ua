@@ -53,8 +53,11 @@ function MobileRequestForm(props) {
 
 MobileRequestForm.propTypes = {
   formBlocks: PropTypes.element.isRequired,
-  formRegister: PropTypes.element.isRequired,
-  stepButtons: PropTypes.element.isRequired,
+  formRegister: PropTypes.element,
+  stepButtons: PropTypes.element,
 };
-
+MobileRequestForm.defaultProps = {
+  formRegister: null,
+  stepButtons: null,
+};
 export default MobileRequestForm;

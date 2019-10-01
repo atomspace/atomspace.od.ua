@@ -20,6 +20,7 @@ const UserForm = props => {
     mainText,
     handleInputUser,
     user,
+    setUser,
   } = props;
   const [isLoading, setLoading] = useState(false);
   const [step, setStep] = useState(0);
@@ -53,9 +54,7 @@ const UserForm = props => {
     return (
       <div className="form-blocks flex flex-cen">
         <div className="form-maintext-block">
-          {!sended && (
-            <div className="form-maintext-block__header">{headerText}</div>
-          )}
+          <div className="form-maintext-block__header">{headerText}</div>
           <div className="form-maintext-block__text">{mainText}</div>
         </div>
       </div>

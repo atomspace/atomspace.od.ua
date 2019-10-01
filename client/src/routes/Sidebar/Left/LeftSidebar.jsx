@@ -74,7 +74,6 @@ const LeftSidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
     'border-none': !sidebarRows.length,
   });
   const lightPages = ['about', 'edu', 'blog', 'store', 'resident', 'mentor'];
-  console.log(sidebarRows);
   return (
     sidebarRows && (
       <div className={sidebarClasses}>

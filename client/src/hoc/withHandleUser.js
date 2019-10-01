@@ -10,7 +10,7 @@ export const withHandleUser = Component => {
     };
     const [user, setUser] = useState(getUserByProps(inputData));
 
-    const handleInputUser = (validate, event) => {
+    const handleInputUser = ({ validate }, event) => {
       const {
         target: { id, type, checked, value },
       } = event;
@@ -19,6 +19,9 @@ export const withHandleUser = Component => {
           ? false
           : !value.length || (validate && !validate(value));
 
+      if (id === 'birth') {
+        event.target.type = 'date';
+      }
       setUser({
         ...user,
         [id]: {
@@ -33,6 +36,7 @@ export const withHandleUser = Component => {
         handleInputUser={handleInputUser}
         inputData={inputData}
         user={user}
+        setUser={setUser}
         {...rest}
       />
     );

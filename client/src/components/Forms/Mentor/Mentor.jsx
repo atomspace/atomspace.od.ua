@@ -61,7 +61,7 @@ const Mentor = props => {
         animate
         style={{ bottom: 453, left: 451, position: 'absolute' }}
       />
-      <Bubble middl animate style={bubbleStyle} />
+      <Bubble middle animate style={bubbleStyle} />
       <Bubble
         small
         animate

@@ -13,13 +13,7 @@ import withHandleUser from '../../hoc/withHandleUser';
 const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14';
 
 const BuyForm = props => {
-  const { getBack, order } = props;
-  const {
-    order: { size, id },
-    user,
-    inputData,
-    handleInputUser,
-  } = props;
+  const { getBack, order, user, setUser, inputData, handleInputUser } = props;
   const { t } = useTranslation();
 
   const confirmMessage = (
@@ -43,8 +37,8 @@ const BuyForm = props => {
     setUser(stateUser);
     const data = {
       ...prepareData(user),
-      merchSize: size,
-      merchId: id,
+      merchSize: order.size,
+      merchId: order.id,
       isGetFromAtom: false,
     };
     if (!isDisabled) {
@@ -76,8 +70,8 @@ const BuyForm = props => {
             type={data.type}
             placeholder={data.placeholder}
             value={user[data.id].value}
-            onChange={handleInputUser.bind(this, data.validate)}
-            onBlur={handleInputUser.bind(this, data.validate)}
+            onChange={handleInputUser.bind(this, data)}
+            onBlur={handleInputUser.bind(this, data)}
           />
         </div>
       ))}
