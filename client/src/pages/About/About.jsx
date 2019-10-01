@@ -51,10 +51,12 @@ const About = () => {
           </div>
           <div className="about-main-block-text">
             <div className="about-text-1">
-              <span className="about-text-1--first">{mainText}</span>
-              <span className="about-text-1--second">{mainText1}</span>
+              <p className="about-text-1--first">{mainText}</p>
+              <p className="about-text-1--second">{mainText1}</p>
+              <br />
             </div>
             <div className="about-text-2">{mainText2}</div>
+            <br />
             <div className="about-text-3">{mainText3}</div>
           </div>
         </div>

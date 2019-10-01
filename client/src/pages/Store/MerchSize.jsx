@@ -36,18 +36,20 @@ class MerchSize extends React.Component {
     const { t } = this.props;
     return (
       <div className="list-item size-container">
-        <span className="main-header flex flex-acen">{t('size')}</span>
-        <div className="size-list flex flex-acen">
-          {this.sizes.map(val => (
-            <span
-              role="presentation"
-              key={val.id}
-              className={cl('size-item', { selected: val.size === size })}
-              onClick={this.changeMerchAttr.bind(this, val.size)}
-            >
-              {val.size}
-            </span>
-          ))}
+        <div className="size-block">
+          <span className="main-header flex flex-acen">{t('size')}</span>
+          <div className="size-list flex flex-acen">
+            {this.sizes.map(val => (
+              <span
+                role="presentation"
+                key={val.id}
+                className={cl('size-item', { selected: val.size === size })}
+                onClick={this.changeMerchAttr.bind(this, val.size)}
+              >
+                {val.size}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     );

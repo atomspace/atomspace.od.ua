@@ -6,9 +6,13 @@
   border-radius: 3em;
   text-align: center;
   margin: $f16 0;
-  color: white !important;
+  color: $white-color;
   outline: none;
-  background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
+  background: linear-gradient(
+    0.4turn,
+    $list-item-atom-space-color-left,
+    $list-item-atom-space-color-right
+  );
   font-size: $f16;
   font-weight: 500;
   text-transform: uppercase;
@@ -37,7 +41,11 @@
       transition: all 1s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
+      background: linear-gradient(
+        0.4turn,
+        $list-item-atom-space-color-left,
+        $list-item-atom-space-color-right
+      );
       top: 0;
       right: $f26;
     }
@@ -53,7 +61,11 @@
       border-radius: 3em;
       z-index: -10;
       left: $f26;
-      background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
+      background: linear-gradient(
+        0.4turn,
+        $list-item-atom-space-color-left,
+        $list-item-atom-space-color-right
+      );
       top: 0;
     }
 

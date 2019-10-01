@@ -74,30 +74,32 @@ const LeftSidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
     'border-none': !sidebarRows.length,
   });
   const lightPages = ['about', 'edu', 'blog', 'store', 'resident', 'mentor'];
-
+  console.log(sidebarRows);
   return (
-    <div className={sidebarClasses}>
-      <nav
-        className={cl('sidebar__left', {
-          light_theme: lightPages.includes(pageName),
-        })}
-      >
-        <div className="flex flex-col">
-          {sidebarRows.map(el => (
-            <div className="list" key={el.id}>
-              <el.Component {...el.props} />
-            </div>
-          ))}
-        </div>
-        <Soc
-          src={{
-            facebook: 'https://www.facebook.com/atomspace.od.ua/',
-            instagram: 'https://www.instagram.com/atomspace.od/',
-          }}
-          classes="flex soc-icons"
-        />
-      </nav>
-    </div>
+    sidebarRows && (
+      <div className={sidebarClasses}>
+        <nav
+          className={cl('sidebar__left', {
+            light_theme: lightPages.includes(pageName),
+          })}
+        >
+          <div className="flex flex-col">
+            {sidebarRows.map(el => (
+              <div className="list" key={el.id}>
+                <el.Component {...el.props} />
+              </div>
+            ))}
+          </div>
+          <Soc
+            src={{
+              facebook: 'https://www.facebook.com/atomspace.od.ua/',
+              instagram: 'https://www.instagram.com/atomspace.od/',
+            }}
+            classes="flex soc-icons"
+          />
+        </nav>
+      </div>
+    )
   );
 };
 
