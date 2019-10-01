@@ -16,7 +16,9 @@
   font-size: $f16;
   font-weight: 500;
   text-transform: uppercase;
-
+  &:hover {
+    color: $white-color;
+  }
   a {
     font-size: 12pt;
     color: $white-color;
