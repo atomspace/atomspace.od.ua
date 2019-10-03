@@ -49,11 +49,14 @@
     To create a production bundle, use `npm run build` or `yarn build`.
   -->
 </body>
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQDTKCN71H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQDTKCN71H');
+</script>
 </body>
 
 </html>
