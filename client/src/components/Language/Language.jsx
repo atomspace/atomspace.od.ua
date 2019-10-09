@@ -48,7 +48,7 @@ const Language = ({ userHash }) => {
   return (
     <div className={cl('language-btn-container', { none: !isDisplay })}>
       <div className="language-btn" onClick={changeLanguage}>
-        {lang !== EN ? getImage(RU) : getImage(EN)}
+        {lang !== EN ? getImage(EN) : getImage(RU)}
       </div>
     </div>
   );
