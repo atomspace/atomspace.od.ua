@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import cl from 'classnames';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { ImageLoader } from '../ImageLoader';
 import Ukraine from '../../assets/images/icons/countries/ukraine.svg';
 import Russia from '../../assets/images/icons/countries/russia.svg';
 import England from '../../assets/images/icons/countries/england.svg';
 
-const RU = 'ru';
-const EN = 'en';
-const UA = 'ua';
+const RU = 'ru-RU';
+const EN = 'en-US';
+const UA = 'ua-UA';
 
 const Language = ({ userHash }) => {
-  const [lang, setLang] = useState(RU);
+  const getLanguage = () => i18next.language || window.localStorage.i18nextLng;
+  const [lang, setLang] = useState(getLanguage());
   const { i18n } = useTranslation();
   const nonDisplayPages = ['#main'];
   const isDisplay = nonDisplayPages.includes(userHash[userHash.length - 1]);
@@ -33,7 +35,6 @@ const Language = ({ userHash }) => {
     setLang(currentLang);
     i18n.changeLanguage(currentLang);
   };
-
   return (
     <div className={cl('language-btn-container', { none: !isDisplay })}>
       <div className="language-btn" onClick={changeLanguage}>
