@@ -15,8 +15,8 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    lng: 'en',
-    fallbackLng: 'en',
+    lng: 'en-US',
+    fallbackLng: 'en-US',
     react: {
       wait: true,
       nsMode: 'fallback',

@@ -31,24 +31,17 @@ const Language = ({ userHash }) => {
         return <ImageLoader src={Russia} alt={val} />;
     }
   };
-  const toggleLang = lang => {
-    switch (lang) {
-      case EN:
-        return RU;
-      default:
-        return EN;
-    }
-  };
 
   const changeLanguage = () => {
-    const currentLang = toggleLang(lang);
+    const currentLang = lang === EN ? RU : EN;
     setLang(currentLang);
     i18n.changeLanguage(currentLang);
   };
+  console.log(lang);
   return (
     <div className={cl('language-btn-container', { none: !isDisplay })}>
       <div className="language-btn" onClick={changeLanguage}>
-        {lang !== EN ? getImage(EN) : getImage(RU)}
+        {lang === EN ? getImage(RU) : getImage(EN)}
       </div>
     </div>
   );
