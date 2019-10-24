@@ -87,12 +87,12 @@
 .light_theme {
   .russia {
     background: url(#{$path-to-images}/icons/countries/russia-dark.svg)
-      no-repeat;
+      no-repeat center/contain;
   }
 
   .england {
     background: url(#{$path-to-images}/icons/countries/russia-dark.svg)
-      no-repeat;
+      no-repeat center/contain;
   }
 }
 

@@ -36,14 +36,20 @@ $left-gradient-color: rgb(212, 163, 74);
         height: $f233;
         border-radius: 50%;
         margin: $f21;
-        background: linear-gradient(45deg, $left-gradient-color, $right-gradient-color);
+        background: linear-gradient(
+          45deg,
+          $left-gradient-color,
+          $right-gradient-color
+        );
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: relative;
 
-        @each $logo in wordpress, book, checklist, computer-rocket, layout, python, rocket, scripts {
+        @each $logo in wordpress, book, checklist, computer-rocket, layout,
+          python, rocket, scripts
+        {
           &__#{$logo}-logo {
             background-image: url(#{$path-to-images}/icons/edu/#{$logo}-logo.svg);
             background-repeat: no-repeat;
