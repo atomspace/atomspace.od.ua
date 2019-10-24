@@ -49,51 +49,59 @@
   }
 }
 
+.icon {
+  position: relative;
+  height: $f34;
+  width: $f34;
+  display: block;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+
+  &.facebook {
+    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat
+      center/contain;
+  }
+
+  &.instagram {
+    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat
+      center/contain;
+  }
+
+  &.linkedin {
+    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat
+      center/contain;
+  }
+
+  &.russia {
+    background: url(#{$path-to-images}/icons/countries/russia-light.svg)
+      no-repeat center/contain;
+  }
+
+  &.england {
+    background: url(#{$path-to-images}/icons/countries/england-light.svg)
+      no-repeat center/contain;
+  }
+}
+.light_theme {
+  .russia {
+    background: url(#{$path-to-images}/icons/countries/russia-dark.svg)
+      no-repeat;
+  }
+
+  .england {
+    background: url(#{$path-to-images}/icons/countries/russia-dark.svg)
+      no-repeat;
+  }
+}
+
 .soc-icons {
   height: $f26;
   width: $f110;
 
   > a:not(:last-child) {
     margin-right: $f16;
-  }
-
-  .icon {
-    position: relative;
-    height: $f34;
-    width: $f34;
-  }
-
-  .facebook {
-    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat
-      center/contain;
-    opacity: 0.8;
-    display: block;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .instagram {
-    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat
-      center/contain;
-    display: block;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .linkedin {
-    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat
-      center/contain;
-    display: block;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
-    }
   }
 }
 

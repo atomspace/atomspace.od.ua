@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import cl from 'classnames';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
-import { ImageLoader } from '../ImageLoader';
-// import Ukraine from '../../assets/images/icons/countries/ukraine.svg';
-import Russia from '../../assets/images/icons/countries/russia.svg';
-import England from '../../assets/images/icons/countries/england.svg';
+import Icon from '../Icon/Icon';
+import MyContext from '../../context/Base/AppContext';
 
 const RU = 'ru-RU';
 const EN = 'en-US';
@@ -24,11 +22,11 @@ const Language = ({ userHash }) => {
   const getImage = val => {
     switch (val) {
       case RU:
-        return <ImageLoader src={Russia} alt={val} />;
+        return <Icon name="russia" />;
       case EN:
-        return <ImageLoader src={England} alt={val} />;
+        return <Icon name="england" />;
       default:
-        return <ImageLoader src={Russia} alt={val} />;
+        return <Icon name="russia" />;
     }
   };
 
@@ -39,11 +37,22 @@ const Language = ({ userHash }) => {
   };
   console.log(lang);
   return (
-    <div className={cl('language-btn-container', { none: !isDisplay })}>
-      <div className="language-btn" onClick={changeLanguage}>
-        {lang === EN ? getImage(RU) : getImage(EN)}
-      </div>
-    </div>
+    <MyContext>
+      {({ isLightTheme }) => {
+        return (
+          <div
+            className={cl('language-btn-container', {
+              none: !isDisplay,
+              light_theme: isLightTheme,
+            })}
+          >
+            <div className="language-btn" onClick={changeLanguage}>
+              {lang === EN ? getImage(RU) : getImage(EN)}
+            </div>
+          </div>
+        );
+      }}
+    </MyContext>
   );
 };
 

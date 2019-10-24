@@ -8,7 +8,7 @@ import MerchBuy from './MerchBuy';
 import { getAllMerches } from '../../api/merch';
 import { MEDIA_URL } from '../../utils/config';
 import { ImageLoader } from '../../components/ImageLoader';
-import LocalStorage from '../../localStorage';
+import LocalStorage from '../../utils/localStorage';
 
 class Store extends Component {
   constructor(prop) {
@@ -73,6 +73,14 @@ class Store extends Component {
     const additionalText = t('store.additionalText');
     const mainTextMobile = t('store.mainTextMobile');
     const additionalTextMobile = t('store.additionalTextMobile');
+
+    const increaseCountOfMerch = merches => {
+      let tempMerch = [];
+      while (tempMerch.length <= 3) {
+        tempMerch = tempMerch.concat(merches);
+      }
+      return tempMerch;
+    };
 
     return (
       <div className="section store-container">

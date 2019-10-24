@@ -7,12 +7,11 @@ const SmallSidebar = ({ links }) => {
     setIsNavOpened(status);
   };
 
-  const ulClass = cl('nav-list', { hide: !isNavOpened });
   return (
     <nav className="small-nav">
-      <ul className={ulClass}>
+      <ul className={cl('nav-list', { hide: !isNavOpened })}>
         {links.map(link => (
-          <li key={link.id}>
+          <li key={link.href}>
             <a
               href={link.href}
               target={link.target}
