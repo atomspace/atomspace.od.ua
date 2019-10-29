@@ -39,7 +39,6 @@ const About = () => {
               <p className="about-text-1--first">{mainText}</p>
               <br />
               <p className="about-text-1--second">{mainText1}</p>
-              {console.log(mainText1)}
             </div>
           </div>
         </div>
