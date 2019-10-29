@@ -18,23 +18,8 @@ const BoldLink = ({ children, href }) => (
 const About = () => {
   const { t } = useTranslation();
 
-  const mainText = (
-    <Trans i18nKey="aboutMainText">
-      {'Социальный образовательный проект, основанный'}
-      <BoldLink href="https://provectus.com/">Provectus</BoldLink>
-      {'и'}
-      <BoldLink href="https://www.it2school.od.ua/">IT2School</BoldLink>
-      {
-        'с целью создать возможность для талантливых подростков расти и развиваться в сфере IT.'
-      }
-    </Trans>
-  );
-
+  const mainText = t('aboutMainText');
   const mainText1 = t('aboutMainText1');
-
-  const mainText2 = t('aboutMainText2');
-
-  const mainText3 = t('aboutMainText3');
 
   return (
     <div className="section about-container">
@@ -52,12 +37,10 @@ const About = () => {
           <div className="about-main-block-text">
             <div className="about-text-1">
               <p className="about-text-1--first">{mainText}</p>
-              <p className="about-text-1--second">{mainText1}</p>
               <br />
+              <p className="about-text-1--second">{mainText1}</p>
+              {console.log(mainText1)}
             </div>
-            <div className="about-text-2">{mainText2}</div>
-            <br />
-            <div className="about-text-3">{mainText3}</div>
           </div>
         </div>
         <Bubble
