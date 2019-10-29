@@ -6,11 +6,8 @@
   "back": "Back",
   "forward": "Forward",
   "supportProject": "Donate",
-  "aboutMainText": "Atom Space is non-profit educational organization based in Odesa, Ukraine. We create opportunities for talented youth to become the next generation of product minded tech leaders and innovators focusing on the development of teamwork, problem-solving and communication skills.",
-  "aboutMainText1": "",
-  "aboutMainText2": "Atom Space is neither a school nor courses. It is an environment for personal growth and boost where young people age 15 to 20 meet like-minded people, co-work with peers solving real-world challenges, cooperate and learn from the experience of the best Ukrainian IT practitioners and global startup movers.",
-  "aboutMainText3": "",
-
+  "aboutMainText": "Atom Space a non-profit educational organization based in Odesa, Ukraine. We create opportunities for talented youth to become the next generation of product minded tech leaders and innovators focusing on the development of teamwork, problem-solving and communication skills.",
+  "aboutMainText1": "Atom Space is neither a school nor courses. It is an environment for personal growth and boost where young people age 15 to 20 meet like-minded people, co-work with peers solving real-world challenges, cooperate and learn from the experience of the best Ukrainian IT practitioners and global startup movers.",
   "form": {
     "toggle": "Pick up from AtomSpace?",
     "toForm": "To Form",
