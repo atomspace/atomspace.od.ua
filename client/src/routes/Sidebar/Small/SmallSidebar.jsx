@@ -3,17 +3,20 @@ import cl from 'classnames';
 
 const SmallSidebar = ({ links }) => {
   const [isNavOpened, setIsNavOpened] = useState(false);
-  const toggleNav = (status) => {
+  const toggleNav = status => {
     setIsNavOpened(status);
   };
 
-  const ulClass = cl('nav-list', { hide: !isNavOpened });
   return (
     <nav className="small-nav">
-      <ul className={ulClass}>
-        {links.map((link) => (
-          <li key={link.id}>
-            <a href={link.href} target={link.target} onClick={toggleNav.bind(this, false)}>
+      <ul className={cl('nav-list', { hide: !isNavOpened })}>
+        {links.map(link => (
+          <li key={link.href}>
+            <a
+              href={link.href}
+              target={link.target}
+              onClick={toggleNav.bind(this, false)}
+            >
               {link.text}
             </a>
           </li>

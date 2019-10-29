@@ -3,7 +3,12 @@ import cl from 'classnames';
 import { withTranslation } from 'react-i18next';
 
 class MerchSize extends React.Component {
-  sizes = [{ id: 1, size: 'S' }, { id: 2, size: 'M' }, { id: 3, size: 'L' }, { id: 4, size: 'XL' }];
+  sizes = [
+    { id: 1, size: 'S' },
+    { id: 2, size: 'M' },
+    { id: 3, size: 'L' },
+    { id: 4, size: 'XL' },
+  ];
 
   constructor(props) {
     super(props);
@@ -20,7 +25,7 @@ class MerchSize extends React.Component {
     changeMerchAttr(sizeObj);
   }
 
-  changeMerchAttr = (size) => {
+  changeMerchAttr = size => {
     const { changeMerchAttr } = this.props;
     this.setState({ size });
     changeMerchAttr({ size });
@@ -31,18 +36,20 @@ class MerchSize extends React.Component {
     const { t } = this.props;
     return (
       <div className="list-item size-container">
-        <span className="main-header flex flex-acen">{t('size')}</span>
-        <div className="size-list flex flex-acen">
-          {this.sizes.map((val) => (
-            <span
-              role="presentation"
-              key={val.id}
-              className={cl('size-item', { selected: val.size === size })}
-              onClick={this.changeMerchAttr.bind(this, val.size)}
-            >
-              {val.size}
-            </span>
-          ))}
+        <div className="size-block">
+          <span className="main-header flex flex-acen">{t('size')}</span>
+          <div className="size-list flex flex-acen">
+            {this.sizes.map(val => (
+              <span
+                role="presentation"
+                key={val.id}
+                className={cl('size-item', { selected: val.size === size })}
+                onClick={this.changeMerchAttr.bind(this, val.size)}
+              >
+                {val.size}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     );

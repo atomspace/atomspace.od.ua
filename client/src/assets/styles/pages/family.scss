@@ -100,7 +100,8 @@
             &::after {
               content: '';
               position: absolute;
-              background: url(../../assets/images/icons/quotes-family.svg) no-repeat center/cover;
+              background: url(../../assets/images/icons/quotes-family.svg)
+                no-repeat center/cover;
               width: $f68 + $f3;
               height: $f55;
             }
@@ -119,8 +120,8 @@
             .quote-text {
               font-family: $OpenSans-LightItalic;
               font-style: italic;
-              width: 88%;
-              font-size: $f21 + $f3;
+              width: 75%;
+              font-size: $f26;
               line-height: $f26;
             }
           }

@@ -4,6 +4,7 @@
   .family-wrapper {
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -11,9 +12,8 @@
       display: block;
       color: white;
       font-size: $f144;
-      position: absolute;
       opacity: 0.2;
-      top: $h377;
+      margin: 0;
     }
 
     .carousel-container {

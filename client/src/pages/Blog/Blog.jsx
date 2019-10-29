@@ -60,24 +60,40 @@ const Blog = () => {
         <div className="main-text">{mainText}</div>
         <div className="main-text-mobile">{mainTextMobile}</div>
         <div className="blog-skill-blocks">
-          {skillsData.map((skill) => (
+          {skillsData.map(skill => (
             <div key={skill.id} className="blog-skill-item">
-              <ImageLoader alt="blogImage" src={skill.image} className={`blog-skill-item__${skill.logo}-logo`} />
+              <ImageLoader
+                alt="blogImage"
+                src={skill.image}
+                className={`blog-skill-item__${skill.logo}-logo`}
+              />
               <div className="blog-skill-item-information">
-                <div className="blog-skill-item-information__header">{skill.header}</div>
-                <div className="blog-skill-item-information__description">{skill.description}</div>
+                <div className="blog-skill-item-information__header">
+                  {skill.header}
+                </div>
+                <div className="blog-skill-item-information__description">
+                  {skill.description}
+                </div>
               </div>
             </div>
           ))}
         </div>
         <div className="blog-skill-blocks-mobile">
           <Slider {...settings}>
-            {skillsData.map((skill) => (
+            {skillsData.map(skill => (
               <div key={skill.id} className="blog-skill-item">
-                <ImageLoader alt="blogImage" src={skill.image} className={`blog-skill-item__${skill.logo}-logo`} />
+                <ImageLoader
+                  alt="blogImage"
+                  src={skill.image}
+                  className={`blog-skill-item__${skill.logo}-logo`}
+                />
                 <div className="blog-skill-item-information">
-                  <div className="blog-skill-item-information__header">{skill.header}</div>
-                  <div className="blog-skill-item-information__description">{skill.description}</div>
+                  <div className="blog-skill-item-information__header">
+                    {skill.header}
+                  </div>
+                  <div className="blog-skill-item-information__description">
+                    {skill.description}
+                  </div>
                 </div>
               </div>
             ))}

@@ -15,7 +15,9 @@
       line-height: $f55;
       text-align: center;
       text-transform: uppercase;
-      margin-bottom: $f34;
+      margin-bottom: $f55;
+      margin: 0 auto;
+      width: 50%;
     }
 
     .store-additional-text {
@@ -101,6 +103,10 @@
 .size-container {
   font-weight: bold;
 
+  .size-block {
+    display: flex;
+  }
+
   .size-list {
     .size-item {
       cursor: pointer;
@@ -141,13 +147,16 @@
     }
   }
 
-  .merch-buy-link {
-    font-size: $link-font-size;
-    font-family: $OpenSans-Bold;
-    cursor: pointer;
-
-    &:hover {
-      color: $black-color !important;
+  .buy-container {
+    .buy-block {
+      .merch-buy-link {
+        font-size: $link-font-size;
+        font-family: $OpenSans-Bold;
+        cursor: pointer;
+        &:hover {
+          color: $white-color !important;
+        }
+      }
     }
   }
 }

@@ -1,151 +1,86 @@
-import React, { Component, Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
+import { get } from 'lodash';
 import './assets/styles/_index.scss';
-import ReactFullpage from '@fullpage/react-fullpage';
-import { About, Blog, Contacts, Edu, Family, Main, Store } from './pages';
-import Mentor from './components/Forms/Mentor';
 import Sidebar from './routes/Sidebar/Sidebar.jsx';
-import BuyForm from './components/Forms/BuyForm';
-import Resident from './components/Forms/Resident/Resident';
-import LocalStorage from './localStorage';
+import Form from './components/Forms/Form';
+import LocalStorage from './utils/localStorage';
 import Language from './components/Language/Language';
+import { AppProvider } from './context/Provider/Provider';
+import Fullpage from './container/Fullpage/Fullpage';
+import Hash from './utils/hash';
 
-export const urls = ['main', 'about', 'blog', 'edu', 'family', 'store', 'contacts'];
+export const urls = [
+  'main',
+  'about',
+  'blog',
+  'edu',
+  'family',
+  'store',
+  'contacts',
+];
 
-class App extends Component {
-  defaultHashPage = '#main';
+const App = () => {
+  const defaultHashPage = '#main';
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPage: 'main',
-      userHash: [window.location.hash],
-      form: null,
-      order: LocalStorage.getMerch(),
-    };
-  }
+  const [userHash, setUserHash] = useState([window.location.hash]);
+  const [hashForm, setHashForm] = useState(null);
+  const [order, setOrder] = useState(LocalStorage.getMerch());
 
-  async componentDidMount() {
-    this.changeDialog(this.getHash());
-    this.handleBack();
-  }
-
-  getHash() {
-    return window.location.hash;
-  }
-
-  setHash(data) {
-    window.location.hash = data;
-  }
-
-  getLastUserLoc() {
-    const { userHash } = this.state;
-    return userHash[userHash.length - 1];
-  }
-
-  getPreLastUserLoc() {
-    const { userHash } = this.state;
-    return userHash[userHash.length - 2] || '#';
-  }
-
-  getBack = () => {
-    this.changeDialog(null);
-    const preLastUserHash = this.getPreLastUserLoc();
-    const lastUserHash = this.getLastUserLoc();
-    this.setHash(preLastUserHash || lastUserHash);
-  };
-
-  handleBack = () => {
+  const handleBack = () => {
     window.onpopstate = () => {
-      const { userHash } = this.state;
-      const hash = window.location.hash ? window.location.hash : this.defaultHashPage;
+      const hash = get(Hash.get(), defaultHashPage);
       const userHashNext = [...userHash, hash];
-      this.setState({ userHash: userHashNext });
+      setUserHash(userHashNext);
     };
   };
 
-  handleDialog = (e) => {
-    this.changeDialog(e.target.hash);
+  useEffect(() => {
+    setHashForm(Hash.get());
+    handleBack();
+  }, [hashForm, userHash]);
+
+  const getLastUserLoc = () => {
+    return userHash[userHash.length - 1];
   };
 
-  changeMerchAttr = (prop) => {
-    const { order } = this.state;
+  const getPreLastUserLoc = () => {
+    return userHash[userHash.length - 2] || '#';
+  };
+
+  const getBack = () => {
+    setHashForm(null);
+    const preLastUserHash = getPreLastUserLoc();
+    const lastUserHash = getLastUserLoc();
+    Hash.set(preLastUserHash || lastUserHash);
+  };
+
+  const handleDialog = e => {
+    setHashForm(e.target.hash);
+  };
+
+  const changeMerchAttr = prop => {
     LocalStorage.setMerch({ ...order, ...prop });
-    this.setState({
-      order: { ...order, ...prop },
-    });
+    setOrder({ ...order, ...prop });
   };
 
-  pageOnChange = (origin, destination) => {
-    this.setState((state) => ({
-      ...state,
-      currentPage: destination.anchor,
-    }));
-  };
-
-  loader = () => (
-    <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
-      <div>loading...</div>
-    </div>
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AppProvider>
+        <Sidebar
+          handleDialog={handleDialog}
+          changeMerchAttr={changeMerchAttr}
+          order={order}
+        />
+        <Language userHash={userHash} />
+        <Fullpage
+          handleDialog={handleDialog}
+          changeMerchAttr={changeMerchAttr}
+          order={order}
+        />
+        <Form hashForm={hashForm} getBack={getBack} order={order} />
+      </AppProvider>
+    </Suspense>
   );
-
-  changeDialog(form) {
-    this.setState((state) => ({
-      ...state,
-      form,
-    }));
-  }
-
-  increaseCountOfMerch(merches) {
-    let tempMerch = [];
-    while (tempMerch.length <= 3) {
-      tempMerch = tempMerch.concat(merches);
-    }
-    return tempMerch;
-  }
-
-  render() {
-    const { form, order, merches, currentPage, userHash } = this.state;
-    return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <div>
-          <Sidebar
-            pageName={currentPage}
-            handleDialog={this.handleDialog}
-            changeMerchAttr={this.changeMerchAttr}
-            order={order}
-          />
-          <Language userHash={userHash} />
-          <ReactFullpage
-            anchors={urls}
-            onLeave={this.pageOnChange}
-            responsiveHeight="720px"
-            licenseKey="OPEN-SOURCE-GPLV3-LICENSE"
-            render={() => (
-              <ReactFullpage.Wrapper>
-                <Main handleDialog={this.handleDialog} />
-                <About />
-                <Blog />
-                <Edu />
-                <Family />
-                <Store
-                  merches={merches}
-                  order={order}
-                  size={order.size}
-                  changeMerchAttr={this.changeMerchAttr}
-                  handleDialog={this.handleDialog}
-                />
-                <Contacts handleDialog={this.handleDialog} />
-              </ReactFullpage.Wrapper>
-            )}
-          />
-          {form === '#residentForm' && <Resident getBack={this.getBack} />}
-          {form === '#mentorForm' && <Mentor getBack={this.getBack} />}
-          {form === '#buyForm' && <BuyForm getBack={this.getBack} order={order} />}
-        </div>
-      </Suspense>
-    );
-  }
-}
+};
 
 export default App;

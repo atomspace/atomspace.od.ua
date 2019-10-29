@@ -10,12 +10,18 @@ export const RightSidebar = ({ pageName, links }) => {
   return (
     <div className="vertical-line right">
       <nav className={cl('sidebar__right', { light_theme: isLight })}>
-        <ImageLoader src={isLight ? AtomLogoDark : AtomLogoLight} className="atom-logo" />
+        <ImageLoader
+          src={isLight ? AtomLogoDark : AtomLogoLight}
+          className="atom-logo"
+        />
         <div className="flex flex-col">
-          {links.map((link) => {
+          {links.map(link => {
             const isSelected = link.href === `#${pageName}`;
             return (
-              <div className={cl({ list: true, selected: isSelected })} key={link.id}>
+              <div
+                className={cl({ list: true, selected: isSelected })}
+                key={link.href}
+              >
                 <div className="dot" />
                 <a className="list-item" target={link.target} href={link.href}>
                   {link.text}

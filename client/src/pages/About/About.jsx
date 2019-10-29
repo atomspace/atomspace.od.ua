@@ -24,7 +24,9 @@ const About = () => {
       <BoldLink href="https://provectus.com/">Provectus</BoldLink>
       {'и'}
       <BoldLink href="https://www.it2school.od.ua/">IT2School</BoldLink>
-      {'с целью создать возможность для талантливых подростков расти и развиваться в сфере IT.'}
+      {
+        'с целью создать возможность для талантливых подростков расти и развиваться в сфере IT.'
+      }
     </Trans>
   );
 
@@ -40,15 +42,21 @@ const About = () => {
         <div className="about-main-block">
           <div className="about-main-block-image">
             <LazyLoad debounce={false} offsetVertical={500}>
-              <ImageLoader alt="AtomSpaceText" src={AtomspaceText} className="about-main-block-image__atomspace" />
+              <ImageLoader
+                alt="AtomSpaceText"
+                src={AtomspaceText}
+                className="about-main-block-image__atomspace"
+              />
             </LazyLoad>
           </div>
           <div className="about-main-block-text">
             <div className="about-text-1">
-              <span className="about-text-1--first">{mainText}</span>
-              <span className="about-text-1--second">{mainText1}</span>
+              <p className="about-text-1--first">{mainText}</p>
+              <p className="about-text-1--second">{mainText1}</p>
+              <br />
             </div>
             <div className="about-text-2">{mainText2}</div>
+            <br />
             <div className="about-text-3">{mainText3}</div>
           </div>
         </div>
@@ -57,8 +65,16 @@ const About = () => {
           image={[AboutPhoto1, AboutPhoto2, AboutPhoto3, AboutPhoto4]}
           style={{ zIndex: 100, opacity: 1 }}
         />
-        <Bubble middle animate style={{ position: 'absolute', bottom: 150, right: 230, zIndex: 100 }} />
-        <Bubble small animate style={{ position: 'absolute', bottom: 70, right: 110, zIndex: 100 }} />
+        <Bubble
+          middle
+          animate
+          style={{ position: 'absolute', bottom: 150, right: 230, zIndex: 100 }}
+        />
+        <Bubble
+          small
+          animate
+          style={{ position: 'absolute', bottom: 70, right: 110, zIndex: 100 }}
+        />
       </div>
     </div>
   );

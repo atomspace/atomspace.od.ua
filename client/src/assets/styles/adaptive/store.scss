@@ -74,7 +74,7 @@
   top: -5px;
   height: 102%;
   background-image: url(#{$path-to-images}/backgrounds/background-fixed.svg);
-  background-color: white;
+  background-color: $white-color;
 
   .main-header {
     display: none;
@@ -204,55 +204,60 @@
 .store-buttons-mobile {
   display: block;
   margin-top: 10%;
+  font-family: $OpenSans-SemiBold;
+  line-height: 14px;
+
+  .list-item {
+    margin: 0;
+    padding: 0;
+  }
 
   .size-container {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 14px;
-    line-height: 14px;
-    font-family: $OpenSans-SemiBold;
-    background-image: url(#{$path-to-images}/icons/store/size-button-background.svg) !important;
-    background-repeat: no-repeat;
-    height: 40px;
-    width: 250px;
     margin-bottom: 24px;
-    color: $black-color;
-    position: relative;
-    left: -40px;
 
-    .main-header {
-      padding-left: 70px;
-    }
+    .size-block {
+      display: flex;
+      justify-content: flex-start;
+      font-size: 14px;
+      background-image: url(#{$path-to-images}/icons/store/size-button-background.svg) !important;
+      background-repeat: no-repeat;
+      height: 40px;
+      width: 250px;
+      color: $black-color;
+      position: relative;
+      left: -40px;
+      padding-left: 55px;
 
-    .size-list {
-      .size-item {
-        width: 25px;
-        height: 25px;
-        margin: 0 0.26vw;
-        line-height: 15px;
+      .size-list {
+        .size-item {
+          width: 25px;
+          height: 25px;
+          margin: 0 0.26vw;
+          line-height: 15px;
+        }
       }
     }
   }
-
-  .merch-buy-link {
-    font-size: 14px;
-    line-height: 14px;
-    font-family: $OpenSans-SemiBold;
-    background-image: url(#{$path-to-images}/icons/store/buy-button-background.svg) !important;
-    background-repeat: no-repeat;
-    height: 40px;
-    color: $black-color;
-    align-items: center;
-    display: flex;
-    width: 250px;
-    position: relative;
-    padding-left: 70px;
-    left: -40px;
-
-    .main-header {
-      position: relative;
-      left: 72px;
-      font-size: 14px;
+  .buy-container {
+    .buy-block {
+      .merch-buy-link {
+        font-size: 14px;
+        padding-left: 55px;
+        background-image: url(#{$path-to-images}/icons/store/buy-button-background.svg) !important;
+        background-repeat: no-repeat;
+        height: 40px;
+        color: $black-color;
+        align-items: center;
+        display: flex;
+        width: 250px;
+        position: relative;
+        left: -40px;
+        .main-header {
+          position: relative;
+          left: 72px;
+          font-size: 14px;
+        }
+      }
     }
   }
 }

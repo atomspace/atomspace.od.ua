@@ -1,109 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import LeftSidebar from '../../routes/Sidebar/Left';
 import { validateUser } from './utils/validation';
 import MobileRequestForm from './MobileRequestForm';
 import { Button } from '../Button/Button';
-import Confirm from './Confirm';
+import Confirm from '../ConfirmMessage/Confirm';
+import { withHandleUser } from '../../hoc/withHandleUser';
 
-class UserForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: this.getUserByProps(props.inputData),
-      isDisabled: true,
-      isLoading: false,
-      step: 0,
-      sended: false,
-    };
-  }
+const UserForm = props => {
+  const {
+    inputData,
+    createOrder,
+    getBack,
+    headerText,
+    confirmMessage,
+    buttonText,
+    mainText,
+    handleInputUser,
+    user,
+    setUser,
+  } = props;
+  const [isLoading, setLoading] = useState(false);
+  const [step, setStep] = useState(0);
+  const [sended, setSended] = useState(false);
+  const { t } = useTranslation();
 
-  getUserByProps(data) {
-    return data.reduce(
-      (acc, val) => ({ ...acc, [val.id]: { value: '', error: false } }),
-      {},
-    );
-  }
-
-  prepareData = user =>
+  const prepareData = user =>
     Object.keys(user).reduce(
       (acc, key) => ({ ...acc, [key]: user[key].value }),
       {},
     );
 
-  submitForm = async () => {
-    const { user } = this.state;
-    const { inputData, createOrder, getBack } = this.props;
-    const { isDisabled, stateUser } = validateUser(user, inputData);
-    this.setState(state => ({
-      ...state,
-      ...stateUser,
-    }));
+  const submitForm = async () => {
+    const { stateUser, isDisabled } = validateUser(user, inputData);
+    setUser(stateUser);
     if (!isDisabled) {
-      const data = this.prepareData(user);
+      const data = prepareData(user);
       try {
-        this.setState({ isLoading: true });
+        setLoading(true);
         await createOrder(data);
-        this.setState({ isLoading: false, sended: true });
-        // getBack();
+        setLoading(false);
+        setSended(true);
       } catch (e) {
-        this.setState({ isLoading: false });
+        setLoading(false);
         getBack();
       }
     }
   };
 
-  handleInputUser = (data, event) => {
-    const { id, value } = event.target;
-    if (id === 'birth') {
-      event.target.type = 'date';
-    }
-    const error = !value.length || (data.validate && !data.validate(value));
-    this.setState(state => ({
-      ...state,
-      user: {
-        ...state.user,
-        [id]: {
-          ...state.user[id],
-          error,
-          value,
-        },
-      },
-      isDisabled: error,
-    }));
-  };
-
-  renderFormBlocks = () => {
-    const { headerText, mainText } = this.props;
-    const { sended } = this.state;
+  const renderFormBlocks = () => {
     return (
       <div className="form-blocks flex flex-cen">
         <div className="form-maintext-block">
-          {sended && (
-            <div className="form-maintext-block__header">{headerText}</div>
-          )}
+          <div className="form-maintext-block__header">{headerText}</div>
           <div className="form-maintext-block__text">{mainText}</div>
         </div>
       </div>
     );
   };
 
-  changeStep = ({ target: { innerHTML } }) => {
-    const { t } = this.props;
-    return innerHTML === t('back')
-      ? this.setState(state => ({ step: state.step - 1 }))
-      : this.setState(state => ({ step: state.step + 1 }));
+  const changeStep = ({ target: { innerHTML } }) => {
+    return innerHTML === t('back') ? setStep(step - 1) : setStep(step + 1);
   };
 
-  renderStepButtons = () => {
-    const { step } = this.state;
-    const { inputData, t } = this.props;
+  const renderStepButtons = () => {
     const NavButton = ({ title, isBack }) => (
       <Button
         className={cn('button-step-change', isBack ? 'left' : 'right')}
-        onClick={this.changeStep}
+        onClick={changeStep}
       >
         {title}
       </Button>
@@ -118,9 +84,7 @@ class UserForm extends React.Component {
     );
   };
 
-  renderFormRegister = () => {
-    const { inputData, buttonText } = this.props;
-    const { user, isLoading, sended } = this.state;
+  const renderFormRegister = () => {
     return !sended ? (
       <div className="form-main">
         <div className="form-registration">
@@ -132,8 +96,8 @@ class UserForm extends React.Component {
                 type={data.id === 'birth' ? 'text' : data.type}
                 placeholder={data.placeholder}
                 value={user[data.id].value || data.defaultValue}
-                onChange={this.handleInputUser.bind(this, data)}
-                onFocus={this.handleInputUser.bind(this, data)}
+                onChange={handleInputUser.bind(this, data)}
+                onFocus={handleInputUser.bind(this, data)}
               />
             </div>
           ))}
@@ -141,7 +105,7 @@ class UserForm extends React.Component {
             <Button
               className="btn btn-support btn-request"
               loading={isLoading}
-              onClick={this.submitForm}
+              onClick={submitForm}
             >
               {buttonText}
             </Button>
@@ -151,9 +115,7 @@ class UserForm extends React.Component {
     ) : null;
   };
 
-  renderFormRegisterMobile = (step = 0) => {
-    const { inputData, buttonText } = this.props;
-    const { user, isLoading } = this.state;
+  const renderFormRegisterMobile = (step = 0) => {
     const data = inputData[step];
     const index = inputData.indexOf(data);
     return (
@@ -166,15 +128,15 @@ class UserForm extends React.Component {
               type={data.id === 'birth' ? 'text' : data.type}
               placeholder={data.placeholder}
               value={user[data.id].value || data.defaultValue}
-              onChange={this.handleInputUser.bind(this, data)}
-              onFocus={this.handleInputUser.bind(this, data)}
+              onChange={handleInputUser.bind(this, data)}
+              onFocus={handleInputUser.bind(this, data)}
             />
           </div>
           <div className="request-button-block">
             <Button
               className="btn btn-support btn-request"
               loading={isLoading}
-              onClick={this.submitForm}
+              onClick={submitForm}
             >
               {buttonText}
             </Button>
@@ -184,40 +146,36 @@ class UserForm extends React.Component {
     );
   };
 
-  render() {
-    const { getBack, headerText, inputData, confirmMessage } = this.props;
-    const { step, isLoading, sended } = this.state;
-    return (
-      <div className="main-form-container">
-        <div className="navigation">
-          <LeftSidebar {...this.props} />
-        </div>
-
-        <div className="form-request">
-          {this.renderFormBlocks()}
-          {this.renderFormRegister()}
-          {sended ? <Confirm confirmMessage={confirmMessage} /> : null}
-        </div>
-        <div className="atom-logo" />
-        <div className="close-dialog-btn" onClick={getBack} />
-        <div className="nav_toggle arrow" onClick={getBack} />
-        <MobileRequestForm
-          formBlocks={this.renderFormBlocks()}
-          formRegister={!sended ? this.renderFormRegisterMobile(step) : null}
-          stepButtons={!sended && this.renderStepButtons()}
-          confirmMessage={
-            sended ? <Confirm confirmMessage={confirmMessage} /> : null
-          }
-          headerText={!sended ? headerText : null}
-          submitForm={this.submitForm}
-          isLoading={isLoading}
-          changeStep={this.changeStep}
-          showButton={!sended && step === inputData.length - 1}
-        />
+  return (
+    <div className="main-form-container">
+      <div className="navigation">
+        <LeftSidebar {...props} />
       </div>
-    );
-  }
-}
+
+      <div className="form-request">
+        {renderFormBlocks()}
+        {renderFormRegister()}
+        {sended ? <Confirm confirmMessage={confirmMessage} /> : null}
+      </div>
+      <div className="atom-logo" />
+      <div className="close-dialog-btn" onClick={getBack} />
+      <div className="nav_toggle arrow" onClick={getBack} />
+      <MobileRequestForm
+        formBlocks={renderFormBlocks()}
+        formRegister={!sended ? renderFormRegisterMobile(step) : null}
+        stepButtons={!sended && renderStepButtons()}
+        confirmMessage={
+          sended ? <Confirm confirmMessage={confirmMessage} /> : null
+        }
+        headerText={!sended ? headerText : null}
+        submitForm={submitForm}
+        isLoading={isLoading}
+        changeStep={changeStep}
+        showButton={!sended && step === inputData.length - 1}
+      />
+    </div>
+  );
+};
 
 UserForm.propTypes = {
   headerText: PropTypes.string,
@@ -234,4 +192,4 @@ UserForm.defaultProps = {
   inputData: [],
 };
 
-export default withTranslation('')(UserForm);
+export default withHandleUser(UserForm);

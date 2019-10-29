@@ -35,14 +35,64 @@
 }
 
 .nav_toggle {
-  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg) center/contain no-repeat;
+  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg)
+    center/contain no-repeat;
 
   &.arrow {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg)
+      center/contain no-repeat;
   }
 
   &.light_arrow {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg) center/contain no-repeat;
+    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg)
+      center/contain no-repeat;
+  }
+}
+
+.icon {
+  position: relative;
+  height: $f34;
+  width: $f34;
+  display: block;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+
+  &.facebook {
+    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat
+      center/contain;
+  }
+
+  &.instagram {
+    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat
+      center/contain;
+  }
+
+  &.linkedin {
+    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat
+      center/contain;
+  }
+
+  &.russia {
+    background: url(#{$path-to-images}/icons/countries/russia-light.svg)
+      no-repeat center/contain;
+  }
+
+  &.england {
+    background: url(#{$path-to-images}/icons/countries/england-light.svg)
+      no-repeat center/contain;
+  }
+}
+.light_theme {
+  .russia {
+    background: url(#{$path-to-images}/icons/countries/russia-dark.svg)
+      no-repeat center/contain;
+  }
+
+  .england {
+    background: url(#{$path-to-images}/icons/countries/russia-dark.svg)
+      no-repeat center/contain;
   }
 }
 
@@ -52,42 +102,6 @@
 
   > a:not(:last-child) {
     margin-right: $f16;
-  }
-
-  .icon {
-    position: relative;
-    height: $f34;
-    width: $f34;
-  }
-
-  .facebook {
-    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat center/contain;
-    opacity: 0.8;
-    display: block;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .instagram {
-    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat center/contain;
-    display: block;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .linkedin {
-    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat center/contain;
-    display: block;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
-    }
   }
 }
 
@@ -147,7 +161,11 @@ li {
       transition: all 0.3s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
+      background: linear-gradient(
+        0.4turn,
+        $list-item-atom-space-color-left,
+        $list-item-atom-space-color-right
+      );
       top: 0;
     }
 
@@ -163,7 +181,11 @@ li {
       transition: all 0.3s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(0.4turn, $list-item-atom-space-color-left, $list-item-atom-space-color-right);
+      background: linear-gradient(
+        0.4turn,
+        $list-item-atom-space-color-left,
+        $list-item-atom-space-color-right
+      );
       top: 0;
     }
   }
@@ -175,6 +197,7 @@ li {
   display: flex;
   align-items: center;
   border: 0;
+  animation: fadeInFromNone 0.5s ease-out;
 
   &.left {
     left: $f110 + $f21;
@@ -215,7 +238,8 @@ li {
         height: 14px;
         position: relative;
         left: 7px;
-        background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
+        background: url(#{$path-to-images}/icons/circle.svg) no-repeat
+          center/contain;
       }
 
       .list {
@@ -241,11 +265,13 @@ li {
 
       &.light_theme {
         .instagram {
-          background: url(#{$path-to-images}/icons/soc/instagram-dark.svg) no-repeat;
+          background: url(#{$path-to-images}/icons/soc/instagram-dark.svg)
+            no-repeat;
         }
 
         .facebook {
-          background: url(#{$path-to-images}/icons/soc/facebook-dark.svg) no-repeat;
+          background: url(#{$path-to-images}/icons/soc/facebook-dark.svg)
+            no-repeat;
         }
 
         .list-item {
@@ -254,7 +280,8 @@ li {
           }
 
           &::before {
-            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
+              center/contain;
             color: $black-color;
           }
         }
@@ -274,7 +301,8 @@ li {
           height: 14px;
           position: absolute;
           right: -7px;
-          background: url(#{$path-to-images}/icons/circle.svg) no-repeat center/contain;
+          background: url(#{$path-to-images}/icons/circle.svg) no-repeat
+            center/contain;
         }
 
         .list-item {
@@ -291,7 +319,8 @@ li {
           }
 
           .dot {
-            background: url(#{$path-to-images}/icons/circle-sidebar.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-sidebar.svg)
+              no-repeat center/contain;
             opacity: 1;
           }
         }
@@ -316,7 +345,8 @@ li {
             width: 14px;
             height: 14px;
             position: absolute;
-            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat center/contain;
+            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
+              center/contain;
           }
 
           &.selected {
@@ -325,7 +355,8 @@ li {
             }
 
             .dot {
-              background: url(#{$path-to-images}/icons/circle-sidebar-light.svg) no-repeat center/contain;
+              background: url(#{$path-to-images}/icons/circle-sidebar-light.svg)
+                no-repeat center/contain;
               opacity: 1;
             }
           }
@@ -334,15 +365,11 @@ li {
             opacity: 1;
           }
 
-          
-
-          
           &:hover:last-child .dot {
             opacity: 0;
           }
         }
       }
-      
     }
   }
 }
@@ -360,7 +387,8 @@ li {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg) center/cover no-repeat;
+    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg)
+      center/cover no-repeat;
 
     &.hide {
       display: none;
@@ -375,5 +403,22 @@ li {
         color: white;
       }
     }
+  }
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
   }
 }

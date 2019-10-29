@@ -1,22 +1,13 @@
 import React from 'react';
+import Icon from '../Icon/Icon';
 
 const Soc = ({ classes, src: { facebook, instagram, linkedin } }) => (
   <div className={classes}>
-    {facebook ? (
-      <a className="icon facebook" rel="noopener noreferrer" target="_blank" href={facebook}>
-        &nbsp;
-      </a>
-    ) : null}
+    {facebook ? <Icon name="facebook" url={facebook} target="_blank" /> : null}
     {instagram ? (
-      <a className="icon instagram" rel="noopener noreferrer" target="_blank" href={instagram}>
-        &nbsp;
-      </a>
+      <Icon name="instagram" url={instagram} target="_blank" />
     ) : null}
-    {linkedin ? (
-      <a className="icon linkedin" href={linkedin}>
-        &nbsp;
-      </a>
-    ) : null}
+    {linkedin ? <Icon name="linkedin" url={linkedin} /> : null}
   </div>
 );
 export default Soc;

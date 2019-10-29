@@ -26,7 +26,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-basis: calc(50% - 40px);
+        flex-basis: calc(50%);
+        margin-bottom: $f13;
 
         > div {
           margin-right: $f13;
@@ -37,14 +38,15 @@
 
           &__header {
             font-family: $OpenSans-SemiBold;
-            font-size: $f26;
+            font-size: $f34;
             line-height: $f34;
+            margin-bottom: $f21;
           }
 
           &__description {
             font-family: $OpenSans-Light;
             font-weight: 300;
-            font-size: $f18;
+            font-size: $f21;
             line-height: $f26;
             width: $f377 - $f26;
           }
@@ -54,6 +56,7 @@
           &__#{$logo}-logo {
             width: 40%;
             height: 70%;
+            margin-right: $f21;
           }
         }
       }

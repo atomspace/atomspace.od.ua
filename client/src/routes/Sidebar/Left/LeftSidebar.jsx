@@ -8,7 +8,13 @@ import MerchBuy from '../../../pages/Store/MerchBuy';
 import ContactInfo from '../../../pages/Contacts/ContactInfo';
 import Link from '../Link';
 
-const LeftSidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
+const LeftSidebar = ({
+  isLightTheme,
+  pageName,
+  handleDialog,
+  changeMerchAttr,
+  order,
+}) => {
   const { t } = useTranslation();
   const getLeftSidebarData = () => {
     switch (pageName) {
@@ -69,31 +75,35 @@ const LeftSidebar = ({ pageName, handleDialog, changeMerchAttr, order }) => {
   };
 
   const sidebarRows = getLeftSidebarData();
-
-  const sidebarClasses = cl('vertical-line left', {
-    'border-none': !sidebarRows.length,
-  });
-  const lightPages = ['about', 'edu', 'blog', 'store', 'resident', 'mentor'];
-
   return (
-    <div className={sidebarClasses}>
-      <nav className={cl('sidebar__left', { light_theme: lightPages.includes(pageName) })}>
-        <div className="flex flex-col">
-          {sidebarRows.map((el) => (
-            <div className="list" key={el.id}>
-              <el.Component {...el.props} />
-            </div>
-          ))}
-        </div>
-        <Soc
-          src={{
-            facebook: 'https://www.facebook.com/atomspace.od.ua/',
-            instagram: 'https://www.instagram.com/atomspace.od/',
-          }}
-          classes="flex soc-icons"
-        />
-      </nav>
-    </div>
+    sidebarRows && (
+      <div
+        className={cl('vertical-line left', {
+          'border-none': !sidebarRows.length,
+        })}
+      >
+        <nav
+          className={cl('sidebar__left', {
+            light_theme: isLightTheme,
+          })}
+        >
+          <div className="flex flex-col">
+            {sidebarRows.map(el => (
+              <div className="list" key={el.id}>
+                <el.Component {...el.props} />
+              </div>
+            ))}
+          </div>
+          <Soc
+            src={{
+              facebook: 'https://www.facebook.com/atomspace.od.ua/',
+              instagram: 'https://www.instagram.com/atomspace.od/',
+            }}
+            classes="flex soc-icons"
+          />
+        </nav>
+      </div>
+    )
   );
 };
 

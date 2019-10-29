@@ -77,7 +77,7 @@ const Edu = () => {
     },
   ];
 
-  const changeEduItem = (e) => {
+  const changeEduItem = e => {
     setIndex(Number(e.target.id));
   };
 
@@ -87,10 +87,14 @@ const Edu = () => {
         <div className="main-text">{mainText}</div>
         <div className="main-text-mobile">{mainTextMobile}</div>
         <div className="edu-items">
-          {eduItems.map((item) => (
+          {eduItems.map(item => (
             <div key={item.id} className="edu-item">
               <div className="edu-item__layout flex flex-col flex-acen flex-jcen">
-                <ImageLoader alt="eduImage" src={item.image} className={`edu-item__${item.logo}`} />
+                <ImageLoader
+                  alt="eduImage"
+                  src={item.image}
+                  className={`edu-item__${item.logo}`}
+                />
                 <div className="edu-item__text">{item.text}</div>
               </div>
             </div>
@@ -98,18 +102,27 @@ const Edu = () => {
         </div>
         <div className="edu-items-mobile">
           <div className="edu-items-list">
-            {eduItems.map((item) => (
+            {eduItems.map(item => (
               <div
                 key={item.id}
                 className={classnames('edu-item', {
                   selected: index === item.id,
                 })}
               >
-                <div id={item.id} className="edu-item__text" onClick={changeEduItem} role="presentation">
+                <div
+                  id={item.id}
+                  className="edu-item__text"
+                  onClick={changeEduItem}
+                  role="presentation"
+                >
                   {item.mobileText}
                 </div>
                 {index === item.id && (
-                  <ImageLoader alt="eduImageSelected" src={item.image} className={`edu-item__${item.logo}`} />
+                  <ImageLoader
+                    alt="eduImageSelected"
+                    src={item.image}
+                    className={`edu-item__${item.logo}`}
+                  />
                 )}
               </div>
             ))}
