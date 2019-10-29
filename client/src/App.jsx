@@ -48,6 +48,7 @@ const App = () => {
   };
 
   const getBack = () => {
+    console.log(123321);
     setHashForm(null);
     const preLastUserHash = getPreLastUserLoc();
     const lastUserHash = getLastUserLoc();

@@ -33,6 +33,7 @@
     "beMentor": "Become a mentor",
     "mentorText": "Atom Space mentor works with residents individually or in a group. You will be provided with a Resident Development Roadmap so that you know exactly what topics should be covered. We strive for residents to master the learning material on their own, and the mentor, in turn, will guide and show how the problem can be solved more efficiently.",
     "beResident": "Become a resident",
+    "bePartner": "Become a partner",
     "residentText": "Every motivated teen <1>from 16 to 20</1> who wants to connect his future with the IT world and is ready to study, research, be interested, ask, try, experiment, create, test, make mistakes and start over can become a resident of Atom Space.",
     "mentorConfirmText": "<1>Thank you for the application!</1><1>We will contact you</1><1>soon!</1>",
     "residentConfirmText": "<1>Thank you for the application!</1><1>We will contact you before</1><1>recruiting!</1>"
@@ -70,7 +71,8 @@
     "headerAsk": "Do you like what we do?",
     "headerAnswer": "Let's develop Atom Space together!",
     "beMentor": "Become a mentor",
-    "beResident": "Become a resident"
+    "beResident": "Become a resident",
+    "bePartner": "Become a partner"
   },
   "store": {
     "mainText": "Do you want to contribute to the development of the project?",

@@ -42,6 +42,17 @@ const LeftSidebar = ({
               },
             },
           },
+          {
+            id: 3,
+            Component: Link,
+            props: {
+              handleDialog,
+              row: {
+                title: t('contacts.bePartner'),
+                link: '#partnerForm',
+              },
+            },
+          },
         ];
       case urls[5]:
         return [
