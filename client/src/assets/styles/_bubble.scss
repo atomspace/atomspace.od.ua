@@ -1,6 +1,10 @@
 .bubble {
   // position: absolute;
-  background: linear-gradient(45deg, $left-gradient-color, $right-gradient-color);
+  background: linear-gradient(
+    45deg,
+    $left-gradient-color,
+    $right-gradient-color
+  );
   opacity: 0.4;
   margin-left: $f55;
   border-radius: 50%;
@@ -40,6 +44,7 @@
       content: ' ';
       position: relative;
       height: $f400 + $f178;
+      width: $f400 + $f178;
       border-radius: 50%;
     }
   }
