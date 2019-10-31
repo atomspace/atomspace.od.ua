@@ -26,7 +26,7 @@ function MobileRequestForm(props) {
           <button
             type="button"
             className="button-next-preview"
-            onClick={setIsMobile.bind(this, !isMobile)}
+            onClick={() => setIsMobile(!isMobile)}
           >
             {t('form.toForm')}
           </button>
@@ -41,7 +41,7 @@ function MobileRequestForm(props) {
               loading={isLoading}
               onClick={submitForm}
             >
-              {t('form.beResident')}
+              {t('join')}
             </Button>
           ) : null}
           {confirmMessage}

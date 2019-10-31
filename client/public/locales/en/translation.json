@@ -28,7 +28,17 @@
       "informationMentor": "I can share knowledge in:",
       "informationResident": "Why do you want to become a resident?",
       "npMail": "New Post Office:",
-      "birth": "Date of Birth:"
+      "birth": "Date of Birth:",
+      "interest": "Choose the interest of your contribution:",
+      "comments": "Commets:"
+    },
+    "select": {
+      "option1": "Спонсируй всеукраинский митап \"Youth Tech Community\"",
+      "option2": "Инвестируй в фонд возможностей для резидентов",
+      "option3": "Поддерживай интенсивный лагерь \"Girls in Tech\"",
+      "option4": "Принимай резидентов \"Atom Space\" на стажировки",
+      "option5": "Участвуй во вдохновляющих беседах в качестве докладчика",
+      "option6": "Развивай сеть филиалов Atom Space в своем городе"
     },
     "beMentor": "Become a mentor",
     "mentorText": "Atom Space mentor works with residents individually or in a group. You will be provided with a Resident Development Roadmap so that you know exactly what topics should be covered. We strive for residents to master the learning material on their own, and the mentor, in turn, will guide and show how the problem can be solved more efficiently.",

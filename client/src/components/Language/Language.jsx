@@ -7,14 +7,22 @@ import MyContext from '../../context/Base/AppContext';
 
 const RU = 'ru-RU';
 const EN = 'en-US';
-// const UA = 'ua-UA';
 
 const Language = () => {
   const defaultLanguage = i18next.language || window.localStorage.i18nextLng;
   const [lang, setLang] = useState(defaultLanguage);
   const { i18n } = useTranslation();
-  // const nonDisplayPages = ['#main'];
-  // const isDisplay = nonDisplayPages.includes(userHash[userHash.length - 1]);
+
+  const lightPages = [
+    'about',
+    'edu',
+    'blog',
+    'store',
+    'resident',
+    'mentor',
+    'family',
+  ];
+
   useEffect(() => {
     setLang(defaultLanguage);
   }, [defaultLanguage]);
@@ -37,20 +45,18 @@ const Language = () => {
   };
   return (
     <MyContext>
-      {({ isLightTheme, isNavOpened }) => {
-        return (
-          <div
-            className={cl('language-btn-container', {
-              none: !isNavOpened,
-              light_theme: isLightTheme,
-            })}
-          >
-            <div className="language-btn" onClick={changeLanguage}>
-              {lang === EN ? getImage(RU) : getImage(EN)}
-            </div>
+      {({ currentPage, isNavOpened, hiddenSidebars }) => (
+        <div
+          className={cl('language-btn-container', {
+            none: !isNavOpened,
+            light_theme: lightPages.includes(currentPage) || hiddenSidebars,
+          })}
+        >
+          <div className="language-btn" onClick={changeLanguage}>
+            {lang === EN ? getImage(RU) : getImage(EN)}
           </div>
-        );
-      }}
+        </div>
+      )}
     </MyContext>
   );
 };

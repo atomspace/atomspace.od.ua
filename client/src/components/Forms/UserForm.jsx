@@ -8,6 +8,8 @@ import { Button } from '../Button/Button';
 import Confirm from '../ConfirmMessage/Confirm';
 import { withHandleUser } from '../../hoc/withHandleUser';
 import MyContext from '../../context/Base/AppContext';
+import Input from '../Input';
+import Select from '../Select';
 
 const UserForm = props => {
   const {
@@ -30,17 +32,20 @@ const UserForm = props => {
     setLightTheme,
     hiddenSidebars,
     setHiddenSidebars,
+    isNavOpened,
+    setIsNavOpened,
   } = useContext(MyContext);
   const { t } = useTranslation();
 
   useEffect(() => {
     setLightTheme(true);
+    setIsNavOpened(false);
     setHiddenSidebars(true);
     return () => {
       setLightTheme(false);
       setHiddenSidebars(false);
     };
-  }, [isLightTheme, hiddenSidebars]);
+  }, [isLightTheme, isNavOpened, hiddenSidebars]);
 
   const prepareData = user =>
     Object.keys(user).reduce(
@@ -105,15 +110,19 @@ const UserForm = props => {
         <div className="form-registration">
           {inputData.map(data => (
             <div className="form-block" key={data.id}>
-              <input
-                className={cn({ error: user[data.id].error })}
-                id={data.id}
-                type={data.id === 'birth' ? 'text' : data.type}
-                placeholder={data.placeholder}
-                value={user[data.id].value || data.defaultValue}
-                onChange={handleInputUser.bind(this, data)}
-                onFocus={handleInputUser.bind(this, data)}
-              />
+              {data.type === 'select' ? (
+                <Select
+                  data={data}
+                  user={user}
+                  handleInputUser={handleInputUser}
+                />
+              ) : (
+                <Input
+                  data={data}
+                  user={user}
+                  handleInputUser={handleInputUser}
+                />
+              )}
             </div>
           ))}
           <div className="request-button-block">

@@ -28,7 +28,17 @@
       "informationMentor": "Могу поделиться знаниями в сфере:",
       "informationResident": "Почему хочешь стать резидентом?",
       "npMail": "Отделение новой почты:",
-      "birth": "Дата рождения:"
+      "birth": "Дата рождения:",
+      "interest": "Выберите интерес вашего вклада:",
+      "comments": "Комментарии:"
+    },
+    "select": {
+      "option1": "Sponsor the all-Ukrainian \"Youth Tech Community\" rally",
+      "option2": "Invest in a fund of opportunities for residents",
+      "option3": "Maintain the \"Girls in Tech\" intensive camp",
+      "option4": "Accept \"Atom Space\" residents for internships",
+      "option5": "Engage in inspirational conversations as a presenter",
+      "option6": "Develop an \"Atom Space\" branch network in your city"
     },
     "beMentor": "Стать ментором",
     "mentorText": "Ментор Atom Space работает с резидентами индивидуально или в группе. Тебе будет предоставлена дорожная карта развития резидентов, чтобы ты точно знал, какие темы необходимо освещать. Мы стремимся к тому, чтобы резиденты самостоятельно осваивали учебный материал, а ментор направлял и показывал, как можно решить задачу эффективнее.",

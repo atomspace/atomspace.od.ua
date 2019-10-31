@@ -4,7 +4,8 @@
   width: 100%;
   top: -5px;
   height: 102%;
-  background: url(#{$path-to-images}/backgrounds/background-fixed.svg) no-repeat center/cover;
+  background: url(#{$path-to-images}/backgrounds/background-fixed.svg) no-repeat
+    center/cover;
   background-color: $white-color;
 
   .main-form-container {
@@ -74,6 +75,13 @@
             border-bottom-color: $border-color-orange;
           }
         }
+        select {
+          width: 100%;
+          font-size: $f21;
+          background-color: transparent;
+          border-color: rgba(0, 0, 0, 0.3);
+          height: 45px;
+        }
 
         > div:nth-child(3) {
           margin-bottom: $f178;
@@ -93,13 +101,13 @@
         flex-direction: column;
         align-items: center;
         padding: 1vh;
-        & p{
+        & p {
           font-family: OpenSans-Bold;
           text-align: center;
           line-height: 1.354vw;
         }
-        
-        & img{
+
+        & img {
           width: 10vh;
           margin-bottom: $h13;
         }

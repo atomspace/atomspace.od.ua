@@ -27,18 +27,13 @@ export default function Partner(props) {
       <p>Мы с вами свяжемся в ближайшее время!</p>
     </Trans>
   );
+
   const inputData = [
     {
       id: 'name',
       placeholder: t('form.placeholders.fullName'),
       autocomplete: 'off',
       type: 'text',
-    },
-    {
-      id: 'birth',
-      placeholder: t('form.placeholders.birth'),
-      type: 'date',
-      autocomplete: 'off',
     },
     {
       id: 'phone',
@@ -54,8 +49,40 @@ export default function Partner(props) {
       validate: validators.email,
     },
     {
+      id: 'interest',
+      placeholder: t('form.placeholders.interest'),
+      type: 'select',
+      options: [
+        {
+          label: t('form.select.option1'),
+          selected: true,
+          value: 'option1',
+        },
+        {
+          label: t('form.select.option2'),
+          value: 'option2',
+        },
+        {
+          label: t('form.select.option3'),
+          value: 'option3',
+        },
+        {
+          label: t('form.select.option4'),
+          value: 'option4',
+        },
+        {
+          label: t('form.select.option5'),
+          value: 'option5',
+        },
+        {
+          label: t('form.select.option6'),
+          value: 'option6',
+        },
+      ],
+    },
+    {
       id: 'information',
-      placeholder: t('form.placeholders.informationResident'),
+      placeholder: t('form.placeholders.comments'),
       autocomplete: 'off',
       type: 'text',
     },

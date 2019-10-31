@@ -65,7 +65,11 @@ const Sidebar = ({ handleDialog, changeMerchAttr, order }) => {
               pageName={currentPage}
             />
             <RightSidebar pageName={currentPage} links={links} />
-            <SmallSidebar pageName={currentPage} links={links} />
+            <SmallSidebar
+              handleDialog={handleDialog}
+              pageName={currentPage}
+              links={links}
+            />
           </div>
         );
       }}

@@ -321,6 +321,21 @@ li {
       }
     }
   }
+  .partner-block {
+    top: 85%;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    .btn {
+      padding: 2.677vw 11.354vw;
+      font-size: 4.833vw;
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+  }
 }
 
 @keyframes fadeInFromNone {
