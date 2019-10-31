@@ -23,12 +23,13 @@ const Family = () => {
     {
       id: 2,
       name: t('family.ver'),
-      position: 'PR Manager',
+      position: 'PR & Communications Manager',
       avatar: 'veronika',
       imageLink: VeronikaPhoto,
       facebook: 'https://www.facebook.com/verilnitskaya',
     },
   ];
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -86,7 +87,7 @@ const Family = () => {
             </div>
             <div className="carousel-info__quote-block">
               <div className="quotes">
-                <p className="quote-text">{t('family.quote-text')}</p>
+                <p className="quote-text">{people[index] && people[index].position === 'CEO' && t('family.quote-text-anna')}</p>
               </div>
             </div>
           </div>
