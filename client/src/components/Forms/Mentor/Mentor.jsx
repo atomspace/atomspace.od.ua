@@ -8,7 +8,6 @@ import validators from '../../../utils/validators';
 const Mentor = props => {
   const { t } = useTranslation();
 
-  const buttonText = t('form.beMentor');
   const headerText = t('form.beMentor');
   const mainText = t('form.mentorText');
   const confirmMessage = (
@@ -73,7 +72,6 @@ const Mentor = props => {
         headerText={headerText}
         mainText={mainText}
         confirmMessage={confirmMessage}
-        buttonText={buttonText}
         {...props}
       />
     </section>

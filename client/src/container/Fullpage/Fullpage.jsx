@@ -14,7 +14,6 @@ const Fullpage = ({ handleDialog, changeMerchAttr, order }) => {
           <ReactFullpage
             anchors={urls}
             onLeave={(origin, destination) => {
-              console.log(destination.anchor);
               setCurrentPage(destination.anchor);
               setLightTheme(lightPages.includes(destination.anchor));
             }}

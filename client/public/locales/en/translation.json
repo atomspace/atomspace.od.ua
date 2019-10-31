@@ -47,6 +47,7 @@
     "anna": "Anna Derevyanko",
     "ver": "Veronika Ilnitskaya"
   },
+  "join": "Join",
   "blog": {
     "mainText": "ATOM SPACE values",
     "mainTextMobile": "Values",
@@ -69,10 +70,7 @@
   },
   "contacts": {
     "headerAsk": "Do you like what we do?",
-    "headerAnswer": "Let's develop Atom Space together!",
-    "beMentor": "Become a mentor",
-    "beResident": "Become a resident",
-    "bePartner": "Become a partner"
+    "headerAnswer": "Let's develop Atom Space together!"
   },
   "store": {
     "mainText": "Do you want to contribute to the development of the project?",

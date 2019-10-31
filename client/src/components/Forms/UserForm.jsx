@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import LeftSidebar from '../../routes/Sidebar/Left';
 import { validateUser } from './utils/validation';
 import MobileRequestForm from './MobileRequestForm';
 import { Button } from '../Button/Button';
 import Confirm from '../ConfirmMessage/Confirm';
 import { withHandleUser } from '../../hoc/withHandleUser';
+import MyContext from '../../context/Base/AppContext';
 
 const UserForm = props => {
   const {
@@ -25,7 +25,22 @@ const UserForm = props => {
   const [isLoading, setLoading] = useState(false);
   const [step, setStep] = useState(0);
   const [sended, setSended] = useState(false);
+  const {
+    isLightTheme,
+    setLightTheme,
+    hiddenSidebars,
+    setHiddenSidebars,
+  } = useContext(MyContext);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    setLightTheme(true);
+    setHiddenSidebars(true);
+    return () => {
+      setLightTheme(false);
+      setHiddenSidebars(false);
+    };
+  }, [isLightTheme, hiddenSidebars]);
 
   const prepareData = user =>
     Object.keys(user).reduce(
@@ -107,7 +122,7 @@ const UserForm = props => {
               loading={isLoading}
               onClick={submitForm}
             >
-              {buttonText}
+              {t('join')}
             </Button>
           </div>
         </div>
@@ -148,10 +163,6 @@ const UserForm = props => {
 
   return (
     <div className="main-form-container">
-      <div className="navigation">
-        <LeftSidebar {...props} />
-      </div>
-
       <div className="form-request">
         {renderFormBlocks()}
         {renderFormRegister()}
@@ -179,7 +190,6 @@ const UserForm = props => {
 
 UserForm.propTypes = {
   headerText: PropTypes.string,
-  buttonText: PropTypes.string,
   mainText: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
   getBack: PropTypes.func.isRequired,
@@ -188,7 +198,6 @@ UserForm.propTypes = {
 
 UserForm.defaultProps = {
   headerText: '',
-  buttonText: '',
   inputData: [],
 };
 

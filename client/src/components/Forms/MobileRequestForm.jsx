@@ -41,7 +41,7 @@ function MobileRequestForm(props) {
               loading={isLoading}
               onClick={submitForm}
             >
-              {t('contacts.beResident')}
+              {t('form.beResident')}
             </Button>
           ) : null}
           {confirmMessage}

@@ -9,12 +9,12 @@ const RU = 'ru-RU';
 const EN = 'en-US';
 // const UA = 'ua-UA';
 
-const Language = ({ userHash }) => {
+const Language = () => {
   const defaultLanguage = i18next.language || window.localStorage.i18nextLng;
   const [lang, setLang] = useState(defaultLanguage);
   const { i18n } = useTranslation();
-  const nonDisplayPages = ['#main'];
-  const isDisplay = nonDisplayPages.includes(userHash[userHash.length - 1]);
+  // const nonDisplayPages = ['#main'];
+  // const isDisplay = nonDisplayPages.includes(userHash[userHash.length - 1]);
   useEffect(() => {
     setLang(defaultLanguage);
   }, [defaultLanguage]);
@@ -22,11 +22,11 @@ const Language = ({ userHash }) => {
   const getImage = val => {
     switch (val) {
       case RU:
-        return <Icon name="russia" />;
+        return <Icon link={false} name="russia" />;
       case EN:
-        return <Icon name="england" />;
+        return <Icon link={false} name="england" />;
       default:
-        return <Icon name="russia" />;
+        return <Icon link={false} name="russia" />;
     }
   };
 
@@ -35,14 +35,13 @@ const Language = ({ userHash }) => {
     setLang(currentLang);
     i18n.changeLanguage(currentLang);
   };
-  console.log(lang);
   return (
     <MyContext>
-      {({ isLightTheme }) => {
+      {({ isLightTheme, isNavOpened }) => {
         return (
           <div
             className={cl('language-btn-container', {
-              none: !isDisplay,
+              none: !isNavOpened,
               light_theme: isLightTheme,
             })}
           >

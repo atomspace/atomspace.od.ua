@@ -7,7 +7,7 @@ import validators from '../../../utils/validators';
 export default function Partner(props) {
   const { t } = useTranslation();
 
-  const headerText = t('contacts.bePartner');
+  const headerText = t('form.bePartner');
   const mainText = (
     <Trans i18nKey="form.residentText">
       {'Резидентом Atom Space может стать каждый мотивированный подросток'}
@@ -60,7 +60,6 @@ export default function Partner(props) {
       type: 'text',
     },
   ];
-  const buttonText = t('form.bePartner');
 
   return (
     <section className="form-container">
@@ -70,7 +69,6 @@ export default function Partner(props) {
         createOrder={createResident}
         headerText={headerText}
         mainText={mainText}
-        buttonText={buttonText}
         confirmMessage={confirmMessage}
       />
     </section>

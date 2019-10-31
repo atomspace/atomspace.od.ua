@@ -81,7 +81,7 @@ const Family = () => {
                   facebook: people[index] && people[index].facebook,
                   linkedin: people[index] && people[index].linkedin,
                 }}
-                classes="flex soc-icons"
+                classes="soc-icons"
               />
             </div>
             <div className="carousel-info__quote-block">

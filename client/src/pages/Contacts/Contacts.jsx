@@ -26,7 +26,7 @@ const Contacts = ({ handleDialog }) => {
                     href="#mentorForm"
                     onClick={handleDialog}
                   >
-                    {t('contacts.beMentor')}
+                    {t('form.beMentor')}
                   </a>
                 </div>
                 <div className="request-button-block">
@@ -35,7 +35,7 @@ const Contacts = ({ handleDialog }) => {
                     href="#residentForm"
                     onClick={handleDialog}
                   >
-                    {t('contacts.beResident')}
+                    {t('form.beResident')}
                   </a>
                 </div>
               </div>
