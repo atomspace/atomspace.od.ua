@@ -87,7 +87,7 @@ const Family = () => {
             </div>
             <div className="carousel-info__quote-block">
               <div className="quotes">
-                <p className="quote-text">{people[index] && people[index].position === 'CEO' && t('family.quote-text-anna')}</p>
+                <p className="quote-text">{people[index] && people[index].position === 'CEO' && t('family.quote-text-anna')}{people[index] && people[index].position === 'PR & Communications Manager' && t('family.quote-text-ver')}</p>
               </div>
             </div>
           </div>
