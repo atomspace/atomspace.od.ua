@@ -6,6 +6,21 @@ import AboutPhoto1 from '../../assets/images/photos/about_photo_1.png';
 import AboutPhoto2 from '../../assets/images/photos/about_photo_2.png';
 import AboutPhoto3 from '../../assets/images/photos/about_photo_3.png';
 import AboutPhoto4 from '../../assets/images/photos/about_photo_4.png';
+import AboutPhoto5 from '../../assets/images/photos/about_photo_5.png';
+import AboutPhoto6 from '../../assets/images/photos/about_photo_6.png';
+import AboutPhoto7 from '../../assets/images/photos/about_photo_7.png';
+import AboutPhoto8 from '../../assets/images/photos/about_photo_8.png';
+import AboutPhoto9 from '../../assets/images/photos/about_photo_9.png';
+import AboutPhoto10 from '../../assets/images/photos/about_photo_10.png';
+import AboutPhoto11 from '../../assets/images/photos/about_photo_11.png';
+import AboutPhoto12 from '../../assets/images/photos/about_photo_12.png';
+import AboutPhoto13 from '../../assets/images/photos/about_photo_13.png';
+import AboutPhoto14 from '../../assets/images/photos/about_photo_14.png';
+import AboutPhoto15 from '../../assets/images/photos/about_photo_15.png';
+import AboutPhoto16 from '../../assets/images/photos/about_photo_16.png';
+import AboutPhoto17 from '../../assets/images/photos/about_photo_17.png';
+import AboutPhoto18 from '../../assets/images/photos/about_photo_18.png';
+import AboutPhoto19 from '../../assets/images/photos/about_photo_19.png';
 import AtomspaceText from '../../assets/images/icons/logos/AtomSpace-about-maintext.svg';
 import { ImageLoader } from '../../components/ImageLoader';
 
@@ -20,6 +35,28 @@ const About = () => {
 
   const mainText = t('aboutMainText');
   const mainText1 = t('aboutMainText1');
+
+  const aboutPhotos = [
+    AboutPhoto1,
+    AboutPhoto2,
+    AboutPhoto3,
+    AboutPhoto4,
+    AboutPhoto5,
+    AboutPhoto6,
+    AboutPhoto7,
+    AboutPhoto8,
+    AboutPhoto9,
+    AboutPhoto10,
+    AboutPhoto11,
+    AboutPhoto12,
+    AboutPhoto13,
+    AboutPhoto14,
+    AboutPhoto15,
+    AboutPhoto16,
+    AboutPhoto17,
+    AboutPhoto18,
+    AboutPhoto19,
+  ];
 
   return (
     <div className="section about-container">
@@ -44,7 +81,7 @@ const About = () => {
         </div>
         <Bubble
           interactive
-          image={[AboutPhoto1, AboutPhoto2, AboutPhoto3, AboutPhoto4]}
+          image={aboutPhotos}
           style={{ zIndex: 100, opacity: 1 }}
         />
         <Bubble
