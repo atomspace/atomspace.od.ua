@@ -1,6 +1,7 @@
 import json
 import os
 import datetime
+from csv import writer
 
 from django.http import JsonResponse
 from django.core import serializers
@@ -11,7 +12,7 @@ from django.contrib.auth import authenticate, login as django_login, logout as d
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
@@ -377,6 +378,58 @@ def remove_person(request):
 			return JsonResponse({'ok': 'true'}, safe=False)			
 	except:
 		return JsonResponse({'ok': 'false'}, safe=False)
+
+@login_required
+def download_residents(request):
+	obj = json.loads(serializers.serialize('json', Resident.objects.all()))
+	data = [i['fields'] for i in obj]
+	for i in data:
+		del i['updated_time']
+		created = datetime.datetime.strptime(i['created_time'][:-8], '%Y-%m-%dT%H:%M')
+		i['created_time'] = str(created)
+		i['phone'] = str(i['phone'])
+	res = [list(data[0].keys())]
+	for i in data:
+		res.append(list(i.values()))
+	with open('residents.csv', 'w') as f:
+		wr = writer(f, delimiter=',')
+		wr.writerows(res)
+		f.close()
+	with open('residents.csv', 'r') as f:
+		response = HttpResponse(f.read(), content_type="text/csv")
+		path = os.path.abspath('residents.csv')
+		response['Content-Disposition'] = 'inline; filename=' + os.path.basename(path)
+		rm_temp(path)
+		return response
+	return Http404
+
+@login_required
+def download_mentors(request):
+	obj = json.loads(serializers.serialize('json', Mentor.objects.all()))
+	data = [i['fields'] for i in obj]
+	for i in data:
+		del i['updated_time']
+		created = datetime.datetime.strptime(i['created_time'][:-8], '%Y-%m-%dT%H:%M')
+		i['created_time'] = str(created)
+		i['phone'] = str(i['phone'])
+	res = [list(data[0].keys())]
+	for i in data:
+		res.append(list(i.values()))
+	with open('mentors.csv', 'w') as f:
+		wr = writer(f, delimiter=',')
+		wr.writerows(res)
+		f.close()
+	with open('mentors.csv', 'r') as f:
+		response = HttpResponse(f.read(), content_type="text/csv")
+		path = os.path.abspath('mentors.csv')
+		response['Content-Disposition'] = 'inline; filename=' + os.path.basename(path)
+		rm_temp(path)
+		return response
+	return Http404
+
+def rm_temp(path):
+	if os.path.exists(path):
+		os.remove(path)
 
 @login_required
 def logout(request):

@@ -12,6 +12,9 @@ urlpatterns = [
 	path('api/v1/news', views.get_news, name='get_news'),
 	path('api/v1/orders', views.api_orders, name='api_orders'),
 
+	path('download-residents', views.download_residents, name='download_residents'),
+	path('download-mentors', views.download_mentors, name='download_mentors'),
+
 	path('merch', views.merch, name='merch'),
 	path('news', views.news, name='news'),
 	path('orders', views.orders, name='orders'),
