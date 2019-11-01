@@ -16,6 +16,9 @@
       display: flex;
       align-items: center;
       width: 100%;
+      .form-main {
+        width: 30%;
+      }
 
       .form-blocks {
         height: 100%;
@@ -56,16 +59,17 @@
 
           .error {
             border-color: $red-color;
-            border-width: 3px;
+            border-width: 1px;
           }
         }
 
         input {
-          width: $f400 + $f144;
           font-size: $f21;
-          padding-left: $f13;
           height: $f42;
           border: 0;
+          width: 100%;
+          padding-left: $f13;
+          margin-left: -$f13;
           background: transparent;
           outline: none;
           border-bottom: 1px solid $black-color;
@@ -74,13 +78,6 @@
           &:focus {
             border-bottom-color: $border-color-orange;
           }
-        }
-        select {
-          width: 100%;
-          font-size: $f21;
-          background-color: transparent;
-          border-color: rgba(0, 0, 0, 0.3);
-          height: 45px;
         }
 
         > div:nth-child(3) {
@@ -101,13 +98,13 @@
         flex-direction: column;
         align-items: center;
         padding: 1vh;
-        & p {
+        p {
           font-family: OpenSans-Bold;
           text-align: center;
-          line-height: 1.354vw;
+          margin-bottom: 6px;
         }
 
-        & img {
+        img {
           width: 10vh;
           margin-bottom: $h13;
         }

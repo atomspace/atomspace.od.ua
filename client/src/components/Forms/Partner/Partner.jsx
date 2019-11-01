@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation, Trans } from 'react-i18next';
-import { createResident } from '../../../api/resident';
+import { createPartner } from '../../../api/partner';
 import UserForm from '../UserForm';
 import validators from '../../../utils/validators';
 
@@ -55,28 +55,27 @@ export default function Partner(props) {
       options: [
         {
           label: t('form.select.option1'),
-          selected: true,
-          value: 'option1',
+          value: t('form.select.option1'),
         },
         {
           label: t('form.select.option2'),
-          value: 'option2',
+          value: t('form.select.option2'),
         },
         {
           label: t('form.select.option3'),
-          value: 'option3',
+          value: t('form.select.option3'),
         },
         {
           label: t('form.select.option4'),
-          value: 'option4',
+          value: t('form.select.option4'),
         },
         {
           label: t('form.select.option5'),
-          value: 'option5',
+          value: t('form.select.option5'),
         },
         {
           label: t('form.select.option6'),
-          value: 'option6',
+          value: t('form.select.option6'),
         },
       ],
     },
@@ -93,7 +92,7 @@ export default function Partner(props) {
       <UserForm
         inputData={inputData}
         {...props}
-        createOrder={createResident}
+        createOrder={createPartner}
         headerText={headerText}
         mainText={mainText}
         confirmMessage={confirmMessage}

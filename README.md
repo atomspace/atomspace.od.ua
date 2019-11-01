@@ -1,6 +1,6 @@
 # Atom Space public site
 
-## Development
+## **Development**
 
 ### Client
 
@@ -36,23 +36,22 @@ python3 manage.py runserver
 ```
 
 
-# Server production startup
+## **Production** (Docker)
 
 Preinstall:
 - docker
 - node (latest version)
+- python 3 version
 
-### Docker 
-
-#### Django (Server)
-##### Prebuild
+### Django (Server)
+#### Prebuild
 ```
-mkdir /usr/local/share/postgresql
-cp ./server/.env.example ./server/.env
-cp ./server/configure.sh.example ./server/configure.sh
+$ mkdir /usr/local/share/postgresql
+$ cp ./server/.env.example ./server/.env
+$ cp ./server/configure.sh.example ./server/configure.sh
 
-mkdir ./server/logs
-touch ./server/logs/logs.txt
+$ mkdir ./server/logs
+$ touch ./server/logs/logs.txt
 ```
 Check file ```./server/.env``` and ```./server/configure.sh```
  to correct all config
@@ -91,36 +90,37 @@ EXPORT_KEY=https://docs.google.com/spreadsheets/{EXPORT_KEY} // Need to insert i
 EXPORT_CREDS=CHANGEME // Path to your credentials.json
 
 ```
-##### Run
+To run server you nee firstly make migrations
 ```
-sudo docker-compose -f docker-compose.yml up -d --build
+$ cd server && python3 manage.py migrate
+$ sudo docker-compose -f docker-compose.yml up -d --build
 ```
 
-#### React (Client)
+### React (Client)
 
-##### Build
 
 To deploy client first you need to build then to move build to your website folder of nginx  
 
 ```
-cp ./client/.env.example ./client/.env
-cd client
-npm install
+$ cp ./client/.env.example ./client/.env
+$ cd client
+$ npm install
 ```
-Check file ```./client/.env```
- to correct all config
+Check file ```./client/.env``` to correct all config from example ```./client/.env.example```
 ```
-npm run build
-cp -R build/* /var/www/{name_of_site}.com/
+$ npm run build
+$ cp -R build/* /var/www/{name_of_site}.com/
 ```
+
+## Nginx
 ### Installing and configure Nginx
 ```
-sudo apt-get install nginx
-nginx start
+$ sudo apt-get install nginx
+$ nginx start
 ```
 Config nginx
 ```
-vim /etc/nginx/sites-available/atomspace.od.ua
+$ vim /etc/nginx/sites-available/atomspace.od.ua
 ```
 ```
 server {

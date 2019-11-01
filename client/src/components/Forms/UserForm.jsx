@@ -146,15 +146,19 @@ const UserForm = props => {
       <div className="form-main">
         <div className="form-registration">
           <div className="form-block" key={index}>
-            <input
-              className={cn({ error: user[data.id].error })}
-              id={data.id}
-              type={data.id === 'birth' ? 'text' : data.type}
-              placeholder={data.placeholder}
-              value={user[data.id].value || data.defaultValue}
-              onChange={handleInputUser.bind(this, data)}
-              onFocus={handleInputUser.bind(this, data)}
-            />
+            {data.type === 'select' ? (
+              <Select
+                data={data}
+                user={user}
+                handleInputUser={handleInputUser}
+              />
+            ) : (
+              <Input
+                data={data}
+                user={user}
+                handleInputUser={handleInputUser}
+              />
+            )}
           </div>
           <div className="request-button-block">
             <Button

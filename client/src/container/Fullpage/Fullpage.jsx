@@ -6,10 +6,18 @@ import { urls } from '../../App';
 
 const Fullpage = ({ handleDialog, changeMerchAttr, order }) => {
   const lightPages = ['about', 'edu', 'blog', 'store', 'resident', 'mentor'];
-
+  const settingScroll = (fullpageApi, hiddenSidebars) => {
+    if (fullpageApi) {
+      if (hiddenSidebars) {
+        fullpageApi.setAllowScrolling(false);
+      } else {
+        fullpageApi.setAllowScrolling(true);
+      }
+    }
+  };
   return (
     <MyContext.Consumer>
-      {({ setLightTheme, setCurrentPage }) => {
+      {({ setLightTheme, setCurrentPage, hiddenSidebars }) => {
         return (
           <ReactFullpage
             anchors={urls}
@@ -17,24 +25,27 @@ const Fullpage = ({ handleDialog, changeMerchAttr, order }) => {
               setCurrentPage(destination.anchor);
               setLightTheme(lightPages.includes(destination.anchor));
             }}
-            responsiveHeight="720px"
+            scrollOverflow={false}
             licenseKey="OPEN-SOURCE-GPLV3-LICENSE"
-            render={() => (
-              <ReactFullpage.Wrapper>
-                <Main handleDialog={handleDialog} />
-                <About />
-                <Blog />
-                <Edu />
-                <Family />
-                <Store
-                  order={order}
-                  size={order.size}
-                  changeMerchAttr={changeMerchAttr}
-                  handleDialog={handleDialog}
-                />
-                <Contacts handleDialog={handleDialog} />
-              </ReactFullpage.Wrapper>
-            )}
+            render={({ fullpageApi }) => {
+              settingScroll(fullpageApi, hiddenSidebars);
+              return (
+                <ReactFullpage.Wrapper>
+                  <Main handleDialog={handleDialog} />
+                  <About />
+                  <Blog />
+                  <Edu />
+                  <Family />
+                  <Store
+                    order={order}
+                    size={order.size}
+                    changeMerchAttr={changeMerchAttr}
+                    handleDialog={handleDialog}
+                  />
+                  <Contacts handleDialog={handleDialog} />
+                </ReactFullpage.Wrapper>
+              );
+            }}
           />
         );
       }}
