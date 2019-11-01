@@ -19,6 +19,7 @@ const Family = () => {
       avatar: 'anna',
       imageLink: AnnaPhoto,
       facebook: 'https://www.facebook.com/anna.derevyankoo',
+      quote: t('family.quote-text-anna'),
     },
     {
       id: 2,
@@ -27,6 +28,7 @@ const Family = () => {
       avatar: 'veronika',
       imageLink: VeronikaPhoto,
       facebook: 'https://www.facebook.com/verilnitskaya',
+      quote: t('family.quote-text-ver'),
     },
   ];
 
@@ -87,7 +89,7 @@ const Family = () => {
             </div>
             <div className="carousel-info__quote-block">
               <div className="quotes">
-                <p className="quote-text">{people[index] && people[index].position === 'CEO' && t('family.quote-text-anna')}</p>
+                <p className="quote-text">{people[index] && people[index].quote}</p>
               </div>
             </div>
           </div>
