@@ -1,6 +1,16 @@
 {% extends 'base.html' %} {% block content %} {% load staticfiles %}
-<link rel="stylesheet" media="all" href="{% static 'css/news.css' %}" type="text/css" />
-<link rel="stylesheet" media="all" href="{% static 'css/orders.css' %}" type="text/css" />
+<link
+  rel="stylesheet"
+  media="all"
+  href="{% static 'css/news.css' %}"
+  type="text/css"
+/>
+<link
+  rel="stylesheet"
+  media="all"
+  href="{% static 'css/orders.css' %}"
+  type="text/css"
+/>
 
 <div style="display: flex; height: 91vh;">
   <div class="content">
@@ -10,12 +20,19 @@
         {% if mentors_len == 0 %}
         <option value="Residents" selected>Residents</option>
         <option value="Mentors">Mentors</option>
+        <option value="Partners">Partners</option>
         {% elif residents_len == 0 %}
         <option value="Residents">Residents</option>
         <option value="Mentors" selected>Mentors</option>
+        <option value="Partners">Partners</option>
+        {% elif partners_len == 0 %}
+        <option value="Residents">Residents</option>
+        <option value="Mentors" selected>Mentors</option>
+        <option value="Partners">Partners</option>
         {% else %}
         <option value="Residents" selected>Residents</option>
         <option value="Mentors">Mentors</option>
+        <option value="Partners">Partners</option>
         {% endif %}
       </select>
     </span>
@@ -40,7 +57,7 @@
           <td>{{ i.phone }}</td>
           <td>{{ i.information }}</td>
           <td>{{ i.created_time }}</td>
-          <td><img class='last' src="{% static 'img/remove-b.svg' %}"/></td>
+          <td><img class="last" src="{% static 'img/remove-b.svg' %}" /></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -64,7 +81,33 @@
           <td>{{ i.phone }}</td>
           <td>{{ i.information }}</td>
           <td>{{ i.created_time }}</td>
-          <td><img class="last" src="{% static 'img/remove-b.svg' %}"/></td>
+          <td><img class="last" src="{% static 'img/remove-b.svg' %}" /></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <table class="table" id="partners">
+      <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Interest</th>
+          <th>Info</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in partners %}
+        <tr id="{{ i.id }}">
+          <td>{{ i.name }}</td>
+          <td>{{ i.email }}</td>
+          <td>{{ i.phone }}</td>
+          <td>{{ i.interest }}</td>
+          <td>{{ i.information }}</td>
+          <td>{{ i.created_time }}</td>
+          <td><img class="last" src="{% static 'img/remove-b.svg' %}" /></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -76,28 +119,38 @@
 </div>
 
 <script>
-  var change = (e) => {
+  var change = e => {
     var select = document.getElementById('select').value;
     if (select === 'Mentors') {
       $('#residents').css('display', 'none');
       $('#mentors').css('display', 'table');
-    } else {
+      $('#partners').css('display', 'none');
+    } else if (select === 'Residents') {
       $('#residents').css('display', 'table');
       $('#mentors').css('display', 'none');
+      $('#partners').css('display', 'none');
+    } else if (select === 'Partners') {
+      $('#residents').css('display', 'none');
+      $('#mentors').css('display', 'none');
+      $('#partners').css('display', 'table');
     }
   };
 
   $().ready(() => change());
-  $('.last').on('click', (e) => {
+  $('.last').on('click', e => {
     var conf = confirm('Are you sure?');
-    if (conf){
+    if (conf) {
       var id = e.target.parentElement.parentElement.id;
-      var category = e.target.parentElement.parentElement.parentElement.parentElement.id;
-      fetch('/remove-person', {method: 'POST', body: JSON.stringify({'id': id, 'category': category})})
-      .then((res) => window.location.reload())
-      .catch((err) => console.error(err))
+      var category =
+        e.target.parentElement.parentElement.parentElement.parentElement.id;
+      fetch('/remove-person', {
+        method: 'POST',
+        body: JSON.stringify({ id: id, category: category }),
+      })
+        .then(res => window.location.reload())
+        .catch(err => console.error(err));
     }
-  })
+  });
 </script>
 
 {% endblock %}

@@ -4,6 +4,7 @@ import validators from '../../utils/validators';
 import BuyForm from './BuyForm';
 import Mentor from './Mentor';
 import Resident from './Resident';
+import Partner from './Partner';
 
 export const Form = ({ hashForm, getBack, order }) => {
   const { t } = useTranslation();
@@ -35,6 +36,7 @@ export const Form = ({ hashForm, getBack, order }) => {
     <>
       {hashForm === '#residentForm' && <Resident getBack={getBack} />}
       {hashForm === '#mentorForm' && <Mentor getBack={getBack} />}
+      {hashForm === '#partnerForm' && <Partner getBack={getBack} />}
       {hashForm === '#buyForm' && (
         <BuyForm getBack={getBack} order={order} inputData={inputBuyFormData} />
       )}

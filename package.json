@@ -37,6 +37,8 @@
     "stylelint-scss": "^3.10.0"
   },
   "scripts": {
+    "docker:postgres:connect": "docker exec -ti -u postgres atomspace_postgres psql",
+    "docker:server:connect": "docker exec -ti atomspace_server bash",
     "eslint:fix": "eslint 'client/**/*.jsx' --fix",
     "stylelint:fix": "stylelint 'client/**/*.scss' --fix"
   },

@@ -1,7 +1,6 @@
 import React from 'react';
 import cl from 'classnames';
 import { useTranslation } from 'react-i18next';
-import Soc from '../../../components/Soc';
 import { urls } from '../../../App';
 import MerchSize from '../../../pages/Store/MerchSize';
 import MerchBuy from '../../../pages/Store/MerchBuy';
@@ -16,6 +15,7 @@ const LeftSidebar = ({
   order,
 }) => {
   const { t } = useTranslation();
+
   const getLeftSidebarData = () => {
     switch (pageName) {
       case urls[0]:
@@ -26,7 +26,7 @@ const LeftSidebar = ({
             props: {
               handleDialog,
               row: {
-                title: t('contacts.beMentor'),
+                title: t('form.beMentor'),
                 link: '#mentorForm',
               },
             },
@@ -37,8 +37,19 @@ const LeftSidebar = ({
             props: {
               handleDialog,
               row: {
-                title: t('contacts.beResident'),
+                title: t('form.beResident'),
                 link: '#residentForm',
+              },
+            },
+          },
+          {
+            id: 3,
+            Component: Link,
+            props: {
+              handleDialog,
+              row: {
+                title: t('form.bePartner'),
+                link: '#partnerForm',
               },
             },
           },
@@ -87,20 +98,13 @@ const LeftSidebar = ({
             light_theme: isLightTheme,
           })}
         >
-          <div className="flex flex-col">
+          <div className={cl('list-container', 'flex', 'flex-col')}>
             {sidebarRows.map(el => (
               <div className="list" key={el.id}>
                 <el.Component {...el.props} />
               </div>
             ))}
           </div>
-          <Soc
-            src={{
-              facebook: 'https://www.facebook.com/atomspace.od.ua/',
-              instagram: 'https://www.instagram.com/atomspace.od/',
-            }}
-            classes="flex soc-icons"
-          />
         </nav>
       </div>
     )

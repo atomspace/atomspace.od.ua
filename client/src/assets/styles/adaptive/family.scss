@@ -68,18 +68,14 @@
         }
 
         &__soc {
-          .soc-icons {
-            height: initial;
-            width: initial;
-            margin-top: 20px;
+          position: relative;
 
-            .icon {
-              margin: 0 0 0 auto;
-              $size: $f178;
+          .icon {
+            margin: 15px 0 0 auto;
+            $size: $f178;
 
-              width: $size;
-              height: $size;
-            }
+            width: $size;
+            height: $size;
           }
         }
 
@@ -98,4 +94,18 @@
     right: 5%;
     height: 6%;
   }
+}
+
+.soc-icons {
+  margin-top: 20px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.icon {
+  $size: $f178;
+
+  width: $size;
+  height: $size;
 }
