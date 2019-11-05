@@ -78,6 +78,9 @@
           &:focus {
             border-bottom-color: $border-color-orange;
           }
+          &::placeholder {
+            color: $black-color;
+          }
         }
 
         > div:nth-child(3) {

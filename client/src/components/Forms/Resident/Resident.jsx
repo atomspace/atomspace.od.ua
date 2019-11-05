@@ -10,22 +10,17 @@ export default function Resident(props) {
   const headerText = t('form.beResident');
   const mainText = (
     <Trans i18nKey="form.residentText">
-      {'Резидентом Atom Space может стать каждый мотивированный подросток'}
-      <span className="bold">от 16 до 20 лет</span>
-      {', который хочет  связать свое будущее с миром IT, и готов изучать,'}
-      {
-        'исследовать, интересоваться, спрашивать, пробовать, экспериментировать,'
-      }
-      {'создавать, проверять, ошибаться и начинать'}
-      {'сначала.'}
+      {''}
+      <span className="bold" />
+      {''}
     </Trans>
   );
 
   const confirmMessage = (
     <Trans i18nKey="form.residentConfirmText">
-      <p>Спасибо что оставили заявку!</p>
-      <p>Мы с вами свяжемся перед</p>
-      <p>набором в резиденты!</p>
+      <p />
+      <p />
+      <p />
     </Trans>
   );
   const inputData = [
@@ -46,7 +41,6 @@ export default function Resident(props) {
       placeholder: t('form.placeholders.phone'),
       autocomplete: 'off',
       type: 'number',
-      validate: validators.phone,
     },
     {
       id: 'email',

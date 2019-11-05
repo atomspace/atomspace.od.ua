@@ -4,7 +4,7 @@
   width: $f34;
   display: block;
   opacity: 0.8;
-  .inner-icon{
+  .inner-icon {
     filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 1));
   }
   &:hover {
@@ -43,7 +43,7 @@
   }
 
   .england {
-    background: url(#{$path-to-images}/icons/countries/russia-dark.svg)
+    background: url(#{$path-to-images}/icons/countries/england-dark.svg)
       no-repeat center/contain;
   }
 }

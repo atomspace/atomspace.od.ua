@@ -48,7 +48,11 @@ const SelectComponent = ({ user, data, handleInputUser }) => {
       borderColor: '#b2b2b2 !important',
     }),
     input: styles => ({ ...styles, padding: '0 !important' }),
-    placeholder: styles => ({ ...styles, padding: '0 !important' }),
+    placeholder: styles => ({
+      ...styles,
+      padding: '0 !important',
+      color: 'black',
+    }),
   };
   return (
     <Select

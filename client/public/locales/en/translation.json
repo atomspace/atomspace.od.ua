@@ -19,7 +19,7 @@
     "yourChoice": "Your choice:",
     "placeholders": {
       "fullName": "Name:",
-      "phone": "Phone number: (ex. 380635522111)",
+      "phone": "Phone number:",
       "city": "City:",
       "email": "Email:",
       "informationMentor": "I can share knowledge in:",

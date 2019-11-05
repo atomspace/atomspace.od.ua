@@ -12,9 +12,9 @@ const Mentor = props => {
   const mainText = t('form.mentorText');
   const confirmMessage = (
     <Trans i18nKey="form.mentorConfirmText">
-      <p>Спасибо что оставили заявку!</p>
-      <p>Мы с вами свяжемся в ближайшее</p>
-      <p>время!</p>
+      <p />
+      <p />
+      <p />
     </Trans>
   );
 
@@ -30,8 +30,6 @@ const Mentor = props => {
       placeholder: t('form.placeholders.phone'),
       autocomplete: 'off',
       type: 'number',
-      validate: validators.phone,
-      modify: value => +value,
     },
     {
       id: 'email',

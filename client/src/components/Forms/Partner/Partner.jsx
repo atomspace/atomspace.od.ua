@@ -10,21 +10,16 @@ export default function Partner(props) {
   const headerText = t('form.bePartner');
   const mainText = (
     <Trans i18nKey="form.residentText">
-      {'Резидентом Atom Space может стать каждый мотивированный подросток'}
-      <span className="bold">от 16 до 20 лет</span>
-      {', который хочет  связать свое будущее с миром IT, и готов изучать,'}
-      {
-        'исследовать, интересоваться, спрашивать, пробовать, экспериментировать,'
-      }
-      {'создавать, проверять, ошибаться и начинать'}
-      {'сначала.'}
+      {''}
+      <span className="bold" />
+      {''}
     </Trans>
   );
 
   const confirmMessage = (
-    <Trans i18nKey="form.residentConfirmText">
-      <p>Спасибо что оставили заявку!</p>
-      <p>Мы с вами свяжемся в ближайшее время!</p>
+    <Trans i18nKey="form.mentorConfirmText">
+      <p />
+      <p />
     </Trans>
   );
 
@@ -40,7 +35,6 @@ export default function Partner(props) {
       placeholder: t('form.placeholders.phone'),
       autocomplete: 'off',
       type: 'number',
-      validate: validators.phone,
     },
     {
       id: 'email',
