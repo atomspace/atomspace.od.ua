@@ -5,7 +5,9 @@
 <div style="display: flex; height: 91vh;">
   <div class="content">
     {% if orders %}
-    <h2 class="orders-h2">Orders</h2>
+    <a id="export-orders" href="/download-orders">
+      <button class="btn btn-success">Export</button>
+    </a>
     <table class="table" id="residents">
       <thead class="thead-light">
         <tr>

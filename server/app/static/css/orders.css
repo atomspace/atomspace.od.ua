@@ -71,3 +71,14 @@ td img {
 tr td:last-child {
   text-align: center;
 }
+
+#export-orders {
+  position: relative;
+  margin-bottom: .7rem;
+  display: block;
+  float: right;
+}
+
+#export-mentors {
+  display: none;
+}

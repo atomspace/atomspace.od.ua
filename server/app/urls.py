@@ -14,6 +14,7 @@ urlpatterns = [
 
 	path('download-residents', views.download_residents, name='download_residents'),
 	path('download-mentors', views.download_mentors, name='download_mentors'),
+	path('download-orders', views.download_orders, name='download_orders'),
 
 	path('merch', views.merch, name='merch'),
 	path('news', views.news, name='news'),

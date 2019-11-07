@@ -427,6 +427,30 @@ def download_mentors(request):
 		return response
 	return Http404
 
+@login_required
+def download_orders(request):
+	obj = json.loads(serializers.serialize('json', Order.objects.all()))
+	data = [i['fields'] for i in obj]
+	for i in data:
+		del i['updated_time']
+		created = datetime.datetime.strptime(i['created_time'][:-8], '%Y-%m-%dT%H:%M')
+		i['created_time'] = str(created)
+		i['phone'] = str(i['phone'])
+	res = [list(data[0].keys())]
+	for i in data:
+		res.append(list(i.values()))
+	with open('orders.csv', 'w') as f:
+		wr = writer(f, delimiter=',')
+		wr.writerows(res)
+		f.close()
+	with open('orders.csv', 'r') as f:
+		response = HttpResponse(f.read(), content_type="text/csv")
+		path = os.path.abspath('orders.csv')
+		response['Content-Disposition'] = 'inline; filename=' + os.path.basename(path)
+		rm_temp(path)
+		return response
+	return Http404
+
 def rm_temp(path):
 	if os.path.exists(path):
 		os.remove(path)

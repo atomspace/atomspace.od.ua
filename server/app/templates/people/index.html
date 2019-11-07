@@ -31,7 +31,7 @@
       <a id="export-residents" href="/download-residents">
         <button class="btn btn-success">Export</button>
       </a>
-      <a id="export-mentors" href="/download-mentors" style="display: none;">
+      <a id="export-mentors" href="/download-mentors">
         <button class="btn btn-success">Export</button>
       </a>
     </span>
@@ -92,7 +92,7 @@
 </div>
 
 <script>
-  function change(e) {
+  var change = () => {
     var select = document.getElementById('select').value;
     if (select === 'Mentors') {
       $('#residents').css('display', 'none');
@@ -107,10 +107,8 @@
     }
   }
 
-  $().ready(function() {
-    return change();
-  });
-  $('.last').on('click', function(e) {
+  $().ready(() => change());
+  $('.last').on('click', e => {
     var conf = confirm('Are you sure?');
     if (conf) {
       var id = e.target.parentElement.parentElement.id;
@@ -123,12 +121,6 @@
         .then(res => window.location.reload())
         .catch(err => console.error(err));
     }
-  });
-  $(document).ready(function() {
-    $('#residents').DataTable({
-      scrollY: '50vh',
-      scrollCollapse: true,
-    });
   });
 </script>
 
