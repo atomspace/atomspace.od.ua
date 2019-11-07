@@ -8,14 +8,13 @@ import validators from '../../../utils/validators';
 const Mentor = props => {
   const { t } = useTranslation();
 
-  const buttonText = t('form.beMentor');
   const headerText = t('form.beMentor');
   const mainText = t('form.mentorText');
   const confirmMessage = (
     <Trans i18nKey="form.mentorConfirmText">
-      <p>Спасибо что оставили заявку!</p>
-      <p>Мы с вами свяжемся в ближайшее</p>
-      <p>время!</p>
+      <p />
+      <p />
+      <p />
     </Trans>
   );
 
@@ -31,8 +30,6 @@ const Mentor = props => {
       placeholder: t('form.placeholders.phone'),
       autocomplete: 'off',
       type: 'number',
-      validate: validators.phone,
-      modify: value => +value,
     },
     {
       id: 'email',
@@ -73,7 +70,6 @@ const Mentor = props => {
         headerText={headerText}
         mainText={mainText}
         confirmMessage={confirmMessage}
-        buttonText={buttonText}
         {...props}
       />
     </section>

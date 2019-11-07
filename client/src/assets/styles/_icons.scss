@@ -1,0 +1,87 @@
+.icon {
+  position: relative;
+  height: $f34;
+  width: $f34;
+  display: block;
+  opacity: 0.8;
+  .inner-icon {
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 1));
+  }
+  &:hover {
+    opacity: 1;
+  }
+
+  &.facebook {
+    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat
+      center/contain;
+  }
+
+  &.instagram {
+    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat
+      center/contain;
+  }
+
+  &.linkedin {
+    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat
+      center/contain;
+  }
+
+  &.russia {
+    background: url(#{$path-to-images}/icons/countries/russia-light.svg)
+      no-repeat center/contain;
+  }
+
+  &.england {
+    background: url(#{$path-to-images}/icons/countries/england-light.svg)
+      no-repeat center/contain;
+  }
+}
+.light_theme {
+  .russia {
+    background: url(#{$path-to-images}/icons/countries/russia-dark.svg)
+      no-repeat center/contain;
+  }
+
+  .england {
+    background: url(#{$path-to-images}/icons/countries/england-dark.svg)
+      no-repeat center/contain;
+  }
+}
+
+.soc-icons {
+  display: flex;
+  position: absolute;
+  left: $f110 + $f21 + $f34;
+  bottom: $h89;
+  z-index: 1020;
+  > a:not(:last-child) {
+    margin-right: $f16;
+  }
+  &.light_theme {
+    .instagram {
+      background: url(#{$path-to-images}/icons/soc/instagram-dark.svg) no-repeat;
+    }
+
+    .facebook {
+      background: url(#{$path-to-images}/icons/soc/facebook-dark.svg) no-repeat;
+    }
+
+    .list-item {
+      &:hover {
+        color: $black-color;
+      }
+
+      &::before {
+        background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
+          center/contain;
+        color: $black-color;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .soc-icons.footer {
+    display: none;
+  }
+}

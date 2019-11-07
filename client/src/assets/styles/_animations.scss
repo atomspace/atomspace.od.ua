@@ -28,18 +28,14 @@ $meteor-yellow: #fedc01;
   }
 }
 
-// .scale{
-
-// 	transform:scale(.7) translate($f42, 360px);
-
-// }
-// }
 .planet-container {
   width: $f178;
   height: $f178;
   padding: $f21;
   @include border-radius($f178);
-  @include background(linear-gradient(150deg, $fuscia, transparent, transparent));
+  @include background(
+    linear-gradient(150deg, $fuscia, transparent, transparent)
+  );
   position: absolute;
   @include animation(planet-moving 2s ease infinite);
   @include transition(all 0.2s ease);
@@ -123,7 +119,9 @@ $meteor-yellow: #fedc01;
   .planet {
     width: $f178;
     height: $f178;
-    @include background(linear-gradient(150deg, $fuscia, $purple2, transparent));
+    @include background(
+      linear-gradient(150deg, $fuscia, $purple2, transparent)
+    );
     @include border-radius($f110 - $f10);
   } //end of planet
 } //end of planet-container

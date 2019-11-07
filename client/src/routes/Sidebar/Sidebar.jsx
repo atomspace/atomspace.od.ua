@@ -52,19 +52,27 @@ const Sidebar = ({ handleDialog, changeMerchAttr, order }) => {
   ];
   return (
     <MyContext.Consumer>
-      {({ isLightTheme, currentPage }) => (
-        <div className={cl('navigation', currentPage)}>
-          <LeftSidebar
-            isLightTheme={isLightTheme}
-            handleDialog={handleDialog}
-            changeMerchAttr={changeMerchAttr}
-            order={order}
-            pageName={currentPage}
-          />
-          <RightSidebar pageName={currentPage} links={links} />
-          <SmallSidebar pageName={currentPage} links={links} />
-        </div>
-      )}
+      {({ isLightTheme, currentPage, hiddenSidebars }) => {
+        return (
+          <div
+            className={cl('navigation', currentPage, { hide: hiddenSidebars })}
+          >
+            <LeftSidebar
+              isLightTheme={isLightTheme}
+              handleDialog={handleDialog}
+              changeMerchAttr={changeMerchAttr}
+              order={order}
+              pageName={currentPage}
+            />
+            <RightSidebar pageName={currentPage} links={links} />
+            <SmallSidebar
+              handleDialog={handleDialog}
+              pageName={currentPage}
+              links={links}
+            />
+          </div>
+        );
+      }}
     </MyContext.Consumer>
   );
 };

@@ -115,8 +115,9 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .loader-icon {
-  height: 16px;
-  width: 40px;
+  height: 10px;
+  width: 15px;
+  margin-left: 10px;
 }
 
 .atom-toggle {
@@ -205,9 +206,22 @@ input[type='number']::-webkit-outer-spin-button {
   }
 }
 
+.dropdown {
+  width: 100%;
+  font-size: $f21;
+  border-color: rgba(0, 0, 0, 0.3);
+  height: 45px;
+  &.error {
+    > div {
+      border-color: $red-color;
+      border-width: 1px;
+    }
+  }
+}
+
 @media only screen and (max-width: 1023px) {
   .language-btn-container {
-    top: 5%;
+    top: 3%;
     left: 8%;
     right: 0;
     width: $f178;
@@ -219,5 +233,8 @@ input[type='number']::-webkit-outer-spin-button {
         width: 100%;
       }
     }
+  }
+  select {
+    font-size: $f55;
   }
 }

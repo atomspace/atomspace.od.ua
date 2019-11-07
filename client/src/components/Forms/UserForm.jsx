@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import LeftSidebar from '../../routes/Sidebar/Left';
 import { validateUser } from './utils/validation';
 import MobileRequestForm from './MobileRequestForm';
 import { Button } from '../Button/Button';
 import Confirm from '../ConfirmMessage/Confirm';
 import { withHandleUser } from '../../hoc/withHandleUser';
+import MyContext from '../../context/Base/AppContext';
+import Input from '../Input';
+import Select from '../Select';
 
 const UserForm = props => {
   const {
@@ -25,7 +27,25 @@ const UserForm = props => {
   const [isLoading, setLoading] = useState(false);
   const [step, setStep] = useState(0);
   const [sended, setSended] = useState(false);
+  const {
+    isLightTheme,
+    setLightTheme,
+    hiddenSidebars,
+    setHiddenSidebars,
+    isNavOpened,
+    setIsNavOpened,
+  } = useContext(MyContext);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    setLightTheme(true);
+    setIsNavOpened(false);
+    setHiddenSidebars(true);
+    return () => {
+      setLightTheme(false);
+      setHiddenSidebars(false);
+    };
+  }, [isLightTheme, isNavOpened, hiddenSidebars]);
 
   const prepareData = user =>
     Object.keys(user).reduce(
@@ -90,15 +110,19 @@ const UserForm = props => {
         <div className="form-registration">
           {inputData.map(data => (
             <div className="form-block" key={data.id}>
-              <input
-                className={cn({ error: user[data.id].error })}
-                id={data.id}
-                type={data.id === 'birth' ? 'text' : data.type}
-                placeholder={data.placeholder}
-                value={user[data.id].value || data.defaultValue}
-                onChange={handleInputUser.bind(this, data)}
-                onFocus={handleInputUser.bind(this, data)}
-              />
+              {data.type === 'select' ? (
+                <Select
+                  data={data}
+                  user={user}
+                  handleInputUser={handleInputUser}
+                />
+              ) : (
+                <Input
+                  data={data}
+                  user={user}
+                  handleInputUser={handleInputUser}
+                />
+              )}
             </div>
           ))}
           <div className="request-button-block">
@@ -107,7 +131,7 @@ const UserForm = props => {
               loading={isLoading}
               onClick={submitForm}
             >
-              {buttonText}
+              {t('join')}
             </Button>
           </div>
         </div>
@@ -122,15 +146,19 @@ const UserForm = props => {
       <div className="form-main">
         <div className="form-registration">
           <div className="form-block" key={index}>
-            <input
-              className={cn({ error: user[data.id].error })}
-              id={data.id}
-              type={data.id === 'birth' ? 'text' : data.type}
-              placeholder={data.placeholder}
-              value={user[data.id].value || data.defaultValue}
-              onChange={handleInputUser.bind(this, data)}
-              onFocus={handleInputUser.bind(this, data)}
-            />
+            {data.type === 'select' ? (
+              <Select
+                data={data}
+                user={user}
+                handleInputUser={handleInputUser}
+              />
+            ) : (
+              <Input
+                data={data}
+                user={user}
+                handleInputUser={handleInputUser}
+              />
+            )}
           </div>
           <div className="request-button-block">
             <Button
@@ -148,10 +176,6 @@ const UserForm = props => {
 
   return (
     <div className="main-form-container">
-      <div className="navigation">
-        <LeftSidebar {...props} />
-      </div>
-
       <div className="form-request">
         {renderFormBlocks()}
         {renderFormRegister()}
@@ -179,7 +203,6 @@ const UserForm = props => {
 
 UserForm.propTypes = {
   headerText: PropTypes.string,
-  buttonText: PropTypes.string,
   mainText: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
   getBack: PropTypes.func.isRequired,
@@ -188,7 +211,6 @@ UserForm.propTypes = {
 
 UserForm.defaultProps = {
   headerText: '',
-  buttonText: '',
   inputData: [],
 };
 

@@ -80,7 +80,10 @@
 
         &__soc {
           .soc-icons {
-            margin-top: $f34;
+            position: relative;
+            top: 0;
+            left: 0;
+            margin-top: $h34;
           }
         }
 
@@ -107,7 +110,7 @@
             }
 
             &::before {
-              left: 0;
+              left: -$f21;
               top: 0;
             }
 
@@ -121,7 +124,7 @@
               font-family: $OpenSans-LightItalic;
               font-style: italic;
               width: 75%;
-              font-size: $f26;
+              font-size: $f18;
               line-height: $f26;
             }
           }

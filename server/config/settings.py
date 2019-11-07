@@ -93,7 +93,7 @@ TEMPLATES = [
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
-LOGGING = False if DEBUG else {
+LOGGING = {
 		'version': 1,
 		'disable_existing_loggers': False,
 		'handlers': {

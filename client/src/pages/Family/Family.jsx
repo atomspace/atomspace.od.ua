@@ -19,16 +19,19 @@ const Family = () => {
       avatar: 'anna',
       imageLink: AnnaPhoto,
       facebook: 'https://www.facebook.com/anna.derevyankoo',
+      quote: t('family.quote-text-anna'),
     },
     {
       id: 2,
       name: t('family.ver'),
-      position: 'PR Manager',
+      position: 'PR & Communications Manager',
       avatar: 'veronika',
       imageLink: VeronikaPhoto,
       facebook: 'https://www.facebook.com/verilnitskaya',
+      quote: t('family.quote-text-ver'),
     },
   ];
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -81,12 +84,12 @@ const Family = () => {
                   facebook: people[index] && people[index].facebook,
                   linkedin: people[index] && people[index].linkedin,
                 }}
-                classes="flex soc-icons"
+                classes="soc-icons"
               />
             </div>
             <div className="carousel-info__quote-block">
               <div className="quotes">
-                <p className="quote-text">{t('family.quote-text')}</p>
+                <p className="quote-text">{people[index] && people[index].quote}</p>
               </div>
             </div>
           </div>

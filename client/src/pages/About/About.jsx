@@ -36,10 +36,6 @@ const About = () => {
   const mainText = t('aboutMainText');
   const mainText1 = t('aboutMainText1');
 
-  const mainText2 = t('aboutMainText2');
-
-  const mainText3 = t('aboutMainText3');
-
   const aboutPhotos = [
     AboutPhoto1,
     AboutPhoto2,

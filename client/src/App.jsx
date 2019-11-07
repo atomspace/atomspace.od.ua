@@ -8,6 +8,7 @@ import Language from './components/Language/Language';
 import { AppProvider } from './context/Provider/Provider';
 import Fullpage from './container/Fullpage/Fullpage';
 import Hash from './utils/hash';
+import Soc from './components/Soc';
 
 export const urls = [
   'main',
@@ -66,6 +67,13 @@ const App = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <AppProvider>
+        <Soc
+          src={{
+            facebook: 'https://www.facebook.com/atomspace.od.ua/',
+            instagram: 'https://www.instagram.com/atomspace.od/',
+          }}
+          classes="soc-icons footer"
+        />
         <Sidebar
           handleDialog={handleDialog}
           changeMerchAttr={changeMerchAttr}

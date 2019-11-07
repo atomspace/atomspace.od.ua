@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation, Trans } from 'react-i18next';
-import { createResident } from '../../../api/resident';
+import { createPartner } from '../../../api/partner';
 import UserForm from '../UserForm';
 import validators from '../../../utils/validators';
 
-export default function Resident(props) {
+export default function Partner(props) {
   const { t } = useTranslation();
 
-  const headerText = t('form.beResident');
+  const headerText = t('form.bePartner');
   const mainText = (
     <Trans i18nKey="form.residentText">
       {''}
@@ -17,24 +17,18 @@ export default function Resident(props) {
   );
 
   const confirmMessage = (
-    <Trans i18nKey="form.residentConfirmText">
-      <p />
+    <Trans i18nKey="form.mentorConfirmText">
       <p />
       <p />
     </Trans>
   );
+
   const inputData = [
     {
       id: 'name',
       placeholder: t('form.placeholders.fullName'),
       autocomplete: 'off',
       type: 'text',
-    },
-    {
-      id: 'birth',
-      placeholder: t('form.placeholders.birth'),
-      type: 'date',
-      autocomplete: 'off',
     },
     {
       id: 'phone',
@@ -49,8 +43,39 @@ export default function Resident(props) {
       validate: validators.email,
     },
     {
+      id: 'interest',
+      placeholder: t('form.placeholders.interest'),
+      type: 'select',
+      options: [
+        {
+          label: t('form.select.option1'),
+          value: t('form.select.option1'),
+        },
+        {
+          label: t('form.select.option2'),
+          value: t('form.select.option2'),
+        },
+        {
+          label: t('form.select.option3'),
+          value: t('form.select.option3'),
+        },
+        {
+          label: t('form.select.option4'),
+          value: t('form.select.option4'),
+        },
+        {
+          label: t('form.select.option5'),
+          value: t('form.select.option5'),
+        },
+        {
+          label: t('form.select.option6'),
+          value: t('form.select.option6'),
+        },
+      ],
+    },
+    {
       id: 'information',
-      placeholder: t('form.placeholders.informationResident'),
+      placeholder: t('form.placeholders.comments'),
       autocomplete: 'off',
       type: 'text',
     },
@@ -61,7 +86,7 @@ export default function Resident(props) {
       <UserForm
         inputData={inputData}
         {...props}
-        createOrder={createResident}
+        createOrder={createPartner}
         headerText={headerText}
         mainText={mainText}
         confirmMessage={confirmMessage}

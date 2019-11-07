@@ -8,6 +8,7 @@ from . import views
 urlpatterns = [
 	path('api/v1/mentors', views.mentors, name='mentors'),
 	path('api/v1/residents', views.residents, name='residents'),
+	path('api/v1/partners', views.partners, name='partners'),
 	path('api/v1/merches', views.get_merches, name='get_merches'),
 	path('api/v1/news', views.get_news, name='get_news'),
 	path('api/v1/orders', views.api_orders, name='api_orders'),
@@ -15,6 +16,7 @@ urlpatterns = [
 	path('download-residents', views.download_residents, name='download_residents'),
 	path('download-mentors', views.download_mentors, name='download_mentors'),
 	path('download-orders', views.download_orders, name='download_orders'),
+	path('download-partners', views.download_partners, name='download_partners'),
 
 	path('merch', views.merch, name='merch'),
 	path('news', views.news, name='news'),
@@ -26,6 +28,8 @@ urlpatterns = [
 	url(r'^login', views.login, name='login'),
 	url(r'^news/(?P<pk>\d+)/delete$', views.delete_article, name='delete_article'),
 	url(r'^mentor/(?P<pk>\d+)/delete', views.delete_mentor, name='delete_mentor'),
+	url(r'^resident/(?P<pk>\d+)/delete', views.delete_resident, name='delete_mentor'),
+	url(r'^partner/(?P<pk>\d+)/delete', views.delete_partner, name='delete_partner'),
 	url(r'^order/(?P<pk>\d+)/delete', views.delete_order, name='delete_order'),
 	url(r'^news/(?P<pk>\d+)/edit$', views.edit_article, name='edit_article'),
 	url(r'^merch/(?P<pk>\d+)/edit$', views.edit_merch, name='edit_merch'),
