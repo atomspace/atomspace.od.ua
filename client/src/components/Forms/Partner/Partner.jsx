@@ -10,7 +10,7 @@ export default function Partner(props) {
 
   const headerText = t('form.bePartner');
   const mainText = (
-    <Trans i18nKey="form.residentText">
+    <Trans i18nKey="form.partnerText">
       {''}
       <span className="bold" />
       {''}
@@ -18,7 +18,7 @@ export default function Partner(props) {
   );
 
   const confirmMessage = (
-    <Trans i18nKey="form.mentorConfirmText">
+    <Trans i18nKey="form.partnerConfirmText">
       <p />
       <p />
     </Trans>

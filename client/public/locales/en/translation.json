@@ -30,19 +30,21 @@
       "comments": "Commets:"
     },
     "select": {
-      "option1": "Спонсируй всеукраинский митап \"Youth Tech Community\"",
-      "option2": "Инвестируй в фонд возможностей для резидентов",
-      "option3": "Поддерживай интенсивный лагерь \"Girls in Tech\"",
-      "option4": "Принимай резидентов \"Atom Space\" на стажировки",
-      "option5": "Участвуй во вдохновляющих беседах в качестве докладчика",
-      "option6": "Развивай сеть филиалов Atom Space в своем городе"
+      "option1": "Sponsor the all-Ukrainian \"Youth Tech Community\" rally",
+      "option2": "Invest in a fund of opportunities for residents",
+      "option3": "Maintain the \"Girls in Tech\" intensive camp",
+      "option4": "Accept \"Atom Space\" residents for internships",
+      "option5": "Engage in inspirational conversations as a presenter",
+      "option6": "Develop an \"Atom Space\" branch network in your city"
     },
     "beMentor": "Become a mentor",
     "mentorText": "Atom Space mentor works with residents individually or in a group. You will be provided with a Resident Development Roadmap so that you know exactly what topics should be covered. We strive for residents to master the learning material on their own, and the mentor, in turn, will guide and show how the problem can be solved more efficiently.",
+    "partnerText": "One of our priorities is to keep expanding the network of partners to turn residents’ ideas into viable products. We look for like-minded people who believe in the talented youth and ready to contribute with their time and resources. Choose the most suitable way to make an impact and be the part of a breakthrough moment of Atom residents.",
     "beResident": "Become a resident",
     "bePartner": "Become a partner",
     "residentText": "Every motivated teen <1>from 16 to 20</1> who wants to connect his future with the IT world and is ready to study, research, be interested, ask, try, experiment, create, test, make mistakes and start over can become a resident of Atom Space.",
     "mentorConfirmText": "<1>Thank you for the application!</1><1>We will contact you</1><1>soon!</1>",
+    "partnerConfirmText": "<1>Thank you for the application!</1><1>We will contact you</1><1>soon!</1>",
     "residentConfirmText": "<1>Thank you for the application!</1><1>We will contact you before</1><1>recruiting!</1>"
   },
   "size": "Size:",
