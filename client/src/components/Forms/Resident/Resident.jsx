@@ -3,6 +3,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { createResident } from '../../../api/resident';
 import UserForm from '../UserForm';
 import validators from '../../../utils/validators';
+import { Bubble } from '../../Bubble';
 
 export default function Resident(props) {
   const { t } = useTranslation();
@@ -58,6 +59,17 @@ export default function Resident(props) {
 
   return (
     <section className="form-container">
+      <Bubble big animate style={{ bottom: 453, left: 451 }} />
+      <Bubble
+        middle
+        animate
+        style={{
+          bottom: 240,
+          left: '34vw',
+          opacity: 1,
+        }}
+      />
+      <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2 }} />
       <UserForm
         inputData={inputData}
         {...props}

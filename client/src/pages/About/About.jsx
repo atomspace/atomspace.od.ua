@@ -20,12 +20,6 @@ import AboutPhoto19 from '../../assets/images/photos/about_photo_19.png';
 import AtomspaceText from '../../assets/images/icons/logos/AtomSpace-about-maintext.svg';
 import { ImageLoader } from '../../components/ImageLoader';
 
-const BoldLink = ({ children, href }) => (
-  <a className="bold" target="_blank" rel="noopener noreferrer" href={href}>
-    {children}
-  </a>
-);
-
 const About = () => {
   const { t } = useTranslation();
 
@@ -74,18 +68,14 @@ const About = () => {
         <Bubble
           interactive
           image={aboutPhotos}
-          style={{ zIndex: 100, opacity: 1 }}
+          style={{ zIndex: 100, opacity: 1, position: 'relative' }}
         />
         <Bubble
           middle
           animate
-          style={{ position: 'absolute', bottom: 150, right: 230, zIndex: 100 }}
+          style={{ bottom: 150, right: 230, zIndex: 100 }}
         />
-        <Bubble
-          small
-          animate
-          style={{ position: 'absolute', bottom: 70, right: 110, zIndex: 100 }}
-        />
+        <Bubble small animate style={{ bottom: 70, right: 110, zIndex: 100 }} />
       </div>
     </div>
   );
