@@ -1,11 +1,7 @@
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Bubble } from '../../components/Bubble';
-import AboutPhoto1 from '../../assets/images/photos/about_photo_1.png';
-import AboutPhoto2 from '../../assets/images/photos/about_photo_2.png';
-import AboutPhoto3 from '../../assets/images/photos/about_photo_3.png';
-import AboutPhoto4 from '../../assets/images/photos/about_photo_4.png';
 import AboutPhoto5 from '../../assets/images/photos/about_photo_5.png';
 import AboutPhoto6 from '../../assets/images/photos/about_photo_6.png';
 import AboutPhoto7 from '../../assets/images/photos/about_photo_7.png';
@@ -37,10 +33,6 @@ const About = () => {
   const mainText1 = t('aboutMainText1');
 
   const aboutPhotos = [
-    AboutPhoto1,
-    AboutPhoto2,
-    AboutPhoto3,
-    AboutPhoto4,
     AboutPhoto5,
     AboutPhoto6,
     AboutPhoto7,
