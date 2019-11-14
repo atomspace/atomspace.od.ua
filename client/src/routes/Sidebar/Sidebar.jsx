@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cl from 'classnames';
 import { useTranslation } from 'react-i18next';
 import LeftSidebar from './Left';
@@ -8,6 +8,7 @@ import MyContext from '../../context/Base/AppContext';
 
 const Sidebar = ({ handleDialog, changeMerchAttr, order }) => {
   const { t } = useTranslation();
+  const { isLightTheme, currentPage, hiddenSidebars } = useContext(MyContext);
   const links = [
     {
       href: '#main',
@@ -51,29 +52,21 @@ const Sidebar = ({ handleDialog, changeMerchAttr, order }) => {
     },
   ];
   return (
-    <MyContext.Consumer>
-      {({ isLightTheme, currentPage, hiddenSidebars }) => {
-        return (
-          <div
-            className={cl('navigation', currentPage, { hide: hiddenSidebars })}
-          >
-            <LeftSidebar
-              isLightTheme={isLightTheme}
-              handleDialog={handleDialog}
-              changeMerchAttr={changeMerchAttr}
-              order={order}
-              pageName={currentPage}
-            />
-            <RightSidebar pageName={currentPage} links={links} />
-            <SmallSidebar
-              handleDialog={handleDialog}
-              pageName={currentPage}
-              links={links}
-            />
-          </div>
-        );
-      }}
-    </MyContext.Consumer>
+    <div className={cl('navigation', currentPage, { hide: hiddenSidebars })}>
+      <LeftSidebar
+        isLightTheme={isLightTheme}
+        handleDialog={handleDialog}
+        changeMerchAttr={changeMerchAttr}
+        order={order}
+        pageName={currentPage}
+      />
+      <RightSidebar pageName={currentPage} links={links} />
+      <SmallSidebar
+        handleDialog={handleDialog}
+        pageName={currentPage}
+        links={links}
+      />
+    </div>
   );
 };
 

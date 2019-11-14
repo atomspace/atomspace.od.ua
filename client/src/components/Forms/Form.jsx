@@ -32,15 +32,26 @@ export const Form = ({ hashForm, getBack, order }) => {
       type: 'text',
     },
   ];
-  return (
-    <>
-      {hashForm === '#residentForm' && <Resident getBack={getBack} />}
-      {hashForm === '#mentorForm' && <Mentor getBack={getBack} />}
-      {hashForm === '#partnerForm' && <Partner getBack={getBack} />}
-      {hashForm === '#buyForm' && (
-        <BuyForm getBack={getBack} order={order} inputData={inputBuyFormData} />
-      )}
-    </>
-  );
+  const getForm = () => {
+    switch (hashForm) {
+      case '#residentForm':
+        return <Resident getBack={getBack} />;
+      case '#mentorForm':
+        return <Mentor getBack={getBack} />;
+      case '#partnerForm':
+        return <Partner getBack={getBack} />;
+      case '#buyForm':
+        return (
+          <BuyForm
+            getBack={getBack}
+            order={order}
+            inputData={inputBuyFormData}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+  return getForm();
 };
 export default Form;

@@ -13,8 +13,14 @@ import MyContext from '../../context/Base/AppContext';
 
 const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14';
 
-const BuyForm = props => {
-  const { getBack, order, user, setUser, inputData, handleInputUser } = props;
+const BuyForm = ({
+  getBack,
+  order,
+  user,
+  setUser,
+  inputData,
+  handleInputUser,
+}) => {
   const { t } = useTranslation();
   const {
     setLightTheme,
@@ -34,8 +40,8 @@ const BuyForm = props => {
 
   const confirmMessage = (
     <Trans i18nKey="form.mentorConfirmText">
-      <p>Спасибо что сделали заказ! Мы с вами свяжемся в ближайшее</p>
-      <p>время!</p>
+      <p />
+      <p />
     </Trans>
   );
 

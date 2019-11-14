@@ -228,12 +228,14 @@ def news(request):
 
 @csrf_exempt
 def get_merches(request):
+	print(request.headers)
 	merches_object = json.loads(
 		serializers.serialize('json', Merch.objects.all()))
 	for i in merches_object:
 		del i['model']
-
-	return JsonResponse(merches_object, safe=False)
+	response =  HttpResponse(json.dumps(merches_object))
+	response['Set-Cookie'] = 'HttpOnly;Secure;SameSite=Strict'
+	return response
 
 
 @csrf_exempt

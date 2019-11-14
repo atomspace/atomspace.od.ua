@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import cl from 'classnames';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
@@ -12,6 +12,7 @@ const Language = () => {
   const defaultLanguage = i18next.language || window.localStorage.i18nextLng;
   const [lang, setLang] = useState(defaultLanguage);
   const { i18n } = useTranslation();
+  const { currentPage, isNavOpened, hiddenSidebars } = useContext(MyContext);
 
   const lightPages = [
     'about',
@@ -44,20 +45,16 @@ const Language = () => {
     i18n.changeLanguage(currentLang);
   };
   return (
-    <MyContext>
-      {({ currentPage, isNavOpened, hiddenSidebars }) => (
-        <div
-          className={cl('language-btn-container', {
-            none: !isNavOpened,
-            light_theme: lightPages.includes(currentPage) || hiddenSidebars,
-          })}
-        >
-          <div className="language-btn" onClick={changeLanguage}>
-            {lang === EN ? getImage(RU) : getImage(EN)}
-          </div>
-        </div>
-      )}
-    </MyContext>
+    <div
+      className={cl('language-btn-container', {
+        none: !isNavOpened,
+        light_theme: lightPages.includes(currentPage) || hiddenSidebars,
+      })}
+    >
+      <div className="language-btn" onClick={changeLanguage}>
+        {lang === EN ? getImage(RU) : getImage(EN)}
+      </div>
+    </div>
   );
 };
 

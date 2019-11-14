@@ -48,7 +48,6 @@ const Bubble = ({
     position: style.position || 'absolute',
   };
 
-  console.log(customStyle);
   return (
     <div className={classes} style={customStyle}>
       {image && (
