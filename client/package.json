@@ -70,8 +70,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "deploy:local": "cp -R build/* /var/www/atomspace-test.com/",
+    "deploy:github": "gh-pages -d build",
+    "deploy": "cp -R build/* /var/www/atomspace-test.com/",
     "stylelint": "./node_modules/.bin/stylelint 'src/assets/**/*.scss' --fix"
   },
   "browserslist": [

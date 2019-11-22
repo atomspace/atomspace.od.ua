@@ -108,8 +108,8 @@ def partners(request):
 									post.interest,
 									post.information)
 
-		# EmailThread(subject, textEmail,
-		# 			from_email, to_email).start()
+		EmailThread(subject, textEmail,
+					from_email, to_email).start()
 		# ExcelExport(data).start()
 		return JsonResponse({
 			"errors": [],
@@ -229,7 +229,6 @@ def news(request):
 
 @csrf_exempt
 def get_merches(request):
-	print(request.headers)
 	merches_object = json.loads(
 		serializers.serialize('json', Merch.objects.all()))
 	for i in merches_object:
@@ -435,7 +434,6 @@ def delete_order(request, pk):
 def remove_person(request):
 	try:
 		data = json.loads(request.body.decode('utf-8'))
-		print(data)
 		person_id = data['id']
 		category = data['category']
 		if category == 'residents':
@@ -443,6 +441,9 @@ def remove_person(request):
 			return JsonResponse({'ok': 'true'}, safe=False)
 		if category == 'mentors':
 			Mentor.objects.get(id=person_id).delete()
+			return JsonResponse({'ok': 'true'}, safe=False)			
+		if category == 'partners':
+			Partner.objects.get(id=person_id).delete()
 			return JsonResponse({'ok': 'true'}, safe=False)			
 	except:
 		return JsonResponse({'ok': 'false'}, safe=False)
