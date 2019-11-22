@@ -44,7 +44,7 @@
     "client:build": "cd client && npm run build",
     "server:start": "cd server && python3 manage.py runserver",
     "server:migrate": "cd server && python3 manage.py migrate",
-    "server:dc:up": "docker-compose -f docker-compose.yml up --build",
+    "server:dc:up": "docker-compose -f docker-compose.yml up --build -d",
     "server:dc:down": "docker-compose -f docker-compose.yml down"
   },
   "repository": {
