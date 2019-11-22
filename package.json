@@ -40,7 +40,12 @@
     "docker:postgres:connect": "docker exec -ti -u postgres atomspace_postgres psql",
     "docker:server:connect": "docker exec -ti atomspace_server bash",
     "eslint:fix": "eslint 'client/**/*.jsx' --fix",
-    "stylelint:fix": "stylelint 'client/**/*.scss' --fix"
+    "stylelint:fix": "stylelint 'client/**/*.scss' --fix",
+    "client:build": "cd client && npm run build",
+    "server:start": "cd server && python3 manage.py runserver",
+    "server:migrate": "cd server && python3 manage.py migrate",
+    "server:dc:up": "docker-compose -f docker-compose.yml up --build",
+    "server:dc:down": "docker-compose -f docker-compose.yml down"
   },
   "repository": {
     "type": "git",
