@@ -13,6 +13,11 @@ urlpatterns = [
 	path('api/v1/news', views.get_news, name='get_news'),
 	path('api/v1/orders', views.api_orders, name='api_orders'),
 
+	path('download-residents', views.download_residents, name='download_residents'),
+	path('download-mentors', views.download_mentors, name='download_mentors'),
+	path('download-orders', views.download_orders, name='download_orders'),
+	path('download-partners', views.download_partners, name='download_partners'),
+
 	path('merch', views.merch, name='merch'),
 	path('news', views.news, name='news'),
 	path('orders', views.orders, name='orders'),

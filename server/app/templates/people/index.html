@@ -35,8 +35,14 @@
         <option value="Partners">Partners</option>
         {% endif %}
       </select>
+      <a id="export-residents" href="/download-residents">
+        <button class="btn btn-success">Export</button>
+      </a>
+      <a id="export-mentors" href="/download-mentors">
+        <button class="btn btn-success">Export</button>
+      </a>
     </span>
-    <table class="table" id="residents">
+    <table class="table table-bordered table-striped mb-0" id="residents">
       <thead class="thead-light">
         <tr>
           <th>Name</th>
@@ -86,32 +92,6 @@
         {% endfor %}
       </tbody>
     </table>
-    <table class="table" id="partners">
-      <thead class="thead-light">
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Interest</th>
-          <th>Info</th>
-          <th>Created</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for i in partners %}
-        <tr id="{{ i.id }}">
-          <td>{{ i.name }}</td>
-          <td>{{ i.email }}</td>
-          <td>{{ i.phone }}</td>
-          <td>{{ i.interest }}</td>
-          <td>{{ i.information }}</td>
-          <td>{{ i.created_time }}</td>
-          <td><img class="last" src="{% static 'img/remove-b.svg' %}" /></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
     {% else %}
     <h2 class="orders-h2">No requests found</h2>
     {% endif %}
@@ -134,7 +114,7 @@
       $('#mentors').css('display', 'none');
       $('#partners').css('display', 'table');
     }
-  };
+  }
 
   $().ready(() => change());
   $('.last').on('click', e => {
