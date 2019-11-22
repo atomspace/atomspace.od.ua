@@ -5,6 +5,7 @@
 ### Client
 
 **Requirenments**
+
 ```
 NODE_ENV=development //Set 'production' if its production
 
@@ -13,17 +14,17 @@ REACT_APP_MEDIA_URL=https://admin.atomspace-test.com/media/
 REACT_APP_API_URL=https://admin.atomspace-test.com/api/v1
 ```
 
-``` 
-npm install 
+```
+npm install
 npm run start
 ```
-
 
 ### Server
 
 #### Requirenments
 
 Install manually to host machine
+
 ```
 pip3 install -r requirements.txt
 ```
@@ -35,16 +36,18 @@ cd ./server
 python3 manage.py runserver
 ```
 
-
 ## **Production** (Docker)
 
 Preinstall:
+
 - docker
 - node (latest version)
 - python 3 version
 
 ### Django (Server)
+
 #### Prebuild
+
 ```
 $ mkdir /usr/local/share/postgresql
 $ cp ./server/.env.example ./server/.env
@@ -53,10 +56,12 @@ $ cp ./server/configure.sh.example ./server/configure.sh
 $ mkdir ./server/logs
 $ touch ./server/logs/logs.txt
 ```
-Check file ```./server/.env``` and ```./server/configure.sh```
- to correct all config
+
+Check file `./server/.env` and `./server/configure.sh`
+to correct all config
 
 **Env file descirption**
+
 ```
 SECRET_KEY=SECRET_KEY // Secret key for hash user passwords
 
@@ -80,48 +85,56 @@ POSTGRES_PASSWORD=$DB_PASSWORD
 POSTGRES_DB=$DB_NAME
 
 #User admin credentials
-INITIAL_USER_NAME=atomspace 
+INITIAL_USER_NAME=atomspace
 INITIAL_USER_EMAIL=atomspace.info@gmail.com
 INITIAL_USER_PASSWORD=ineedmorespace
 
 #Google docs configuration (Real time saving in google sheets while order merch, mentor or resident request and smth)
-EXPORT_SCOPE=https://www.googleapis.com/auth/drive // URL where auth will be 
+EXPORT_SCOPE=https://www.googleapis.com/auth/drive // URL where auth will be
 EXPORT_KEY=https://docs.google.com/spreadsheets/{EXPORT_KEY} // Need to insert in EXPORT_KEY your id
 EXPORT_CREDS=CHANGEME // Path to your credentials.json
 
 ```
+
 To run server you nee firstly make migrations
+
 ```
-$ cd server && python3 manage.py migrate
+$ npm run server:migrate
 $ sudo docker-compose -f docker-compose.yml up -d --build
 ```
 
 ### React (Client)
 
-
-To deploy client first you need to build then to move build to your website folder of nginx  
+To deploy client first you need to build then to move build to your website folder of nginx
 
 ```
 $ cp ./client/.env.example ./client/.env
 $ cd client
 $ npm install
 ```
-Check file ```./client/.env``` to correct all config from example ```./client/.env.example```
+
+Check file `./client/.env` to correct all config from example `./client/.env.example`
+
 ```
 $ npm run build
 $ cp -R build/* /var/www/{name_of_site}.com/
 ```
 
 ## Nginx
+
 ### Installing and configure Nginx
+
 ```
 $ sudo apt-get install nginx
 $ nginx start
 ```
+
 Config nginx
+
 ```
 $ vim /etc/nginx/sites-available/atomspace.od.ua
 ```
+
 ```
 server {
         listen 80;
@@ -129,7 +142,7 @@ server {
 }
 
 server  {
-        
+
         # SSL configuration
         #
         listen 443;
@@ -175,7 +188,8 @@ server {
         }
 }
 ```
-- create symlink to ```/etc/nginx/sites-enabled``` folder
-- copy your ssls to ```/home/ubuntu/ssl/```
-    - you must have 2 ```.crt``` and 2 ```.pem``` files for ```admin.*.com``` and ```*.com```
-- reload nginx ```nginx -s reload```
+
+- create symlink to `/etc/nginx/sites-enabled` folder
+- copy your ssls to `/home/ubuntu/ssl/`
+  - you must have 2 `.crt` and 2 `.pem` files for `admin.*.com` and `*.com`
+- reload nginx `nginx -s reload`

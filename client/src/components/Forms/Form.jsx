@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import validators from '../../utils/validators';
 import BuyForm from './BuyForm';
 import Mentor from './Mentor';
 import Resident from './Resident';
@@ -19,7 +18,6 @@ export const Form = ({ hashForm, getBack, order }) => {
       id: 'phone',
       placeholder: t('form.placeholders.phone'),
       type: 'number',
-      validate: validators.phone,
     },
     {
       id: 'city',

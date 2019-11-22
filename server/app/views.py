@@ -18,7 +18,7 @@ from django.shortcuts import get_object_or_404
 
 from .forms import MerchForm, NewsForm, EditMerch, EditNews, LoginForm
 from .models import Merch, News, Mentor, Resident, Order, Partner
-from .utils import EmailThread, ExcelExport
+from .utils import EmailThread
 
 
 @csrf_exempt
