@@ -94,22 +94,26 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 LOGGING = {
-		'version': 1,
-		'disable_existing_loggers': False,
-		'handlers': {
-				'file': {
-						'level': 'DEBUG',
-						'class': 'logging.FileHandler',
-						'filename': 'logs/logs.txt',
-				},
+	'version': 1,
+	'disable_existing_loggers': False,
+	'handlers': {
+		'file': {
+			'level': 'WARNING',
+			'class': 'logging.FileHandler',
+			'filename': 'logs/logs.txt',
 		},
-		'loggers': {
-				'django': {
-						'handlers': ['file'],
-						'level': 'DEBUG',
-						'propagate': True,
-				},
+		'console': {
+		'level': 'INFO',
+		'class': 'logging.StreamHandler',
+	}
+	},
+	'loggers': {
+		'django': {
+			'handlers': ['file'],
+			'level': 'DEBUG',
+			'propagate': True,
 		},
+	},
 }
 
 WSGI_APPLICATION = 'config.wsgi.application'
