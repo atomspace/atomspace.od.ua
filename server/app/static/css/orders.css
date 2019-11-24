@@ -71,3 +71,18 @@ tr td:last-child{
   display: flex;
   justify-content: center;
 }
+
+.export-mentors{
+  display: none;
+}
+
+span{
+  display: flex;
+  justify-content: space-between;
+}
+
+.export-btn{
+  float: right;
+  margin-bottom: 1em;
+  font-size: 1.1rem;
+}

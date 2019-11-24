@@ -18,6 +18,8 @@
         <option value="Mentors">Mentors</option>
         {% endif %}
       </select>
+      <a class="export-residents" href="/admin/app/resident"><button class="btn btn-success">Export</button></a>
+      <a class="export-mentors" href="/admin/app/mentor"><button class="btn btn-success">Export</button></a>
     </span>
     <table class="table" id="residents">
       <thead class="thead-light">
@@ -81,9 +83,15 @@
     if (select === 'Mentors') {
       $('#residents').css('display', 'none');
       $('#mentors').css('display', 'table');
+
+      $('.export-mentors').css('display', 'inline-block');
+      $('.export-residents').css('display', 'none');
     } else {
       $('#residents').css('display', 'table');
       $('#mentors').css('display', 'none');
+
+      $('.export-mentors').css('display', 'none');
+      $('.export-residents').css('display', 'inline-block');
     }
   };
 
