@@ -68,17 +68,22 @@ td img {
   width: 35px;
 }
 
-tr td:last-child {
-  text-align: center;
+tr td:last-child{
+  display: flex;
+  justify-content: center;
 }
 
-#export-orders {
-  position: relative;
-  margin-bottom: .7rem;
-  display: block;
-  float: right;
-}
-
-#export-mentors {
+.export-mentors{
   display: none;
+}
+
+span{
+  display: flex;
+  justify-content: space-between;
+}
+
+.export-btn{
+  float: right;
+  margin-bottom: 1em;
+  font-size: 1.1rem;
 }
