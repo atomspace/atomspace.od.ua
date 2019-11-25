@@ -6,7 +6,7 @@ version: 2
 jobs:
   build-client:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:10.17
     working_directory: ~/repo
     environment:
       TEST_RESULTS: /tmp/test-results
@@ -36,25 +36,29 @@ jobs:
           path: /tmp/test-results
   build-server:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:10.17
     working_directory: ~/repo
     environment:
       TEST_RESULTS: /tmp/test-results
+    branches:
+      only:
+        - circleci
     steps:
       - checkout
+      - setup_remote_docker
       - run: mkdir -p $TEST_RESULTS
       - run:
           name: Copy .env file
           command: cp ./server/.env.example ./server/.env
-      - setup_remote_docker
       - run:
           name: Build docker images and start docker-compose
           command: |
             set -x
-            sudo docker-compose -f docker-compose.yml up --build -d
+            ls -l
+            docker-compose -f docker-compose.yml up --build -d
       - run:
           name: Run tests
-          command: sudo docker exec -ti atomspace_server python3 manage.py test
+          command: docker exec -ti atomspace_server python3 manage.py test
 
       - store_artifacts:
           path: /tmp/test-results
