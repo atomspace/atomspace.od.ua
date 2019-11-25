@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Arrow from '../../components/Arrow';
 import MerchSize from './MerchSize';
 import MerchBuy from './MerchBuy';
@@ -10,8 +10,9 @@ import { MEDIA_URL } from '../../utils/config';
 import { ImageLoader } from '../../components/ImageLoader';
 import LocalStorage from '../../utils/localStorage';
 
-const Store = ({ order, changeMerchAttr, handleDialog, t }) => {
+const Store = ({ order, changeMerchAttr, handleDialog }) => {
   const [merches, setMerches] = useState([]);
+  const { t } = useTranslation();
 
   const increaseCountOfMerch = merches => {
     let tempMerch = [];
@@ -62,20 +63,16 @@ const Store = ({ order, changeMerchAttr, handleDialog, t }) => {
     };
   }
 
-  const mainText = t('store.mainText');
-  const additionalText = t('store.additionalText');
-  const mainTextMobile = t('store.mainTextMobile');
-  const additionalTextMobile = t('store.additionalTextMobile');
-
   return (
     <div className="section store-container">
       <div className="store-wrapper">
-        <div className="store-main-text">{mainText}</div>
-        <div className="store-additional-text">{additionalText}</div>
-
-        <div className="store-main-text-mobile">{mainTextMobile}</div>
+        <div className="store-main-text">{t('store.mainText')}</div>
+        <div className="store-additional-text">{t('store.additionalText')}</div>
+        <div className="store-main-text-mobile">
+          {t('store.mainTextMobile')}
+        </div>
         <div className="store-additional-text-mobile">
-          {additionalTextMobile}
+          {t('store.additionalTextMobile')}
         </div>
         <div className="carousel-container">
           <Slider {...settings}>
@@ -106,6 +103,6 @@ const Store = ({ order, changeMerchAttr, handleDialog, t }) => {
       </div>
     </div>
   );
-}
+};
 
-export default withTranslation('')(Store);
+export default Store;
