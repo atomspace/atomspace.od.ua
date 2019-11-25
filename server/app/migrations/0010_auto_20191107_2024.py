@@ -7,17 +7,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0008_auto_20190819_1122'),
+        ('app', '0009_auto_20191101_1246'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='resident',
             name='birthday',
-            field=models.CharField(default=datetime.date(2019, 11, 7), max_length=10),
+            field=models.CharField(default=datetime.date(2019, 11, 23), max_length=10),
         ),
         migrations.AlterUniqueTogether(
             name='merch',
-            unique_together={('name', 'cost')},
+            unique_together=set(),
         ),
     ]
