@@ -51,16 +51,13 @@ jobs:
           name: Build docker images and start docker-compose
           command: |
             set -x
-            ls -l
             docker-compose -f docker-compose.yml up --build -d
       - run:
           name: Run tests
           command: docker exec -ti atomspace_server python3 manage.py test
-
       - store_artifacts:
           path: /tmp/test-results
           destination: raw-test-output
-
       - store_test_results:
           path: /tmp/test-results
 

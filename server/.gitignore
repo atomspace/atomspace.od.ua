@@ -4,5 +4,6 @@ media/merch_photos/*
 media/news_photos/*
 .env
 static/
-logs/
+logs/*
+db.sqlite3
 /**/credentials.json
