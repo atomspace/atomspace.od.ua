@@ -1,6 +1,7 @@
 [![CircleCI](https://circleci.com/gh/atomspace/atomspace.od.ua.svg?style=svg)](https://circleci.com/gh/atomspace/atomspace.od.ua)
 [![dependencies Status](https://david-dm.org/atomspace/atomspace.od.ua/status.svg)](https://david-dm.org/atomspace/atomspace.od.ua)
 [![devDependencies Status](https://david-dm.org/atomspace/atomspace.od.ua/dev-status.svg)](https://david-dm.org/atomspace/atomspace.od.ua?type=dev)
+[![Known Vulnerabilities](https://snyk.io/test/github/atomspace/atomspace.od.ua/badge.svg?targetFile=package.json)](https://snyk.io/test/github/atomspace/atomspace.od.ua?targetFile=package.json)
 
 # Atom Space public site
 
