@@ -48,10 +48,10 @@ jobs:
           command: cp ./server/.env.example ./server/.env
       - run:
           name: Install dependencies
-          command: docker-compose -f docker-compose.yml up --build -d
+          command: sudo docker-compose -f docker-compose.yml up --build -d
       - run:
           name: Run tests
-          command: docker exec -ti atomspace_server python3 manage.py test
+          command: sudo docker exec -ti atomspace_server python3 manage.py test
 
       - store_artifacts:
           path: /tmp/test-results
