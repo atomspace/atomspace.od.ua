@@ -1,7 +1,10 @@
 .navigation {
   position: absolute;
-  z-index: 1000;
+  z-index: 1010;
   width: 100%;
+  &.hide {
+    display: none;
+  }
 }
 
 .atom-logo {
@@ -46,54 +49,6 @@
   &.light_arrow {
     background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg)
       center/contain no-repeat;
-  }
-}
-
-.soc-icons {
-  height: $f26;
-  width: $f110;
-
-  > a:not(:last-child) {
-    margin-right: $f16;
-  }
-
-  .icon {
-    position: relative;
-    height: $f34;
-    width: $f34;
-  }
-
-  .facebook {
-    background: url(#{$path-to-images}/icons/soc/facebook-light.svg) no-repeat
-      center/contain;
-    opacity: 0.8;
-    display: block;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .instagram {
-    background: url(#{$path-to-images}/icons/soc/instagram-light.svg) no-repeat
-      center/contain;
-    display: block;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .linkedin {
-    background: url(#{$path-to-images}/icons/soc/linkedin-light.svg) no-repeat
-      center/contain;
-    display: block;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
-    }
   }
 }
 
@@ -219,12 +174,6 @@ li {
 
   .sidebar {
     &__left {
-      .soc-icons {
-        position: absolute;
-        left: $f34;
-        bottom: $h89;
-      }
-
       .dot {
         width: 14px;
         height: 14px;
@@ -252,30 +201,6 @@ li {
           text-align: left;
           position: relative;
           left: $f16;
-        }
-      }
-
-      &.light_theme {
-        .instagram {
-          background: url(#{$path-to-images}/icons/soc/instagram-dark.svg)
-            no-repeat;
-        }
-
-        .facebook {
-          background: url(#{$path-to-images}/icons/soc/facebook-dark.svg)
-            no-repeat;
-        }
-
-        .list-item {
-          &:hover {
-            color: $black-color;
-          }
-
-          &::before {
-            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
-              center/contain;
-            color: $black-color;
-          }
         }
       }
     }
@@ -393,6 +318,21 @@ li {
       a {
         font-size: $f89;
         color: white;
+      }
+    }
+  }
+  .partner-block {
+    top: 85%;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    .btn {
+      padding: 2.677vw 11.354vw;
+      font-size: 4.833vw;
+      &:before,
+      &:after {
+        display: none;
       }
     }
   }

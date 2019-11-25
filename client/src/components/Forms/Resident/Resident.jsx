@@ -3,29 +3,25 @@ import { useTranslation, Trans } from 'react-i18next';
 import { createResident } from '../../../api/resident';
 import UserForm from '../UserForm';
 import validators from '../../../utils/validators';
+import { Bubble } from '../../Bubble';
 
 export default function Resident(props) {
   const { t } = useTranslation();
 
-  const headerText = t('contacts.beResident');
+  const headerText = t('form.beResident');
   const mainText = (
     <Trans i18nKey="form.residentText">
-      {'Резидентом Atom Space может стать каждый мотивированный подросток'}
-      <span className="bold">от 16 до 20 лет</span>
-      {', который хочет  связать свое будущее с миром IT, и готов изучать,'}
-      {
-        'исследовать, интересоваться, спрашивать, пробовать, экспериментировать,'
-      }
-      {'создавать, проверять, ошибаться и начинать'}
-      {'сначала.'}
+      {''}
+      <span className="bold" />
+      {''}
     </Trans>
   );
 
   const confirmMessage = (
     <Trans i18nKey="form.residentConfirmText">
-      <p>Спасибо что оставили заявку!</p>
-      <p>Мы с вами свяжемся перед</p>
-      <p>набором в резиденты!</p>
+      <p />
+      <p />
+      <p />
     </Trans>
   );
   const inputData = [
@@ -46,7 +42,6 @@ export default function Resident(props) {
       placeholder: t('form.placeholders.phone'),
       autocomplete: 'off',
       type: 'number',
-      validate: validators.phone,
     },
     {
       id: 'email',
@@ -61,17 +56,26 @@ export default function Resident(props) {
       type: 'text',
     },
   ];
-  const buttonText = t('form.beResident');
 
   return (
     <section className="form-container">
+      <Bubble big animate style={{ bottom: 453, left: 451 }} />
+      <Bubble
+        middle
+        animate
+        style={{
+          bottom: 240,
+          left: '34vw',
+          opacity: 1,
+        }}
+      />
+      <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2 }} />
       <UserForm
         inputData={inputData}
         {...props}
         createOrder={createResident}
         headerText={headerText}
         mainText={mainText}
-        buttonText={buttonText}
         confirmMessage={confirmMessage}
       />
     </section>

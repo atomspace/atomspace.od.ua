@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Merch, News, Mentor, Resident, Order
+from .models import Merch, News, Mentor, Resident, Order, Partner
 from import_export.admin import ExportActionMixin
 
 @admin.register(Merch)
@@ -17,6 +17,10 @@ class MentorAdmin(ExportActionMixin, admin.ModelAdmin):
 
 @admin.register(Resident)
 class ResidentAdmin(ExportActionMixin, admin.ModelAdmin):
+    pass
+
+@admin.register(Partner)
+class PartnerAdmin(ExportActionMixin, admin.ModelAdmin):
     pass
 
 @admin.register(Order)

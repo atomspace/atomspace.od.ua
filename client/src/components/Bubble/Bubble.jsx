@@ -45,15 +45,11 @@ const Bubble = ({
   });
   const customStyle = {
     ...style,
+    position: style.position || 'absolute',
   };
 
-  if (style.position) {
-    customStyle.position = style.position;
-  } else {
-    customStyle.position = 'absolute';
-  }
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={customStyle}>
       {image && (
         <div className="image-block">
           <div className="arrow left-arrow" onClick={prevImage} />

@@ -1,6 +1,7 @@
 import json
 import os
 import datetime
+from csv import writer
 
 from django.http import JsonResponse
 from django.core import serializers
@@ -11,13 +12,13 @@ from django.contrib.auth import authenticate, login as django_login, logout as d
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
 from .forms import MerchForm, NewsForm, EditMerch, EditNews, LoginForm
-from .models import Merch, News, Mentor, Resident, Order
-from .utils import EmailThread, ExcelExport
+from .models import Merch, News, Mentor, Resident, Order, Partner
+from .utils import EmailThread
 
 
 @csrf_exempt
@@ -61,6 +62,61 @@ def mentors(request):
 			"affected": [{
 				"statusCode": 200,
 				"message": "Mentor created",
+				"fields": '[form.cleaned_data]'
+			}]
+		})
+	return JsonResponse({
+		"success": False,
+		"errors": [{
+			"statusCode": 500,
+			"message": "Values is not valid",
+			"fields": '[form.errors]'
+		}]
+	})
+
+@csrf_exempt
+def partners(request):
+	if request.method == 'GET':
+		partner_list = json.loads(
+			serializers.serialize('json', Partner.objects.all()))
+		for i in partner_list:
+			del i['model']
+		return JsonResponse(partner_list, safe=False)
+
+	if request.method == 'POST':
+		data = json.loads(request.body.decode('utf-8'))
+		post = Partner()
+		post.name = data['name']
+		post.phone = data['phone']
+		post.email = data['email']
+		post.interest = data['interest']
+		post.information = data['information']
+		post.save()
+
+		# Sending callback email
+		subject = 'Request to become a partner!'
+		from_email = settings.EMAIL_HOST_USER
+		to_email = [data['email'], settings.EMAIL_TO]
+
+		fileEmail = './app/templates/email/request_partner.html'
+
+		f = open(fileEmail, 'r')
+		textEmail = f.read().format(subject,
+									post.name,
+									post.phone,
+									post.email,
+									post.interest,
+									post.information)
+
+		EmailThread(subject, textEmail,
+					from_email, to_email).start()
+		# ExcelExport(data).start()
+		return JsonResponse({
+			"errors": [],
+			"success": True,
+			"affected": [{
+				"statusCode": 200,
+				"message": "Partner created",
 				"fields": '[form.cleaned_data]'
 			}]
 		})
@@ -177,8 +233,9 @@ def get_merches(request):
 		serializers.serialize('json', Merch.objects.all()))
 	for i in merches_object:
 		del i['model']
-
-	return JsonResponse(merches_object, safe=False)
+	response =  HttpResponse(json.dumps(merches_object))
+	response['Set-Cookie'] = 'HttpOnly;Secure;SameSite=Strict'
+	return response
 
 
 @csrf_exempt
@@ -245,7 +302,9 @@ def people(request):
 		'mentors': Mentor.objects.all()[::-1],
 		'mentors_len': Mentor.objects.count(),
 		'residents': Resident.objects.all()[::-1],
-		'residents_len': Resident.objects.count()
+		'residents_len': Resident.objects.count(),
+		'partners': Partner.objects.all()[::-1],
+		'partners_len': Partner.objects.count()
 	}
 	return render(request, 'people/index.html', context)
 
@@ -354,6 +413,15 @@ def delete_resident(request, pk):
 		return HttpResponseRedirect('/people')
 
 @login_required
+def delete_partner(request, pk):
+	try:
+		p = Partner.objects.get(id=pk)
+		p.delete()
+		return HttpResponseRedirect('/people')
+	except:
+		return HttpResponseRedirect('/people')
+
+@login_required
 def delete_order(request, pk):
 	try:
 		o = Order.objects.get(id=pk)
@@ -366,7 +434,6 @@ def delete_order(request, pk):
 def remove_person(request):
 	try:
 		data = json.loads(request.body.decode('utf-8'))
-		print(data)
 		person_id = data['id']
 		category = data['category']
 		if category == 'residents':
@@ -375,8 +442,111 @@ def remove_person(request):
 		if category == 'mentors':
 			Mentor.objects.get(id=person_id).delete()
 			return JsonResponse({'ok': 'true'}, safe=False)			
+		if category == 'partners':
+			Partner.objects.get(id=person_id).delete()
+			return JsonResponse({'ok': 'true'}, safe=False)			
 	except:
 		return JsonResponse({'ok': 'false'}, safe=False)
+
+@login_required
+def download_residents(request):
+	obj = json.loads(serializers.serialize('json', Resident.objects.all()))
+	data = [i['fields'] for i in obj]
+	for i in data:
+		del i['updated_time']
+		created = datetime.datetime.strptime(i['created_time'][:-8], '%Y-%m-%dT%H:%M')
+		i['created_time'] = str(created)
+		i['phone'] = str(i['phone'])
+	res = [list(data[0].keys())]
+	for i in data:
+		res.append(list(i.values()))
+	with open('residents.csv', 'w') as f:
+		wr = writer(f, delimiter=',')
+		wr.writerows(res)
+		f.close()
+	with open('residents.csv', 'r') as f:
+		response = HttpResponse(f.read(), content_type="text/csv")
+		path = os.path.abspath('residents.csv')
+		response['Content-Disposition'] = 'inline; filename=' + os.path.basename(path)
+		rm_temp(path)
+		return response
+	return Http404
+
+@login_required
+def download_mentors(request):
+	obj = json.loads(serializers.serialize('json', Mentor.objects.all()))
+	data = [i['fields'] for i in obj]
+	for i in data:
+		del i['updated_time']
+		created = datetime.datetime.strptime(i['created_time'][:-8], '%Y-%m-%dT%H:%M')
+		i['created_time'] = str(created)
+		i['phone'] = str(i['phone'])
+	res = [list(data[0].keys())]
+	for i in data:
+		res.append(list(i.values()))
+	with open('mentors.csv', 'w') as f:
+		wr = writer(f, delimiter=',')
+		wr.writerows(res)
+		f.close()
+	with open('mentors.csv', 'r') as f:
+		response = HttpResponse(f.read(), content_type="text/csv")
+		path = os.path.abspath('mentors.csv')
+		response['Content-Disposition'] = 'inline; filename=' + os.path.basename(path)
+		rm_temp(path)
+		return response
+	return Http404
+
+@login_required
+def download_orders(request):
+	obj = json.loads(serializers.serialize('json', Order.objects.all()))
+	data = [i['fields'] for i in obj]
+	for i in data:
+		del i['updated_time']
+		created = datetime.datetime.strptime(i['created_time'][:-8], '%Y-%m-%dT%H:%M')
+		i['created_time'] = str(created)
+		i['phone'] = str(i['phone'])
+	res = [list(data[0].keys())]
+	for i in data:
+		res.append(list(i.values()))
+	with open('orders.csv', 'w') as f:
+		wr = writer(f, delimiter=',')
+		wr.writerows(res)
+		f.close()
+	with open('orders.csv', 'r') as f:
+		response = HttpResponse(f.read(), content_type="text/csv")
+		path = os.path.abspath('orders.csv')
+		response['Content-Disposition'] = 'inline; filename=' + os.path.basename(path)
+		rm_temp(path)
+		return response
+	return Http404
+
+@login_required
+def download_partners(request):
+	obj = json.loads(serializers.serialize('json', Partner.objects.all()))
+	data = [i['fields'] for i in obj]
+	for i in data:
+		del i['updated_time']
+		created = datetime.datetime.strptime(i['created_time'][:-8], '%Y-%m-%dT%H:%M')
+		i['created_time'] = str(created)
+		i['phone'] = str(i['phone'])
+	res = [list(data[0].keys())]
+	for i in data:
+		res.append(list(i.values()))
+	with open('partners.csv', 'w') as f:
+		wr = writer(f, delimiter=',')
+		wr.writerows(res)
+		f.close()
+	with open('partners.csv', 'r') as f:
+		response = HttpResponse(f.read(), content_type="text/csv")
+		path = os.path.abspath('partners.csv')
+		response['Content-Disposition'] = 'inline; filename=' + os.path.basename(path)
+		rm_temp(path)
+		return response
+	return Http404
+
+def rm_temp(path):
+	if os.path.exists(path):
+		os.remove(path)
 
 @login_required
 def logout(request):

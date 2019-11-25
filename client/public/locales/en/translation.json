@@ -6,10 +6,8 @@
   "back": "Back",
   "forward": "Forward",
   "supportProject": "Donate",
-  "aboutMainText": "The Social educational project founded by <1>Provectus</1> and <1>IT2School</1> to create an opportunity for talented teens to grow and develop in IT.",
-  "aboutMainText1": "This is creative place where teenagers study IT for free, get teamwork skills and implement their own ideas under the guidance of experienced professionals. ",
-  "aboutMainText2": "Atom Space's global mission is to change the format and approach to IT education. We believe that education is not limited to school, college or university walls. Therefore, we create opportunities for talented teens who want to learn high technology and develop teamwork skills under the guidance of mentors.",
-  "aboutMainText3": "We strive to create a community of graduated residents that are ready to absorb new technology and be able to adapt to the rapidly developing world. They generate creative solutions that change the world for the better and popularize the idea of mentoring by teaching others.",
+  "aboutMainText": "Atom Space is a non-profit educational organization based in Odesa, Ukraine. We create opportunities for talented youth to become the next generation of product minded tech leaders and innovators focusing on the development of teamwork, problem-solving and communication skills.",
+  "aboutMainText1": "Atom Space is neither a school nor courses. It is an environment for personal growth and boost where young people age 15 to 20 meet like-minded people, co-work with peers solving real-world challenges, cooperate and learn from the experience of the best Ukrainian IT practitioners and global startup movers.",
   "form": {
     "toggle": "Pick up from AtomSpace?",
     "toForm": "To Form",
@@ -21,19 +19,32 @@
     "yourChoice": "Your choice:",
     "placeholders": {
       "fullName": "Name:",
-      "phone": "Phone number: (ex. 0635522111)",
+      "phone": "Phone number:",
       "city": "City:",
       "email": "Email:",
       "informationMentor": "I can share knowledge in:",
       "informationResident": "Why do you want to become a resident?",
       "npMail": "New Post Office:",
-      "birth": "Date of Birth:"
+      "birth": "Date of Birth:",
+      "interest": "Choose the interest of your contribution:",
+      "comments": "Commets:"
+    },
+    "select": {
+      "option1": "Sponsor the all-Ukrainian \"Youth Tech Community\" rally",
+      "option2": "Invest in a fund of opportunities for residents",
+      "option3": "Maintain the \"Girls in Tech\" intensive camp",
+      "option4": "Accept \"Atom Space\" residents for internships",
+      "option5": "Engage in inspirational conversations as a presenter",
+      "option6": "Develop an \"Atom Space\" branch network in your city"
     },
     "beMentor": "Become a mentor",
     "mentorText": "Atom Space mentor works with residents individually or in a group. You will be provided with a Resident Development Roadmap so that you know exactly what topics should be covered. We strive for residents to master the learning material on their own, and the mentor, in turn, will guide and show how the problem can be solved more efficiently.",
+    "partnerText": "One of our priorities is to keep expanding the network of partners to turn residents’ ideas into viable products. We look for like-minded people who believe in the talented youth and ready to contribute with their time and resources. Choose the most suitable way to make an impact and be the part of a breakthrough moment of Atom residents.",
     "beResident": "Become a resident",
+    "bePartner": "Become a partner",
     "residentText": "Every motivated teen <1>from 16 to 20</1> who wants to connect his future with the IT world and is ready to study, research, be interested, ask, try, experiment, create, test, make mistakes and start over can become a resident of Atom Space.",
     "mentorConfirmText": "<1>Thank you for the application!</1><1>We will contact you</1><1>soon!</1>",
+    "partnerConfirmText": "<1>Thank you for the application!</1><1>We will contact you</1><1>soon!</1>",
     "residentConfirmText": "<1>Thank you for the application!</1><1>We will contact you before</1><1>recruiting!</1>"
   },
   "size": "Size:",
@@ -41,10 +52,12 @@
     "mainText": "educational tech space for teens"
   },
   "family": {
-    "quote-text": "We create opportunities for talented teens who dream to build the future with innovative technologies.",
+    "quote-text-anna": "I often repeat the phrase: 'Do what you love and love what you do'. In Atom Space everyone does what they love: from residents to members of the team. Therefore, we are all so involved in the development of the organization.",
+    "quote-text-ver": "My story in Atom Space began with a mentoring, and when everyone around asked why I was spending hours volunteering, the answer was obvious. Because of the children. They are my inspiration and best motivation. Now, contributing a part of myself in the project, I feel involved in the formation of purposeful, talented and courageous personalities.",
     "anna": "Anna Derevyanko",
-    "ver": "Veronika Ilnitskaya"
+    "ver": "Veronika Ilnitska"
   },
+  "join": "Join",
   "blog": {
     "mainText": "ATOM SPACE values",
     "mainTextMobile": "Values",
@@ -53,11 +66,11 @@
       "description": "We share with residents not only relevant knowledge, but also learn to learn by combining various educational forms and methods: work with a mentor and project learning, self-education and online learning"
     },
     "team": {
-      "header": "Team synergy",
+      "header": "Team Synergy",
       "description": "We are helping to create like-minded teams, where all participants are equally important and have the ability to be enthusiastic, suggest ideas, make mistakes without fear of judgment and grow with the team for the overall result."
     },
     "puzzle": {
-      "header": "Thinking outside the box",
+      "header": "Thinking Outside the Box",
       "description": "We develop the ability to identify problems and needs of people and, most importantly, solve them using design thinking techniques"
     },
     "trust": {
@@ -67,9 +80,7 @@
   },
   "contacts": {
     "headerAsk": "Do you like what we do?",
-    "headerAnswer": "Let's develop Atom Space together!",
-    "beMentor": "Become a mentor",
-    "beResident": "Become a resident"
+    "headerAnswer": "Let's develop Atom Space together!"
   },
   "store": {
     "mainText": "Do you want to contribute to the development of the project?",
@@ -118,7 +129,7 @@
   },
   "nav": {
     "main": "HOME",
-    "about": "ABOUT PROJECT",
+    "about": "ABOUT",
     "blog": "VALUES",
     "edu": "CURRICULUM",
     "family": "ATOM TEAM",

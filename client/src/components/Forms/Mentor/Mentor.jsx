@@ -8,14 +8,13 @@ import validators from '../../../utils/validators';
 const Mentor = props => {
   const { t } = useTranslation();
 
-  const buttonText = t('form.beMentor');
   const headerText = t('form.beMentor');
   const mainText = t('form.mentorText');
   const confirmMessage = (
     <Trans i18nKey="form.mentorConfirmText">
-      <p>Спасибо что оставили заявку!</p>
-      <p>Мы с вами свяжемся в ближайшее</p>
-      <p>время!</p>
+      <p />
+      <p />
+      <p />
     </Trans>
   );
 
@@ -31,8 +30,6 @@ const Mentor = props => {
       placeholder: t('form.placeholders.phone'),
       autocomplete: 'off',
       type: 'number',
-      validate: validators.phone,
-      modify: value => +value,
     },
     {
       id: 'email',
@@ -48,32 +45,26 @@ const Mentor = props => {
       type: 'text',
     },
   ];
-  const bubbleStyle = {
-    bottom: 240,
-    left: '34vw',
-    opacity: 1,
-    position: 'absolute',
-  };
+
   return (
     <section className="form-container">
+      <Bubble big animate style={{ bottom: 453, left: 451 }} />
       <Bubble
-        big
+        middle
         animate
-        style={{ bottom: 453, left: 451, position: 'absolute' }}
+        style={{
+          bottom: 240,
+          left: '34vw',
+          opacity: 1,
+        }}
       />
-      <Bubble middle animate style={bubbleStyle} />
-      <Bubble
-        small
-        animate
-        style={{ top: 50, left: 151, opacity: 0.2, position: 'absolute' }}
-      />
+      <Bubble small animate style={{ top: 50, left: 151, opacity: 0.2 }} />
       <UserForm
         inputData={inputData}
         createOrder={createMentor}
         headerText={headerText}
         mainText={mainText}
         confirmMessage={confirmMessage}
-        buttonText={buttonText}
         {...props}
       />
     </section>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import validators from '../../utils/validators';
 import BuyForm from './BuyForm';
 import Mentor from './Mentor';
 import Resident from './Resident';
+import Partner from './Partner';
 
 export const Form = ({ hashForm, getBack, order }) => {
   const { t } = useTranslation();
@@ -18,7 +18,6 @@ export const Form = ({ hashForm, getBack, order }) => {
       id: 'phone',
       placeholder: t('form.placeholders.phone'),
       type: 'number',
-      validate: validators.phone,
     },
     {
       id: 'city',
@@ -31,14 +30,26 @@ export const Form = ({ hashForm, getBack, order }) => {
       type: 'text',
     },
   ];
-  return (
-    <>
-      {hashForm === '#residentForm' && <Resident getBack={getBack} />}
-      {hashForm === '#mentorForm' && <Mentor getBack={getBack} />}
-      {hashForm === '#buyForm' && (
-        <BuyForm getBack={getBack} order={order} inputData={inputBuyFormData} />
-      )}
-    </>
-  );
+  const getForm = () => {
+    switch (hashForm) {
+      case '#residentForm':
+        return <Resident getBack={getBack} />;
+      case '#mentorForm':
+        return <Mentor getBack={getBack} />;
+      case '#partnerForm':
+        return <Partner getBack={getBack} />;
+      case '#buyForm':
+        return (
+          <BuyForm
+            getBack={getBack}
+            order={order}
+            inputData={inputBuyFormData}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+  return getForm();
 };
 export default Form;

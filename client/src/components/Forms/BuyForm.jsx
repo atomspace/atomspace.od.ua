@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import cl from 'classnames';
 import { Trans, useTranslation } from 'react-i18next';
 import { MEDIA_URL } from '../../utils/config';
@@ -9,17 +9,39 @@ import { createRequestForMerch } from '../../api/merch';
 import Toggle from '../Toggle/index';
 import Confirm from '../ConfirmMessage/Confirm';
 import withHandleUser from '../../hoc/withHandleUser';
+import MyContext from '../../context/Base/AppContext';
 
 const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14';
 
-const BuyForm = props => {
-  const { getBack, order, user, setUser, inputData, handleInputUser } = props;
+const BuyForm = ({
+  getBack,
+  order,
+  user,
+  setUser,
+  inputData,
+  handleInputUser,
+}) => {
   const { t } = useTranslation();
+  const {
+    setLightTheme,
+    setHiddenSidebars,
+    isLightTheme,
+    hiddenSidebars,
+  } = useContext(MyContext);
+
+  useEffect(() => {
+    setLightTheme(true);
+    setHiddenSidebars(true);
+    return () => {
+      setLightTheme(false);
+      setHiddenSidebars(false);
+    };
+  }, [isLightTheme, hiddenSidebars]);
 
   const confirmMessage = (
     <Trans i18nKey="form.mentorConfirmText">
-      <p>Спасибо что сделали заказ! Мы с вами свяжемся в ближайшее</p>
-      <p>время!</p>
+      <p />
+      <p />
     </Trans>
   );
 

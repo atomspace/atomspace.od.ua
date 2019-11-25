@@ -13,7 +13,11 @@ $list-item-atom-space-color-right-o: rgba(135, 50, 184, 0.7);
 $line-heights: 30px;
 
 @mixin linear-gradient-bubble {
-  background: linear-gradient(45deg, $left-gradient-color, $right-gradient-color);
+  background: linear-gradient(
+    45deg,
+    $left-gradient-color,
+    $right-gradient-color
+  );
 }
 $border-color: rgba(77, 73, 108, 0.6);
 
@@ -24,7 +28,7 @@ $text-opacity: 0.8;
 $box-shadow-photo: #251445;
 
 $gray-dark: gray;
-$red-color: red;
+$red-color: #d23838;
 
 $selected-edu-item: #f3af32;
 $path-to-images: '../images';

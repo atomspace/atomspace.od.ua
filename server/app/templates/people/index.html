@@ -1,27 +1,45 @@
 {% extends 'base.html' %} {% block content %} {% load staticfiles %}
-<link rel="stylesheet" media="all" href="{% static 'css/news.css' %}" type="text/css" />
-<link rel="stylesheet" media="all" href="{% static 'css/orders.css' %}" type="text/css" />
+<link
+  rel="stylesheet"
+  media="all"
+  href="{% static 'css/news.css' %}"
+  type="text/css"
+/>
+<link
+  rel="stylesheet"
+  media="all"
+  href="{% static 'css/orders.css' %}"
+  type="text/css"
+/>
 
 <div style="display: flex; height: 91vh;">
   <div class="content">
-    {% if mentors or residents %}
+    {% if mentors or residents or partners%}
     <span>
       <select id="select" onchange="change()">
-        {% if mentors_len == 0 %}
-        <option value="Residents" selected>Residents</option>
-        <option value="Mentors">Mentors</option>
-        {% elif residents_len == 0 %}
+        {% if mentors_len > 0 %}
         <option value="Residents">Residents</option>
         <option value="Mentors" selected>Mentors</option>
-        {% else %}
+        <option value="Partners">Partners</option>
+        {% elif residents_len > 0 %}
         <option value="Residents" selected>Residents</option>
         <option value="Mentors">Mentors</option>
+        <option value="Partners">Partners</option>
+        {% elif partners_len > 0 %}
+        <option value="Residents">Residents</option>
+        <option value="Mentors">Mentors</option>
+        <option value="Partners" selected>Partners</option>
+        {% else %}
+        <option value="Residents">Residents</option>
+        <option value="Mentors" selected>Mentors</option>
+        <option value="Partners">Partners</option>
         {% endif %}
       </select>
       <a class="export-residents" href="/admin/app/resident"><button class="btn btn-success">Export</button></a>
       <a class="export-mentors" href="/admin/app/mentor"><button class="btn btn-success">Export</button></a>
+      <a class="export-partners" href="/admin/app/partner"><button class="btn btn-success">Export</button></a>
     </span>
-    <table class="table" id="residents">
+    <table class="table table-bordered table-striped mb-0" id="residents">
       <thead class="thead-light">
         <tr>
           <th>Name</th>
@@ -42,7 +60,7 @@
           <td>{{ i.phone }}</td>
           <td>{{ i.information }}</td>
           <td>{{ i.created_time }}</td>
-          <td><img class='last' src="{% static 'img/remove-b.svg' %}"/></td>
+          <td><img class="last" src="{% static 'img/remove-b.svg' %}" /></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -66,7 +84,33 @@
           <td>{{ i.phone }}</td>
           <td>{{ i.information }}</td>
           <td>{{ i.created_time }}</td>
-          <td><img class="last" src="{% static 'img/remove-b.svg' %}"/></td>
+          <td><img class="last" src="{% static 'img/remove-b.svg' %}" /></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <table class="table" id="partners">
+      <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Interest</th>
+          <th>Info</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in partners %}
+        <tr id="{{ i.id }}">
+          <td>{{ i.name }}</td>
+          <td>{{ i.email }}</td>
+          <td>{{ i.phone }}</td>
+          <td>{{ i.interest }}</td>
+          <td>{{ i.information }}</td>
+          <td>{{ i.created_time }}</td>
+          <td><img class="last" src="{% static 'img/remove-b.svg' %}" /></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -78,34 +122,50 @@
 </div>
 
 <script>
-  var change = (e) => {
+  var change = e => {
     var select = document.getElementById('select').value;
     if (select === 'Mentors') {
       $('#residents').css('display', 'none');
       $('#mentors').css('display', 'table');
+      $('#partners').css('display', 'none');
 
       $('.export-mentors').css('display', 'inline-block');
       $('.export-residents').css('display', 'none');
-    } else {
+      $('.export-partners').css('display', 'none');
+    } else if (select === 'Residents') {
       $('#residents').css('display', 'table');
       $('#mentors').css('display', 'none');
+      $('#partners').css('display', 'none');
 
       $('.export-mentors').css('display', 'none');
       $('.export-residents').css('display', 'inline-block');
+      $('.export-partners').css('display', 'none');
+    } else if (select === 'Partners') {
+      $('#residents').css('display', 'none');
+      $('#mentors').css('display', 'none');
+      $('#partners').css('display', 'table');
+
+      $('.export-mentors').css('display', 'none');
+      $('.export-residents').css('display', 'none');
+      $('.export-partners').css('display', 'inline-block');
     }
   };
 
   $().ready(() => change());
-  $('.last').on('click', (e) => {
+  $('.last').on('click', e => {
     var conf = confirm('Are you sure?');
-    if (conf){
+    if (conf) {
       var id = e.target.parentElement.parentElement.id;
-      var category = e.target.parentElement.parentElement.parentElement.parentElement.id;
-      fetch('/remove-person', {method: 'POST', body: JSON.stringify({'id': id, 'category': category})})
-      .then((res) => window.location.reload())
-      .catch((err) => console.error(err))
+      var category =
+        e.target.parentElement.parentElement.parentElement.parentElement.id;
+      fetch('/remove-person', {
+        method: 'POST',
+        body: JSON.stringify({ id: id, category: category }),
+      })
+        .then(res => window.location.reload())
+        .catch(err => console.error(err));
     }
-  })
+  });
 </script>
 
 {% endblock %}

@@ -31,13 +31,12 @@
       &-text {
         .about-text-1 {
           display: block;
-          font-size: $f68 !important;
-          line-height: $h55 + $h5;
-        }
-
-        .about-text-2,
-        .about-text-3 {
-          display: none;
+          width: 250%;
+          font-size: $f68;
+          line-height: $h55;
+          &--second {
+            display: none;
+          }
         }
       }
     }

@@ -103,6 +103,10 @@
 .size-container {
   font-weight: bold;
 
+  .size-block {
+    display: flex;
+  }
+
   .size-list {
     .size-item {
       cursor: pointer;

@@ -106,9 +106,11 @@ textarea {
 }
 
 .form {
-    width: 50%;
-    margin: auto;
-    padding-top: 2vw;
+    width: 80%;
+    padding: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background: #35363c;
 }
 
 .form h3 {
