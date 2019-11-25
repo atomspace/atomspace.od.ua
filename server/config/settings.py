@@ -103,9 +103,9 @@ LOGGING = {
 			'filename': 'logs/logs.txt',
 		},
 		'console': {
-		'level': 'INFO',
-		'class': 'logging.StreamHandler',
-	}
+			'level': 'INFO',
+			'class': 'logging.StreamHandler',
+		}
 	},
 	'loggers': {
 		'django': {

@@ -1,0 +1,27 @@
+version: '2.0'
+services:
+  server:
+    container_name: atomspace_server
+    env_file:
+      - ./server/.env
+    build: ./server
+    volumes:
+      - ./server/static:/app/static
+      - ./server/media:/app/media
+    ports:
+      - 8000:8000
+    command: bash configure.sh
+    links:
+      - postgres
+  postgres:
+    container_name: atomspace_postgres
+    image: postgres:10.1-alpine
+    env_file:
+      - ./server/.env
+    volumes:
+      - atomspace:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+  atomspace:
