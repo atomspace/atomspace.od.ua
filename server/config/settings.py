@@ -93,25 +93,52 @@ TEMPLATES = [
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
+only_error = lambda record: True if record.level == logging.ERROR else False
+only_warning = lambda record: True if record.level == logging.WARNING else False
+
+error_path = os.path.join(BASE_DIR, 'logs/error.log')
+warning_path = os.path.join(BASE_DIR, 'logs/warning.log')
+if not os.path.exists(error_path):
+	open(error_path, 'w').close()
+if not os.path.exists(warning_path):
+	open(warning_path, 'w').close()
+
 LOGGING = {
 	'version': 1,
-	'disable_existing_loggers': False,
+	'disable_existing_loggers': True,
+	'filters': {
+		'only_error': {
+			'()': 'django.utils.log.CallbackFilter',
+			'callback': only_error,
+		},
+		'only_warning': {
+			'()': 'django.utils.log.CallbackFilter',
+			'callback': only_warning,
+		},
+	},
 	'handlers': {
-		'file': {
+		'error': {
+			'level': 'ERROR',
+			'class': 'logging.FileHandler',
+			'filters': ['only_error'],
+			'filename': 'logs/error.log',
+		},
+		'warning': {
 			'level': 'WARNING',
 			'class': 'logging.FileHandler',
-			'filename': 'logs/logs.txt',
+			'filters': ['only_warning'],
+			'filename': 'logs/warning.log',
 		},
 		'console': {
-		'level': 'INFO',
-		'class': 'logging.StreamHandler',
-	}
+			'level': 'INFO',
+			'class': 'logging.StreamHandler',
+		}
 	},
 	'loggers': {
 		'django': {
-			'handlers': ['file'],
+			'handlers': ['console', 'error', 'warning'],
 			'level': 'DEBUG',
-			'propagate': True,
+			'propagate': False,
 		},
 	},
 }
