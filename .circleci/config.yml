@@ -46,9 +46,12 @@ jobs:
       - run:
           name: Copy .env file
           command: cp ./server/.env.example ./server/.env
+      - setup_remote_docker
       - run:
-          name: Install dependencies
-          command: sudo docker-compose -f docker-compose.yml up --build -d
+          name: Build docker images and start docker-compose
+          command: |
+            set -x
+            sudo docker-compose -f docker-compose.yml up --build -d
       - run:
           name: Run tests
           command: sudo docker exec -ti atomspace_server python3 manage.py test
