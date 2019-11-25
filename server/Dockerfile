@@ -6,6 +6,8 @@ WORKDIR /app
 
 COPY ./ /app
 
+RUN mkdir logs
+
 RUN apk add --virtual .build-deps build-base bash postgresql-dev \
   linux-headers jpeg-dev zlib-dev vim
 
