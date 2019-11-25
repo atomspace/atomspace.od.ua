@@ -35,12 +35,9 @@
         <option value="Partners">Partners</option>
         {% endif %}
       </select>
-      <a id="export-residents" href="/download-residents">
-        <button class="btn btn-success">Export</button>
-      </a>
-      <a id="export-mentors" href="/download-mentors">
-        <button class="btn btn-success">Export</button>
-      </a>
+      <a class="export-residents" href="/admin/app/resident"><button class="btn btn-success">Export</button></a>
+      <a class="export-mentors" href="/admin/app/mentor"><button class="btn btn-success">Export</button></a>
+      <a class="export-partners" href="/admin/app/partner"><button class="btn btn-success">Export</button></a>
     </span>
     <table class="table table-bordered table-striped mb-0" id="residents">
       <thead class="thead-light">
@@ -131,14 +128,26 @@
       $('#residents').css('display', 'none');
       $('#mentors').css('display', 'table');
       $('#partners').css('display', 'none');
+
+      $('.export-mentors').css('display', 'inline-block');
+      $('.export-residents').css('display', 'none');
+      $('.export-partners').css('display', 'none');
     } else if (select === 'Residents') {
       $('#residents').css('display', 'table');
       $('#mentors').css('display', 'none');
       $('#partners').css('display', 'none');
+
+      $('.export-mentors').css('display', 'none');
+      $('.export-residents').css('display', 'inline-block');
+      $('.export-partners').css('display', 'none');
     } else if (select === 'Partners') {
       $('#residents').css('display', 'none');
       $('#mentors').css('display', 'none');
       $('#partners').css('display', 'table');
+
+      $('.export-mentors').css('display', 'none');
+      $('.export-residents').css('display', 'none');
+      $('.export-partners').css('display', 'inline-block');
     }
   };
 

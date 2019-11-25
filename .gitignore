@@ -9,11 +9,5 @@ Landing
 
 ssl
 node_modules
-atomspace-env/
-server/backend/static
-server/logs/
-server/db.sqlite3
 
 .ftpconfig
-
-postgres/

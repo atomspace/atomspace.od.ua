@@ -4,21 +4,66 @@
 #
 version: 2
 jobs:
-  build:
+  build-client:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:10.17
     working_directory: ~/repo
+    environment:
+      TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: cd client && npm install --silent
+      - run:
+          name: Install dependencies
+          command: cd client && npm install --silent
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Copy .env file
+          command: cp ./client/.env.example ./client/.env
+      - run:
+          name: Run tests
+          command: npm run test
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: raw-test-output
       - store_test_results:
-          path: test-results
-      - run: npm run test
+          path: /tmp/test-results
+  build-server:
+    docker:
+      - image: circleci/node:10.17
+    working_directory: ~/repo
+    environment:
+      TEST_RESULTS: /tmp/test-results
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: mkdir -p $TEST_RESULTS
+      - run:
+          name: Copy .env file
+          command: cp ./server/.env.example ./server/.env
+      - run:
+          name: Build docker images and start docker-compose
+          command: |
+            set -x
+            docker-compose -f docker-compose.yml up --build -d
+      - run:
+          name: Run tests
+          command: docker exec -ti atomspace_server python3 manage.py test
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: raw-test-output
+      - store_test_results:
+          path: /tmp/test-results
+
+workflows:
+  version: 2
+  build_client_and_server:
+    jobs:
+      - build-client
+      - build-server
