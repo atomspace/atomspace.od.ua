@@ -88,18 +88,9 @@ POSTGRES_DB=$DB_NAME
 INITIAL_USER_NAME=atomspace
 INITIAL_USER_EMAIL=atomspace.info@gmail.com
 INITIAL_USER_PASSWORD=ineedmorespace
-
-#Google docs configuration (Real time saving in google sheets while order merch, mentor or resident request and smth)
-EXPORT_SCOPE=https://www.googleapis.com/auth/drive // URL where auth will be
-EXPORT_KEY=https://docs.google.com/spreadsheets/{EXPORT_KEY} // Need to insert in EXPORT_KEY your id
-EXPORT_CREDS=CHANGEME // Path to your credentials.json
-
 ```
 
-To run server you nee firstly make migrations
-
 ```
-$ npm run server:migrate
 $ sudo docker-compose -f docker-compose.yml up -d --build
 ```
 
