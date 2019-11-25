@@ -24,6 +24,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
+          name: Copy .env file
+          command: cp ./client/.env.example ./client/.env
+      - run:
           name: Run tests
           command: npm run test
       - store_artifacts:
@@ -40,6 +43,9 @@ jobs:
     steps:
       - checkout
       - run: mkdir -p $TEST_RESULTS
+      - run:
+          name: Copy .env file
+          command: cp ./server/.env.example ./server/.env
       - run:
           name: Install dependencies
           command: docker-compose -f docker-compose.yml up --build -d
