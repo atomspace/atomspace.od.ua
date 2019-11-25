@@ -12,8 +12,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 @admin.register(Mentor)
 class MentorAdmin(ExportActionMixin, admin.ModelAdmin):
-    class Meta:
-        exclude = ('id', 'created_time', 'updated_time')
+    pass
 
 @admin.register(Resident)
 class ResidentAdmin(ExportActionMixin, admin.ModelAdmin):
