@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import cl from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { func, arrayOf, object } from 'prop-types';
 import LeftSidebar from './Left';
 import RightSidebar from './Right';
 import SmallSidebar from './Small';
@@ -68,6 +69,12 @@ const Sidebar = ({ handleDialog, changeMerchAttr, order }) => {
       />
     </div>
   );
+};
+
+Sidebar.propTypes = {
+  changeMerchAttr: func.isRequired,
+  order: arrayOf([object]).isRequired,
+  handleDialog: func.isRequired,
 };
 
 export default Sidebar;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { func } from 'prop-types';
 import Rocket from '../../assets/images/icons/contacts/rocket-donate.svg';
 import ContactInfo from './ContactInfo';
 import { ImageLoader } from '../../components/ImageLoader';
@@ -58,6 +59,10 @@ const Contacts = ({ handleDialog }) => {
       </div>
     </div>
   );
+};
+
+Contacts.propTypes = {
+  handleDialog: func.isRequired,
 };
 
 export default Contacts;

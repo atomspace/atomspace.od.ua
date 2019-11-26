@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { func } from 'prop-types';
 import AnimatePlanet from './AnimatePlanet';
 import MainLogo from '../../assets/images/icons/logos/AtomSpace-logo-vertical.svg';
 import { ImageLoader } from '../../components/ImageLoader';
@@ -45,6 +46,10 @@ const Main = ({ handleDialog }) => {
       </div>
     </div>
   );
+};
+
+Main.protoType = {
+  handleDialog: func.isRequired,
 };
 
 export default Main;

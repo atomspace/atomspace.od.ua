@@ -1,5 +1,7 @@
 import React from 'react';
+import { bool, node } from 'prop-types';
 import Loader from '../../assets/images/icons/loader.svg';
+
 import { ImageLoader } from '../ImageLoader';
 
 export const Button = ({ loading = false, children, ...rest }) => {
@@ -12,7 +14,10 @@ export const Button = ({ loading = false, children, ...rest }) => {
       </>
     );
   }
-
+  Button.propTypes = {
+    children: node.isRequired,
+    loading: bool.isRequired,
+  };
   return (
     <button type="button" {...rest}>
       {child}

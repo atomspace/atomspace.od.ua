@@ -1,4 +1,5 @@
 import React from 'react';
+import { number, func } from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 const MerchBuy = ({ cost, handleDialog }) => {
@@ -16,6 +17,11 @@ const MerchBuy = ({ cost, handleDialog }) => {
       </div>
     </div>
   );
+};
+
+MerchBuy.propTypes = {
+  handleDialog: func.isRequired,
+  cost: number.isRequired,
 };
 
 export default MerchBuy;

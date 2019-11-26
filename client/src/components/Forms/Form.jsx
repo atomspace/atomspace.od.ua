@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { string, func, arrayOf, object } from 'prop-types';
 import BuyForm from './BuyForm';
 import Mentor from './Mentor';
 import Resident from './Resident';
@@ -52,4 +53,11 @@ export const Form = ({ hashForm, getBack, order }) => {
   };
   return getForm();
 };
+
+Form.propTypes = {
+  hashForm: string.isRequired,
+  getBack: func.isRequired,
+  order: arrayOf([object].isRequired),
+};
+
 export default Form;

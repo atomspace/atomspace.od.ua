@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import cl from 'classnames';
 import { Trans, useTranslation } from 'react-i18next';
+import { func, object, arrayOf } from 'prop-types';
 import { MEDIA_URL } from '../../utils/config';
 import { validateUser } from './utils/validation';
 import { ImageLoader } from '../ImageLoader';
@@ -150,6 +151,15 @@ const BuyForm = ({
       </div>
     </div>
   );
+};
+
+BuyForm.propTypes = {
+  getBack: func.isRequired,
+  order: arrayOf([object]).isRequired,
+  user: arrayOf([object]).isRequired,
+  setUser: func.isRequired,
+  inputData: arrayOf([object]).isRequired,
+  handleInputUser: func.isRequired,
 };
 
 export default withHandleUser(BuyForm);
