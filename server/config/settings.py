@@ -106,7 +106,6 @@ if not os.path.exists(warning_path):
 
 LOGGING = {
 	'version': 1,
-<<<<<<< HEAD
 	'disable_existing_loggers': True,
 	'filters': {
 		'only_error': {
@@ -131,15 +130,6 @@ LOGGING = {
 			'filters': ['only_warning'],
 			'filename': 'logs/warning.log',
 		},
-=======
-	'disable_existing_loggers': False,
-	'handlers': {
-		'file': {
-			'level': 'WARNING',
-			'class': 'logging.FileHandler',
-			'filename': 'logs/logs.txt',
-		},
->>>>>>> aed45dd95cecfbe6027844bdcfb9394dc5128678
 		'console': {
 			'level': 'INFO',
 			'class': 'logging.StreamHandler',
@@ -147,15 +137,9 @@ LOGGING = {
 	},
 	'loggers': {
 		'django': {
-<<<<<<< HEAD
 			'handlers': ['console', 'error', 'warning'],
 			'level': 'DEBUG',
 			'propagate': False,
-=======
-			'handlers': ['file'],
-			'level': 'DEBUG',
-			'propagate': True,
->>>>>>> aed45dd95cecfbe6027844bdcfb9394dc5128678
 		},
 	},
 }

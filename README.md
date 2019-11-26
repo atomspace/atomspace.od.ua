@@ -59,7 +59,6 @@ $ cp ./server/.env.example ./server/.env
 $ cp ./server/configure.sh.example ./server/configure.sh
 
 $ mkdir ./server/logs
-$ touch ./server/logs/logs.txt
 ```
 
 Check file `./server/.env` and `./server/configure.sh`
