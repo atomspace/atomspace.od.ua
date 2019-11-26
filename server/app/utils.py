@@ -4,7 +4,7 @@ import os.path
 from django.core.mail import EmailMultiAlternatives
 from decouple import config
 # import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+# from oauth2client.service_account import ServiceAccountCredentials
 from .models import Resident, Mentor
 from django.core import serializers
 from datetime import date
