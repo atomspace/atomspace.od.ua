@@ -22,21 +22,21 @@ const Store = ({ order, changeMerchAttr, handleDialog }) => {
     return tempMerch;
   };
 
-  useEffect(async () => {
-    let merches = await getAllMerches();
-
-    if (merches.length) {
-      merches = increaseCountOfMerch(merches);
-
-      const merch = {
-        ...{ ...merches[0].fields, id: merches[0].pk },
-        ...LocalStorage.getMerch(),
-      };
-
-      changeMerchAttr(merch);
-
-      setMerches(merches.map(val => ({ id: val.pk, ...val.fields })));
-    }
+  useEffect(() => {
+    const fetchData = async () => {
+      await getAllMerches();
+      let merches = await getAllMerches();
+      if (merches.length) {
+        merches = increaseCountOfMerch(merches);
+        const merch = {
+          ...{ ...merches[0].fields, id: merches[0].pk },
+          ...LocalStorage.getMerch(),
+        };
+        changeMerchAttr(merch);
+        setMerches(merches.map(val => ({ id: val.pk, ...val.fields })));
+      }
+    };
+    fetchData();
   }, []);
 
   let settings = {};

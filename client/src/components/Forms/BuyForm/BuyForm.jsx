@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import cl from 'classnames';
 import { Trans, useTranslation } from 'react-i18next';
-import { MEDIA_URL } from '../../utils/config';
-import { validateUser } from './utils/validation';
-import { ImageLoader } from '../ImageLoader';
-import { Button } from '../Button/Button';
-import { createRequestForMerch } from '../../api/merch';
-import Toggle from '../Toggle/index';
-import Confirm from '../ConfirmMessage/Confirm';
-import withHandleUser from '../../hoc/withHandleUser';
-import MyContext from '../../context/Base/AppContext';
+import { MEDIA_URL } from '../../../utils/config';
+import { validateUser } from '../utils/validation';
+import { ImageLoader } from '../../ImageLoader';
+import { Button } from '../../Button/Button';
+import { createRequestForMerch } from '../../../api/merch';
+import Confirm from '../../ConfirmMessage/Confirm';
+import withHandleUser from '../../../hoc/withHandleUser';
+import MyContext from '../../../context/Base/AppContext';
+import FormRegister from './FormRegister';
+import { prepareData } from '../utils/data';
 
 const way4payLink = 'https://secure.wayforpay.com/button/b4a090420eb14';
 
@@ -18,10 +19,11 @@ const BuyForm = ({
   order,
   user,
   setUser,
-  inputData,
   handleInputUser,
+  inputData,
 }) => {
   const { t } = useTranslation();
+
   const {
     setLightTheme,
     setHiddenSidebars,
@@ -46,13 +48,7 @@ const BuyForm = ({
   );
 
   const [isLoading, setLoading] = useState(false);
-  const [isConfirmMessage, setIsConfirmMessage] = useState(false);
-
-  const prepareData = users =>
-    Object.keys(users).reduce(
-      (acc, key) => ({ ...acc, [key]: users[key].value }),
-      {},
-    );
+  const [sended, setSended] = useState(false);
 
   const createOrder = async () => {
     const { stateUser, isDisabled } = validateUser(user, inputData);
@@ -67,7 +63,7 @@ const BuyForm = ({
       try {
         setLoading(true);
         await createRequestForMerch(data);
-        setIsConfirmMessage(true);
+        setSended(true);
         setTimeout(() => {
           window.location = way4payLink;
         }, 2000);
@@ -78,28 +74,6 @@ const BuyForm = ({
       }
     }
   };
-
-  const renderFormRegister = () => (
-    <>
-      {inputData.map(data => (
-        <div className={`${data.id}-block`} key={data.id}>
-          <input
-            className={cl({
-              error: user[data.id].error,
-              'atom-toggle__hide': data.type === 'checkbox',
-            })}
-            id={data.id}
-            type={data.type}
-            placeholder={data.placeholder}
-            value={user[data.id].value}
-            onChange={handleInputUser.bind(this, data)}
-            onBlur={handleInputUser.bind(this, data)}
-          />
-        </div>
-      ))}
-      <Toggle value={t('form.toggle')} />
-    </>
-  );
 
   return (
     <div className="buy-form-container">
@@ -126,14 +100,20 @@ const BuyForm = ({
         </div>
       </div>
       <div className="order-block">
-        <div className={cl('order-items', { confirm: isConfirmMessage })}>
-          {isConfirmMessage ? (
+        <div className={cl('order-items', { confirm: sended })}>
+          {sended ? (
             <Confirm confirmMessage={confirmMessage} />
           ) : (
             <>
               <h1 className="order-items__header">{t('form.detailOrder')}</h1>
               <h2 className="additional-header">{t('form.detailOrder2')}</h2>
-              <div className="order-form">{renderFormRegister()}</div>
+              <div className="order-form">
+                <FormRegister
+                  inputData={inputData}
+                  user={user}
+                  handleInputUser={handleInputUser}
+                />
+              </div>
               <div className="order-request">
                 <h3 className="price-info">{`₴ ${order.cost}`}</h3>
                 <Button

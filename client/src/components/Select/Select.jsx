@@ -27,7 +27,7 @@ const formatGroupLabel = data => (
   </div>
 );
 
-const SelectComponent = ({ user, data, handleInputUser }) => {
+const SelectComponent = ({ isError, data, handleInputUser }) => {
   const handleSelect = data => {
     const event = {
       target: {
@@ -56,7 +56,7 @@ const SelectComponent = ({ user, data, handleInputUser }) => {
   };
   return (
     <Select
-      className={cn('dropdown', { error: user[data.id].error })}
+      className={cn('dropdown', { error: isError })}
       id={data.id}
       placeholder={data.placeholder}
       defaultValue={data.options[0].label}
