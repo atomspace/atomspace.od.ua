@@ -1,3 +1,8 @@
+[![CircleCI](https://circleci.com/gh/atomspace/atomspace.od.ua.svg?style=svg)](https://circleci.com/gh/atomspace/atomspace.od.ua)
+[![dependencies Status](https://david-dm.org/atomspace/atomspace.od.ua/status.svg)](https://david-dm.org/atomspace/atomspace.od.ua)
+[![devDependencies Status](https://david-dm.org/atomspace/atomspace.od.ua/dev-status.svg)](https://david-dm.org/atomspace/atomspace.od.ua?type=dev)
+[![Known Vulnerabilities](https://snyk.io/test/github/atomspace/atomspace.od.ua/badge.svg?targetFile=package.json)](https://snyk.io/test/github/atomspace/atomspace.od.ua?targetFile=package.json)
+
 # Atom Space public site
 
 ## **Development**
@@ -80,9 +85,9 @@ DB_HOST=postgres // database main host
 DB_ENGINE=django.db.backends.postgresql_psycopg2 // dont touch
 
 #Dublicating info for postgres docker container
-POSTGRES_USER=$DB_USER
-POSTGRES_PASSWORD=$DB_PASSWORD
-POSTGRES_DB=$DB_NAME
+POSTGRES_USER=the_same_as_DB_NAME
+POSTGRES_PASSWORD=the_same_as_DB_PASSWORD
+POSTGRES_DB=the_same_as_DB_NAME
 
 #User admin credentials
 INITIAL_USER_NAME=atomspace

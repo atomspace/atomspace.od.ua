@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
+<<<<<<< HEAD
 import { func, arrayOf, object } from 'prop-types';
+=======
+
+>>>>>>> ee72d733a073c2f36a1a8152c398125a570af8de
 import { useTranslation } from 'react-i18next';
 import Arrow from '../../components/Arrow';
 import MerchSize from './MerchSize';
@@ -21,6 +25,7 @@ const Store = ({ order, changeMerchAttr, handleDialog }) => {
     }
     return tempMerch;
   };
+<<<<<<< HEAD
 
   useEffect(async () => {
     let merches = await getAllMerches();
@@ -37,6 +42,24 @@ const Store = ({ order, changeMerchAttr, handleDialog }) => {
 
       setMerches(merches.map(val => ({ id: val.pk, ...val.fields })));
     }
+=======
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getAllMerches();
+      let merches = await getAllMerches();
+      if (merches.length) {
+        merches = increaseCountOfMerch(merches);
+        const merch = {
+          ...{ ...merches[0].fields, id: merches[0].pk },
+          ...LocalStorage.getMerch(),
+        };
+        changeMerchAttr(merch);
+        setMerches(merches.map(val => ({ id: val.pk, ...val.fields })));
+      }
+    };
+    fetchData();
+>>>>>>> ee72d733a073c2f36a1a8152c398125a570af8de
   }, []);
 
   let settings = {};
@@ -49,7 +72,11 @@ const Store = ({ order, changeMerchAttr, handleDialog }) => {
       slidesToShow: 3,
       slidesToScroll: 1,
       arrows: true,
+<<<<<<< HEAD
       prevArrow: <Arrow isRotate />,
+=======
+      prevArrow: <Arrow rotate />,
+>>>>>>> ee72d733a073c2f36a1a8152c398125a570af8de
       nextArrow: <Arrow />,
       focusOnSelect: true,
       swipe: true,
@@ -104,6 +131,7 @@ const Store = ({ order, changeMerchAttr, handleDialog }) => {
     </div>
   );
 };
+<<<<<<< HEAD
 
 Store.propTypes = {
   changeMerchAttr: func.isRequired,
@@ -112,3 +140,7 @@ Store.propTypes = {
 };
 
 export default Store;
+=======
+
+export default Store;
+>>>>>>> ee72d733a073c2f36a1a8152c398125a570af8de

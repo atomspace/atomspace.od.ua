@@ -44,9 +44,12 @@
     "client:build": "cd client && npm run build",
     "client:deploy": "cd client && npm run deploy",
     "server:start": "cd server && python3 manage.py runserver",
+    "server:test": "cd server && python3 manage.py test",
     "server:migrate": "cd server && python3 manage.py migrate",
     "server:dc:up": "docker-compose -f docker-compose.yml up --build -d",
-    "server:dc:down": "docker-compose -f docker-compose.yml down"
+    "server:dc:up:dev": "docker-compose -f docker-compose.dev.yml up --build -d",
+    "server:dc:down": "docker-compose -f docker-compose.yml down",
+    "server:dc:test": "docker exec -ti atomspace_server python3 manage.py test"
   },
   "repository": {
     "type": "git",
