@@ -77,7 +77,7 @@ SelectComponent.propTypes = {
     label: string,
     placeholder: string,
   }).isRequired,
-  user: arrayOf([object]).isRequired,
+  isError: string.isRequired,
   handleInputUser: func.isRequired,
 };
 
