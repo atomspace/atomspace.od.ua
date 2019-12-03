@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
-
+import { func, arrayOf, object } from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import Arrow from '../../components/Arrow';
 import MerchSize from './MerchSize';
@@ -49,7 +49,7 @@ const Store = ({ order, changeMerchAttr, handleDialog }) => {
       slidesToShow: 3,
       slidesToScroll: 1,
       arrows: true,
-      prevArrow: <Arrow rotate />,
+      prevArrow: <Arrow isRotate />,
       nextArrow: <Arrow />,
       focusOnSelect: true,
       swipe: true,
@@ -103,6 +103,12 @@ const Store = ({ order, changeMerchAttr, handleDialog }) => {
       </div>
     </div>
   );
+};
+
+Store.propTypes = {
+  changeMerchAttr: func.isRequired,
+  merches: arrayOf([object]).isRequired,
+  handleDialog: func.isRequired,
 };
 
 export default Store;

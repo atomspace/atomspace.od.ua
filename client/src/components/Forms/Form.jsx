@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, func, arrayOf, object } from 'prop-types';
 import Mentor from './Mentor';
 import Resident from './Resident';
 import Partner from './Partner';
@@ -21,4 +22,11 @@ export const Form = ({ hashForm, getBack, order }) => {
   };
   return getForm();
 };
+
+Form.propTypes = {
+  hashForm: string.isRequired,
+  getBack: func.isRequired,
+  order: arrayOf([object].isRequired),
+};
+
 export default Form;

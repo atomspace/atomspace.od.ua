@@ -1,4 +1,5 @@
 import React from 'react';
+import { func, shape, string } from 'prop-types';
 
 const Link = ({ handleDialog, row }) => (
   <div>
@@ -8,5 +9,12 @@ const Link = ({ handleDialog, row }) => (
     </a>
   </div>
 );
+
+Link.propTypes = {
+  handleDialog: func.isRequired,
+  row: shape({
+    link: string,
+  }).isRequired,
+};
 
 export default Link;

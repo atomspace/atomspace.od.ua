@@ -1,5 +1,6 @@
 import React from 'react';
 import cl from 'classnames';
+import { string, arrayOf, object } from 'prop-types';
 import AtomLogoLight from '../../../assets/images/icons/logos/AtomSpace-logo.svg';
 import AtomLogoDark from '../../../assets/images/icons/logos/AtomSpace-logo-dark.svg';
 import { ImageLoader } from '../../../components/ImageLoader';
@@ -33,6 +34,11 @@ export const RightSidebar = ({ pageName, links }) => {
       </nav>
     </div>
   );
+};
+
+RightSidebar.propTypes = {
+  pageName: string.isRequired,
+  links: arrayOf([object]).isRequired,
 };
 
 export default RightSidebar;

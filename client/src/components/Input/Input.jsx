@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { func, shape, arrayOf, object, number, string } from 'prop-types';
 
 const Input = ({ data, user, handleInputUser }) => (
   <input
@@ -12,4 +13,15 @@ const Input = ({ data, user, handleInputUser }) => (
     onFocus={handleInputUser.bind(this, data)}
   />
 );
+
+Input.propTypes = {
+  data: shape({
+    id: number,
+    type: string,
+    placeholder: string,
+  }).isRequired,
+  user: arrayOf([object]).isRequired,
+  handleInputUser: func.isRequired,
+};
+
 export default Input;

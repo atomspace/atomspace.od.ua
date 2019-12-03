@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { bool } from 'prop-types';
 
 const Icon = ({ name, url = '#', blank, link = true }) => {
   if (link) {
@@ -23,4 +24,10 @@ const Icon = ({ name, url = '#', blank, link = true }) => {
   }
   return <div className={cn('icon', { [name]: true })}>&nbsp; </div>;
 };
+
+Icon.propTypes = {
+  name: bool.isRequired,
+  blank: bool.isRequired,
+};
+
 export default Icon;

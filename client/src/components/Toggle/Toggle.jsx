@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, func } from 'prop-types';
 
 export const Toggle = ({ value, onChange }) => (
   <div className="atom-toggle">
@@ -21,5 +22,10 @@ export const Toggle = ({ value, onChange }) => (
     </label>
   </div>
 );
+
+Toggle.propTypes = {
+  onChange: func.isRequired,
+  value: string.isRequired,
+};
 
 export default Toggle;

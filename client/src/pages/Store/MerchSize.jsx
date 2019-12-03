@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import cl from 'classnames';
-import { withTranslation, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { func } from 'prop-types';
 
 const MerchSize = ({ changeMerchAttr, size: defaultSize }) => {
   const sizes = [{ size: 'S' }, { size: 'M' }, { size: 'L' }, { size: 'XL' }];
@@ -39,4 +40,8 @@ const MerchSize = ({ changeMerchAttr, size: defaultSize }) => {
   );
 };
 
-export default withTranslation('')(MerchSize);
+MerchSize.propTypes = {
+  changeMerchAttr: func.isRequired,
+};
+
+export default MerchSize;

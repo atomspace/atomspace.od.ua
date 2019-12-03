@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import Select from 'react-select';
+import { string, arrayOf, number, shape, func } from 'prop-types';
 
 const groupStyles = {
   display: 'flex',
@@ -66,6 +67,18 @@ const SelectComponent = ({ isError, data, handleInputUser }) => {
       styles={styles}
     />
   );
+};
+
+SelectComponent.propTypes = {
+  data: shape({
+    id: number,
+    value: string,
+    options: arrayOf([number]),
+    label: string,
+    placeholder: string,
+  }).isRequired,
+  isError: string.isRequired,
+  handleInputUser: func.isRequired,
 };
 
 export default SelectComponent;
