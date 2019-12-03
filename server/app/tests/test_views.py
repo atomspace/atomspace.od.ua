@@ -9,7 +9,7 @@ class TestViews(TestCase):
 		self.client = Client()
 		self.mentors_url = reverse('mentors')
 		self.residents_url = reverse('residents')
-		self.api_orders_url = reverse('api_orders')
+		self.orders_url = reverse('orders')
 		self.get_merches_url = reverse('get_merches')
 		self.get_news_url = reverse('get_news')
 		self.merch_url = reverse('merch')
@@ -25,8 +25,8 @@ class TestViews(TestCase):
 		res = self.client.get(self.residents_url)
 		self.assertEquals(res.status_code, 200)
 	
-	def test_api_orders_GET(self):
-		res = self.client.get(self.api_orders_url)
+	def test_orders_GET(self):
+		res = self.client.get(self.orders_url)
 		self.assertEquals(res.status_code, 200)
 	
 	def test_get_merches_GET(self):
@@ -37,6 +37,10 @@ class TestViews(TestCase):
 		res = self.client.get(self.get_news_url)
 		self.assertEquals(res.status_code, 200)
 	
+	def test_get_about_photos_GET(self):
+		res = self.client.get(self.get_about_photos)
+		self.assertEquals(res.status_code, 200)
+
 	# Next views will return 302 status code because we are not logged in
 	def test_merch_GET(self):
 		res = self.client.get(self.merch_url)

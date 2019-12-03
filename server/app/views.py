@@ -17,7 +17,7 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
 from .forms import MerchForm, NewsForm, EditMerch, EditNews, LoginForm
-from .models import Merch, News, Mentor, Resident, Order, Partner
+from .models import Merch, News, Mentor, Resident, Order, Partner, AboutPhotos
 from .utils import EmailThread
 
 
@@ -247,7 +247,15 @@ def get_news(request):
 
 
 @csrf_exempt
-def api_orders(request):
+def about_photos(request):
+	about_photos_object = json.loads(serializers.serialize('json', AboutPhotos.objects.all()))
+	for i in about_photos_object:
+		del i['model']
+	return JsonResponse(about_photos_object, safe=False)
+
+
+@csrf_exempt
+def orders(request):
 	if request.method == 'POST':  # Create new order
 		data = json.loads(request.body.decode('utf-8'))
 		order = Order()

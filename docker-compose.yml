@@ -1,4 +1,4 @@
-version: '2.0'
+version: '3.1'
 services:
   server:
     container_name: atomspace_server
@@ -24,3 +24,13 @@ services:
       - /usr/local/share/postgresql:/var/lib/postgresql/data
     ports:
       - 5432:5432
+  localstack:
+    container_name: atomspace_localstack
+    image: localstack/localstack
+    env_file:
+      - ./server/.env
+    ports:
+      - 4567-4584:4567-4584
+      - 3444:3444
+    volumes:
+      - /tmp/localstack:/tmp/localstack

@@ -32,6 +32,7 @@ Install manually to host machine
 
 ```
 pip3 install -r requirements.txt
+pip3 install awscli-local
 ```
 
 #### Start server

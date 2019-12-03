@@ -13,6 +13,9 @@ RUN apk add --virtual .build-deps build-base bash postgresql-dev \
 
 RUN pip install --upgrade pip
 
+
 RUN pip install -r requirements.txt
+
+RUN pip install awscli-local
 
 EXPOSE 8000

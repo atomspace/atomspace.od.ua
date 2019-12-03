@@ -11,7 +11,8 @@ urlpatterns = [
 	path('api/v1/partners', views.partners, name='partners'),
 	path('api/v1/merches', views.get_merches, name='get_merches'),
 	path('api/v1/news', views.get_news, name='get_news'),
-	path('api/v1/orders', views.api_orders, name='api_orders'),
+	path('api/v1/orders', views.orders, name='orders'),
+	path('api/v1/about-photos', views.about_photos, name='about-photos'),
 
 	path('download-residents', views.download_residents, name='download_residents'),
 	path('download-mentors', views.download_mentors, name='download_mentors'),

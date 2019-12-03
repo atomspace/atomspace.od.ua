@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from app.views import mentors, residents, get_merches, get_news, api_orders, merch, news, orders, people
+from app.views import mentors, residents, get_merches, get_news, get_about_photos, orders, merch, news, orders, people
 from app.urls import urlpatterns
 
 
@@ -29,9 +29,13 @@ class TestUrls(SimpleTestCase):
         url = reverse('get_news')
         self.assertEquals(resolve(url).func, get_news)
 
-    def test_api_orders_resolves(self):
-        url = reverse('api_orders')
-        self.assertEquals(resolve(url).func, api_orders)
+	def test_get_about_photos(self):
+        url = reverse('get_about')
+        self.assertEquals(resolve(url).func, get_about_photos)
+
+    def test_orders_resolves(self):
+        url = reverse('orders')
+        self.assertEquals(resolve(url).func, orders)
 
     def test_merch_resolves(self):
         url = reverse('merch')
