@@ -1,11 +1,11 @@
 import React from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { createPartner } from '../../../api/partner';
-import UserForm from '../UserForm';
+import UserForm from '../UserForm/UserForm.jsx';
 import validators from '../../../utils/validators';
 import { Bubble } from '../../Bubble';
 
-export default function Partner(props) {
+function Partner(props) {
   const { t } = useTranslation();
 
   const headerText = t('form.bePartner');
@@ -106,3 +106,5 @@ export default function Partner(props) {
     </section>
   );
 }
+
+export default Partner;

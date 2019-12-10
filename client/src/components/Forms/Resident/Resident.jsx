@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { createResident } from '../../../api/resident';
-import UserForm from '../UserForm';
+import UserForm from '../UserForm/UserForm.jsx';
 import validators from '../../../utils/validators';
 import { Bubble } from '../../Bubble';
 

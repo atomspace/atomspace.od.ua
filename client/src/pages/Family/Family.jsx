@@ -36,7 +36,7 @@ const Family = () => {
     infinite: true,
     speed: 500,
     arrows: true,
-    prevArrow: <Arrow rotate />,
+    prevArrow: <Arrow isRotate />,
     nextArrow: <Arrow />,
     centerPadding: '0px',
     swipeToSlide: true,

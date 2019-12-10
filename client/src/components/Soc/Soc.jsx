@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
+import { bool } from 'prop-types';
 import Icon from '../Icon/Icon';
 import MyContext from '../../context/Base/AppContext';
 
@@ -17,4 +18,9 @@ const Soc = ({ classes, src: { facebook, instagram, linkedin } }) => {
     </div>
   );
 };
+
+Soc.propTypes = {
+  classes: bool.isRequired,
+};
+
 export default Soc;

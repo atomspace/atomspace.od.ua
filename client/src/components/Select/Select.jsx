@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import Select from 'react-select';
+import { string, arrayOf, number, shape, func } from 'prop-types';
 
 const groupStyles = {
   display: 'flex',
@@ -27,7 +28,7 @@ const formatGroupLabel = data => (
   </div>
 );
 
-const SelectComponent = ({ user, data, handleInputUser }) => {
+const SelectComponent = ({ isError, data, handleInputUser }) => {
   const handleSelect = data => {
     const event = {
       target: {
@@ -56,7 +57,7 @@ const SelectComponent = ({ user, data, handleInputUser }) => {
   };
   return (
     <Select
-      className={cn('dropdown', { error: user[data.id].error })}
+      className={cn('dropdown', { error: isError })}
       id={data.id}
       placeholder={data.placeholder}
       defaultValue={data.options[0].label}
@@ -66,6 +67,18 @@ const SelectComponent = ({ user, data, handleInputUser }) => {
       styles={styles}
     />
   );
+};
+
+SelectComponent.propTypes = {
+  data: shape({
+    id: number,
+    value: string,
+    options: arrayOf([number]),
+    label: string,
+    placeholder: string,
+  }).isRequired,
+  isError: string.isRequired,
+  handleInputUser: func.isRequired,
 };
 
 export default SelectComponent;

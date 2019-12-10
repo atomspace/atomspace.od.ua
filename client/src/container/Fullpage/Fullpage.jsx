@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
+import { arrayOf, object, func } from 'prop-types';
 import MyContext from '../../context/Base/AppContext';
 import { About, Blog, Contacts, Edu, Family, Main, Store } from '../../pages';
 import { urls } from '../../App';
@@ -49,4 +50,11 @@ const Fullpage = ({ handleDialog, changeMerchAttr, order }) => {
     />
   );
 };
+
+Fullpage.propTypes = {
+  changeMerchAttr: func.isRequired,
+  order: arrayOf([object]).isRequired,
+  handleDialog: func.isRequired,
+};
+
 export default Fullpage;
