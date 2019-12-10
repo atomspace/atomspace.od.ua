@@ -135,7 +135,7 @@ const BuyForm = ({
 
 BuyForm.propTypes = {
   getBack: func.isRequired,
-  order: arrayOf([object]).isRequired,
+  order: arrayOf([{}]).isRequired,
   user: arrayOf([object]).isRequired,
   setUser: func.isRequired,
   inputData: arrayOf([object]).isRequired,

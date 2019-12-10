@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import cl from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { func, arrayOf, object } from 'prop-types';
+import { func, array } from 'prop-types';
 import MyContext from '../../../context/Base/AppContext';
 
 const SmallSidebar = ({ links, handleDialog }) => {
@@ -48,7 +48,7 @@ const SmallSidebar = ({ links, handleDialog }) => {
 
 SmallSidebar.propTypes = {
   handleDialog: func.isRequired,
-  links: arrayOf([object]).isRequired,
+  links: array.isRequired,
 };
 
 export default SmallSidebar;

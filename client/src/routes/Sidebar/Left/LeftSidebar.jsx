@@ -1,7 +1,7 @@
 import React from 'react';
 import cl from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { bool, func, arrayOf, string, object } from 'prop-types';
+import { bool, func, string, shape } from 'prop-types';
 import { urls } from '../../../App';
 import MerchSize from '../../../pages/Store/MerchSize';
 import MerchBuy from '../../../pages/Store/MerchBuy';
@@ -114,7 +114,7 @@ const LeftSidebar = ({
 
 LeftSidebar.propTypes = {
   changeMerchAttr: func.isRequired,
-  order: arrayOf([object]).isRequired,
+  order: shape({}).isRequired,
   handleDialog: func.isRequired,
   isLightTheme: bool.isRequired,
   pageName: string.isRequired,
