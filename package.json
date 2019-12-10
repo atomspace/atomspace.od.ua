@@ -12,7 +12,8 @@
     "eslint-config-react-app": "5.0.1",
     "eslint-loader": "3.0.0",
     "eslint-plugin-flowtype": "4.3.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "terser-webpack-plugin": "^1.4.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
