@@ -1,5 +1,5 @@
 import React from 'react';
-import { number, func, string } from 'prop-types';
+import { number, func } from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 const MerchBuy = ({ cost, handleDialog }) => {
