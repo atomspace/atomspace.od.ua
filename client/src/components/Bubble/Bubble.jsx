@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import cl from 'classnames';
-import { bool, arrayOf } from 'prop-types';
+import { bool, arrayOf, string, shape } from 'prop-types';
 import { ImageLoader } from '../ImageLoader';
 import useInterval from '../../hooks/useInterval';
 
@@ -15,7 +15,6 @@ const Bubble = ({
   style,
 }) => {
   const [indexPicture, setIndexPicture] = useState(0);
-
   const prevImage = () => {
     if (!image.length) return false;
     if (indexPicture) {
@@ -68,18 +67,24 @@ const Bubble = ({
 };
 
 Bubble.propTypes = {
-  image: arrayOf([]),
-  animate: bool.isRequired,
-  big: bool.isRequired,
-  small: bool.isRequired,
-  semiMiddle: bool.isRequired,
-  middle: bool.isRequired,
-  interactive: bool.isRequired,
-  style: bool.isRequired,
+  image: arrayOf(string),
+  animate: bool,
+  big: bool,
+  small: bool,
+  semiMiddle: bool,
+  middle: bool,
+  interactive: bool,
+  style: shape({}).isRequired,
 };
 
 Bubble.defaultProps = {
   image: [],
+  animate: false,
+  big: false,
+  small: false,
+  semiMiddle: false,
+  middle: false,
+  interactive: false,
 };
 
 export default Bubble;

@@ -1,10 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
-import { bool } from 'prop-types';
+import { string } from 'prop-types';
 
-const Icon = ({ name, url = '#', blank, link = true }) => {
+const Icon = ({ name, url = '#', target, link = true }) => {
   if (link) {
-    if (blank && blank === '_blank') {
+    if (target === '_blank') {
       return (
         <a
           className={cn('icon', { [name]: true })}
@@ -26,8 +26,11 @@ const Icon = ({ name, url = '#', blank, link = true }) => {
 };
 
 Icon.propTypes = {
-  name: bool.isRequired,
-  blank: bool.isRequired,
+  name: string.isRequired,
+  target: string,
 };
 
+Icon.defaultProps = {
+  target: '_self',
+};
 export default Icon;

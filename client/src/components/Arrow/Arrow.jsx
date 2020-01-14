@@ -14,8 +14,13 @@ const Arrow = ({ onClick, isRotate }) => (
 );
 
 Arrow.propTypes = {
-  isRotate: bool.isRequired,
-  onClick: func.isRequired,
+  isRotate: bool,
+  onClick: func,
+};
+
+Arrow.defaultProps = {
+  onClick: () => {},
+  isRotate: false,
 };
 
 export default Arrow;

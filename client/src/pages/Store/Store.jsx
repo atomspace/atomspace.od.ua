@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
-import { func, arrayOf, object } from 'prop-types';
+import { func, shape } from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import Arrow from '../../components/Arrow';
 import MerchSize from './MerchSize';
@@ -107,7 +107,7 @@ const Store = ({ order, changeMerchAttr, handleDialog }) => {
 
 Store.propTypes = {
   changeMerchAttr: func.isRequired,
-  merches: arrayOf([object]).isRequired,
+  order: shape({}).isRequired,
   handleDialog: func.isRequired,
 };
 
