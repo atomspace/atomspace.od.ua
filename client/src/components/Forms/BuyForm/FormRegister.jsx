@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
-import Toggle from '../../Toggle';
 import { useTranslation } from 'react-i18next';
+import Toggle from '../../Toggle';
 
 const FormRegister = ({ inputData, user, handleInputUser }) => {
   const { t } = useTranslation();

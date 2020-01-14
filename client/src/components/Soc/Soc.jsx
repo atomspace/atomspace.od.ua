@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import cn from 'classnames';
-import { bool } from 'prop-types';
+import { string } from 'prop-types';
 import Icon from '../Icon/Icon';
 import MyContext from '../../context/Base/AppContext';
 
@@ -20,7 +20,7 @@ const Soc = ({ classes, src: { facebook, instagram, linkedin } }) => {
 };
 
 Soc.propTypes = {
-  classes: bool.isRequired,
+  classes: string.isRequired,
 };
 
 export default Soc;
