@@ -6,8 +6,6 @@
   "scripts": {
     "docker:postgres:connect": "docker exec -ti -u postgres atomspace_postgres psql",
     "docker:server:connect": "docker exec -ti atomspace_server bash",
-    "eslint:fix": "cd client && eslint '**/*.jsx' --fix",
-    "stylelint:fix": "cd client && stylelint '**/*.scss' --fix",
     "client:build": "cd client && npm run build",
     "client:deploy": "cd client && npm run deploy",
     "server:start": "cd server && python3 manage.py runserver",
