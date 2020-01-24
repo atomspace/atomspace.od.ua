@@ -1,3 +1,3 @@
-import Resident from './Resident';
+import Resident from './Resident'
 
-export default Resident;
+export default Resident

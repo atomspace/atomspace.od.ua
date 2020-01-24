@@ -1,27 +1,19 @@
-import React, { Suspense, useEffect, useState } from 'react';
-import { get } from 'lodash';
-import './assets/styles/_index.scss';
-import Sidebar from './routes/Sidebar/Sidebar.jsx';
-import Form from './components/Forms/Form';
-import LocalStorage from './utils/localStorage';
-import Language from './components/Language/Language';
-import { AppProvider } from './context/Provider/Provider';
-import Fullpage from './container/Fullpage/Fullpage';
-import Hash from './utils/hash';
-import Soc from './components/Soc';
+import React, { Suspense, useEffect, useState } from "react";
+import { get } from "lodash";
+import "./assets/styles/_index.scss";
+import Sidebar from "./routes/Sidebar/Sidebar.jsx";
+import Form from "./components/Forms/Form";
+import LocalStorage from "./utils/localStorage";
+import Language from "./components/Language/Language";
+import AppProvider from "./context/Provider/Provider";
+import Fullpage from "./container/Fullpage/Fullpage";
+import Hash from "./utils/hash";
+import Soc from "./components/Soc";
 
-export const urls = [
-  'main',
-  'about',
-  'blog',
-  'edu',
-  'family',
-  'store',
-  'contacts',
-];
+export const urls = ["main", "about", "blog", "edu", "family", "store", "contacts"];
 
 const App = () => {
-  const defaultHashPage = '#main';
+  const defaultHashPage = "#main";
 
   const [userHash, setUserHash] = useState([window.location.hash]);
   const [hashForm, setHashForm] = useState(null);
@@ -45,7 +37,7 @@ const App = () => {
   };
 
   const getPreLastUserLoc = () => {
-    return userHash[userHash.length - 2] || '#';
+    return userHash[userHash.length - 2] || "#";
   };
 
   const getBack = () => {
@@ -55,11 +47,11 @@ const App = () => {
     Hash.set(preLastUserHash || lastUserHash);
   };
 
-  const handleDialog = e => {
+  const handleDialog = (e) => {
     setHashForm(e.target.hash);
   };
 
-  const changeMerchAttr = prop => {
+  const changeMerchAttr = (prop) => {
     LocalStorage.setMerch({ ...order, ...prop });
     setOrder({ ...order, ...prop });
   };
@@ -69,22 +61,14 @@ const App = () => {
       <AppProvider>
         <Soc
           src={{
-            facebook: 'https://www.facebook.com/atomspace.od.ua/',
-            instagram: 'https://www.instagram.com/atomspace.od/',
+            facebook: "https://www.facebook.com/atomspace.od.ua/",
+            instagram: "https://www.instagram.com/atomspace.od/",
           }}
           classes="soc-icons footer"
         />
-        <Sidebar
-          handleDialog={handleDialog}
-          changeMerchAttr={changeMerchAttr}
-          order={order}
-        />
+        <Sidebar handleDialog={handleDialog} changeMerchAttr={changeMerchAttr} order={order} />
         <Language userHash={userHash} />
-        <Fullpage
-          handleDialog={handleDialog}
-          changeMerchAttr={changeMerchAttr}
-          order={order}
-        />
+        <Fullpage handleDialog={handleDialog} changeMerchAttr={changeMerchAttr} order={order} />
         <Form hashForm={hashForm} getBack={getBack} order={order} />
       </AppProvider>
     </Suspense>

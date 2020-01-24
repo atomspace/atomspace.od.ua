@@ -1,22 +1,15 @@
-import React, { useState, useCallback } from 'react';
-import cl from 'classnames';
-import { bool, arrayOf, string, shape } from 'prop-types';
-import { ImageLoader } from '../ImageLoader';
-import useInterval from '../../hooks/useInterval';
+import React, { useState, useCallback } from "react";
+import cl from "classnames";
+import { bool, arrayOf, string, shape } from "prop-types";
+import { ImageLoader } from "../ImageLoader";
+import useInterval from "../../hooks/useInterval";
 
-const Bubble = ({
-  image,
-  animate,
-  big,
-  small,
-  semiMiddle,
-  middle,
-  interactive,
-  style,
-}) => {
+const Bubble = ({ image, animate, big, small, semiMiddle, middle, interactive, style }) => {
   const [indexPicture, setIndexPicture] = useState(0);
   const prevImage = () => {
-    if (!image.length) return false;
+    if (!image.length) {
+      return false;
+    }
     if (indexPicture) {
       setIndexPicture(indexPicture - 1);
     } else {
@@ -24,7 +17,9 @@ const Bubble = ({
     }
   };
   const nextImage = useCallback(() => {
-    if (!image.length) return false;
+    if (!image.length) {
+      return false;
+    }
     if (indexPicture !== image.length - 1) {
       setIndexPicture(indexPicture + 1);
     } else {
@@ -35,7 +30,7 @@ const Bubble = ({
     nextImage();
   }, 3000);
 
-  const classes = cl('bubble', {
+  const classes = cl("bubble", {
     middle,
     small,
     semiMiddle,
@@ -45,7 +40,7 @@ const Bubble = ({
   });
   const customStyle = {
     ...style,
-    position: style.position || 'absolute',
+    position: style.position || "absolute",
   };
 
   return (
@@ -53,12 +48,7 @@ const Bubble = ({
       {image && (
         <div className="image-block">
           <div className="arrow left-arrow" onClick={prevImage} />
-          <ImageLoader
-            src={image[indexPicture]}
-            className="bubble-image"
-            alt="bubble"
-            onClick={nextImage}
-          />
+          <ImageLoader src={image[indexPicture]} className="bubble-image" alt="bubble" onClick={nextImage} />
           <div className="arrow right-arrow" onClick={nextImage} />
         </div>
       )}

@@ -1,19 +1,17 @@
-import React from 'react';
-import { useTranslation, Trans } from 'react-i18next';
-import { createPartner } from '../../../api/partner';
-import UserForm from '../UserForm/UserForm.jsx';
-import validators from '../../../utils/validators';
-import { Bubble } from '../../Bubble';
+import React from "react";
+import { useTranslation, Trans } from "react-i18next";
+import { createPartner } from "../../../api/partner";
+import UserForm from "../UserForm/UserForm.jsx";
+import validators from "../../../utils/validators";
+import { Bubble } from "../../Bubble";
 
 function Partner(props) {
   const { t } = useTranslation();
 
-  const headerText = t('form.bePartner');
+  const headerText = t("form.bePartner");
   const mainText = (
     <Trans i18nKey="form.partnerText">
-      {''}
       <span className="bold" />
-      {''}
     </Trans>
   );
 
@@ -26,59 +24,59 @@ function Partner(props) {
 
   const inputData = [
     {
-      id: 'name',
-      placeholder: t('form.placeholders.fullName'),
-      autocomplete: 'off',
-      type: 'text',
+      id: "name",
+      placeholder: t("form.placeholders.fullName"),
+      autocomplete: "off",
+      type: "text",
     },
     {
-      id: 'phone',
-      placeholder: t('form.placeholders.phone'),
-      autocomplete: 'off',
-      type: 'number',
+      id: "phone",
+      placeholder: t("form.placeholders.phone"),
+      autocomplete: "off",
+      type: "number",
     },
     {
-      id: 'email',
-      placeholder: t('form.placeholders.email'),
-      type: 'email',
+      id: "email",
+      placeholder: t("form.placeholders.email"),
+      type: "email",
       validate: validators.email,
     },
     {
-      id: 'interest',
-      placeholder: t('form.placeholders.interest'),
-      type: 'select',
+      id: "interest",
+      placeholder: t("form.placeholders.interest"),
+      type: "select",
       options: [
         {
-          label: t('form.select.option1'),
-          value: t('form.select.option1'),
+          label: t("form.select.option1"),
+          value: t("form.select.option1"),
         },
         {
-          label: t('form.select.option2'),
-          value: t('form.select.option2'),
+          label: t("form.select.option2"),
+          value: t("form.select.option2"),
         },
         {
-          label: t('form.select.option3'),
-          value: t('form.select.option3'),
+          label: t("form.select.option3"),
+          value: t("form.select.option3"),
         },
         {
-          label: t('form.select.option4'),
-          value: t('form.select.option4'),
+          label: t("form.select.option4"),
+          value: t("form.select.option4"),
         },
         {
-          label: t('form.select.option5'),
-          value: t('form.select.option5'),
+          label: t("form.select.option5"),
+          value: t("form.select.option5"),
         },
         {
-          label: t('form.select.option6'),
-          value: t('form.select.option6'),
+          label: t("form.select.option6"),
+          value: t("form.select.option6"),
         },
       ],
     },
     {
-      id: 'information',
-      placeholder: t('form.placeholders.comments'),
-      autocomplete: 'off',
-      type: 'text',
+      id: "information",
+      placeholder: t("form.placeholders.comments"),
+      autocomplete: "off",
+      type: "text",
     },
   ];
 
@@ -90,7 +88,7 @@ function Partner(props) {
         animate
         style={{
           bottom: 240,
-          left: '34vw',
+          left: "34vw",
           opacity: 1,
         }}
       />

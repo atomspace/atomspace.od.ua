@@ -1,20 +1,20 @@
-import React from 'react';
-import { string, func, shape } from 'prop-types';
-import Mentor from './Mentor';
-import Resident from './Resident';
-import Partner from './Partner';
-import Merch from './Merch';
+import React from "react";
+import { string, func, shape } from "prop-types";
+import Mentor from "./Mentor";
+import Resident from "./Resident";
+import Partner from "./Partner";
+import Merch from "./Merch";
 
 export const Form = ({ hashForm, getBack, order }) => {
   const getForm = () => {
     switch (hashForm) {
-      case '#residentForm':
+      case "#residentForm":
         return <Resident getBack={getBack} />;
-      case '#mentorForm':
+      case "#mentorForm":
         return <Mentor getBack={getBack} />;
-      case '#partnerForm':
+      case "#partnerForm":
         return <Partner getBack={getBack} />;
-      case '#buyForm':
+      case "#buyForm":
         return <Merch getBack={getBack} order={order} />;
       default:
         return null;
@@ -29,6 +29,6 @@ Form.propTypes = {
   order: shape({}).isRequired,
 };
 Form.defaultProps = {
-  hashForm: '#main',
+  hashForm: "#main",
 };
 export default Form;

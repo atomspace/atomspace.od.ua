@@ -1,30 +1,31 @@
-import React from 'react';
-import LazyLoad from 'react-lazy-load';
-import { useTranslation } from 'react-i18next';
-import { Bubble } from '../../components/Bubble';
-import AboutPhoto5 from '../../assets/images/photos/about_photo_5.png';
-import AboutPhoto6 from '../../assets/images/photos/about_photo_6.png';
-import AboutPhoto7 from '../../assets/images/photos/about_photo_7.png';
-import AboutPhoto8 from '../../assets/images/photos/about_photo_8.png';
-import AboutPhoto9 from '../../assets/images/photos/about_photo_9.png';
-import AboutPhoto10 from '../../assets/images/photos/about_photo_10.png';
-import AboutPhoto11 from '../../assets/images/photos/about_photo_11.png';
-import AboutPhoto12 from '../../assets/images/photos/about_photo_12.png';
-import AboutPhoto13 from '../../assets/images/photos/about_photo_13.png';
-import AboutPhoto14 from '../../assets/images/photos/about_photo_14.png';
-import AboutPhoto15 from '../../assets/images/photos/about_photo_15.png';
-import AboutPhoto16 from '../../assets/images/photos/about_photo_16.png';
-import AboutPhoto17 from '../../assets/images/photos/about_photo_17.png';
-import AboutPhoto18 from '../../assets/images/photos/about_photo_18.png';
-import AboutPhoto19 from '../../assets/images/photos/about_photo_19.png';
-import AtomspaceText from '../../assets/images/icons/logos/AtomSpace-about-maintext.svg';
-import { ImageLoader } from '../../components/ImageLoader';
+import React from "react";
+import LazyLoad from "react-lazy-load";
+import { useTranslation } from "react-i18next";
+import { Bubble } from "../../components/Bubble";
+import AboutPhoto5 from "../../assets/images/photos/about_photo_5.png";
+import AboutPhoto6 from "../../assets/images/photos/about_photo_6.png";
+import AboutPhoto7 from "../../assets/images/photos/about_photo_7.png";
+import AboutPhoto8 from "../../assets/images/photos/about_photo_8.png";
+import AboutPhoto9 from "../../assets/images/photos/about_photo_9.png";
+import AboutPhoto10 from "../../assets/images/photos/about_photo_10.png";
+import AboutPhoto11 from "../../assets/images/photos/about_photo_11.png";
+import AboutPhoto12 from "../../assets/images/photos/about_photo_12.png";
+import AboutPhoto13 from "../../assets/images/photos/about_photo_13.png";
+import AboutPhoto14 from "../../assets/images/photos/about_photo_14.png";
+import AboutPhoto15 from "../../assets/images/photos/about_photo_15.png";
+import AboutPhoto16 from "../../assets/images/photos/about_photo_16.png";
+import AboutPhoto17 from "../../assets/images/photos/about_photo_17.png";
+import AboutPhoto18 from "../../assets/images/photos/about_photo_18.png";
+import AboutPhoto19 from "../../assets/images/photos/about_photo_19.png";
+import AtomspaceText from "../../assets/images/icons/logos/AtomSpace-about-maintext.svg";
+import { ImageLoader } from "../../components/ImageLoader";
+import { ImageBubble } from "../../components/ImageBubble";
 
 const About = () => {
   const { t } = useTranslation();
 
-  const mainText = t('aboutMainText');
-  const mainText1 = t('aboutMainText1');
+  const mainText = t("aboutMainText");
+  const mainText1 = t("aboutMainText1");
 
   const aboutPhotos = [
     AboutPhoto5,
@@ -50,11 +51,7 @@ const About = () => {
         <div className="about-main-block">
           <div className="about-main-block-image">
             <LazyLoad debounce={false} offsetVertical={500}>
-              <ImageLoader
-                alt="AtomSpaceText"
-                src={AtomspaceText}
-                className="about-main-block-image__atomspace"
-              />
+              <ImageLoader alt="AtomSpaceText" src={AtomspaceText} className="about-main-block-image__atomspace" />
             </LazyLoad>
           </div>
           <div className="about-main-block-text">
@@ -65,16 +62,9 @@ const About = () => {
             </div>
           </div>
         </div>
-        <Bubble
-          interactive
-          image={aboutPhotos}
-          style={{ zIndex: 100, opacity: 1, position: 'relative' }}
-        />
-        <Bubble
-          middle
-          animate
-          style={{ bottom: 150, right: 230, zIndex: 100 }}
-        />
+        <ImageBubble images={aboutPhotos} style={{ zIndex: 100, opacity: 1, position: "relative" }} />
+        <Bubble interactive image={aboutPhotos} style={{ zIndex: 100, opacity: 1, position: "relative" }} />
+        <Bubble middle animate style={{ bottom: 150, right: 230, zIndex: 100 }} />
         <Bubble small animate style={{ bottom: 70, right: 110, zIndex: 100 }} />
       </div>
     </div>

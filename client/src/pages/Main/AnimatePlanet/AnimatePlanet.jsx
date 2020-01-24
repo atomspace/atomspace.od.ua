@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const AnimatePlanet = () => (
   <div className="scale">

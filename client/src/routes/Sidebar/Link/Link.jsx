@@ -1,5 +1,5 @@
-import React from 'react';
-import { func, shape, string } from 'prop-types';
+import React from "react";
+import { func, shape, string } from "prop-types";
 
 const Link = ({ handleDialog, row }) => (
   <div>

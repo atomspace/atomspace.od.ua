@@ -1,13 +1,13 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { func } from 'prop-types';
-import AnimatePlanet from './AnimatePlanet';
-import MainLogo from '../../assets/images/icons/logos/AtomSpace-logo-vertical.svg';
-import { ImageLoader } from '../../components/ImageLoader';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { func } from "prop-types";
+import AnimatePlanet from "./AnimatePlanet";
+import MainLogo from "../../assets/images/icons/logos/AtomSpace-logo-vertical.svg";
+import { ImageLoader } from "../../components/ImageLoader";
 
 const Main = ({ handleDialog }) => {
   const { t } = useTranslation();
-  const mainText = t('main.mainText');
+  const mainText = t("main.mainText");
   return (
     <div className="section main-container">
       <div className="logo-container">
@@ -22,24 +22,16 @@ const Main = ({ handleDialog }) => {
               rel="noopener noreferrer"
               href="https://secure.wayforpay.com/button/b4a090420eb14"
             >
-              {t('supportProject')}
+              {t("supportProject")}
             </a>
           </div>
-          <div className="bottom-quastion">{t('whoYouAre')}</div>
+          <div className="bottom-quastion">{t("whoYouAre")}</div>
           <div className="support-container">
-            <a
-              className="support resident-support"
-              href="#residentForm"
-              onClick={handleDialog}
-            >
-              {t('resident')}
+            <a className="support resident-support" href="#residentForm" onClick={handleDialog}>
+              {t("resident")}
             </a>
-            <a
-              className="support mentor-support"
-              href="#mentorForm"
-              onClick={handleDialog}
-            >
-              {t('mentor')}
+            <a className="support mentor-support" href="#mentorForm" onClick={handleDialog}>
+              {t("mentor")}
             </a>
           </div>
         </div>
@@ -48,7 +40,7 @@ const Main = ({ handleDialog }) => {
   );
 };
 
-Main.protoType = {
+Main.propTypes = {
   handleDialog: func.isRequired,
 };
 

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import confirmPhoto from '../../assets/images/icons/confirm.svg';
-import { ImageLoader } from '../ImageLoader';
+import React from "react";
+import { node } from "prop-types";
+import confirmPhoto from "../../assets/images/icons/confirm.svg";
+import { ImageLoader } from "../ImageLoader";
 
 const Confirm = ({ confirmMessage }) => (
   <div className="confirm-tick">
@@ -11,7 +11,7 @@ const Confirm = ({ confirmMessage }) => (
 );
 
 Confirm.propTypes = {
-  confirmMessage: PropTypes.element.isRequired,
+  confirmMessage: node.isRequired,
 };
 
 export default Confirm;

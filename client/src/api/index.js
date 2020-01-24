@@ -1,5 +1,5 @@
-import { createMentor } from './mentor';
-import { createResident } from './resident';
-import { createApiRequest } from './base';
+import { createMentor } from './mentor'
+import { createResident } from './resident'
+import { createApiRequest } from './base'
 
-export { createApiRequest, createMentor, createResident };
+export { createApiRequest, createMentor, createResident }

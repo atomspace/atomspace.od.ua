@@ -1,18 +1,19 @@
-import React from 'react';
-import cn from 'classnames';
-import { useTranslation } from 'react-i18next';
-import Toggle from '../../Toggle';
+import React from "react";
+import cn from "classnames";
+import { useTranslation } from "react-i18next";
+import { arrayOf, shape, func } from "prop-types";
+import Toggle from "../../Toggle";
 
 const FormRegister = ({ inputData, user, handleInputUser }) => {
   const { t } = useTranslation();
   return (
     <>
-      {inputData.map(data => (
+      {inputData.map((data) => (
         <div className={`${data.id}-block`} key={data.id}>
           <input
             className={cn({
               error: user[data.id].error,
-              'atom-toggle__hide': data.type === 'checkbox',
+              "atom-toggle__hide": data.type === "checkbox",
             })}
             id={data.id}
             type={data.type}
@@ -23,9 +24,15 @@ const FormRegister = ({ inputData, user, handleInputUser }) => {
           />
         </div>
       ))}
-      <Toggle value={t('form.toggle')} />
+      <Toggle value={t("form.toggle")} />
     </>
   );
+};
+
+FormRegister.propTypes = {
+  inputData: arrayOf(shape({})).isRequired,
+  user: shape({}),
+  handleInputUser: func.isRequired,
 };
 
 export default FormRegister;

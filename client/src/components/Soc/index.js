@@ -1,3 +1,3 @@
-import Soc from './Soc.jsx';
+import Soc from './Soc.jsx'
 
-export default Soc;
+export default Soc

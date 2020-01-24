@@ -1,15 +1,15 @@
-import React from 'react';
-import { useTranslation, Trans } from 'react-i18next';
-import { createMentor } from '../../../api/mentor';
-import UserForm from '../UserForm/UserForm.jsx';
-import { Bubble } from '../../Bubble';
-import validators from '../../../utils/validators';
+import React from "react";
+import { useTranslation, Trans } from "react-i18next";
+import { createMentor } from "../../../api/mentor";
+import UserForm from "../UserForm/UserForm.jsx";
+import { Bubble } from "../../Bubble";
+import validators from "../../../utils/validators";
 
-const Mentor = props => {
+const Mentor = (props) => {
   const { t } = useTranslation();
 
-  const headerText = t('form.beMentor');
-  const mainText = t('form.mentorText');
+  const headerText = t("form.beMentor");
+  const mainText = t("form.mentorText");
   const confirmMessage = (
     <Trans i18nKey="form.mentorConfirmText">
       <p />
@@ -20,29 +20,29 @@ const Mentor = props => {
 
   const inputData = [
     {
-      id: 'name',
-      placeholder: t('form.placeholders.fullName'),
-      type: 'text',
-      autocomplete: 'off',
+      id: "name",
+      placeholder: t("form.placeholders.fullName"),
+      type: "text",
+      autocomplete: "off",
     },
     {
-      id: 'phone',
-      placeholder: t('form.placeholders.phone'),
-      autocomplete: 'off',
-      type: 'number',
+      id: "phone",
+      placeholder: t("form.placeholders.phone"),
+      autocomplete: "off",
+      type: "number",
     },
     {
-      id: 'email',
-      placeholder: t('form.placeholders.email'),
-      autocomplete: 'off',
-      type: 'email',
+      id: "email",
+      placeholder: t("form.placeholders.email"),
+      autocomplete: "off",
+      type: "email",
       validate: validators.email,
     },
     {
-      id: 'information',
-      placeholder: t('form.placeholders.informationMentor'),
-      autocomplete: 'off',
-      type: 'text',
+      id: "information",
+      placeholder: t("form.placeholders.informationMentor"),
+      autocomplete: "off",
+      type: "text",
     },
   ];
 
@@ -54,7 +54,7 @@ const Mentor = props => {
         animate
         style={{
           bottom: 240,
-          left: '34vw',
+          left: "34vw",
           opacity: 1,
         }}
       />

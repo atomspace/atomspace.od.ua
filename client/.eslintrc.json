@@ -1,0 +1,115 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "prettier",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react",
+    "prettier",
+    "standard"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "globals": {
+    "window": true,
+    "document": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": false,
+        "object": true
+      }
+    ],
+    "semi": [
+      0
+    ],
+    "global-require": [
+      0
+    ],
+    "indent": [
+      0
+    ],
+    "no-tabs": 0,
+    "no-console": [
+      1
+    ],
+    "curly": [
+      2,
+      "all"
+    ],
+    "space-before-function-paren": "off",
+    "no-trailing-spaces": [
+      0
+    ],
+    "spaced-comment": [
+      0
+    ],
+    "max-len": [
+      0
+    ],
+    "new-cap": [
+      0
+    ],
+    "func-names": [
+      0
+    ],
+    "no-else-return": [
+      0
+    ],
+    "no-unused-vars": [
+      2,
+      {
+        "vars": "all",
+        "args": "none"
+      }
+    ],
+    "object-shorthand": [
+      1
+    ],
+    "no-bitwise": [
+      1
+    ],
+    "no-mixed-operators": [
+      0
+    ],
+    "no-plusplus": [
+      1,
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-underscore-dangle": [
+      2,
+      {
+        "allowAfterThis": true
+      }
+    ],
+    "arrow-parens": [
+      0
+    ],
+    "function-paren-newline": [
+      0
+    ],
+    "no-param-reassign": 0,
+    "import/no-dynamic-require": 0,
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "consistent-return": 0
+  }
+}

@@ -41,28 +41,44 @@
       }
     }
 
-    .bubble {
-      display: none;
-      margin: 0;
+    .bubble-image-container {
+      display: block;
+      width: 68%;
+      height: initial;
 
-      &.interactive {
-        display: block;
-        width: calc((50% + 50vh) / 2);
-        height: initial;
+      .image-block {
+        height: 100%;
 
-        .image-block {
-          height: 100%;
+        .arrow {
+          display: block;
+        }
 
-          .arrow {
-            display: block;
-          }
-
-          .bubble-image {
-            width: 100%;
-            height: inherit;
-          }
+        .bubble-image {
+          width: 100%;
+          height: inherit;
         }
       }
     }
+  }
+  .slick {
+    width: 37px;
+    display: block;
+    top: 50%;
+
+    &.slick-prev {
+      background-image: url(#{$path-to-images}/icons/store/arrow-left-store-mobile.svg) !important;
+      left: -50px;
+    }
+
+    &.slick-next {
+      background-image: url(#{$path-to-images}/icons/store/arrow-right-store-mobile.svg) !important;
+      right: -50px;
+    }
+  }
+  .bubble {
+    display: none;
+  }
+  .bubble-image-container {
+    display: block;
   }
 }

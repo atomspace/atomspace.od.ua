@@ -1,9 +1,9 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { func } from 'prop-types';
-import Rocket from '../../assets/images/icons/contacts/rocket-donate.svg';
-import ContactInfo from './ContactInfo';
-import { ImageLoader } from '../../components/ImageLoader';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { func } from "prop-types";
+import Rocket from "../../assets/images/icons/contacts/rocket-donate.svg";
+import ContactInfo from "./ContactInfo";
+import { ImageLoader } from "../../components/ImageLoader";
 
 const Contacts = ({ handleDialog }) => {
   const { t } = useTranslation();
@@ -13,30 +13,22 @@ const Contacts = ({ handleDialog }) => {
         <div className="center-container">
           <div className="main-block">
             <div className="main-block__information">
-              <p className="header-ask">{t('contacts.headerAsk')}</p>
+              <p className="header-ask">{t("contacts.headerAsk")}</p>
               <div className="logo-wrapper">
                 <ImageLoader className="rocket-image" src={Rocket} alt="" />
               </div>
             </div>
             <div className="main-block__requests flex flex-col">
-              <p className="header-answer">{t('contacts.headerAnswer')}</p>
+              <p className="header-answer">{t("contacts.headerAnswer")}</p>
               <div className="request-button-container flex">
                 <div className="request-button-block">
-                  <a
-                    className="btn btn-support btn-request"
-                    href="#mentorForm"
-                    onClick={handleDialog}
-                  >
-                    {t('form.beMentor')}
+                  <a className="btn btn-support btn-request" href="#mentorForm" onClick={handleDialog}>
+                    {t("form.beMentor")}
                   </a>
                 </div>
                 <div className="request-button-block">
-                  <a
-                    className="btn btn-support btn-request"
-                    href="#residentForm"
-                    onClick={handleDialog}
-                  >
-                    {t('form.beResident')}
+                  <a className="btn btn-support btn-request" href="#residentForm" onClick={handleDialog}>
+                    {t("form.beResident")}
                   </a>
                 </div>
               </div>
@@ -49,7 +41,7 @@ const Contacts = ({ handleDialog }) => {
               rel="noopener noreferrer"
               href="https://secure.wayforpay.com/button/b4a090420eb14"
             >
-              {t('supportProject')}
+              {t("supportProject")}
             </a>
           </div>
         </div>

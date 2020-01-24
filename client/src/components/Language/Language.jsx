@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
-import cl from 'classnames';
-import i18next from 'i18next';
-import { useTranslation } from 'react-i18next';
-import Icon from '../Icon/Icon';
-import MyContext from '../../context/Base/AppContext';
+import React, { useState, useEffect, useContext } from "react";
+import cl from "classnames";
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
+import Icon from "../Icon/Icon";
+import MyContext from "../../context/Base/AppContext";
 
-const RU = 'ru-RU';
-const EN = 'en-US';
+const RU = "ru-RU";
+const EN = "en-US";
 
 const Language = () => {
   const defaultLanguage = i18next.language || window.localStorage.i18nextLng;
@@ -14,21 +14,13 @@ const Language = () => {
   const { i18n } = useTranslation();
   const { currentPage, isNavOpened, hiddenSidebars } = useContext(MyContext);
 
-  const lightPages = [
-    'about',
-    'edu',
-    'blog',
-    'store',
-    'resident',
-    'mentor',
-    'family',
-  ];
+  const lightPages = ["about", "edu", "blog", "store", "resident", "mentor", "family"];
 
   useEffect(() => {
     setLang(defaultLanguage);
   }, [defaultLanguage]);
 
-  const getImage = val => {
+  const getImage = (val) => {
     switch (val) {
       case RU:
         return <Icon link={false} name="russia" />;
@@ -46,7 +38,7 @@ const Language = () => {
   };
   return (
     <div
-      className={cl('language-btn-container', {
+      className={cl("language-btn-container", {
         none: !isNavOpened,
         light_theme: lightPages.includes(currentPage) || hiddenSidebars,
       })}

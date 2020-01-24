@@ -1,23 +1,23 @@
-import React, { useState, useContext, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { validateUser } from '../utils/validation';
-import MobileRequestForm from './MobileRequestForm';
-import Confirm from '../../ConfirmMessage/Confirm';
-import { withHandleUser } from '../../../hoc/withHandleUser';
-import MyContext from '../../../context/Base/AppContext';
-import FormRegister from './FormRegister';
-import FormBlock from './FormBlock';
-import { prepareData } from '../utils/data';
+import React, { useState, useContext, useEffect } from "react";
+import { string, oneOfType, func, arrayOf, shape, node } from "prop-types";
+import { validateUser } from "../utils/validation";
+import MobileRequestForm from "./MobileRequestForm";
+import Confirm from "../../ConfirmMessage/Confirm";
+import withHandleUser from "../../../hoc/withHandleUser";
+import MyContext from "../../../context/Base/AppContext";
+import FormRegister from "./FormRegister";
+import FormBlock from "./FormBlock";
+import { prepareData } from "../utils/data";
 
-const UserForm = props => {
+const UserForm = (props) => {
   const {
     inputData,
-    createOrder,
     getBack,
     headerText,
+    mainText,
+    createOrder,
     confirmMessage,
     buttonText,
-    mainText,
     handleInputUser,
     user,
     setUser,
@@ -25,14 +25,9 @@ const UserForm = props => {
   const [isLoading, setLoading] = useState(false);
   const [step, setStep] = useState(0);
   const [sended, setSended] = useState(false);
-  const {
-    isLightTheme,
-    setLightTheme,
-    hiddenSidebars,
-    setHiddenSidebars,
-    isNavOpened,
-    setIsNavOpened,
-  } = useContext(MyContext);
+  const { isLightTheme, setLightTheme, hiddenSidebars, setHiddenSidebars, isNavOpened, setIsNavOpened } = useContext(
+    MyContext,
+  );
 
   useEffect(() => {
     setLightTheme(true);
@@ -98,16 +93,22 @@ const UserForm = props => {
 };
 
 UserForm.propTypes = {
-  headerText: PropTypes.string,
-  mainText: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
-    .isRequired,
-  getBack: PropTypes.func.isRequired,
-  inputData: PropTypes.arrayOf(PropTypes.object),
+  headerText: string,
+  mainText: oneOfType([string, shape({})]).isRequired,
+  getBack: func.isRequired,
+  inputData: arrayOf(shape({})),
+  createOrder: func.isRequired,
+  confirmMessage: node.isRequired,
+  buttonText: string,
+  handleInputUser: func.isRequired,
+  user: shape({}).isRequired,
+  setUser: func.isRequired,
 };
 
 UserForm.defaultProps = {
-  headerText: '',
+  headerText: "",
   inputData: [],
+  buttonText: "",
 };
 
 export default withHandleUser(UserForm);

@@ -1,19 +1,17 @@
-import React from 'react';
-import { useTranslation, Trans } from 'react-i18next';
-import { createResident } from '../../../api/resident';
-import UserForm from '../UserForm/UserForm.jsx';
-import validators from '../../../utils/validators';
-import { Bubble } from '../../Bubble';
+import React from "react";
+import { useTranslation, Trans } from "react-i18next";
+import { createResident } from "../../../api/resident";
+import UserForm from "../UserForm/UserForm.jsx";
+import validators from "../../../utils/validators";
+import { Bubble } from "../../Bubble";
 
 export default function Resident(props) {
   const { t } = useTranslation();
 
-  const headerText = t('form.beResident');
+  const headerText = t("form.beResident");
   const mainText = (
     <Trans i18nKey="form.residentText">
-      {''}
       <span className="bold" />
-      {''}
     </Trans>
   );
 
@@ -26,34 +24,34 @@ export default function Resident(props) {
   );
   const inputData = [
     {
-      id: 'name',
-      placeholder: t('form.placeholders.fullName'),
-      autocomplete: 'off',
-      type: 'text',
+      id: "name",
+      placeholder: t("form.placeholders.fullName"),
+      autocomplete: "off",
+      type: "text",
     },
     {
-      id: 'birth',
-      placeholder: t('form.placeholders.birth'),
-      type: 'date',
-      autocomplete: 'off',
+      id: "birth",
+      placeholder: t("form.placeholders.birth"),
+      type: "date",
+      autocomplete: "off",
     },
     {
-      id: 'phone',
-      placeholder: t('form.placeholders.phone'),
-      autocomplete: 'off',
-      type: 'number',
+      id: "phone",
+      placeholder: t("form.placeholders.phone"),
+      autocomplete: "off",
+      type: "number",
     },
     {
-      id: 'email',
-      placeholder: t('form.placeholders.email'),
-      type: 'email',
+      id: "email",
+      placeholder: t("form.placeholders.email"),
+      type: "email",
       validate: validators.email,
     },
     {
-      id: 'information',
-      placeholder: t('form.placeholders.informationResident'),
-      autocomplete: 'off',
-      type: 'text',
+      id: "information",
+      placeholder: t("form.placeholders.informationResident"),
+      autocomplete: "off",
+      type: "text",
     },
   ];
 
@@ -65,7 +63,7 @@ export default function Resident(props) {
         animate
         style={{
           bottom: 240,
-          left: '34vw',
+          left: "34vw",
           opacity: 1,
         }}
       />

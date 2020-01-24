@@ -1,3 +1,3 @@
-import Edu from './Edu';
+import Edu from './Edu'
 
-export default Edu;
+export default Edu

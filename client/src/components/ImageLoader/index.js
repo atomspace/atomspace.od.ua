@@ -1,3 +1,3 @@
-import ImageLoader from './ImageLoader';
+import ImageLoader from './ImageLoader'
 
-export { ImageLoader };
+export { ImageLoader }

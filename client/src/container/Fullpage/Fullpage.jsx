@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
-import ReactFullpage from '@fullpage/react-fullpage';
-import { func, shape } from 'prop-types';
-import MyContext from '../../context/Base/AppContext';
-import { About, Blog, Contacts, Edu, Family, Main, Store } from '../../pages';
-import { urls } from '../../App';
+import React, { useContext } from "react";
+import ReactFullpage from "@fullpage/react-fullpage";
+import { func, shape } from "prop-types";
+import MyContext from "../../context/Base/AppContext";
+import { About, Blog, Contacts, Edu, Family, Main, Store } from "../../pages";
+import { urls } from "../../App";
 
 const Fullpage = ({ handleDialog, changeMerchAttr, order }) => {
-  const lightPages = ['about', 'edu', 'blog', 'store', 'resident', 'mentor'];
-  const { setLightTheme, setCurrentPage, hiddenSidebars } = useContext(
-    MyContext,
-  );
-  const settingScroll = (fullpageApi, hiddenSidebars) => {
+  const lightPages = ["about", "edu", "blog", "store", "resident", "mentor"];
+  const { setLightTheme, setCurrentPage, hiddenSidebars } = useContext(MyContext);
+
+  const settingScroll = (fullpageApi) => {
     if (fullpageApi) {
       if (hiddenSidebars) {
         fullpageApi.setAllowScrolling(false);
@@ -37,12 +36,7 @@ const Fullpage = ({ handleDialog, changeMerchAttr, order }) => {
             <Blog />
             <Edu />
             <Family />
-            <Store
-              order={order}
-              size={order.size}
-              changeMerchAttr={changeMerchAttr}
-              handleDialog={handleDialog}
-            />
+            <Store order={order} size={order.size} changeMerchAttr={changeMerchAttr} handleDialog={handleDialog} />
             <Contacts handleDialog={handleDialog} />
           </ReactFullpage.Wrapper>
         );

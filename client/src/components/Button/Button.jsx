@@ -1,10 +1,10 @@
-import React from 'react';
-import { bool, node } from 'prop-types';
-import Loader from '../../assets/images/icons/loader.svg';
+import React from "react";
+import { bool, node } from "prop-types";
+import Loader from "../../assets/images/icons/loader.svg";
 
-import { ImageLoader } from '../ImageLoader';
+import { ImageLoader } from "../ImageLoader";
 
-export const Button = ({ loading = false, children, ...rest }) => {
+const Button = ({ loading, children, ...rest }) => {
   let child = children;
   if (loading) {
     child = (
@@ -14,13 +14,20 @@ export const Button = ({ loading = false, children, ...rest }) => {
       </>
     );
   }
-  Button.propTypes = {
-    children: node.isRequired,
-    loading: bool.isRequired,
-  };
+
   return (
     <button type="button" {...rest}>
       {child}
     </button>
   );
+};
+export default Button;
+
+Button.propTypes = {
+  children: node,
+  loading: bool,
+};
+Button.defaultProps = {
+  children: null,
+  loading: false,
 };

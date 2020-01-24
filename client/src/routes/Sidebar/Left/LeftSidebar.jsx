@@ -1,20 +1,14 @@
-import React from 'react';
-import cl from 'classnames';
-import { useTranslation } from 'react-i18next';
-import { bool, func, shape, string } from 'prop-types';
-import { urls } from '../../../App';
-import MerchSize from '../../../pages/Store/MerchSize';
-import MerchBuy from '../../../pages/Store/MerchBuy';
-import ContactInfo from '../../../pages/Contacts/ContactInfo';
-import Link from '../Link';
+import React from "react";
+import cl from "classnames";
+import { useTranslation } from "react-i18next";
+import { bool, func, shape, string } from "prop-types";
+import { urls } from "../../../App";
+import MerchSize from "../../../pages/Store/MerchSize";
+import MerchBuy from "../../../pages/Store/MerchBuy";
+import ContactInfo from "../../../pages/Contacts/ContactInfo";
+import Link from "../Link";
 
-const LeftSidebar = ({
-  isLightTheme,
-  pageName,
-  handleDialog,
-  changeMerchAttr,
-  order,
-}) => {
+const LeftSidebar = ({ isLightTheme, pageName, handleDialog, changeMerchAttr, order }) => {
   const { t } = useTranslation();
 
   const getLeftSidebarData = () => {
@@ -27,8 +21,8 @@ const LeftSidebar = ({
             props: {
               handleDialog,
               row: {
-                title: t('form.beMentor'),
-                link: '#mentorForm',
+                title: t("form.beMentor"),
+                link: "#mentorForm",
               },
             },
           },
@@ -38,8 +32,8 @@ const LeftSidebar = ({
             props: {
               handleDialog,
               row: {
-                title: t('form.beResident'),
-                link: '#residentForm',
+                title: t("form.beResident"),
+                link: "#residentForm",
               },
             },
           },
@@ -49,8 +43,8 @@ const LeftSidebar = ({
             props: {
               handleDialog,
               row: {
-                title: t('form.bePartner'),
-                link: '#partnerForm',
+                title: t("form.bePartner"),
+                link: "#partnerForm",
               },
             },
           },
@@ -90,17 +84,17 @@ const LeftSidebar = ({
   return (
     sidebarRows && (
       <div
-        className={cl('vertical-line left', {
-          'border-none': !sidebarRows.length,
+        className={cl("vertical-line left", {
+          "border-none": !sidebarRows.length,
         })}
       >
         <nav
-          className={cl('sidebar__left', {
+          className={cl("sidebar__left", {
             light_theme: isLightTheme,
           })}
         >
-          <div className={cl('list-container', 'flex', 'flex-col')}>
-            {sidebarRows.map(el => (
+          <div className={cl("list-container", "flex", "flex-col")}>
+            {sidebarRows.map((el) => (
               <div className="list" key={el.id}>
                 <el.Component {...el.props} />
               </div>

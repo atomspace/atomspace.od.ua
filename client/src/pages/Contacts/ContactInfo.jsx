@@ -1,5 +1,5 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 const ContactInfo = () => {
   const { t } = useTranslation();
@@ -7,12 +7,7 @@ const ContactInfo = () => {
     {
       id: 1,
       title: (
-        <a
-          className="atomspace-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="tel:+380 99 554 27 10"
-        >
+        <a className="atomspace-link" target="_blank" rel="noopener noreferrer" href="tel:+380 99 554 27 10">
           +380 99 554 27 10
         </a>
       ),
@@ -20,12 +15,7 @@ const ContactInfo = () => {
     {
       id: 2,
       title: (
-        <a
-          className="atomspace-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="mailto:atomspace.info@gmail.com"
-        >
+        <a className="atomspace-link" target="_blank" rel="noopener noreferrer" href="mailto:atomspace.info@gmail.com">
           atomspace.info@gmail.com
         </a>
       ),
@@ -40,12 +30,12 @@ const ContactInfo = () => {
           rel="noopener noreferrer"
           href="https://goo.gl/maps/zD9kSpLVmMgGhC958"
         >
-          {t('atomspace.address')}
+          {t("atomspace.address")}
         </a>
       ),
     },
   ];
-  return info.map(val => (
+  return info.map((val) => (
     <span className="list-item" key={val.id}>
       {val.title}
     </span>

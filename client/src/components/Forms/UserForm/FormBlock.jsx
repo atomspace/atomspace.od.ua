@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { string, node } from "prop-types";
 
 const FormBlock = ({ headerText, mainText }) => {
   return (
@@ -11,4 +12,11 @@ const FormBlock = ({ headerText, mainText }) => {
   );
 };
 
+FormBlock.propTypes = {
+  headerText: string.isRequired,
+  mainText: node,
+};
+FormBlock.defaultProps = {
+  mainText: null,
+};
 export default FormBlock;
