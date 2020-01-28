@@ -191,6 +191,12 @@ server {
 
 ## Updating ssl certificates
 
+For client side:
 ```
-$ certbot certonly --webroot -w /var/www/atomspace-test.com -d www.atomspace-test.com
+$ sudo certbot certonly --webroot -w /var/www/atomspace-test.com -d www.atomspace-test.com,atomspace-test.com
+```
+
+For admin:
+```
+$ letsencrypt-auto --test-cert --nginx --domain admin.atomspace-test.com
 ```
