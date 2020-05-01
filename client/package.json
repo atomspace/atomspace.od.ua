@@ -63,7 +63,8 @@
     "webpack": "4.39.3",
     "webpack-dev-server": "3.8.0",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "4.3.1"
+    "workbox-webpack-plugin": "4.3.1",
+    "snyk": "^1.316.1"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -74,7 +75,9 @@
     "predeploy": "npm run build",
     "deploy:github": "gh-pages -d build",
     "deploy": "cp -R build/* /var/www/atomspace-test.com/",
-    "stylelint": "./node_modules/.bin/stylelint 'src/assets/**/*.scss' --fix"
+    "stylelint": "./node_modules/.bin/stylelint 'src/assets/**/*.scss' --fix",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "browserslist": [
     ">0.2%",
@@ -160,5 +163,6 @@
       "stylelint '**/*.scss'",
       "git add"
     ]
-  }
+  },
+  "snyk": true
 }
