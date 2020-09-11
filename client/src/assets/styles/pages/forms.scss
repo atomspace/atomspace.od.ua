@@ -94,6 +94,11 @@
         .request-button-block {
           text-align: right;
         }
+
+        .hint{
+          font-size: $f18;
+          color: $hint-information-color;
+        }
       }
 
       .confirm-tick {

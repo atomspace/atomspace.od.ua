@@ -26,9 +26,8 @@ const Bubble = ({ image, animate, big, small, semiMiddle, middle, interactive, s
       setIndexPicture(0);
     }
   }, [indexPicture]);
-  useInterval(() => {
-    nextImage();
-  }, 3000);
+
+  useInterval(nextImage, 3000);
 
   const classes = cl("bubble", {
     middle,

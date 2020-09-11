@@ -50,6 +50,7 @@ export default function Resident(props) {
     {
       id: "information",
       placeholder: t("form.placeholders.informationResident"),
+      hint: t("form.placeholders.hintResident"),
       autocomplete: "off",
       type: "text",
     },
