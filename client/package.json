@@ -152,7 +152,7 @@
     "stylelint-scss": "^3.10.0"
   },
   "lint-staged": {
-    "*.jsx": [
+    "**/*.js?(x)": [
       "eslint '**/*.jsx' --fix",
       "git add"
     ],
