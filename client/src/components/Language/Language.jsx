@@ -4,9 +4,7 @@ import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import Icon from "../Icon/Icon";
 import MyContext from "../../context/Base/AppContext";
-
-const RU = "ru-RU";
-const EN = "en-US";
+import { RU, EN } from "../../constansts/lang";
 
 const Language = () => {
   const defaultLanguage = i18next.language || window.localStorage.i18nextLng;

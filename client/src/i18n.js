@@ -1,7 +1,8 @@
-import i18n from 'i18next'
-import Backend from 'i18next-xhr-backend'
-import LanguageDetector from 'i18next-browser-languagedetector'
-import { initReactI18next } from 'react-i18next'
+import i18n from "i18next";
+import Backend from "i18next-xhr-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
+import { initReactI18next } from "react-i18next";
+import { RU } from "./constansts/lang";
 
 i18n
   // load translation using xhr -> see /public/locales
@@ -15,11 +16,11 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    lng: 'en-US',
-    fallbackLng: 'en-US',
+    lng: RU,
+    fallbackLng: RU,
     react: {
       wait: true,
-      nsMode: 'fallback',
+      nsMode: "fallback",
       useSuspense: false,
     },
     interpolation: {
@@ -27,9 +28,9 @@ i18n
     },
     caches: [],
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ["localStorage", "navigator"],
     },
     // wait: process && !process.release,
-  })
+  });
 
-export default i18n
+export default i18n;
