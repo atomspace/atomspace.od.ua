@@ -156,8 +156,8 @@
       "eslint ./src --ext jsx --ext js --fix",
       "git add"
     ],
-    "*.css": [
-      "stylelint '**/*.scss'",
+    "**/*.?(s)css": [
+      "stylelint '**/*.scss' '**/*.css' --fix'",
       "git add"
     ]
   }

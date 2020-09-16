@@ -7,3 +7,10 @@ setuptools==40.8.0
 python-decouple==3.1
 psycopg2==2.7.5
 django-import-export==1.2.0
+tablib
+xlrd
+xlwt
+openpyxl
+odfpy
+pyyaml
+MarkupPy
