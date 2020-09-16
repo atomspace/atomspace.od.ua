@@ -1,3 +1,3 @@
-import Mentor from './Mentor'
+import Mentor from "./Mentor";
 
-export default Mentor
+export default Mentor;

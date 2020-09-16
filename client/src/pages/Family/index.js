@@ -1,3 +1,3 @@
-import Family from './Family'
+import Family from "./Family";
 
-export default Family
+export default Family;

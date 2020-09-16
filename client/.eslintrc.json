@@ -25,7 +25,10 @@
   },
   "globals": {
     "window": true,
-    "document": true
+    "document": true,
+    "Headers": true,
+    "it": true,
+    "fetch": true
   },
   "rules": {
     "prettier/prettier": "error",
@@ -110,6 +113,8 @@
     "import/no-dynamic-require": 0,
     "import/extensions": 0,
     "import/no-unresolved": 0,
-    "consistent-return": 0
+    "consistent-return": 0,
+    "import/no-named-as-default": 0,
+    "import/prefer-default-export": 0
   }
 }

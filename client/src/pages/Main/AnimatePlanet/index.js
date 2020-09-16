@@ -1,3 +1,3 @@
-import AnimatePlanet from './AnimatePlanet'
+import AnimatePlanet from "./AnimatePlanet";
 
-export default AnimatePlanet
+export default AnimatePlanet;

@@ -1,3 +1,3 @@
-import Arrow from './Arrow.jsx'
+import Arrow from "./Arrow.jsx";
 
-export default Arrow
+export default Arrow;
