@@ -1,15 +1,17 @@
 .bubble {
   // position: absolute;
-  background: linear-gradient(
-    45deg,
-    $left-gradient-color,
-    $right-gradient-color
-  );
+  background:
+    linear-gradient(
+      45deg,
+      $left-gradient-color,
+      $right-gradient-color
+    );
   opacity: 0.4;
   margin-left: $f55;
   border-radius: 50%;
   height: $f400 + $f178;
   z-index: -10;
+
   .image-block {
     position: relative;
     transition: 1s;

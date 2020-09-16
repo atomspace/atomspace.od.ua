@@ -103,7 +103,8 @@
             &::after {
               content: '';
               position: absolute;
-              background: url(../../assets/images/icons/quotes-family.svg)
+              background:
+                url(../../assets/images/icons/quotes-family.svg)
                 no-repeat center/cover;
               width: $f68 + $f3;
               height: $f55;

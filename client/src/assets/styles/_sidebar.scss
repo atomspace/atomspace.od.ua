@@ -2,6 +2,7 @@
   position: absolute;
   z-index: 1010;
   width: 100%;
+
   &.hide {
     display: none;
   }
@@ -38,16 +39,19 @@
 }
 
 .nav_toggle {
-  background: url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg)
+  background:
+    url(#{$path-to-images}/icons/gamburgers/gamburger-main-light.svg)
     center/auto no-repeat;
 
   &.arrow {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg)
+    background:
+      url(#{$path-to-images}/icons/gamburgers/gamburger-back.svg)
       center/contain no-repeat;
   }
 
   &.light_arrow {
-    background: url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg)
+    background:
+      url(#{$path-to-images}/icons/gamburgers/gamburger-back-light.svg)
       center/contain no-repeat;
   }
 }
@@ -108,11 +112,12 @@ li {
       transition: all 0.3s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(
-        0.4turn,
-        $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right
-      );
+      background:
+        linear-gradient(
+          0.4turn,
+          $list-item-atom-space-color-left,
+          $list-item-atom-space-color-right
+        );
       top: 0;
     }
 
@@ -128,11 +133,12 @@ li {
       transition: all 0.3s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(
-        0.4turn,
-        $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right
-      );
+      background:
+        linear-gradient(
+          0.4turn,
+          $list-item-atom-space-color-left,
+          $list-item-atom-space-color-right
+        );
       top: 0;
     }
   }
@@ -179,7 +185,8 @@ li {
         height: 14px;
         position: relative;
         left: 7px;
-        background: url(#{$path-to-images}/icons/circle.svg) no-repeat
+        background:
+          url(#{$path-to-images}/icons/circle.svg) no-repeat
           center/contain;
       }
 
@@ -218,7 +225,8 @@ li {
           height: 14px;
           position: absolute;
           right: -7px;
-          background: url(#{$path-to-images}/icons/circle.svg) no-repeat
+          background:
+            url(#{$path-to-images}/icons/circle.svg) no-repeat
             center/contain;
         }
 
@@ -236,7 +244,8 @@ li {
           }
 
           .dot {
-            background: url(#{$path-to-images}/icons/circle-sidebar.svg)
+            background:
+              url(#{$path-to-images}/icons/circle-sidebar.svg)
               no-repeat center/contain;
             opacity: 1;
           }
@@ -248,9 +257,10 @@ li {
 
         &:last-child {
           bottom: -10vh;
+
           .list-item {
             font-size: $f13;
-            font-family: OpenSans-Bold;
+            font-family: $OpenSans-Bold;
           }
         }
       }
@@ -262,7 +272,8 @@ li {
             width: 14px;
             height: 14px;
             position: absolute;
-            background: url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
+            background:
+              url(#{$path-to-images}/icons/circle-dark.svg) no-repeat
               center/contain;
           }
 
@@ -272,7 +283,8 @@ li {
             }
 
             .dot {
-              background: url(#{$path-to-images}/icons/circle-sidebar-light.svg)
+              background:
+                url(#{$path-to-images}/icons/circle-sidebar-light.svg)
                 no-repeat center/contain;
               opacity: 1;
             }
@@ -304,7 +316,8 @@ li {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: url(#{$path-to-images}/backgrounds/background-gamburger.svg)
+    background:
+      url(#{$path-to-images}/backgrounds/background-gamburger.svg)
       center/cover no-repeat;
 
     &.hide {
@@ -321,17 +334,20 @@ li {
       }
     }
   }
+
   .partner-block {
     top: 85%;
     width: 100vw;
     position: fixed;
     display: flex;
     justify-content: center;
+
     .btn {
       padding: 2.677vw 11.354vw;
       font-size: 4.833vw;
-      &:before,
-      &:after {
+
+      &::before,
+      &::after {
         display: none;
       }
     }

@@ -15,7 +15,6 @@
       line-height: $f55;
       text-align: center;
       text-transform: uppercase;
-      margin-bottom: $f55;
       margin: 0 auto;
       width: 50%;
     }
@@ -153,6 +152,7 @@
         font-size: $link-font-size;
         font-family: $OpenSans-Bold;
         cursor: pointer;
+
         &:hover {
           color: $white-color !important;
         }
@@ -217,15 +217,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
         .confirm-tick {
           display: flex;
           justify-content: center;
           flex-direction: column;
           align-content: center;
+
           > img {
             margin: 0 auto 25px auto;
             width: 50%;
           }
+
           > p {
             text-align: center;
             font-family: $OpenSans-Bold;

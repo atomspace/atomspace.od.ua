@@ -26,7 +26,8 @@
     }
 
     .right {
-      background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg)
+      background:
+        url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg)
         center/contain no-repeat;
       position: absolute;
       right: 0;
@@ -34,7 +35,8 @@
     }
 
     .left {
-      background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg)
+      background:
+        url(#{$path-to-images}/icons/adaptive/be-resident-block.svg)
         center/contain no-repeat;
       position: absolute;
       left: 0;
@@ -53,9 +55,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
       &.sended {
         justify-content: center;
       }
+
       .header-text {
         font-family: $OpenSans-SemiBold;
         font-size: $f89;
@@ -141,10 +145,12 @@
       .confirm-tick {
         display: flex;
         flex-direction: column;
+
         > img {
           width: 50%;
           margin: 0 auto 20px;
         }
+
         > p {
           text-align: center;
         }

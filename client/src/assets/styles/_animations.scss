@@ -15,6 +15,7 @@ $meteor-yellow: #fedc01;
   @-webkit-keyframes #{"$animationName"} {
     @content;
   }
+
   @-moz-keyframes #{$animationName} {
     @content;
   }
@@ -32,14 +33,19 @@ $meteor-yellow: #fedc01;
   width: $f178;
   height: $f178;
   padding: $f21;
+
   @include border-radius($f178);
   @include background(
     linear-gradient(150deg, $fuscia, transparent, transparent)
   );
+
   position: absolute;
+
   @include animation(planet-moving 2s ease infinite);
   @include transition(all 0.2s ease);
+
   left: 42%;
+
   .shine {
     width: 0;
     height: 0;
@@ -47,17 +53,24 @@ $meteor-yellow: #fedc01;
     border-left: $f34 solid transparent;
     border-right: $f34 solid transparent;
     border-top: $f26 solid $light-pink;
+
     @include border-radius(50%);
     @include transform(rotate(-40deg));
+
     top: $f42;
     left: $f34;
+
     &::after {
       content: '';
       position: absolute;
+
       @include background(linear-gradient(190deg, #c90779, #770e8d, #35145a));
+
       height: $f144;
       width: $f144;
+
       @include border-radius($f110 - $f10);
+
       left: -$f68 - $f10;
       top: -$f16;
     }
@@ -68,12 +81,17 @@ $meteor-yellow: #fedc01;
     width: $f13;
     height: $f10;
     background: #eb6db4;
+
     @include border-radius($f110 - $f10);
+
     top: $f68 - $f3;
     left: $f42;
+
     @include transform(rotate(-55deg));
+
     &::after {
       @extend .shine-2;
+
       content: '';
       top: $f10;
       left: $f42;
@@ -88,12 +106,16 @@ $meteor-yellow: #fedc01;
       height: $f10;
       width: $f13;
       background: $light-pink;
+
       @include border-radius($f178);
+
       top: $f21 + $f3;
       left: $f55;
+
       @include transform(rotate(40deg));
     }
   }
+
   .planet-ring {
     width: $f288;
     height: $f42;
@@ -102,23 +124,25 @@ $meteor-yellow: #fedc01;
     border-bottom: $f10 solid $fuscia;
     border-left: $f10 solid $fuscia;
     border-right: $f10 solid $fuscia;
+
     @include border-radius(100%);
+
     left: -$f42;
     transform: rotate(-30deg);
     top: $f68 + $f10;
-
-    &::after {
-    }
   }
 
   .planet-ring2 {
     @extend .planet-ring;
+
     border-top: $f10 solid $fuscia;
     z-index: -1;
   }
+
   .planet {
     width: $f178;
     height: $f178;
+
     @include background(
       linear-gradient(150deg, $fuscia, $purple2, transparent)
     );
@@ -132,28 +156,38 @@ $meteor-yellow: #fedc01;
   height: 50%;
   left: 50%;
   top: 50%;
+
   @include transform(translate(-50%, -50%));
+
   .stars {
     width: $f178 - $f8;
     top: $f144;
     position: relative;
     left: $f233 - $f13;
+
     div:nth-child(1) {
       width: $f21;
       position: relative;
       height: $f16 - $f10;
+
       @include border-radius(100%);
+
       background: #fff;
+
       @include animation(twinkle-width 1s ease infinite);
     }
+
     div:nth-child(2) {
       width: $f16 - $f10;
       height: $f21;
       position: absolute;
       background: #fff;
+
       @include border-radius(100%);
+
       left: $f8;
       top: -$f8;
+
       @include animation(twinkle-height 1s ease infinite);
     }
 
@@ -165,62 +199,86 @@ $meteor-yellow: #fedc01;
       height: $f10;
       left: $f5;
       top: -$f3;
+
       @include border-radius($f110 - $f10);
     }
   }
 
   .stars:nth-child(2) {
     position: relative;
+
     @include transform(scale(0.8));
+
     top: $f55 + $f5;
     left: $f89 - $f8;
+
     div {
       @include animation-delay(0.5s);
     }
   }
+
   .stars:nth-child(3) {
     position: relative;
+
     @include transform(scale(0.6));
+
     top: $f21;
     left: $f144 + $f5;
+
     div {
       @include animation-delay(0.5s);
     }
   }
+
   .stars:nth-child(4) {
     position: relative;
+
     @include transform(scale(0.5));
+
     top: -$f55 + $f5;
     left: $f377 - $f26;
+
     div {
       @include animation-delay(0.8s);
     }
   }
+
   .stars-2 {
     @include border-radius(100%);
+
     position: absolute;
+
     @include animation(twinkle 0.5s ease infinite);
   }
+
   .stars-2:nth-child(5) {
     width: $f10;
     height: $f10;
+
     @include background(linear-gradient(to right, $purple2, transparent));
+
     left: $f144 + $f5;
     top: $f21;
+
     @include animation-delay(0.2s);
   }
 
   .stars-2:nth-child(6) {
     width: $f10;
     height: $f10;
+
     @include background(linear-gradient(to right, transparent, $pink));
+
     left: $f21;
     top: -$f55 + $f5;
   }
+
   .stars-2:nth-child(7) {
     width: $f8;
     height: $f8;
+
     @include background(linear-gradient(to right, transparent, $purple2));
+
     left: $f377 - $f26;
     top: -70px;
 
@@ -235,19 +293,25 @@ $meteor-yellow: #fedc01;
   height: auto;
   top: $f400 + $f400;
   left: $f400 + $f110 + $f42;
+
   @include animation(meteor-drop 2s ease infinite);
   @include animation-delay(2s);
   @include transform(rotate(40deg));
+
   opacity: 0;
 
   div {
     @include transition(all 0.3s ease);
   }
+
   div:nth-child(1) {
     @include background(linear-gradient(to top, $purple2, transparent));
+
     height: $f144 + $f5;
     width: $f21;
+
     @include border-radius($f110 - $f10);
+
     opacity: 0.8;
     position: absolute;
     left: -$f5;
@@ -259,8 +323,10 @@ $meteor-yellow: #fedc01;
     //meteor second tail
     width: $f13;
     height: $f110 - $f10;
+
     @include background(linear-gradient(to top, $fuscia, transparent));
     @include border-radius(500px);
+
     position: absolute;
     opacity: 0.8;
     left: -$f5;
@@ -272,11 +338,14 @@ $meteor-yellow: #fedc01;
     width: $f8;
     height: $f8;
     background: $meteor-yellow;
+
     @include border-radius($f110 - $f10);
+
     top: $f34;
     position: absolute;
     z-index: 2;
   }
+
   div:nth-child(4) {
     //meteor tail
     width: 0;
@@ -296,19 +365,25 @@ $meteor-yellow: #fedc01;
   height: auto;
   top: $f400 + $f400 + $f110 - $f10;
   left: $f610 + $f42;
+
   @include animation(meteor-drop2 2.5s ease infinite);
   @include animation-delay(3s);
   @include transform(rotate(40deg) scale(0.9));
+
   opacity: 0;
 
   div {
     @include transition(all 0.3s ease);
   }
+
   div:nth-child(1) {
     @include background(linear-gradient(to top, $purple2, transparent));
+
     height: $f144 + $f5;
     width: $f21;
+
     @include border-radius($f110 - $f10);
+
     opacity: 0.8;
     position: absolute;
     left: -$f5;
@@ -320,8 +395,10 @@ $meteor-yellow: #fedc01;
     //meteor second tail
     width: $f13;
     height: $f110 - $f10;
+
     @include background(linear-gradient(to top, $fuscia, transparent));
     @include border-radius(500px);
+
     position: absolute;
     opacity: 0.8;
     left: $f5;
@@ -333,11 +410,14 @@ $meteor-yellow: #fedc01;
     width: $f8;
     height: $f8;
     background: $meteor-yellow;
+
     @include border-radius($f110 - $f10);
+
     top: $f34;
     position: absolute;
     z-index: 2;
   }
+
   div:nth-child(4) {
     //meteor tail
     width: 0;
@@ -354,11 +434,14 @@ $meteor-yellow: #fedc01;
 .moon {
   width: $f110 - $f10;
   height: $f110 - $f10;
+
   @include border-radius(100%);
   @include background(linear-gradient(150deg, $blue 55%, $fuscia 98%));
+
   position: absolute;
   top: 30%;
   left: 15%;
+
   @include animation(planet-moving2 2s ease infinite);
   @include animation-delay(0.5s);
 }
@@ -369,9 +452,11 @@ $meteor-yellow: #fedc01;
     top: $f42 + $f8;
     left: $f610 + $f610 + $f34;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     left: $f400 + $f400;
     top: $f400 + $f110 + $f42;
@@ -385,9 +470,11 @@ $meteor-yellow: #fedc01;
     top: $f144 + $f5;
     left: $f400 + $f400 + $f110 - $f10;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     left: $f377 - $f26;
     top: $f610 + $f42;
@@ -399,9 +486,11 @@ $meteor-yellow: #fedc01;
   0% {
     top: 30%;
   }
+
   50% {
     top: 31%;
   }
+
   100% {
     top: 30%;
   }
@@ -411,22 +500,27 @@ $meteor-yellow: #fedc01;
   0% {
     top: 30%;
   }
+
   50% {
     top: 31%;
   }
+
   100% {
     top: 30%;
   }
 }
+
 @include keyframes(twinkle-height) {
   0% {
     height: $f21;
     top: -$f8;
   }
+
   50% {
     height: $f10;
     top: -$f3;
   }
+
   100% {
     height: $f21;
     top: -$f8;
@@ -438,10 +532,12 @@ $meteor-yellow: #fedc01;
     width: $f21;
     left: 0;
   }
+
   50% {
     width: $f10;
     left: $f5;
   }
+
   100% {
     width: $f21;
     left: 0;
@@ -452,9 +548,11 @@ $meteor-yellow: #fedc01;
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }

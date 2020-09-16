@@ -8,17 +8,20 @@
   margin: $f16 0;
   color: $white-color;
   outline: none;
-  background: linear-gradient(
-    0.4turn,
-    $list-item-atom-space-color-left,
-    $list-item-atom-space-color-right
-  );
+  background:
+    linear-gradient(
+      0.4turn,
+      $list-item-atom-space-color-left,
+      $list-item-atom-space-color-right
+    );
   font-size: $f16;
   font-weight: 500;
   text-transform: uppercase;
+
   &:hover {
     color: $white-color;
   }
+
   a {
     font-size: 12pt;
     color: $white-color;
@@ -43,11 +46,12 @@
       transition: all 1s;
       border-radius: 3em;
       z-index: -10;
-      background: linear-gradient(
-        0.4turn,
-        $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right
-      );
+      background:
+        linear-gradient(
+          0.4turn,
+          $list-item-atom-space-color-left,
+          $list-item-atom-space-color-right
+        );
       top: 0;
       right: $f26;
     }
@@ -63,11 +67,12 @@
       border-radius: 3em;
       z-index: -10;
       left: $f26;
-      background: linear-gradient(
-        0.4turn,
-        $list-item-atom-space-color-left,
-        $list-item-atom-space-color-right
-      );
+      background:
+        linear-gradient(
+          0.4turn,
+          $list-item-atom-space-color-left,
+          $list-item-atom-space-color-right
+        );
       top: 0;
     }
 
@@ -198,8 +203,10 @@ input[type='number']::-webkit-outer-spin-button {
   bottom: $h89;
   z-index: 1050;
   width: $f42;
+
   .language-btn {
     cursor: pointer;
+
     img {
       width: 100%;
     }
@@ -211,6 +218,7 @@ input[type='number']::-webkit-outer-spin-button {
   font-size: $f21;
   border-color: rgba(0, 0, 0, 0.3);
   height: 45px;
+
   &.error {
     > div {
       border-color: $red-color;
@@ -225,15 +233,18 @@ input[type='number']::-webkit-outer-spin-button {
     left: 8%;
     right: 0;
     width: $f178;
+
     &.none {
       display: none;
     }
+
     .language-btn {
       img {
         width: 100%;
       }
     }
   }
+
   select {
     font-size: $f55;
   }

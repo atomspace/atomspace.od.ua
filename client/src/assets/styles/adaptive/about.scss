@@ -34,6 +34,7 @@
           width: 250%;
           font-size: $f68;
           line-height: $h55;
+
           &--second {
             display: none;
           }
@@ -60,6 +61,7 @@
       }
     }
   }
+
   .slick {
     width: 37px;
     display: block;
@@ -75,9 +77,11 @@
       right: -50px;
     }
   }
+
   .bubble {
     display: none;
   }
+
   .bubble-image-container {
     display: block;
   }
