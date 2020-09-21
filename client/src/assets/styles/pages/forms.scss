@@ -61,7 +61,7 @@
 
           .error {
             border-color: $red-color;
-            border-width: 1px;
+            border-width: 2px;
           }
         }
 
@@ -99,6 +99,7 @@
         }
 
         .hint {
+          margin-top: $f13;
           font-size: $f18;
           color: $hint-information-color;
         }

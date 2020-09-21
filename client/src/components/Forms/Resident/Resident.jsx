@@ -34,6 +34,8 @@ export default function Resident(props) {
       placeholder: t("form.placeholders.birth"),
       type: "date",
       autocomplete: "off",
+      validate: validators.birth,
+      hint: t("form.placeholders.hintBirth"),
     },
     {
       id: "phone",

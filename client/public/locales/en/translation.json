@@ -25,6 +25,7 @@
       "informationMentor": "I can share knowledge in:",
       "informationResident": "Why do you want to become a resident?",
       "hintResident": "* Be sure to fill out this line and tell us in detail and in detail why you should become a resident. Minimum - 3 offers. It is on the basis of the answers to this question that we will decide whether to call you for a further interview.",
+      "hintBirth": "* Mask dd/mm/yyyy. Example 01/10/2000.",
       "npMail": "New Post Office:",
       "birth": "Date of Birth:",
       "interest": "Choose the interest of your contribution:",

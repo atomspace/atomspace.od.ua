@@ -9,19 +9,18 @@ import FormRegister from "./FormRegister";
 import FormBlock from "./FormBlock";
 import { prepareData } from "../utils/data";
 
-const UserForm = (props) => {
-  const {
-    inputData,
-    getBack,
-    headerText,
-    mainText,
-    createOrder,
-    confirmMessage,
-    buttonText,
-    handleInputUser,
-    user,
-    setUser,
-  } = props;
+const UserForm = ({
+  inputData,
+  getBack,
+  headerText,
+  mainText,
+  createOrder,
+  confirmMessage,
+  buttonText,
+  handleInputUser,
+  user,
+  setUser,
+}) => {
   const [isLoading, setLoading] = useState(false);
   const [step, setStep] = useState(0);
   const [sended, setSended] = useState(false);
