@@ -27,6 +27,7 @@
           border-radius: 50%;
           height: $f400 + $f178;
           width: $f400 + $f178;
+          cursor: grab;
 
           .slick-track {
             display: flex;
@@ -101,11 +102,9 @@
 
             &::before,
             &::after {
-              content: '';
+              content: "";
               position: absolute;
-              background:
-                url(../../assets/images/icons/quotes-family.svg)
-                no-repeat center/cover;
+              background: url(../../assets/images/icons/quotes-family.svg) no-repeat center/cover;
               width: $f68 + $f3;
               height: $f55;
             }
@@ -176,7 +175,7 @@
   }
 
   &::before {
-    content: '';
+    content: "";
   }
 
   &:hover {

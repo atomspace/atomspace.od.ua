@@ -88,7 +88,7 @@ const Edu = () => {
         <div className="main-text-mobile">{mainTextMobile}</div>
         <div className="edu-items">
           {eduItems.map((item) => (
-            <div key={item.id} className="edu-item">
+            <div key={item.id} className="edu-item no-select">
               <div className="edu-item__layout flex flex-col flex-acen flex-jcen">
                 <ImageLoader alt="eduImage" src={item.image} className={`edu-item__${item.logo}`} />
                 <div className="edu-item__text">{item.text}</div>

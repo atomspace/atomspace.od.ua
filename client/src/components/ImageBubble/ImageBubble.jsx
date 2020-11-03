@@ -27,7 +27,7 @@ const ImageBubble = ({ images, style }) => {
       <div className="image-block">
         <Slider {...settings}>
           {images.map((image) => (
-            <img alt="imageLazy" key={image} src={image} />
+            <img alt="imageLazy" key={image} src={image} className="grab" />
           ))}
         </Slider>
       </div>

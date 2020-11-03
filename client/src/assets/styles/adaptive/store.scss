@@ -34,6 +34,10 @@
       .slick-slider {
         width: 70%;
 
+        .slick-list {
+          cursor: grab;
+        }
+
         .slick-list .slick-track .carousel-block .carousel-info {
           &__merch {
             .ellipse {

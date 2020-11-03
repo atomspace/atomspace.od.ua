@@ -5,7 +5,8 @@ import Soc from "../../components/Soc";
 import Arrow from "../../components/Arrow";
 import TapSwipe from "../../assets/images/icons/adaptive/tap-swipe.svg";
 import AnnaPhoto from "../../assets/images/photos/anna-derevyanko.png";
-import ValentinaPhoto from "../../assets/images/photos/valentina-gorodeckaya.png";
+// import ValentinaPhoto from "../../assets/images/photos/valentina-gorodeckaya.png";
+import VeronikaIlnitckaya from "../../assets/images/photos/veronika-ilnitckaya.png";
 import { ImageLoader } from "../../components/ImageLoader";
 
 const Family = () => {
@@ -26,7 +27,7 @@ const Family = () => {
       name: t("family.ver"),
       position: "PR & Communications Manager",
       avatar: "veronika",
-      imageLink: ValentinaPhoto,
+      imageLink: VeronikaIlnitckaya,
       facebook: "https://www.facebook.com/verilnitskaya",
       quote: t("family.quote-text-ver"),
     },

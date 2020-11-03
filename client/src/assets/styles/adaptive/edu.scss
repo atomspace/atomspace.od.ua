@@ -17,6 +17,8 @@
 
       .edu-items-list {
         .edu-item {
+          cursor: pointer;
+
           &__text {
             font-style: normal;
             font-weight: normal;

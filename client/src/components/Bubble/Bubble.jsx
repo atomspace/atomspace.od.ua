@@ -37,6 +37,7 @@ const Bubble = ({ image, animate, big, small, semiMiddle, middle, interactive, s
     animate,
     interactive,
   });
+
   const customStyle = {
     ...style,
     position: style.position || "absolute",
@@ -44,13 +45,13 @@ const Bubble = ({ image, animate, big, small, semiMiddle, middle, interactive, s
 
   return (
     <div className={classes} style={customStyle}>
-      {image && (
+      {image.length ? (
         <div className="image-block">
           <div className="arrow left-arrow" onClick={prevImage} />
           <ImageLoader src={image[indexPicture]} className="bubble-image" alt="bubble" onClick={nextImage} />
           <div className="arrow right-arrow" onClick={nextImage} />
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

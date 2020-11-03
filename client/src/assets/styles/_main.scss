@@ -19,7 +19,7 @@ p {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 li {
@@ -45,4 +45,16 @@ a {
     transition: 0.3s color;
     color: $gray-color;
   }
+}
+
+.no-select {
+  user-select: none;
+}
+
+.grab {
+  cursor: grab;
+}
+
+.grabbing {
+  cursor: grabbing;
 }
