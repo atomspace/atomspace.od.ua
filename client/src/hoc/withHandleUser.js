@@ -12,7 +12,12 @@ const withHandleUser = (Component) => {
       const {
         target: { id, type, checked, value },
       } = event;
-      const error = type === "checkbox" ? false : !value.length || (validate && !validate(value));
+      let error = "";
+      if (type === "checkbox") {
+        error = false;
+      } else {
+        error = !value.length || (validate && !validate(value));
+      }
 
       if (id === "birth") {
         event.target.type = "date";
