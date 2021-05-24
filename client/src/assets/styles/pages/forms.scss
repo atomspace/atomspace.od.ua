@@ -4,9 +4,7 @@
   width: 100%;
   top: -5px;
   height: 102%;
-  background:
-    url(#{$path-to-images}/backgrounds/background-fixed.svg) no-repeat
-    center/cover;
+  background: url(#{$path-to-images}/backgrounds/background-fixed.svg) no-repeat center/cover;
   background-color: $white-color;
 
   .main-form-container {
@@ -82,7 +80,7 @@
           }
 
           &::placeholder {
-            color: $black-color;
+            color: $black-color !important;
           }
         }
 
@@ -158,5 +156,18 @@
     &:hover {
       opacity: 1;
     }
+  }
+
+  .form-resident {
+    height: 100%;
+  }
+}
+
+.custom-datepicker {
+  width: 100%;
+
+  .MuiInput-underline::before {
+    border: 0;
+    left: -7px;
   }
 }

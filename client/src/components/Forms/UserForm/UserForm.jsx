@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { string, oneOfType, func, arrayOf, shape, node } from "prop-types";
+import { string, oneOfType, func, arrayOf, shape, node, any } from "prop-types";
 import { validateUser } from "../utils/validation";
 import MobileRequestForm from "./MobileRequestForm";
 import Confirm from "../../ConfirmMessage/Confirm";
@@ -19,6 +19,7 @@ const UserForm = ({
   buttonText,
   handleInputUser,
   user,
+  children,
   setUser,
 }) => {
   const [isLoading, setLoading] = useState(false);
@@ -59,14 +60,16 @@ const UserForm = ({
     <div className="main-form-container">
       <div className="form-request">
         <FormBlock mainText={mainText} headerText={headerText} />
-        <FormRegister
-          inputData={inputData}
-          sended={sended}
-          isLoading={isLoading}
-          submitForm={submitForm}
-          user={user}
-          handleInputUser={handleInputUser}
-        />
+        {children || (
+          <FormRegister
+            inputData={inputData}
+            sended={sended}
+            isLoading={isLoading}
+            submitForm={submitForm}
+            user={user}
+            handleInputUser={handleInputUser}
+          />
+        )}
         {sended ? <Confirm confirmMessage={confirmMessage} /> : null}
       </div>
       <div className="atom-logo" />
@@ -99,6 +102,7 @@ UserForm.propTypes = {
   createOrder: func.isRequired,
   confirmMessage: node.isRequired,
   buttonText: string,
+  children: any,
   handleInputUser: func.isRequired,
   user: shape({}).isRequired,
   setUser: func.isRequired,
