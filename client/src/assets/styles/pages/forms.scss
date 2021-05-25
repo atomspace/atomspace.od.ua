@@ -78,9 +78,13 @@
           &:focus {
             border-bottom-color: $border-color-orange;
           }
+        }
 
-          &::placeholder {
-            color: $black-color !important;
+        .MuiInput-formControl {
+          input {
+            &::placeholder {
+              opacity: 0.6;
+            }
           }
         }
 

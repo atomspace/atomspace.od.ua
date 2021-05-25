@@ -1,15 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import { string, oneOfType, func, arrayOf, shape, node } from "prop-types";
+import { string, oneOfType, func, arrayOf, shape, node, any } from "prop-types";
 import { validateUser } from "../utils/validation";
 import MobileRequestForm from "./MobileRequestForm";
-import Confirm from "../../ConfirmMessage/Confirm";
 import withHandleUser from "../../../hoc/withHandleUser";
 import MyContext from "../../../context/Base/AppContext";
-import FormRegister from "./FormRegister";
-import FormBlock from "./FormBlock";
 import { prepareData } from "../utils/data";
 
-const UserForm = ({
+const MobileUserForm = ({
   inputData,
   getBack,
   headerText,
@@ -19,6 +16,7 @@ const UserForm = ({
   buttonText,
   handleInputUser,
   user,
+  children,
   setUser,
 }) => {
   const [isLoading, setLoading] = useState(false);
@@ -27,7 +25,6 @@ const UserForm = ({
   const { isLightTheme, setLightTheme, hiddenSidebars, setHiddenSidebars, isNavOpened, setIsNavOpened } = useContext(
     MyContext,
   );
-
   useEffect(() => {
     setLightTheme(true);
     setIsNavOpened(false);
@@ -41,6 +38,8 @@ const UserForm = ({
   const submitForm = async () => {
     const { stateUser, isDisabled } = validateUser(user, inputData);
     setUser(stateUser);
+
+    console.log("321123 :>> ", 321123);
     if (!isDisabled) {
       const data = prepareData(user);
       try {
@@ -56,42 +55,25 @@ const UserForm = ({
   };
 
   return (
-    <div className="main-form-container">
-      <div className="form-request">
-        <FormBlock mainText={mainText} headerText={headerText} />
-        <FormRegister
-          inputData={inputData}
-          sended={sended}
-          isLoading={isLoading}
-          submitForm={submitForm}
-          user={user}
-          handleInputUser={handleInputUser}
-        />
-        {sended ? <Confirm confirmMessage={confirmMessage} /> : null}
-      </div>
-      <div className="atom-logo" />
-      <div className="close-dialog-btn" onClick={getBack} />
-      <div className="nav_toggle arrow" onClick={getBack} />
-      <MobileRequestForm
-        step={step}
-        handleInputUser={handleInputUser}
-        buttonText={buttonText}
-        user={user}
-        setStep={setStep}
-        inputData={inputData}
-        sended={sended}
-        confirmMessage={confirmMessage}
-        mainText={mainText}
-        headerText={headerText}
-        submitForm={submitForm}
-        isLoading={isLoading}
-        setUser={setUser}
-      />
-    </div>
+    <MobileRequestForm
+      step={step}
+      handleInputUser={handleInputUser}
+      buttonText={buttonText}
+      user={user}
+      setStep={setStep}
+      inputData={inputData}
+      sended={sended}
+      confirmMessage={confirmMessage}
+      mainText={mainText}
+      headerText={headerText}
+      submitForm={submitForm}
+      isLoading={isLoading}
+      setUser={setUser}
+    />
   );
 };
 
-UserForm.propTypes = {
+MobileUserForm.propTypes = {
   headerText: string,
   mainText: oneOfType([string, shape({})]).isRequired,
   getBack: func.isRequired,
@@ -99,15 +81,16 @@ UserForm.propTypes = {
   createOrder: func.isRequired,
   confirmMessage: node.isRequired,
   buttonText: string,
-  handleInputUser: func.isRequired,
-  user: shape({}).isRequired,
-  setUser: func.isRequired,
+  children: any,
+  handleInputUser: func,
+  user: shape({}),
+  setUser: func,
 };
 
-UserForm.defaultProps = {
+MobileUserForm.defaultProps = {
   headerText: "",
   inputData: [],
   buttonText: "",
 };
 
-export default withHandleUser(UserForm);
+export default withHandleUser(MobileUserForm);
