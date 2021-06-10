@@ -4,7 +4,7 @@ import { func, shape, string } from "prop-types";
 const Link = ({ handleDialog, row }) => (
   <div>
     <div className="dot" />
-    <a className="list-item form" href={row.link} onClick={handleDialog}>
+    <a className="list-item form" href={row.link} onClick={handleDialog} target={row.target}>
       {row.title.toUpperCase()}
     </a>
   </div>

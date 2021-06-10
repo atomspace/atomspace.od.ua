@@ -33,7 +33,10 @@ const LeftSidebar = ({ isLightTheme, pageName, handleDialog, changeMerchAttr, or
               handleDialog,
               row: {
                 title: t("form.beResident"),
-                link: "#residentForm",
+                target: "_blank",
+                // TEMPO
+                link:
+                  "https://docs.google.com/forms/d/e/1FAIpQLSdYpX1hqCBbhV2M2hrqWS952K3XVzJ-x9Kv017ufTs8ed5Ixw/viewform",
               },
             },
           },
