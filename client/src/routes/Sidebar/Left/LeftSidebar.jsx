@@ -22,7 +22,11 @@ const LeftSidebar = ({ isLightTheme, pageName, handleDialog, changeMerchAttr, or
               handleDialog,
               row: {
                 title: t("form.beMentor"),
-                link: "#mentorForm",
+                // TEMPO
+                target: "_blank",
+                // TEMPO
+                link:
+                  "https://docs.google.com/forms/d/e/1FAIpQLSfuSQR_zrmAu4uxrnVdjD2nfiilnzEmvEPTluWvH0mANCAb7Q/viewform",
               },
             },
           },
