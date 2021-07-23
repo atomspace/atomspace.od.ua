@@ -12,6 +12,11 @@ import Soc from "./components/Soc";
 
 export const urls = ["main", "about", "blog", "edu", "family", "store", "contacts"];
 
+export const MENTOR_FORM =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfuSQR_zrmAu4uxrnVdjD2nfiilnzEmvEPTluWvH0mANCAb7Q/viewform";
+export const RESIDENT_FORM =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdYpX1hqCBbhV2M2hrqWS952K3XVzJ-x9Kv017ufTs8ed5Ixw/viewform";
+
 const App = () => {
   const defaultHashPage = "#main";
 

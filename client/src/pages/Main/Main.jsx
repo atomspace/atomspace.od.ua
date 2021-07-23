@@ -4,6 +4,7 @@ import { func } from "prop-types";
 import AnimatePlanet from "./AnimatePlanet";
 import MainLogo from "../../assets/images/icons/logos/AtomSpace-logo-vertical.svg";
 import { ImageLoader } from "../../components/ImageLoader";
+import { MENTOR_FORM, RESIDENT_FORM } from "../../App";
 
 const Main = ({ handleDialog }) => {
   const { t } = useTranslation();
@@ -25,12 +26,12 @@ const Main = ({ handleDialog }) => {
               {t("supportProject")}
             </a>
           </div>
-          <div className="bottom-quastion">{t("whoYouAre")}</div>
+          <div className="bottom-question">{t("whoYouAre")}</div>
           <div className="support-container">
-            <a className="support resident-support" href="#residentForm" onClick={handleDialog}>
+            <a className="support resident-support" href={RESIDENT_FORM} target="_blank" rel="noopener noreferrer">
               {t("resident")}
             </a>
-            <a className="support mentor-support" href="#mentorForm" onClick={handleDialog}>
+            <a className="support mentor-support" href={MENTOR_FORM} target="_blank" rel="noopener noreferrer">
               {t("mentor")}
             </a>
           </div>

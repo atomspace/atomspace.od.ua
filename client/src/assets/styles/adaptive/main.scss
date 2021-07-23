@@ -55,9 +55,7 @@
       align-items: center;
 
       &.resident-support {
-        background:
-          url(#{$path-to-images}/icons/adaptive/be-resident-block.svg)
-          center/contain no-repeat;
+        background: url(#{$path-to-images}/icons/adaptive/be-resident-block.svg) center/contain no-repeat;
         position: absolute;
         left: 0;
         padding-right: $f110;
@@ -65,9 +63,7 @@
       }
 
       &.mentor-support {
-        background:
-          url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg)
-          center/contain no-repeat;
+        background: url(#{$path-to-images}/icons/adaptive/be-mentor-block.svg) center/contain no-repeat;
         position: absolute;
         right: 0;
         padding-left: $f110;
@@ -75,7 +71,7 @@
     }
   }
 
-  .bottom-quastion {
+  .bottom-question {
     display: block;
     font-style: normal;
     font-weight: 300;

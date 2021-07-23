@@ -2,7 +2,7 @@ import React from "react";
 import cl from "classnames";
 import { useTranslation } from "react-i18next";
 import { bool, func, shape, string } from "prop-types";
-import { urls } from "../../../App";
+import { MENTOR_FORM, RESIDENT_FORM, urls } from "../../../App";
 import MerchSize from "../../../pages/Store/MerchSize";
 import MerchBuy from "../../../pages/Store/MerchBuy";
 import ContactInfo from "../../../pages/Contacts/ContactInfo";
@@ -10,7 +10,6 @@ import Link from "../Link";
 
 const LeftSidebar = ({ isLightTheme, pageName, handleDialog, changeMerchAttr, order }) => {
   const { t } = useTranslation();
-
   const getLeftSidebarData = () => {
     switch (pageName) {
       case urls[0]:
@@ -25,8 +24,7 @@ const LeftSidebar = ({ isLightTheme, pageName, handleDialog, changeMerchAttr, or
                 // TEMPO
                 target: "_blank",
                 // TEMPO
-                link:
-                  "https://docs.google.com/forms/d/e/1FAIpQLSfuSQR_zrmAu4uxrnVdjD2nfiilnzEmvEPTluWvH0mANCAb7Q/viewform",
+                link: MENTOR_FORM,
               },
             },
           },
@@ -39,8 +37,7 @@ const LeftSidebar = ({ isLightTheme, pageName, handleDialog, changeMerchAttr, or
                 title: t("form.beResident"),
                 target: "_blank",
                 // TEMPO
-                link:
-                  "https://docs.google.com/forms/d/e/1FAIpQLSdYpX1hqCBbhV2M2hrqWS952K3XVzJ-x9Kv017ufTs8ed5Ixw/viewform",
+                link: RESIDENT_FORM,
               },
             },
           },
