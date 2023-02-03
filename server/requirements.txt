@@ -2,7 +2,7 @@ Django==2.2.8
 gunicorn==19.9.0
 django-rest-framework
 django-cors-headers==2.5.2
-Pillow==6.2.1
+Pillow==8.1.0
 setuptools==40.8.0
 python-decouple==3.1
 psycopg2==2.7.5
