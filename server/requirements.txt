@@ -1,5 +1,5 @@
 Django==2.2.8
-gunicorn==19.9.0
+gunicorn==23.0.0
 django-rest-framework
 django-cors-headers==2.5.2
 Pillow==6.2.1
